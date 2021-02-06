@@ -25,3 +25,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/admin_pusat_list_dosen_aktif', function () {
+    return view('/admin_pusat/ap_dosen_aktif/dosen_aktif_list');
+})->name('admin_pusat_list_dosen_aktif');
+

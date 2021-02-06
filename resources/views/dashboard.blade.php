@@ -13,14 +13,14 @@
 <!-- START WRAPPER -->
 <div class="wrapper">
 @include('layout.menu')
-
+<p class="card-stats-title"><i class="mdi-social-group-add"></i> Halaman Dashboar Admin Pusat IRIS Universitas Sebelas Maret </p>
      <!--card stats start-->
      <div id="card-stats">
         <div class="row">
             <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-content  green white-text">
-                        <p class="card-stats-title"><i class="mdi-social-group-add"></i> New Clients</p>
+                        <p class="card-stats-title"><i class="mdi-social-group-add"></i> Proposal Hibah PNBP Per Tanggal </p>
                         <h4 class="card-stats-number">566</h4>
                         <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15% <span class="green-text text-lighten-5">from yesterday</span>
                         </p>
@@ -33,7 +33,7 @@
             <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-content pink lighten-1 white-text">
-                        <p class="card-stats-title"><i class="mdi-editor-insert-drive-file"></i> New Invoice</p>
+                        <p class="card-stats-title"><i class="mdi-editor-insert-drive-file"></i> Proposal Hibah PNBP Mandiri</p>
                         <h4 class="card-stats-number">1806</h4>
                         <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-down"></i> 3% <span class="deep-purple-text text-lighten-5">from last month</span>
                         </p>
@@ -46,7 +46,7 @@
             <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-content blue-grey white-text">
-                        <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Today Profit</p>
+                        <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Pantauan Group Riset</p>
                         <h4 class="card-stats-number">$806.52</h4>
                         <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 80% <span class="blue-grey-text text-lighten-5">from yesterday</span>
                         </p>
@@ -59,7 +59,7 @@
             <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-content purple white-text">
-                        <p class="card-stats-title"><i class="mdi-editor-attach-money"></i>Total Sales</p>
+                        <p class="card-stats-title"><i class="mdi-editor-attach-money"></i> Pantauan data penelitian dan Pengembangan</p>
                         <h4 class="card-stats-number">$8990.63</h4>
                         <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 70% <span class="purple-text text-lighten-5">last month</span>
                         </p>
@@ -81,7 +81,7 @@
                                     <div class="card-move-up waves-effect waves-block waves-light">
                                         <div class="move-up cyan darken-1">
                                             <div>
-                                                <span class="chart-title white-text">Revenue</span>
+                                                <span class="chart-title white-text">Data Dosen Aktif</span>
                                                 <div class="chart-revenue cyan darken-2 white-text">
                                                     <p class="chart-revenue-total">$4,500.85</p>
                                                     <p class="chart-revenue-per"><i class="mdi-navigation-arrow-drop-up"></i> 21.80 %</p>
@@ -232,14 +232,14 @@
                                 <div class="card">
                                     <div class="card-move-up teal waves-effect waves-block waves-light">
                                         <div class="move-up">
-                                            <p class="margin white-text">Browser Stats</p>
+                                            <p class="margin white-text">Daya Serap Anggaran</p>
                                             <canvas id="trending-radar-chart" height="114"></canvas>
                                         </div>
                                     </div>
                                     <div class="card-content  teal darken-2">
                                         <a class="btn-floating btn-move-up waves-effect waves-light darken-2 right"><i class="mdi-content-add activator"></i></a>
                                         <div class="line-chart-wrapper">
-                                            <p class="margin white-text">Revenue by country</p>
+                                            <p class="margin white-text">Daya Serap Anggarap Per Bulan </p>
                                             <canvas id="line-chart" height="114"></canvas>
                                         </div>
                                     </div>
