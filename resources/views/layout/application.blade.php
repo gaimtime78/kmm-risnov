@@ -115,15 +115,15 @@
     
 
     <!-- chartist -->
-    <!-- <script type="text/javascript" src="js\plugins\chartist-js\chartist.min.js"></script>    -->
+    <script type="text/javascript" src="js\plugins\chartist-js\chartist.min.js"></script>   
 
     <!-- chartjs -->
-    <!-- <script type="text/javascript" src="js\plugins\chartjs\chart.min.js"></script> -->
-    <!-- <script type="text/javascript" src="js\plugins\chartjs\chart-script.js"></script> -->
+    <script type="text/javascript" src="js\plugins\chartjs\chart.min.js"></script>
+    <script type="text/javascript" src="js\plugins\chartjs\chart-script.js"></script>
 
     <!-- sparkline -->
-    <!-- <script type="text/javascript" src="js\plugins\sparkline\jquery.sparkline.min.js"></script> -->
-    <!-- <script type="text/javascript" src="js\plugins\sparkline\sparkline-script.js"></script> -->
+    <script type="text/javascript" src="js\plugins\sparkline\jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="js\plugins\sparkline\sparkline-script.js"></script>
     
     <!-- google map api -->
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek"></script> -->
