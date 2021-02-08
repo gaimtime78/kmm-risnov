@@ -54,7 +54,8 @@
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form">
+      <form  method="POST" action="{{ route('login.post') }}" class="login-form">
+      @csrf 
         <div class="row">
           <div class="input-field col s12 center">
          
@@ -66,18 +67,38 @@
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Username</label>
+            <input id="email" type="text" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
+            <label for="email" class="center-align ">Email</label>
+            @error('email')
+            <div class="errorTxt1" style=" text-align: center;font-size:0.8rem;color:red;">
+              <div id="uname-error " class="error">{{ $message }}
+              </div>
+            </div>
+            @enderror
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password">
+            <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
             <label for="password">Password</label>
+            @error('password')
+            <div class="errorTxt1" style=" text-align: center;font-size:0.8rem;color:red;">
+              <div id="uname-error " class="error">{{ $message }}
+              </div>
+            </div>
+            @enderror
           </div>
         </div>
-        <div class="row margin">
+
+        
+        @if (session('message'))
+        <div class="errorTxt1" style=" text-align: center;font-size:0.8rem;color:{{session('cek') ? 'green' : 'red' }};">
+              <div id="uname-error " class="error">{{session('message') }}
+              </div>
+        </div>
+        @endif
+        <!-- <div class="row margin">
             <div class="input-field col s2">
                 <i class="mdi-action-accessibility prefix"></i>
             </div>
@@ -89,10 +110,10 @@
                 <option value="3">Option 3
             </select>
             </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="input-field col s12">
-            <a href="{{route('dashboard')}}" class="btn waves-effect waves-light col s12">Login</a>
+            <button class="btn waves-effect waves-light col s12">Login</button>
           </div>
         </div>
         <!-- <div class="row">
