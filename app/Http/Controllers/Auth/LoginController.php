@@ -24,10 +24,6 @@ class LoginController extends Controller
         if (!Auth::attempt($credentials)) {
             return back()->with($this->status(0,'sukses','Login gagal'));
         }
-        // $user = User::where('username', $request->username)->first();
-        // if ( ! Hash::check($request->password, $user->password, [])) {
-        //     throw new \Exception('Error in Login');
-        // }
         return redirect()->route('dashboard');
     }
 }
