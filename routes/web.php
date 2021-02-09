@@ -35,3 +35,7 @@ Route::get('/admin_pusat_list_dosen_aktif', function () {
 //
 Route::name('admin.')->group(function () {
 });
+
+Route::get('/news', function () {
+    return view('slider');
+});
