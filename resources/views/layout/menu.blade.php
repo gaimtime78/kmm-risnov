@@ -289,8 +289,3 @@
     <!-- END LEFT SIDEBAR NAV-->
 
     
-<!-- START CONTENT -->
-<section id="content">
-
-<!--start container-->
-<div class="container">

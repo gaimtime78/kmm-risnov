@@ -32,6 +32,13 @@ Route::get('/admin_pusat_list_dosen_aktif', function () {
     return view('/admin_pusat/ap_dosen_aktif/dosen_aktif_list');
 })->name('admin_pusat_list_dosen_aktif');
 
+Route::group(['prefix' => '/posts'], function(){
+    // Route::get('/', 'historyController@index')->name('history');
+    // Route::get('/{id}', 'historyController@show');
+    Route::get('/create', [App\Http\Controllers\Posts\PostsController::class, 'add'])->name('posts.add');
+    Route::post('/create', [App\Http\Controllers\Posts\PostsController::class, 'create'])->name('posts.create');
+});
+
 //
 Route::name('admin.')->group(function () {
 });

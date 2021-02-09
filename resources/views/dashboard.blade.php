@@ -8,12 +8,18 @@
 
 @include('layout.navbar')
 
+
 <!-- START MAIN -->
 <div id="main">
 <!-- START WRAPPER -->
 <div class="wrapper">
 @include('layout.menu')
-<p class="card-stats-title"><i class="mdi-social-group-add"></i> Halaman Dashboar Admin Pusat IRIS Universitas Sebelas Maret </p>
+<!-- START CONTENT -->
+<section id="content">
+
+    <!--start container-->
+    <div class="container">
+    <p class="card-stats-title"><i class="mdi-social-group-add"></i> Halaman Dashboar Admin Pusat IRIS Universitas Sebelas Maret </p>
      <!--card stats start-->
      <div id="card-stats">
         <div class="row">
