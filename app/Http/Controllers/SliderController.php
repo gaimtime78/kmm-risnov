@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class SliderController extends Controller
 {
@@ -14,7 +15,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        $slider = Slider::all();
+        return view('slider/index', compact('slider'));
     }
 
     /**
@@ -24,7 +26,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('slider/create');
     }
 
     /**
@@ -35,7 +37,18 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = base64_encode(file_get_contents($request->file('imageSlider')));
+        $mimeType = $request->file('imageSlider')->extension();
+        $base64  = 'data:image/' . $mimeType . ';base64,' . $data;
+        
+        $slider = new Slider([
+            'image' => $base64,
+            'pageName' => $request->get('pageName')
+        ]);
+
+        $slider->save();
+
+        return redirect('/slider/create');
     }
 
     /**
@@ -81,5 +94,12 @@ class SliderController extends Controller
     public function destroy(Slider $slider)
     {
         //
+    }
+
+    public function view(Request $request)
+    {
+        $encodedImage = $request->get('encoded');
+        $img = Image::make($encodedImage);
+        return $img->response('png');
     }
 }
