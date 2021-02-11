@@ -35,5 +35,12 @@ class UserSeeder extends Seeder
                 'email_verified_at' => '2020-08-07 14:50:24',
             ]
         ]);
+
+        DB::table('permissions')->insert([
+            ['permission'=>'dashboard'],
+        ]);
+        DB::table('permission_role')->insert([
+            ['role_id'=>2,'permission_id'=>1],
+        ]);
     }
 }

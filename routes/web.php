@@ -21,13 +21,11 @@ Route::get('/', function () {
 //     return view('auth/login');
 // });
 
-Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login.index');
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.post');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
 
 Route::get('/admin_pusat_list_dosen_aktif', function () {
     return view('/admin_pusat/ap_dosen_aktif/dosen_aktif_list');
@@ -41,8 +39,20 @@ Route::group(['prefix' => '/posts'], function(){
 });
 
 //
-Route::name('admin.')->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
+    
+    //pake permission
+    Route::middleware(['RoleAuth'])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+        Route::name('admin.')->group(function () {
+
+        });
+    });
+
 });
+
 
 Route::get('/slider', [App\Http\Controllers\SliderController::class, 'index']);
 Route::get('/slider/create', [App\Http\Controllers\SliderController::class, 'create']);
