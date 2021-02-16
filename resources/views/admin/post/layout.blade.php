@@ -17,20 +17,32 @@
 		table {
 			width: 100%;
 		}
-		input, textarea {
+
+		input,
+		textarea {
 			margin: 0.5rem 0;
 		}
+
 		label {
 			display: block;
 		}
+
 		nav {
 			display: flex;
 			width: 100%;
 		}
+
 		nav div {
 			margin: 0 0.5rem;
 		}
 	</style>
+	<script src="{{ asset('js/tinymce.min.js') }}" referrerpolicy="origin"></script>
+
+	<script>
+		tinymce.init({
+			selector: '#tinymce'
+		});
+	</script>
 </head>
 
 <body>

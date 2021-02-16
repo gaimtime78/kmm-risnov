@@ -1,7 +1,7 @@
 @extends('admin.post.layout')
 
 @section('content')
-	<h2>Showing all the posts, bitch!</h2>
+	<h2>Show All Post</h2>
 	<table>
 		<tr>
 			<th>id</th>
@@ -15,7 +15,7 @@
 		<tr>
 			<td>{{ $row->id }}</td>
 			<td>{{ $row->title }}</td>
-			<td>{{ $row->content }}</td>
+			<td>{!! $row->content !!}</td>
 			<td>{{ $row->user_id }}</td>
 			<td>{{ $row->category_id }}</td>
 			<td>

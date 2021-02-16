@@ -1,7 +1,7 @@
 @extends('admin.post.layout')
 
 @section('content')
-	<h2>STFU WRITE THAT DOWN!!!!!</h2>
+	<h2>Create Post</h2>
 	<form method="POST" action="{{ route('admin.post.store') }}">
 		@csrf
 		<label>Title</label>
