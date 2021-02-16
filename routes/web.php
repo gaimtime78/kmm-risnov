@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,15 +34,16 @@ Route::get('/admin_pusat_list_dosen_aktif', function () {
     return view('/admin_pusat/ap_dosen_aktif/dosen_aktif_list');
 })->name('admin_pusat_list_dosen_aktif');
 
-Route::group(['prefix' => '/posts'], function(){
-    // Route::get('/', 'historyController@index')->name('history');
-    // Route::get('/{id}', 'historyController@show');
-    Route::get('/create', [App\Http\Controllers\Posts\PostsController::class, 'add'])->name('posts.add');
-    Route::post('/create', [App\Http\Controllers\Posts\PostsController::class, 'create'])->name('posts.create');
-});
-
-//
+/**
+ * BAGIAN POST
+ */
 Route::name('admin.')->group(function () {
+    Route::get('/admin/post', [PostController::class, 'index'])->name('post.index');
+    Route::get('/admin/post/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/admin/post', [PostController::class, 'store'])->name('post.store');
+    Route::get('/admin/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+    Route::put('/admin/post/{id}', [PostController::class, 'update'])->name('post.update');
+    Route::delete('/admin/post/{id}', [PostController::class, 'delete'])->name('post.delete');
 });
 
 Route::get('/slider', [App\Http\Controllers\SliderController::class, 'index']);
