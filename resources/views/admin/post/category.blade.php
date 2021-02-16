@@ -1,7 +1,7 @@
 @extends('admin.post.layout')
 
 @section('content')
-	<h2>Latest Post</h2>
+	<h2>Category Post</h2>
 	<table>
 		<tr>
 			<th>id</th>

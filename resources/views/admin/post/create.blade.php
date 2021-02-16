@@ -7,7 +7,7 @@
 		<label>Title</label>
 		<input type="text" name="title" /><br>
 		<label>Content</label>
-		<textarea name="content"></textarea><br>
+		<textarea id="tinymce" name="content"></textarea><br>
 		<input type="submit" value="create"/>
 	</form>
 @endsection

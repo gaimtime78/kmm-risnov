@@ -52,6 +52,9 @@
 			<a href="{{ route('admin.post.index') }}">Index Post</a>
 		</div>
 		<div>
+			<a href="{{ route('admin.post.category', ['id' => 1]) }}">Category 1 Post</a>
+		</div>
+		<div>
 			<a href="{{ route('admin.post.create') }}">Create Post</a>
 		</div>
 	</nav>

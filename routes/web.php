@@ -39,6 +39,7 @@ Route::get('/admin_pusat_list_dosen_aktif', function () {
  */
 Route::name('admin.')->group(function () {
     Route::get('/admin/post', [PostController::class, 'index'])->name('post.index');
+    Route::get('/admin/post/category/{id}', [PostController::class, 'category'])->name('post.category');
     Route::get('/admin/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/admin/post', [PostController::class, 'store'])->name('post.store');
     Route::get('/admin/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
