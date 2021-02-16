@@ -40,6 +40,16 @@ Route::group(['prefix' => '/posts'], function(){
     Route::post('/create', [App\Http\Controllers\Posts\PostsController::class, 'create'])->name('posts.create');
 });
 
+//belom diberi middleware admin
+Route::group(['prefix' => '/menu'], function(){
+    Route::get('/', [App\Http\Controllers\Menu\MenuController::class, 'index'])->name('menu.index');
+    Route::get('/create', [App\Http\Controllers\Menu\MenuController::class, 'add'])->name('menu.add');
+    Route::post('/create', [App\Http\Controllers\Menu\MenuController::class, 'create'])->name('menu.create');
+    Route::get('/edit/{id}', [App\Http\Controllers\Menu\MenuController::class, 'edit'])->name('menu.edit');
+    Route::post('/edit/{id}', [App\Http\Controllers\Menu\MenuController::class, 'update'])->name('menu.update');
+    Route::get('/delete/{id}', [App\Http\Controllers\Menu\MenuController::class, 'delete'])->name('menu.delete');
+});
+
 //
 Route::name('admin.')->group(function () {
 });
