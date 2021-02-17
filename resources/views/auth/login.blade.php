@@ -61,7 +61,7 @@
          
             <!-- <img src="images\login-logo.png" alt="" class="circle responsive-img valign profile-image-login"> -->
             <p class="center login-form-text">Seluruh Akun User Peneliti ataupun Ketua RG login menggunakan SSO UNS Klik disini</p>
-            <a href="index.htm" class="btn waves-effect waves-light col s12">Login dengaan SSO</a>
+            <a href="index.htm" class="btn waves-effect waves-light col s12">Login dengan SSO</a>
           </div>
         </div>
         <div class="row margin">
