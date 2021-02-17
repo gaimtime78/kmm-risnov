@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,19 +39,25 @@ Route::group(['prefix' => '/posts'], function(){
     Route::post('/create', [App\Http\Controllers\Posts\PostsController::class, 'create'])->name('posts.create');
 });
 
+//belom diberi middleware admin
+Route::group(['prefix' => '/menu'], function(){
+    Route::get('/', [App\Http\Controllers\Menu\MenuController::class, 'index'])->name('menu.index');
+    Route::get('/create', [App\Http\Controllers\Menu\MenuController::class, 'add'])->name('menu.add');
+    Route::post('/create', [App\Http\Controllers\Menu\MenuController::class, 'create'])->name('menu.create');
+    Route::get('/edit/{id}', [App\Http\Controllers\Menu\MenuController::class, 'edit'])->name('menu.edit');
+    Route::post('/edit/{id}', [App\Http\Controllers\Menu\MenuController::class, 'update'])->name('menu.update');
+    Route::get('/delete/{id}', [App\Http\Controllers\Menu\MenuController::class, 'delete'])->name('menu.delete');
+});
+
 //
-Route::middleware(['auth:sanctum'])->group(function () {
-    
-    //pake permission
-    Route::middleware(['RoleAuth'])->group(function () {
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
-        Route::name('admin.')->group(function () {
-
-        });
-    });
-
+Route::name('admin.')->group(function () {
+    Route::get('/admin/post', [PostController::class, 'index'])->name('post.index');
+    Route::get('/admin/post/category/{id}', [PostController::class, 'category'])->name('post.category');
+    Route::get('/admin/post/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/admin/post', [PostController::class, 'store'])->name('post.store');
+    Route::get('/admin/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+    Route::put('/admin/post/{id}', [PostController::class, 'update'])->name('post.update');
+    Route::delete('/admin/post/{id}', [PostController::class, 'delete'])->name('post.delete');
 });
 
 

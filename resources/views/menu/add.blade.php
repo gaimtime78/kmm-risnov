@@ -50,33 +50,34 @@
                 <!-- Form with placeholder -->
                 <div class="col s12 m12 l12">
                   <div class="card-panel">
-                    <h4 class="header2">Tambah Artikel</h4>
+                    <h4 class="header2">Tambah Menu</h4>
                     <div class="row">
                       <form class="col s12" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                           <div class="input-field col s12">
-                            <input name="title" placeholder="Masukkan Judul" id="title" type="text">
-                            <label for="title">Judul</label>
-                          </div>
-                        </div>
-                        
-                        <div class="row">
-                          <div class="input-field col s12">
-                            <textarea name="text" placeholder="Deskripsi artikel" id="message2" class="materialize-textarea"></textarea>
-                            <label for="text">Deskripsi artikel</label>
+                            <input name="menu" placeholder="Masukkan Nama Menu" id="menu" type="text">
+                            <label for="menu">Nama Menu</label>
                           </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                              <input name="date" id="date" type="date">
+                              <input name="sub_menu" placeholder="Masukkan Nama Sub Menu" id="sub_menu" type="text">
+                              <label for="sub_menu">Nama Sub Menu</label>
                             </div>
                         </div>
                         <div class="row">
+                            <div class="input-field col s12">
+                              <input name="url" placeholder="Masukkan URL" id="url" type="text">
+                              <label for="url">URL</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
                             <div class="file-field input-field">
                                 <div class="btn">
-                                  <span>Gambar</span>
-                                  <input name="img" type="file">
+                                  <span>Icon</span>
+                                  <input name="icon" type="file">
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
@@ -85,7 +86,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                              <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Buat Artikel
+                              <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Buat Menu
                                 <i class="mdi-content-send right"></i>
                               </button>
                             </div>
