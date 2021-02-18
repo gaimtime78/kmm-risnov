@@ -48,3 +48,4 @@ Route::get('/slider', [App\Http\Controllers\SliderController::class, 'index']);
 Route::get('/slider/create', [App\Http\Controllers\SliderController::class, 'create']);
 Route::post('/slider/upload', [App\Http\Controllers\SliderController::class, 'store']);
 Route::post('/slider/view', [App\Http\Controllers\SliderController::class, 'view']);
+Route::get('/index', [App\Http\Controllers\User\DashboardController::class, 'index']);
