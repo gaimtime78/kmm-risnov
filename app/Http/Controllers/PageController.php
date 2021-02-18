@@ -36,7 +36,19 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data['title']  = $request->get('title');
+        $data['content'] = $request->get('content');
+        $data['useAsPost'] = $request->get('useAsPost');
+
+        $page = new Page([
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'use_post' => $data['useAsPost']
+        ]);
+
+        $page->save();
+
+        return redirect('/page');
     }
 
     /**

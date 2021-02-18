@@ -72,4 +72,5 @@ Route::group(['prefix' => '/page'], function()
 {
     Route::get('/', [App\Http\Controllers\PageController::class, 'index']);
     Route::get('/create', [App\Http\Controllers\PageController::class, 'create']);
+    Route::post('/store', [App\Http\Controllers\PageController::class, 'store']);
 });

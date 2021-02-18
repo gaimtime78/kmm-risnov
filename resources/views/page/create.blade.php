@@ -44,12 +44,8 @@
     <!-- Custom styles for this template -->
     <link href="sticky-footer.css" rel="stylesheet">
     {{-- TinyMCE js --}}
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script type="text/javascript">
-        tinymce.init({
-            selector: '#mytextarea'
-        });
-    </script>
+    <script src="https://cdn.tiny.cloud/1/t62fq0838f1hd6wos3ckh1y04j1b4lyew06g54f7bl5m6fxg/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -57,57 +53,46 @@
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">Buat Page</h1>
-            <div class="row">
-                <div class="col-md-10"></div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-success">Buat Page</button>
+            <h1 class="mb-5 mt-5">Buat Page</h1>
+            <form action="store" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <h5><label for="useAsPost" class="form-label">Tampilkan post?</label></h5>
+                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1>
+                    <label class="form-check-label" for="useAsPost1">Ya</label>
+                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0>
+                    <label class="form-check-label" for="useAsPost1">Tidak</label>
                 </div>
-            </div>
-            <table class="table table-hover m-2">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <form method="post">
-                <textarea id="mytextarea">Hello, World!</textarea>
-              </form>
+                <div class="mb-3">
+                    <h5><label for="title" class="form-label">Judul Laman</label></h5>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Masukkan judul laman di sini">
+                </div>
+                <div class="mb-3">
+                    <h5><label for="content" class="form-label">Konten</label></h5>
+                    <textarea name="content" class="form-control" id="content" placeholder="Masukkan konten laman di sini"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Simpan</button>
+            </form>
         </div>
     </main>
 
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            height: 480
+        });
+    </script>
+
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+            <span class="text-muted">Ini foooooooooooooooooooooooooooooooooooooooooooooooooter</span>
         </div>
     </footer>
-
-
-
 </body>
 
 </html>
