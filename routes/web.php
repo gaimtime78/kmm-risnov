@@ -62,6 +62,16 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
         Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
         Route::put('/post/{id}', [PostController::class, 'update'])->name('post.update');
         Route::delete('/post/{id}', [PostController::class, 'delete'])->name('post.delete');
+
+        Route::group(['prefix' => '/page'], function(){
+            Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
+            Route::get('/create', [App\Http\Controllers\PageController::class, 'create'])->name('page.create');
+            Route::post('/store', [App\Http\Controllers\PageController::class, 'store'])->name('page.store');
+        });
+
+        
     });
-   
 });
+//yg digunakan yg atas, selain yang diatas bisa ditambahkan, klo error merge   
+
+
