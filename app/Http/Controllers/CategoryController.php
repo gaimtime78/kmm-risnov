@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::get();
+        return view('category/index', ['category' => $category]);
+    }
+
+    public function add(){
+        return view('category/add');
     }
 
     /**
@@ -21,9 +27,18 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $request->validate([
+            'category' => 'required',
+        ]);
+        
+        $cekCategory = Category::create([
+            'category' => $request->category,
+            'created_at' => now()
+        ]);
+        $status = $this->status($cekCategory, 'Category berhasil ditambahkan!', 'Category gagal ditambahkan!');
+        return redirect()->route('category.index')->with($status);
     }
 
     /**
