@@ -14,7 +14,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::all();
+        return view('page/index', compact('pages'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('page/create');
     }
 
     /**
@@ -35,7 +36,19 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data['title']  = $request->get('title');
+        $data['content'] = $request->get('content');
+        $data['useAsPost'] = $request->get('useAsPost');
+
+        $page = new Page([
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'use_post' => $data['useAsPost']
+        ]);
+
+        $page->save();
+
+        return redirect('/page');
     }
 
     /**
