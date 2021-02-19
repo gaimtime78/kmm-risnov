@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
+use Illuminate\Support\Facades\Route;
 
 class UserSeeder extends Seeder
 {
@@ -36,11 +37,20 @@ class UserSeeder extends Seeder
             ]
         ]);
 
-        DB::table('permissions')->insert([
-            ['permission'=>'dashboard'],
-        ]);
-        DB::table('permission_role')->insert([
-            ['role_id'=>2,'permission_id'=>1],
-        ]);
+        $routeCollection = Route::getRoutes();
+        foreach ($routeCollection as $value) {
+            if($value->getName() != null){
+                DB::table('permissions')->insert([
+                    ['permission'=>$value->getName()]
+                ]);
+            }
+        }
+        $permission =  DB::table('permissions')->get();
+        foreach ( $permission as $value) {
+            DB::table('permission_role')->insert([
+                ['role_id'=>2,'permission_id'=>$value->id],
+            ]);
+        }
+       
     }
 }

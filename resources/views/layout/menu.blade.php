@@ -17,7 +17,7 @@
                     <li class="divider"></li>
                     <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
                     </li>
-                    <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                    <li><a href="{{ route('logout') }}"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
                     </li>
                 </ul>
                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a>
@@ -25,33 +25,25 @@
             </div>
         </div>
         </li>
-        <li class="bold active"><a href="{{ route('dashboard') }}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+        <li class="bold active"><a href="{{ route('admin.dashboard') }}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
         </li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Pantauan Website</a>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>CMS</a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="{{ route('admin_pusat_list_dosen_aktif') }}">Dosen Aktif</a>
+                            <li><a href="{{ route('admin.menu.index') }}">Menu</a>
                             </li>
-                            <li><a href="ui-buttons.htm">Daftar Group Riset</a>
+                            <li><a href="{{ route('admin.post.index') }}">Post</a>
                             </li>
-                            <li><a href="ui-badges.htm">Data Penelitian & Riset</a>
-                            </li>
-                            <li><a href="ui-breadcrumbs.htm">Data Jurnal Scopus</a>
-                            </li>
-                            <li><a href="ui-collections.htm">Data Jurnal Non Scopus</a>
-                            </li>
-                            <li><a href="ui-collapsibles.htm">Kinerja Dosen</a>
-                            </li>
-                            <li><a href="ui-tabs.htm">Usulan Proposal </a>
+                            <li><a href="{{ route('admin.page.index') }}">Page</a>
                             </li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
-        <li class="no-padding">
+        <!-- <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i> Website</a>
                     <div class="collapsible-body">
@@ -282,7 +274,7 @@
                     </div>
                 </div>
             </div>
-        </li>
+        </li> -->
     </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
     </aside>
