@@ -18,7 +18,7 @@ class CreateMenuTable extends Migration
             $table->string('menu', 50)->nullable();
             $table->string('sub_menu', 50)->nullable();
             $table->string('url', 50)->nullable();
-            $table->string('icon', 50)->nullable();
+            $table->text('icon')->nullable();
             $table->foreignId('page_id')->nullable()->index();
             $table->softDeletes();
             $table->timestamps();

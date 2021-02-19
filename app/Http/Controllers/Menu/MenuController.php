@@ -27,8 +27,7 @@ class MenuController extends Controller
             'menu' => 'required',
             'sub_menu' => 'required',
             'url' => 'required',
-            'icon'  => 'mimes:jpeg,jpg,png|max:500'
-            
+            'icon'  => 'required|mimes:jpeg,jpg,png|max:500' 
         ]);
 
         $filename = Storage::disk('public')->putFile('menu', $request->file('icon'));
@@ -41,7 +40,7 @@ class MenuController extends Controller
             'created_at' => now()
         ]);
 
-        return redirect()->route('menu.index');
+        return redirect()->route('admin.menu.index')->with($this->status(0,'sukses','Data Berhasil Ditambahkan!'));
     }
 
     public function edit($id = NULL) 
@@ -72,13 +71,15 @@ class MenuController extends Controller
         }
         $menu->save();
 
-        return redirect()->route('menu.index');
+        return redirect()->route('admin.menu.index')
+                         ->with($this->status(0,'sukses','Data Berhasil Diubah!'));
     }
 
     public function delete($id = NULL) {
         $menu = Menu::findOrFail($id);
         $menu->delete();
 
-        return redirect()->route('menu.index');
+        return redirect()->route('admin.menu.index')
+                         ->with($this->status(0,'sukses','Data Berhasil Dihapus!'));
     }
 }
