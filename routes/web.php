@@ -98,3 +98,4 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 //yg digunakan yg atas, selain yang diatas bisa ditambahkan, klo error merge   
 
 
+Route::get('/index', [App\Http\Controllers\User\DashboardController::class, 'index']);
