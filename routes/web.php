@@ -22,6 +22,9 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index']
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.post');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 Route::get('/admin_pusat_list_dosen_aktif', function () {
     return view('/admin_pusat/ap_dosen_aktif/dosen_aktif_list');
@@ -46,6 +49,26 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/edit/{id}', [App\Http\Controllers\Menu\MenuController::class, 'edit'])->name('menu.edit');
             Route::post('/edit/{id}', [App\Http\Controllers\Menu\MenuController::class, 'update'])->name('menu.update');
             Route::get('/delete/{id}', [App\Http\Controllers\Menu\MenuController::class, 'delete'])->name('menu.delete');
+        });
+        
+        Route::group(['prefix' => '/category'], function(){
+            Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
+            Route::get('/create', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');
+            Route::post('/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
+            Route::get('/edit/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+            Route::get('/delete/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
+        });
+
+        //
+        Route::name('admin.')->group(function () {
+            Route::get('/admin/post', [PostController::class, 'index'])->name('post.index');
+            Route::get('/admin/post/category/{id}', [PostController::class, 'category'])->name('post.category');
+            Route::get('/admin/post/create', [PostController::class, 'create'])->name('post.create');
+            Route::post('/admin/post', [PostController::class, 'store'])->name('post.store');
+            Route::get('/admin/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+            Route::put('/admin/post/{id}', [PostController::class, 'update'])->name('post.update');
+            Route::delete('/admin/post/{id}', [PostController::class, 'delete'])->name('post.delete');
         });
 
         Route::group(['prefix' => '/posts'], function(){
