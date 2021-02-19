@@ -53,27 +53,35 @@
 
             <div id="table-datatables">
               <h4 class="header left">Category</h4>
-              <a href="{{route('category.add')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Category</a>
+              <a href="{{route('admin.category.add')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Category</a>
               
               <div class="row">
                 <div class="col s12 m12 l12">
                   <table id="data-menu" class="responsive-table display" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>#</th>
                             <th>Category</th>
-                            <th></th>
+                            <th>Ditambahkan</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                  
                  
                     <tbody>
+                      @php
+                        $i = 1;
+                      @endphp
                         @foreach ($category as $row)
                         <tr>
-                            <td>{{$row->id}}</td>
+                            <td>{{$i}}</td>
                             <td>{{$row->category}}</td>
-                            <td><a href="{{url('category/edit/'. $row->id)}}">Edit</a>  || <a href="{{url('category/delete/'. $row->id)}}">Delete</a></td>
+                            <td>{{$row->created_at->diffForHumans()}}</td>
+                            <td><a href="{{route('admin.category.edit', [$row->id])}}" class="btn btn-warning" style="background-color: orange;">Edit</a>   <a href="{{route('admin.category.delete', [$row->id])}}" class="btn btn-warning" style="background-color: red;">Delete</a></td>
                         </tr>
+                        @php
+                          $i++;
+                        @endphp
                         @endforeach
                     </tbody>
                   </table>
