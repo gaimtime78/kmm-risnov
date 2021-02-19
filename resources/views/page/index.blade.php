@@ -51,6 +51,7 @@
 
     <!-- Custom styles for this template -->
     <link href="sticky-footer.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -58,42 +59,53 @@
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
+            @if (session('notification'))
+                <div class="alert alert-success m-5" role="alert">
+                    {{ session('notification') }}
+                </div>
+            @endif
+
             <h1 class="mt-5">Daftar Page</h1>
             <div class="row">
                 <div class="col-md-10"></div>
                 <div class="col-md-2">
-                    <a href="page/create" class="btn btn-success">Buat Page</a>
+                    <a href="{{ route('admin.page.create') }}" class="btn btn-success">Buat Page</a>
                 </div>
             </div>
             <table class="table table-hover m-2">
                 <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Judul</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Dibuat</th>
+                        <th scope="col">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                    @php
+                        $i = 1;
+                    @endphp
+                    @foreach ($pages as $page)
+                        <tr>
+                            <th scope="row">{{ $i }}</th>
+                            <td>{{ $page->title }}</td>
+                            <td>{{ $page->slug }}</td>
+                            <td>{{ $page->created_at->diffForHumans() }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-primary">Edit</button>
+                                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                              </div>
+                            </td>
+                        </tr>
+                        @php
+                        $i++;
+                    @endphp
+                    @endforeach
                 </tbody>
-              </table>
+            </table>
+
         </div>
     </main>
 
@@ -103,8 +115,14 @@
         </div>
     </footer>
 
+    <script>
+        $(document).ready(function() {
+            $('.alert').fadeTo(2000, 500).slideUp(500, function() {
+                $('.alert').slideUp(500);
+            });
+        });
 
-
+    </script>
 </body>
 
 </html>

@@ -54,7 +54,7 @@
     <main class="flex-shrink-0">
         <div class="container">
             <h1 class="mb-5 mt-5">Buat Page</h1>
-            <form action="store" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.page.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <h5><label for="useAsPost" class="form-label">Tampilkan post?</label></h5>
@@ -71,7 +71,7 @@
                     <h5><label for="content" class="form-label">Konten</label></h5>
                     <textarea name="content" class="form-control" id="content" placeholder="Masukkan konten laman di sini"></textarea>
                 </div>
-                <button type="submit" class="btn btn-success">Simpan</button>
+                <button type="submit" class="btn btn-outline-success">Simpan</button>
             </form>
         </div>
     </main>

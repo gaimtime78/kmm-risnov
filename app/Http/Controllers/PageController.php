@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -38,17 +39,21 @@ class PageController extends Controller
     {
         $data['title']  = $request->get('title');
         $data['content'] = $request->get('content');
+        $data['slug'] = Str::slug($data['title'], '-');
         $data['useAsPost'] = $request->get('useAsPost');
 
         $page = new Page([
             'title' => $data['title'],
             'content' => $data['content'],
+            'slug' => $data['slug'],
             'use_post' => $data['useAsPost']
         ]);
 
         $page->save();
 
-        return redirect('/page');
+        $message = "Laman " . $data['title'] . " berhasil dibuat";
+
+        return redirect(route('admin.page.index'))->with('notification', $message);
     }
 
     /**
