@@ -93,15 +93,16 @@
                             <td>{{ $page->slug }}</td>
                             <td>{{ $page->created_at->diffForHumans() }}</td>
                             <td>
-                                <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-sm btn-primary">Edit</button>
-                                <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                              </div>
+                                <form action="{{ route('admin.page.delete', [$page->id]) }}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                         @php
-                        $i++;
-                    @endphp
+                            $i++;
+                        @endphp
                     @endforeach
                 </tbody>
             </table>

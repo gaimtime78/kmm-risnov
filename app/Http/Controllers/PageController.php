@@ -96,8 +96,11 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Page $page)
+    public function delete($id)
     {
-        //
+        $page = Page::find($id);
+        $page->delete();
+        $message = "Laman " . $page['title'] . " berhasil dihapus";
+        return redirect(route('admin.page.index'))->with('notification', $message);
     }
 }
