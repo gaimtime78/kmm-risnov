@@ -63,9 +63,10 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Page $page)
+    public function blog($slug)
     {
-        //
+        $page = Page::where('slug', $slug)->first();
+        return view('page.blog', compact('page'));
     }
 
     /**

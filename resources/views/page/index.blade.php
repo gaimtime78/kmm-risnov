@@ -84,6 +84,7 @@
                                                     <td>{{ $page->slug }}</td>
                                                     <td>{{ $page->created_at->diffForHumans() }}</td>
                                                     <td>
+                                                        <a href="{{ route('page.blog', [$page->slug]) }}" class="waves-effect waves-light btn green darken-1">View</a>
                                                         <form id="actionBtn"
                                                             action="{{ route('admin.page.edit', [$page->id]) }}"
                                                             method="get">
