@@ -2,10 +2,10 @@
 <html lang="en">
 
 <!--================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 3.1
-	Author: GeeksLabs
-	Author URL: http://www.themeforest.net/user/geekslabs
+ Item Name: Materialize - Material Design Admin Template
+ Version: 3.1
+ Author: GeeksLabs
+ Author URL: http://www.themeforest.net/user/geekslabs
 ================================================================================ -->
 
 <head>
@@ -27,49 +27,58 @@
     <!-- For Windows Phone -->
 
 
-    <!-- CORE CSS-->    
-    <link href="{{asset('css\materialize.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="{{asset('css\style.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-    <!-- Custome CSS-->    
+    <!-- CORE CSS-->
+    <link href="{{ asset('css\materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{ asset('css\style.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Custome CSS-->
     <!-- <link href="css\custom\custom.min.css" type="text/css" rel="stylesheet" media="screen,projection"> -->
 
 
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="{{asset('js\plugins\perfect-scrollbar\perfect-scrollbar.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="{{asset('js\plugins\jvectormap\jquery-jvectormap.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="{{asset('js\plugins\chartist-js\chartist.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="{{ asset('js\plugins\perfect-scrollbar\perfect-scrollbar.css') }}" type="text/css" rel="stylesheet"
+        media="screen,projection">
+    <link href="{{ asset('js\plugins\jvectormap\jquery-jvectormap.css') }}" type="text/css" rel="stylesheet"
+        media="screen,projection">
+    <link href="{{ asset('js\plugins\chartist-js\chartist.min.css') }}" type="text/css" rel="stylesheet"
+        media="screen,projection">
     @yield('css')
 
+    {{-- jQuery Library --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <!-- Start Page Loading -->
-    <div id="loader-wrapper">
-        <div id="loader"></div>        
+    {{-- <div id="loader-wrapper">
+        <div id="loader"></div>
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-    </div>
+    </div> --}}
     <!-- End Page Loading -->
-    
+
     @yield('content')
-        <!-- Floating Action Button -->
-        <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
-            <a class="btn-floating btn-large">
+    <!-- Floating Action Button -->
+    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+        <a class="btn-floating btn-large">
             <i class="mdi-action-stars"></i>
-            </a>
-            <ul>
-            <li><a href="css-helpers.htm" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a></li>
-            <li><a href="app-widget.htm" class="btn-floating yellow darken-1"><i class="large mdi-device-now-widgets"></i></a></li>
-            <li><a href="app-calendar.htm" class="btn-floating green"><i class="large mdi-editor-insert-invitation"></i></a></li>
+        </a>
+        <ul>
+            <li><a href="css-helpers.htm" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a>
+            </li>
+            <li><a href="app-widget.htm" class="btn-floating yellow darken-1"><i
+                        class="large mdi-device-now-widgets"></i></a></li>
+            <li><a href="app-calendar.htm" class="btn-floating green"><i
+                        class="large mdi-editor-insert-invitation"></i></a></li>
             <li><a href="app-email.htm" class="btn-floating blue"><i class="large mdi-communication-email"></i></a></li>
-            </ul>
-        </div>
+        </ul>
+    </div>
     <!-- Floating Action Button -->
 
-<!--end container-->
-</div></section>
-<!-- END CONTENT -->
- 
+    <!--end container-->
+    </div>
+    </section>
+    <!-- END CONTENT -->
+
 
     <!-- //////////////////////////////////////////////////////////////////////////// -->
 
@@ -92,71 +101,71 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                Copyright © 2021 <a class="grey-text text-lighten-4" href="https://iris1103.uns.ac.id/" target="_blank">©Engineering IRIS1103</a> All rights reserved.
+                Copyright © 2021 <a class="grey-text text-lighten-4" href="https://iris1103.uns.ac.id/"
+                    target="_blank">©Engineering IRIS1103</a> All rights reserved.
                 <!-- <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://geekslabs.com/">GeeksLabs</a></span> -->
             </div>
         </div>
     </footer>
     <!-- END FOOTER -->
 
-   
-
-
     <!-- ================================================
     Scripts
     ================================================ -->
-    
-    <!-- jQuery Library -->
-    <script type="text/javascript" src="{{asset('js\plugins\jquery-1.11.2.min.js')}}"></script>    
+
     <!--materialize js-->
-    <script type="text/javascript" src="{{asset('js\materialize.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js\materialize.min.js') }}"></script>
     <!--scrollbar-->
-    <script type="text/javascript" src="{{asset('js\plugins\perfect-scrollbar\perfect-scrollbar.min.js')}}"></script>
-    
+    <script type="text/javascript" src="{{ asset('js\plugins\perfect-scrollbar\perfect-scrollbar.min.js') }}"></script>
+
 
     <!-- chartist -->
-    <script type="text/javascript" src="{{asset('js\plugins\chartist-js\chartist.min.js')}}"></script>   
+    <script type="text/javascript" src="{{ asset('js\plugins\chartist-js\chartist.min.js') }}"></script>
 
     <!-- chartjs -->
-    <script type="text/javascript" src="{{asset('js\plugins\chartjs\chart.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js\plugins\chartjs\chart-script.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js\plugins\chartjs\chart.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\plugins\chartjs\chart-script.js') }}"></script>
 
     <!-- sparkline -->
-    <script type="text/javascript" src="{{asset('js\plugins\sparkline\jquery.sparkline.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js\plugins\sparkline\sparkline-script.js')}}"></script>
-    
+    <script type="text/javascript" src="{{ asset('js\plugins\sparkline\jquery.sparkline.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\plugins\sparkline\sparkline-script.js') }}"></script>
+
     <!-- google map api -->
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek"></script> -->
 
     <!--jvectormap-->
-    <script type="text/javascript" src="{{asset('js\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js\plugins\jvectormap\jquery-jvectormap-world-mill-en.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js\plugins\jvectormap\vectormap-script.js')}}"></script>
-    
+    <script type="text/javascript" src="{{ asset('js\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\plugins\jvectormap\jquery-jvectormap-world-mill-en.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('js\plugins\jvectormap\vectormap-script.js') }}"></script>
+
     <!--google map-->
     <!-- <script type="text/javascript" src="js\plugins\google-map\google-map-script.js"></script> -->
 
-    
+
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="{{asset('js\plugins.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js\plugins.min.js') }}"></script>
     <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="{{asset('js\custom-script.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js\custom-script.js') }}"></script>
     <!-- Toast Notification -->
     <script type="text/javascript">
-    // Toast Notification
-    // $(window).load(function() {
-    //     setTimeout(function() {
-    //         Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
-    //     }, 1500);
-    //     setTimeout(function() {
-    //         Materialize.toast('<span>You can swipe me too!</span>', 3000);
-    //     }, 5000);
-    //     setTimeout(function() {
-    //         Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
-    //     }, 15000);
-    // });
+        // Toast Notification
+        // $(window).load(function() {
+        //     setTimeout(function() {
+        //         Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
+        //     }, 1500);
+        //     setTimeout(function() {
+        //         Materialize.toast('<span>You can swipe me too!</span>', 3000);
+        //     }, 5000);
+        //     setTimeout(function() {
+        //         Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
+        //     }, 15000);
+        // });
+
     </script>
     @yield('js')
-</div></div></body>
+    </div>
+    </div>
+</body>
 
 </html>

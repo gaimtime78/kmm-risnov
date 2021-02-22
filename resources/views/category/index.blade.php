@@ -15,7 +15,6 @@
 @include('layout.menu')
     <!-- START CONTENT -->
     <section id="content">
-        
         <!--breadcrumbs start-->
         <div id="breadcrumbs-wrapper">
             <!-- Search for small screen -->
@@ -53,27 +52,78 @@
 
             <div id="table-datatables">
               <h4 class="header left">Category</h4>
-              <a href="{{route('category.add')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Category</a>
-              
+              <a href="{{route('admin.category.add')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Category</a>
               <div class="row">
                 <div class="col s12 m12 l12">
                   <table id="data-menu" class="responsive-table display" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>#</th>
                             <th>Category</th>
-                            <th></th>
+                            <th>Ditambahkan</th>
+                            <th>Terakhir Diubah</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                  
                  
                     <tbody>
+                      @php
+                        $i = 1;
+                      @endphp
                         @foreach ($category as $row)
                         <tr>
-                            <td>{{$row->id}}</td>
+                            <td>{{$i}}</td>
                             <td>{{$row->category}}</td>
-                            <td><a href="{{url('category/edit/'. $row->id)}}">Edit</a>  || <a href="{{url('category/delete/'. $row->id)}}">Delete</a></td>
+                            <td>{{$row->created_at->diffForHumans()}}</td>
+                            <td>{{$row->updated_at->diffForHumans()}}</td>
+                            <td><a href="#modal{{$row->id}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                            <!-- Modal Edit -->
+                            <div id="modal{{$row->id}}" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                              <h4>Edit Category</h4>
+                              <hr>
+                              <div class="row">
+                                <div class="input-field col s12">
+                                  <input disabled value="{{$row->category}}" id="disabled" type="text" class="validate">
+                                  <label for="disabled">Current Category's Name</label>
+                                </div>
+                              </div>
+                              <form action="{{route('admin.category.update', [$row->id])}}" method="post">
+                              @csrf
+                              <div class="row">
+                                <div class="input-field col s12">
+                                  <input placeholder="Insert New Name For This Category" name="newCategory" id="newCategory" type="text" class="validate">
+                                  <label for="newCategory">New Category's Name</label>
+                                </div>
+                                <input type="hidden" name="idCategory" value="{{$row->id}}">
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                              <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
+                            </form>
+                            </div>
+                            </div>
+
+                            <!-- Modal Hapus -->
+                            <div id="hapus{{$row->id}}" class="modal">
+                            <div class="modal-content">
+                              <h4>Delete Category</h4>
+                              <hr>
+                              <p>Anda yakin ingin menghapus category {{$row->category}}?</p>
+                              <form action="{{route('admin.category.delete', [$row->id])}}" method="get">
+                              @csrf
+                            <div class="modal-footer">
+                              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                              <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
+                            </form>
+                            </div>
+                            </div>
                         </tr>
+                        @php
+                          $i++;
+                        @endphp
                         @endforeach
                     </tbody>
                   </table>

@@ -38,7 +38,7 @@ class CategoryController extends Controller
             'created_at' => now()
         ]);
         $status = $this->status($cekCategory, 'Category berhasil ditambahkan!', 'Category gagal ditambahkan!');
-        return redirect()->route('category.index')->with($status);
+        return redirect()->route('admin.category.index')->with($status);
     }
 
     /**
@@ -83,7 +83,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $new = $request->newCategory;
+        $time = now();
+        $cekCategory = Category::where('id', $id)
+                        ->update(['category' => $new, 'updated_at' => $time]);
+        $status = $this->status($cekCategory, 'Category berhasil diubah!', 'Category gagal diubah!');
+        return redirect()->route('admin.category.index')->with($status);
     }
 
     /**
@@ -92,8 +97,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect()->route('admin.category.index')
+                         ->with($this->status(0,'sukses','Data Berhasil Dihapus!'));
     }
 }

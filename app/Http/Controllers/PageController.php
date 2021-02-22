@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use Faker\Provider\ar_JO\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -38,17 +40,21 @@ class PageController extends Controller
     {
         $data['title']  = $request->get('title');
         $data['content'] = $request->get('content');
+        $data['slug'] = Str::slug($data['title'], '-');
         $data['useAsPost'] = $request->get('useAsPost');
 
         $page = new Page([
             'title' => $data['title'],
             'content' => $data['content'],
+            'slug' => $data['slug'],
             'use_post' => $data['useAsPost']
         ]);
 
         $page->save();
 
-        return redirect('admin/page');
+        $message = "Laman " . $data['title'] . " berhasil dibuat";
+
+        return redirect(route('admin.page.index'))->with('message', $message);
     }
 
     /**
@@ -57,9 +63,10 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Page $page)
+    public function blog($slug)
     {
-        //
+        $page = Page::where('slug', $slug)->first();
+        return view('page.blog', compact('page'));
     }
 
     /**
@@ -68,9 +75,10 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit($id)
     {
-        //
+        $page = Page::find($id);
+        return view('page.edit', compact('page'));
     }
 
     /**
@@ -80,9 +88,25 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $id)
     {
-        //
+        $page = Page::find($id);
+        
+        $data['title']  = $request->get('title');
+        $data['content'] = $request->get('content');
+        $data['slug'] = Str::slug($data['title'], '-');
+        $data['useAsPost'] = $request->get('useAsPost');
+
+        $page->update([
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'slug' => $data['slug'],
+            'use_post' => $data['useAsPost']
+        ]);
+
+        $message = "Laman " . $data['title'] . " berhasil diupdate";
+
+        return redirect(route('admin.page.index'))->with('message', $message);
     }
 
     /**
@@ -91,8 +115,11 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Page $page)
+    public function delete($id)
     {
-        //
+        $page = Page::findOrFail($id);
+        $page->delete();
+        $message = "Laman " . $page['title'] . " berhasil dihapus";
+        return redirect(route('admin.page.index'))->with('message', $message);
     }
 }

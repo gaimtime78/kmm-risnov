@@ -58,56 +58,66 @@
                             </div>
                         @endif
 
-                        <h1 class="mb-5 mt-5">Buat Page</h1>
-                        <form action="{{ route('admin.page.store') }}" method="post" enctype="multipart/form-data">
+                        <h1 class="mb-5 mt-5">Edit Page</h1>
+                        <form action="{{ route('admin.page.update', [$page->id]) }}" method="post"
+                            enctype="multipart/form-data">
+                            @method('put')
                             @csrf
                             <div class="mb-3">
                                 <h5><label for="useAsPost" class="form-label">Tampilkan post?</label></h5>
-                                <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1>
-                                <label class="form-check-label" for="useAsPost1">Ya</label>
-                                <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0>
-                                <label class="form-check-label" for="useAsPost1">Tidak</label>
+                                @if ($page->use_post == 1)
+                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1
+                                        checked>
+                                    <label class="form-check-label" for="useAsPost1">Ya</label>
+                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0>
+                                    <label class="form-check-label" for="useAsPost1">Tidak</label>
+                                @else
+                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1>
+                                    <label class="form-check-label" for="useAsPost1">Ya</label>
+                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0
+                                        checked>
+                                    <label class="form-check-label" for="useAsPost1">Tidak</label>
+                                @endif
                             </div>
                             <div class="mb-3">
                                 <h5><label for="title" class="form-label">Judul Laman</label></h5>
                                 <input type="text" name="title" id="title" class="form-control"
-                                    placeholder="Masukkan judul laman di sini">
+                                    placeholder="Masukkan judul laman di sini" value="{{ $page->title }}">
                             </div>
                             <div class="mb-3">
                                 <h5><label for="content" class="form-label">Konten</label></h5>
                                 <textarea name="content" class="form-control" id="content"
-                                    placeholder="Masukkan konten laman di sini"></textarea>
+                                    placeholder="Masukkan konten laman di sini">{{ $page->content }}</textarea>
                             </div>
                             <button type="submit" class="waves-effect waves-light btn cyan darken-1">Simpan</button>
                         </form>
+                        <br>
+                        <div class="divider"></div>
+                        <!--DataTables example Row grouping-->
                     </div>
-                    <br>
-                    <div class="divider"></div>
-                    <!--DataTables example Row grouping-->
+                    <!-- Floating Action Button -->
+                    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+                        <a class="btn-floating btn-large">
+                            <i class="mdi-action-stars"></i>
+                        </a>
+                        <ul>
+                            <li><a href="css-helpers.htm" class="btn-floating red"><i
+                                        class="large mdi-communication-live-help"></i></a></li>
+                            <li><a href="app-widget.htm" class="btn-floating yellow darken-1"><i
+                                        class="large mdi-device-now-widgets"></i></a></li>
+                            <li><a href="app-calendar.htm" class="btn-floating green"><i
+                                        class="large mdi-editor-insert-invitation"></i></a></li>
+                            <li><a href="app-email.htm" class="btn-floating blue"><i
+                                        class="large mdi-communication-email"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Floating Action Button -->
                 </div>
-                <!-- Floating Action Button -->
-                <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
-                    <a class="btn-floating btn-large">
-                        <i class="mdi-action-stars"></i>
-                    </a>
-                    <ul>
-                        <li><a href="css-helpers.htm" class="btn-floating red"><i
-                                    class="large mdi-communication-live-help"></i></a></li>
-                        <li><a href="app-widget.htm" class="btn-floating yellow darken-1"><i
-                                    class="large mdi-device-now-widgets"></i></a></li>
-                        <li><a href="app-calendar.htm" class="btn-floating green"><i
-                                    class="large mdi-editor-insert-invitation"></i></a></li>
-                        <li><a href="app-email.htm" class="btn-floating blue"><i
-                                    class="large mdi-communication-email"></i></a></li>
-                    </ul>
-                </div>
-                <!-- Floating Action Button -->
-        </div>
-        <!--end container-->
-        </section>
+                <!--end container-->
+            </section>
 
-        <!-- END CONTENT -->
-    </div>
+            <!-- END CONTENT -->
+        </div>
     </div>
 
 @endsection

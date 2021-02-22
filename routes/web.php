@@ -71,12 +71,12 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::delete('/admin/post/{id}', [PostController::class, 'delete'])->name('post.delete');
         });
 
-        Route::group(['prefix' => '/posts'], function(){
-            // Route::get('/', 'historyController@index')->name('history');
-            // Route::get('/{id}', 'historyController@show');
-            Route::get('/create', [App\Http\Controllers\Posts\PostsController::class, 'add'])->name('posts.add');
-            Route::post('/create', [App\Http\Controllers\Posts\PostsController::class, 'create'])->name('posts.create');
-        });
+        // Route::group(['prefix' => '/posts'], function(){
+        //     // Route::get('/', 'historyController@index')->name('history');
+        //     // Route::get('/{id}', 'historyController@show');
+        //     Route::get('/create', [App\Http\Controllers\Posts\PostsController::class, 'add'])->name('posts.add');
+        //     Route::post('/create', [App\Http\Controllers\Posts\PostsController::class, 'create'])->name('posts.create');
+        // });
 
         Route::get('/post', [PostController::class, 'index'])->name('post.index');
         Route::get('/post/category/{id}', [PostController::class, 'category'])->name('post.category');
@@ -90,6 +90,9 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
             Route::get('/create', [App\Http\Controllers\PageController::class, 'create'])->name('page.create');
             Route::post('/store', [App\Http\Controllers\PageController::class, 'store'])->name('page.store');
+            Route::get('/edit/{id}', [App\Http\Controllers\PageController::class, 'edit'])->name('page.edit');
+            Route::put('/update/{id}', [App\Http\Controllers\PageController::class, 'update'])->name('page.update');
+            Route::delete('/delete/{id}', [App\Http\Controllers\PageController::class, 'delete'])->name('page.delete');
         });
 
         
@@ -99,3 +102,4 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
 
 Route::get('/index', [App\Http\Controllers\User\DashboardController::class, 'index']);
+Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'blog'])->name('page.blog');
