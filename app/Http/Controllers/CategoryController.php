@@ -83,7 +83,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $new = $request->newCategory;
+        $time = now();
+        $cekCategory = Category::where('id', $id)
+                        ->update(['category' => $new, 'updated_at' => $time]);
+        $status = $this->status($cekCategory, 'Category berhasil diubah!', 'Category gagal diubah!');
+        return redirect()->route('admin.category.index')->with($status);
     }
 
     /**
