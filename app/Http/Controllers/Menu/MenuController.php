@@ -13,12 +13,12 @@ class MenuController extends Controller
     public function index() 
     {
         $menu = Menu::get();
-        return view('menu/index', ['menu' => $menu]);
+        return view('admin/menu/index', ['menu' => $menu]);
     }
 
     public function add() 
     {
-        return view('menu/add');
+        return view('admin/menu/add');
     }
 
     public function create(Request $request) 
@@ -46,7 +46,7 @@ class MenuController extends Controller
     public function edit($id = NULL) 
     {
         $menu = Menu::findOrFail($id);
-        return view('menu/edit', ['menu' => $menu]);
+        return view('admin/menu/edit', ['menu' => $menu]);
     }
 
     public function update(Request $request) 

@@ -17,7 +17,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::all();
-        return view('page.index', compact('pages'));
+        return view('admin/page/index', compact('pages'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('page.create');
+        return view('admin/page/create');
     }
 
     /**

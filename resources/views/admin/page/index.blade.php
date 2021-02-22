@@ -1,5 +1,3 @@
-
-
 @extends('layout.application')
 
 @section('css')
@@ -47,31 +45,29 @@
           <div class="section">    
             <!--DataTables example-->
             <div id="table-datatables">
-              <h4 class="header left">Post</h4>
-              <a href="{{route('admin.post.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Post</a>
+              <h4 class="header left">Page</h4>
+              <a href="{{route('admin.page.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Page</a>
               
               <div class="row">
                 <div class="col s12 m12 l12">
 				
-				<h2>Latest Post</h2>
+				<h2>Latest Page</h2>
 				<table>
 					<tr>
-						<th>id</th>
-						<th>title</th>
-						<th>content</th>
-						<th>user</th>
-						<th>category</th>
+						<th>Nomor</th>
+						<th>Judul</th>
+						<th>konten</th>
+						<th>Status</th>
 						<th>created_at</th>
 						<th>updated_at</th>
 						<th>Action</th>
 					</tr>
-					@foreach($data as $row)
+					@foreach($pages as $row)
 					<tr>
 						<td>{{ $row->id }}</td>
 						<td>{{ $row->title }}</td>
 						<td>{!! $row->content !!}</td>
-						<td>{{ $row->user_id }}</td>
-						<td>{{ $row->category_id }}</td>
+						<td>{{ $row->use_post }}</td>
 						<td>{{ $row->created_at }}</td>
 						<td>{{ $row->updated_at }}</td>
 						<td>

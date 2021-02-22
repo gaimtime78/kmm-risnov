@@ -29,7 +29,7 @@
         </li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Content Management</a>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>CMS</a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{ route('admin.menu.index') }}">Menu</a>
