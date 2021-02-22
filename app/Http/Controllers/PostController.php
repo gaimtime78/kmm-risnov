@@ -17,15 +17,6 @@ class PostController extends Controller
 		return view('admin.post.index', ['data' => $data]);
 	}
 
-	public function category($categoryId)
-	{
-		$data = DB::table('post')
-			->orderBy('created_at', 'DESC')
-			->where('category_id', '=', $categoryId)
-			->get();
-		return view('admin.post.category', ['data' => $data]);
-	}
-
 	public function create()
 	{
 		return view('admin.post.create');
@@ -33,6 +24,9 @@ class PostController extends Controller
 
 	public function store(Request $request)
 	{
+		$request->validate([
+			'title' => 'required'
+		]);
 		DB::table('post')
 			->insert([
 				'title' => $request->input('title'),
@@ -55,6 +49,9 @@ class PostController extends Controller
 
 	public function update(Request $request, $postId)
 	{
+		$request->validate([
+			'title' => 'required'
+		]);
 		DB::table('post')
 			->where('id', '=', $postId)
 			->update([
