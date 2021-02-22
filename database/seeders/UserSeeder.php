@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
+use Illuminate\Support\Facades\Route;
 
 class UserSeeder extends Seeder
 {
@@ -35,5 +36,21 @@ class UserSeeder extends Seeder
                 'email_verified_at' => '2020-08-07 14:50:24',
             ]
         ]);
+
+        $routeCollection = Route::getRoutes();
+        foreach ($routeCollection as $value) {
+            if($value->getName() != null){
+                DB::table('permissions')->insert([
+                    ['permission'=>$value->getName()]
+                ]);
+            }
+        }
+        $permission =  DB::table('permissions')->get();
+        foreach ( $permission as $value) {
+            DB::table('permission_role')->insert([
+                ['role_id'=>2,'permission_id'=>$value->id],
+            ]);
+        }
+       
     }
 }
