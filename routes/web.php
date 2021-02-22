@@ -102,4 +102,4 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
 
 Route::get('/index', [App\Http\Controllers\User\DashboardController::class, 'index']);
-Route::get('/blog/{slug}', [App\Http\Controllers\PageController::class, 'blog'])->name('page.blog');
+Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'blog'])->name('page.blog');
