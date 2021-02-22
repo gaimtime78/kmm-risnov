@@ -54,7 +54,7 @@ class PageController extends Controller
 
         $message = "Laman " . $data['title'] . " berhasil dibuat";
 
-        return redirect(route('admin.page.index'))->with('notification', $message);
+        return redirect(route('admin.page.index'))->with('message', $message);
     }
 
     /**
@@ -105,7 +105,7 @@ class PageController extends Controller
 
         $message = "Laman " . $data['title'] . " berhasil diupdate";
 
-        return redirect(route('admin.page.index'))->with('notification', $message);
+        return redirect(route('admin.page.index'))->with('message', $message);
     }
 
     /**
@@ -119,6 +119,6 @@ class PageController extends Controller
         $page = Page::findOrFail($id);
         $page->delete();
         $message = "Laman " . $page['title'] . " berhasil dihapus";
-        return redirect(route('admin.page.index'))->with('notification', $message);
+        return redirect(route('admin.page.index'))->with('message', $message);
     }
 }

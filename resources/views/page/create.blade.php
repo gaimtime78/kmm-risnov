@@ -1,81 +1,118 @@
-<!doctype html>
-<html lang="en" class="h-100">
+@extends('layout.application')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.80.0">
-    <title>Buat Page</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
-    <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png"
-        sizes="180x180">
-    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32"
-        type="image/png">
-    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-        type="image/png">
-    <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
-        color="#7952b3">
-    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
-
+@section('css')
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        #actionBtn {
+            display: inline;
         }
 
     </style>
-    <!-- Custom styles for this template -->
-    <link href="sticky-footer.css" rel="stylesheet">
+
     {{-- TinyMCE js --}}
     <script src="https://cdn.tiny.cloud/1/t62fq0838f1hd6wos3ckh1y04j1b4lyew06g54f7bl5m6fxg/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
-</head>
+@endsection
 
-<body class="d-flex flex-column h-100">
+@section('content')
 
-    <!-- Begin page content -->
-    <main class="flex-shrink-0">
-        <div class="container">
-            <h1 class="mb-5 mt-5">Buat Page</h1>
-            <form action="{{ route('admin.page.store') }}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                    <h5><label for="useAsPost" class="form-label">Tampilkan post?</label></h5>
-                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1>
-                    <label class="form-check-label" for="useAsPost1">Ya</label>
-                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0>
-                    <label class="form-check-label" for="useAsPost1">Tidak</label>
+    @include('layout.navbar')
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            @include('layout.menu')
+            <!-- START CONTENT -->
+            <section id="content">
+                <!--breadcrumbs start-->
+                <div id="breadcrumbs-wrapper">
+                    <!-- Search for small screen -->
+                    <div class="header-search-wrapper grey hide-on-large-only">
+                        <i class="mdi-action-search active"></i>
+                        <input type="text" name="Search" class="header-search-input z-depth-2"
+                            placeholder="Explore Materialize">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <h5 class="breadcrumbs-title">Basic Tables</h5>
+                                <ol class="breadcrumbs">
+                                    <li><a href="index.htm">Dashboard</a></li>
+                                    <li><a href="#">Tables</a></li>
+                                    <li class="active">Basic Tables</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <h5><label for="title" class="form-label">Judul Laman</label></h5>
-                    <input type="text" name="title" id="title" class="form-control" placeholder="Masukkan judul laman di sini">
+                <!--breadcrumbs end-->
+
+
+                <!--start container-->
+                <div class="container">
+                    <div class="section">
+                        <!--DataTables example-->
+                        @if (session('message'))
+                            <div style="background-color: #aee8e2; border-radius:10px; padding:10px; margin-bottom:10px;">
+                                <b>{{ session('message') }}</b>
+                            </div>
+                        @endif
+
+                        <h1 class="mb-5 mt-5">Buat Page</h1>
+                        <form action="{{ route('admin.page.store') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <h5><label for="useAsPost" class="form-label">Tampilkan post?</label></h5>
+                                <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1>
+                                <label class="form-check-label" for="useAsPost1">Ya</label>
+                                <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0>
+                                <label class="form-check-label" for="useAsPost1">Tidak</label>
+                            </div>
+                            <div class="mb-3">
+                                <h5><label for="title" class="form-label">Judul Laman</label></h5>
+                                <input type="text" name="title" id="title" class="form-control"
+                                    placeholder="Masukkan judul laman di sini">
+                            </div>
+                            <div class="mb-3">
+                                <h5><label for="content" class="form-label">Konten</label></h5>
+                                <textarea name="content" class="form-control" id="content"
+                                    placeholder="Masukkan konten laman di sini"></textarea>
+                            </div>
+                            <button type="submit" class="waves-effect waves-light btn cyan darken-1">Simpan</button>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="divider"></div>
+                    <!--DataTables example Row grouping-->
                 </div>
-                <div class="mb-3">
-                    <h5><label for="content" class="form-label">Konten</label></h5>
-                    <textarea name="content" class="form-control" id="content" placeholder="Masukkan konten laman di sini"></textarea>
+                <!-- Floating Action Button -->
+                <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+                    <a class="btn-floating btn-large">
+                        <i class="mdi-action-stars"></i>
+                    </a>
+                    <ul>
+                        <li><a href="css-helpers.htm" class="btn-floating red"><i
+                                    class="large mdi-communication-live-help"></i></a></li>
+                        <li><a href="app-widget.htm" class="btn-floating yellow darken-1"><i
+                                    class="large mdi-device-now-widgets"></i></a></li>
+                        <li><a href="app-calendar.htm" class="btn-floating green"><i
+                                    class="large mdi-editor-insert-invitation"></i></a></li>
+                        <li><a href="app-email.htm" class="btn-floating blue"><i
+                                    class="large mdi-communication-email"></i></a></li>
+                    </ul>
                 </div>
-                <button type="submit" class="btn btn-outline-success">Simpan</button>
-            </form>
+                <!-- Floating Action Button -->
         </div>
-    </main>
+        <!--end container-->
+        </section>
 
+        <!-- END CONTENT -->
+    </div>
+    </div>
+
+@endsection
+
+@section('js')
     <script>
         tinymce.init({
             selector: 'textarea',
@@ -86,13 +123,7 @@
             tinycomments_author: 'Author name',
             height: 480
         });
+
     </script>
-
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">Ini foooooooooooooooooooooooooooooooooooooooooooooooooter</span>
-        </div>
-    </footer>
-</body>
-
-</html>
+    <script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>
+@endsection

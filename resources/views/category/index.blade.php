@@ -15,7 +15,6 @@
 @include('layout.menu')
     <!-- START CONTENT -->
     <section id="content">
-        
         <!--breadcrumbs start-->
         <div id="breadcrumbs-wrapper">
             <!-- Search for small screen -->
