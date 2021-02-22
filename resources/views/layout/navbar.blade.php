@@ -5,7 +5,15 @@
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="index.htm" class="brand-logo darken-1"><img src="" alt="IRIS1103"></a> <span class="logo-text">IRIS1103</span></h1></li>
+                      <li>
+                        <h1 class="logo-wrapper">
+                          <a href="index.htm" class="brand-logo darken-1">
+                            <!-- <img src="" alt="IRIS1103"> -->
+                            Biro RPM
+                          </a> 
+                          <span class="logo-text"></span>
+                        </h1>
+                      </li>
                     </ul>
                     <div class="header-search-wrapper hide-on-med-and-down">
                         <i class="mdi-action-search"></i>
