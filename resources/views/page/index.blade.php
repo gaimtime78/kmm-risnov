@@ -40,6 +40,10 @@
             user-select: none;
         }
 
+        #actionBtn {
+            display: inline;
+        }
+
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
@@ -93,7 +97,11 @@
                             <td>{{ $page->slug }}</td>
                             <td>{{ $page->created_at->diffForHumans() }}</td>
                             <td>
-                                <form action="{{ route('admin.page.delete', [$page->id]) }}" method="post">
+                                <form id="actionBtn" action="{{ route('admin.page.edit', [$page->id]) }}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+                                </form>
+                                <form id="actionBtn" action="{{ route('admin.page.delete', [$page->id]) }}" method="post">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-danger">Hapus</button>

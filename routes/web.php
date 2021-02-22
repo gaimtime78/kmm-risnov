@@ -90,6 +90,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
             Route::get('/create', [App\Http\Controllers\PageController::class, 'create'])->name('page.create');
             Route::post('/store', [App\Http\Controllers\PageController::class, 'store'])->name('page.store');
+            Route::get('/edit/{id}', [App\Http\Controllers\PageController::class, 'edit'])->name('page.edit');
+            Route::put('/update/{id}', [App\Http\Controllers\PageController::class, 'update'])->name('page.update');
             Route::delete('/delete/{id}', [App\Http\Controllers\PageController::class, 'delete'])->name('page.delete');
         });
 
