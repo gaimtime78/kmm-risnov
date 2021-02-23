@@ -66,7 +66,7 @@ class PageController extends Controller
     public function blog($slug)
     {
         $page = Page::where('slug', $slug)->first();
-        return view('admin.page.blog', compact('page'));
+        return view('page.blog', compact('page'));
     }
 
     /**
