@@ -62,7 +62,6 @@
                             <li><a href="#">Berita Terkini</a></li>
                             <li><a href="#">Agenda</a></li>
                             <li class="iconitem"><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-search"></i></a></li>
-                            <li class="iconitem"><a class="shopicon" href="shop-cart.html"><i class="fa fa-shopping-basket"></i> &nbsp;(0)</a></li>
                         </ul>
                     </div>
                 </nav><!-- end navbar -->
