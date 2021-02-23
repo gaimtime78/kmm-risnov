@@ -17,7 +17,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::all();
-        return view('page/index', compact('pages'));
+        return view('admin/page/index', compact('pages'));
     }
 
     /**
@@ -66,7 +66,7 @@ class PageController extends Controller
     public function blog($slug)
     {
         $page = Page::where('slug', $slug)->first();
-        return view('page.blog', compact('page'));
+        return view('admin.page.blog', compact('page'));
     }
 
     /**
@@ -78,7 +78,7 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = Page::find($id);
-        return view('page.edit', compact('page'));
+        return view('admin.page.edit', compact('page'));
     }
 
     /**
