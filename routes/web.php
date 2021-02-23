@@ -18,6 +18,12 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+Route::get('/home', [App\Http\Controllers\user\HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => '/tentang-kami'], function(){
+    Route::get('/sambutan', [App\Http\Controller\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
+});
+Route::get('/lppm', [App\Http\Controllers\User\LppmController::class, 'index'])->name('lppm');
+
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.post');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
