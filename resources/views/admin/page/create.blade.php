@@ -63,10 +63,10 @@
                             @csrf
                             <div class="mb-3">
                                 <h5><label for="useAsPost" class="form-label">Tampilkan post?</label></h5>
-                                <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1>
-                                <label class="form-check-label" for="useAsPost1">Ya</label>
-                                <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0>
-                                <label class="form-check-label" for="useAsPost1">Tidak</label>
+                                <input class="form-check-input" type="radio" name="use_post" id="use_post1" value=1>
+                                <label class="form-check-label" for="use_post1">Ya</label>
+                                <input class="form-check-input" type="radio" name="use_post" id="use_post0" value=0>
+                                <label class="form-check-label" for="use_post0">Tidak</label>
                             </div>
                             <div class="mb-3">
                                 <h5><label for="title" class="form-label">Judul Laman</label></h5>

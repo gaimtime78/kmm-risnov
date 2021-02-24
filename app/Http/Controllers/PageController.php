@@ -41,13 +41,13 @@ class PageController extends Controller
         $data['title']  = $request->get('title');
         $data['content'] = $request->get('content');
         $data['slug'] = Str::slug($data['title'], '-');
-        $data['useAsPost'] = $request->get('useAsPost');
+        $data['use_post'] = $request->get('use_post');
 
         $page = new Page([
             'title' => $data['title'],
             'content' => $data['content'],
             'slug' => $data['slug'],
-            'use_post' => $data['useAsPost']
+            'use_post' => $data['use_post']
         ]);
 
         $page->save();
