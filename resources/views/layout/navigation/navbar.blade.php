@@ -27,9 +27,9 @@
                                 </ul>
                             </li>
                             <li><a href="{{route('lppm')}}">LPPM</a></li>
-                            <li><a href="#">Direktorat Inovasi </a></li>
-                            <li><a href="#">Informasi</a></li>
-                            <li><a href="#">PUI</a></li>
+                            <li><a href="{{route('direktorat')}}">Direktorat Inovasi </a></li>
+                            <li><a href="{{route('informasi')}}">Informasi</a></li>
+                            <li><a href="{{route('pui')}}">PUI</a></li>
                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produk <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">

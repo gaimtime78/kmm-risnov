@@ -25,6 +25,9 @@ Route::group(['prefix' => '/tentang-kami'], function(){
     Route::get('/profil-biro-rpm', [App\Http\Controllers\User\TentangController::class, 'profilBiro'])->name('tentang-kami.profilBiro');
 });
 Route::get('/lppm', [App\Http\Controllers\User\LppmController::class, 'index'])->name('lppm');
+Route::get('/direktorat-inovasi', [App\Http\Controllers\User\DirektoratInovasiController::class, 'index'])->name('direktorat');
+Route::get('/informasi', [App\Http\Controllers\User\InformasiController::class, 'index'])->name('informasi');
+Route::get('/pui', [App\Http\Controllers\User\PuiController::class, 'index'])->name('pui');
 
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.post');
