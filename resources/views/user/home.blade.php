@@ -22,14 +22,11 @@
             <div class="col-md-6">
                 <div class="custom-module p40l">
                     <h2><mark>SAMBUTAN WR</mark></h2>
-
                     <p style="text-align:justify">Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus.</p>
-
                     <hr class="invis">
                     <div class="btn-wrapper">
                         <a href="#" class="btn btn-primary">Selengkapnya</a>
                     </div>
-
                 </div><!-- end module -->
             </div><!-- end col -->
         </div><!-- end row -->
@@ -147,15 +144,15 @@
                         </h4>
                     </div><!-- end details -->
                     <a href="#" class="readmore">Selengkapnya</a>
-            </div><!-- end box -->
-        </div><!-- end col -->
-    </div><!-- end row -->
+                </div><!-- end box -->
+            </div><!-- end col -->
+        </div><!-- end row -->
 
-    <hr class="invis">
+        <hr class="invis">
 
-    <div class="section-button text-center">
-        <a href="#" class="btn btn-primary">Lihat Berita Lainnya</a>
-    </div>
+        <div class="section-button text-center">
+            <a href="#" class="btn btn-primary">Lihat Berita Lainnya</a>
+        </div>
     </div><!-- end container -->
 </section>
 
@@ -315,9 +312,9 @@
             </div><!-- end row -->
 
             <hr class="invis">
-<div class="section-button text-center">
-    <a href="#" class="btn btn-primary">Lihat Gallery</a>
-</div>
+            <div class="section-button text-center">
+                <a href="#" class="btn btn-primary">Lihat Gallery</a>
+            </div>
 
         </div><!-- end boxed -->
     </div><!-- end container -->
