@@ -13,6 +13,7 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end section -->
+
 <section class="section gb nopadtop">
     <div class="container">
         <div class="boxed">
@@ -22,16 +23,28 @@
                     <div class="content blog-list">
                         <div class="blog-wrapper clearfix">
                             <div class="blog-meta">
-                                <h3>VISI MISI</h3>
+                                <h3>PROFIL BIRO RPM</h3>
                             </div><!-- end blog-meta -->
-
                             <div class="blog-media">
                                 <img src="upload/blog_01.jpg" alt="" class="img-responsive img-rounded">
                             </div><!-- end media -->
-
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4 hidden-sm hidden-xs">
+                                        <div class="custom-module">
+                                            <img src="/images/img7.jpg" alt="" class="img-responsive wow slideInLeft">
+                                        </div><!-- end module -->
+                                    </div><!-- end col -->
+                                    <div class="col-md-5">
+                                        <div class="custom-module p40l">
+                                            <p style="text-align:justify">Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus.</p>
+                                            <hr class="invis">
+                                        </div><!-- end module -->
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+                            </div><!-- end container -->
                             <div style="text-align:justify" class="blog-desc-big">
-                                <p class="lead">You can get all the icon versions by checking out our standard license that come with every free icons..</p>
-                                <p>Integer eu urna sit amet dolor fringilla vulputate. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
+                                <p><br>Integer eu urna sit amet dolor fringilla vulputate. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
 
                                 <p> Cras eu lacus et nulla dignissim <a href="#">ultrices</a>. Duis ullamcorper finibus quam, sed convallis massa pharetra nec. Duis nec molestie dolor. Nam augue neque, efficitur vel lacus sit amet, consequat pharetra massa. Proin nunc magna, congue vitae justo ut, dignissim dapibus enim. Integer sollicitudin lacus a iaculis molestie. Donec quis consequat erat. Cras vitae consequat sem. Integer eleifend purus congue, gravida sem eu, pharetra sapien. Nunc venenatis, lacus id pretium volutpat, augue eros accumsan leo, eu condimentum velit nulla nec sem. Donec interdum bibendum eros, ut facilisis nunc malesuada id. Nulla quis ex non magna sollicitudin sodales vestibulum nec massa. Nullam ut nibh quis est aliquet viverra mattis eu ligula. Pellentesque dui mi, ultricies ut velit id, iaculis lacinia est. </p>
 

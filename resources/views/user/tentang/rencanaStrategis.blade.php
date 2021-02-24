@@ -22,7 +22,7 @@
                     <div class="content blog-list">
                         <div class="blog-wrapper clearfix">
                             <div class="blog-meta">
-                                <h3>VISI MISI</h3>
+                                <h3>RENCANA STRATEGIS</h3>
                             </div><!-- end blog-meta -->
 
                             <div class="blog-media">

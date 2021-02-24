@@ -31,7 +31,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img  style="width:100px" src="/images/uns.png" alt=""></a>
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@
                                     <li><a href="/tentang-kami/profil-biro-rpm">Profil Biro RPM</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">LPPM</a></li>
+                            <li><a href="/lppm">LPPM</a></li>
                             <li><a href="#">Direktorat Inovasi </a></li>
                             <li><a href="#">Informasi</a></li>
                             <li><a href="#">PUI</a></li>

@@ -5,9 +5,12 @@
 @endsection
 
 @section('content')
-<section class="section db p120">
+<section class="parallax event-section" data-stellar-background-ratio="0.5" style="background-image:url('/images/gallary/7.jpg');">
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                
+            </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end section -->

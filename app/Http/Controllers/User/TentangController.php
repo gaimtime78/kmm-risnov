@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class TentangController extends Controller
-{
+{ 
     //
     public function sambutan(){
         return view ('user.tentang.sambutan');
