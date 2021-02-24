@@ -6,26 +6,29 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\Page;
 
 
 class MenuController extends Controller
 {
     public function index() 
     {
+
         $menu = Menu::get();
         return view('admin/menu/index', ['menu' => $menu]);
     }
 
     public function add() 
     {
-        return view('admin/menu/add');
+        $page = Page::select('id','title')->get();
+        return view('admin/menu/add',['page' => $page]);
     }
 
     public function create(Request $request) 
     {
         $request->validate([
             'menu' => 'required',
-            'sub_menu' => 'required',
+            // 'sub_menu' => 'required',
             'url' => 'required',
             'icon'  => 'required|mimes:jpeg,jpg,png|max:500' 
         ]);
@@ -37,7 +40,8 @@ class MenuController extends Controller
             'sub_menu' => $request->sub_menu,
             'url' => $request->url,
             'icon' => $filename,
-            'created_at' => now()
+            'created_at' => now(),
+            'page_id' => isset($request->page_id) ? $request->page_id : null
         ]);
 
         return redirect()->route('admin.menu.index')->with($this->status(0,'sukses','Data Berhasil Ditambahkan!'));
@@ -46,21 +50,23 @@ class MenuController extends Controller
     public function edit($id = NULL) 
     {
         $menu = Menu::findOrFail($id);
-        return view('admin/menu/edit', ['menu' => $menu]);
+        $data = Menu::get();
+        $page = Page::select('id','title')->get();
+        return view('admin/menu/edit', ['data'=> $data, 'menu' => $menu,'page' => $page]);
     }
 
     public function update(Request $request) 
     {
         $request->validate([
             'menu' => 'required',
-            'sub_menu' => 'required',
             'url' => 'required',
             'old_icon' => 'required'
         ]);
 
         $menu = Menu::findOrFail($request->id);
+        $menu->page_id = isset($request->page_id) ? $request->page_id : null;
+        $menu->sub_menu = isset($request->sub_menu) ? implode (",", $request->sub_menu) : null;
         $menu->menu = $request->menu;
-        $menu->sub_menu = $request->sub_menu;
         $menu->url = $request->url;
         $menu->updated_at = now();
 
@@ -77,6 +83,22 @@ class MenuController extends Controller
 
     public function delete($id = NULL) {
         $menu = Menu::findOrFail($id);
+        $edit_menu = Menu::select('id','sub_menu')->where('sub_menu','like',"%$id%")->get();
+        foreach ($edit_menu as $sub) {
+            foreach ($new_sub = explode(',', $sub->sub_menu) as $item) {
+                if($item == $id) {
+                    $index = array_search($item,$new_sub);
+                    if($index !== FALSE){
+                        unset($new_sub[$index]);
+                    }
+                }
+            }
+
+            if($sub->sub_menu != implode (",", $new_sub)) {
+                $sub->sub_menu = implode (",", $new_sub);
+                $sub->save();
+            }
+        }
         $menu->delete();
 
         return redirect()->route('admin.menu.index')

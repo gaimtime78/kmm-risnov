@@ -110,6 +110,7 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
 
 Route::get('/index', [App\Http\Controllers\User\DashboardController::class, 'index']);
+Route::get('/get_menu', [App\Http\Controllers\User\DashboardController::class, 'get_menu']);
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'blog'])->name('page.blog');
 Route::get('/produk-penelitian', [App\Http\Controllers\User\ProdukController::class, 'penelitian'])->name('produk-penelitian');
 Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::class, 'pengabdian'])->name('produk-pengabdian');

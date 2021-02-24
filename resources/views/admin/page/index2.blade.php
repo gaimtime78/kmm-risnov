@@ -45,43 +45,40 @@
           <div class="section">    
             <!--DataTables example-->
             <div id="table-datatables">
-              <h4 class="header left">Menu</h4>
-              <a href="{{route('admin.menu.add')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Menu</a>
+              <h4 class="header left">Page</h4>
+              <a href="{{route('admin.page.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Page</a>
               
               <div class="row">
                 <div class="col s12 m12 l12">
-                  <table id="data-menu" class="responsive-table display" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Menu</th>
-                            <th>Sub Menu</th>
-                            <th>URL</th>
-                            <th>Icon</th>
-                            <th>Page</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                 
-                 
-                    <tbody>
-                        @foreach ($menu as $row)
-                        <tr>
-                            <td>{{$row->id}}</td>
-                            <td>{{$row->menu}}</td>
-                            <td>{{$row->sub_menu}}</td>
-                            <td>{{$row->url}}</td>
-                            <td><img src="{{url('uploads').'/'.$row->icon}}" width="100" alt="{{$row->menu}}"></td>
-                            <td>
-                              @isset($row->page)
-                                  {{$row->page->title}}    
-                              @endisset
-                            </td>
-                            <td><a href="{{route('admin.menu.edit', ['id' => $row->id])}}">Edit</a>  || <a href="{{ route('admin.menu.delete',['id' => $row->id]) }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                  </table>
+				
+				<h2>Latest Page</h2>
+				<table>
+					<tr>
+						<th>Nomor</th>
+						<th>Judul</th>
+						<th>konten</th>
+						<th>Status</th>
+						<th>created_at</th>
+						<th>updated_at</th>
+						<th>Action</th>
+					</tr>
+					@foreach($pages as $row)
+					<tr>
+						<td>{{ $row->id }}</td>
+						<td>{{ $row->title }}</td>
+						<td>{!! $row->content !!}</td>
+						<td>{{ $row->use_post }}</td>
+						<td>{{ $row->created_at }}</td>
+						<td>{{ $row->updated_at }}</td>
+						<td>
+							<div>
+								<a href="{{ route('admin.post.edit', ['id' => $row->id]) }}">Edit</a>
+							</div>
+						</td>
+					</tr>
+					@endforeach
+				</table>
+			
                 </div>
               </div>
             </div> 
