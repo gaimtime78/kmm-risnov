@@ -1,0 +1,125 @@
+@extends('layout.user')
+
+@section('css')
+
+@endsection
+
+@section('content')
+<section class="section db p120">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="boxed">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="content blog-list">
+                        <div class="blog-wrapper clearfix">
+                            <div class="blog-meta">
+                                <h3>SAMBUTAN</h3>
+                            </div><!-- end blog-meta -->
+
+                            <div class="blog-media">
+                                <img src="upload/blog_01.jpg" alt="" class="img-responsive img-rounded">
+                            </div><!-- end media -->
+
+                            <div style="text-align:justify" class="blog-desc-big">
+                                <p class="lead">You can get all the icon versions by checking out our standard license that come with every free icons..</p>
+                                <p>Integer eu urna sit amet dolor fringilla vulputate. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
+
+                                <p> Cras eu lacus et nulla dignissim <a href="#">ultrices</a>. Duis ullamcorper finibus quam, sed convallis massa pharetra nec. Duis nec molestie dolor. Nam augue neque, efficitur vel lacus sit amet, consequat pharetra massa. Proin nunc magna, congue vitae justo ut, dignissim dapibus enim. Integer sollicitudin lacus a iaculis molestie. Donec quis consequat erat. Cras vitae consequat sem. Integer eleifend purus congue, gravida sem eu, pharetra sapien. Nunc venenatis, lacus id pretium volutpat, augue eros accumsan leo, eu condimentum velit nulla nec sem. Donec interdum bibendum eros, ut facilisis nunc malesuada id. Nulla quis ex non magna sollicitudin sodales vestibulum nec massa. Nullam ut nibh quis est aliquet viverra mattis eu ligula. Pellentesque dui mi, ultricies ut velit id, iaculis lacinia est. </p>
+
+                                <blockquote class="text-center">
+                                    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                                </blockquote>
+
+                                <p>Integer eu urna <a href="#">sit amet dolor fringilla vulputate</a>. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
+
+                                <p> Quisque at vestibulum neque. Duis eget sapien ac quam interdum euismod. Mauris blandit tincidunt neque, vitae vestibulum tortor dapibus non. Nunc eu sollicitudin diam. Proin vel erat vitae augue eleifend convallis. Curabitur ut risus id ex finibus rhoncus sit amet a libero. Aenean a turpis eget nisi posuere tempor. Aliquam iaculis sem eros. Fusce nec erat eget sem aliquam congue quis vitae mi. Praesent varius dictum cursus. </p>
+
+                                <hr class="invis">
+
+                                <div class="tags-widget">
+                                    <ul class="list-inline">
+                                        <li><a href="#">course</a></li>
+                                        <li><a href="#">web design</a></li>
+                                        <li><a href="#">development</a></li>
+                                        <li><a href="#">language</a></li>
+                                    </ul>
+                                </div><!-- end list-widget -->
+
+                            </div><!-- end desc -->
+                        </div><!-- end blog -->
+                    </div><!-- end content -->
+
+                    <div class="authorbox">
+                        <div class="site-publisher clearfix">
+                            <img src="upload/people_10.jpeg" alt="" class="img-responsive img-circle">
+                            <a href="single-agency.html" title="">
+                                <h4><small>about</small> <span>Martin Martines</span></h4>
+                            </a>
+                            <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth.</p>
+
+                            <div class="authorbox-social">
+                                <ul class="list-inline">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+                                </ul><!-- end list -->
+                            </div><!-- end share -->
+                        </div><!-- end publisher -->
+                    </div><!-- end details -->
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end boxed -->
+    </div><!-- end container -->
+</section>
+@endsection
+@section('content1')
+<section class="section db p120">
+    <div class="container">
+        <div class="row">
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                <img src="/images/img7.jpg" alt="" class="img-responsive">
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-6">
+                <div class="custom-module p40l">
+                    <h2>SAMBUTAN WR</h2>
+                    <p style="text-align:justify">Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectusNam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus</p>
+                    
+                    <hr class="invis">
+                </div><!-- end module -->
+            </div><!-- end col -->
+            
+        </div><!-- end row -->
+        <div class="row">
+            <div class="col-md-10">
+            <p style="text-align:justify">Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectusNam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus</p>
+            </div>
+        </div>
+        
+    <hr class="invis">
+    </div><!-- end container -->
+</section>
+@endsection
+
+@section('js')
+
+@endsection

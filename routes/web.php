@@ -18,9 +18,13 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/home', [App\Http\Controllers\user\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => '/tentang-kami'], function(){
-    Route::get('/sambutan', [App\Http\Controller\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
+    Route::get('/sambutan', [App\Http\Controllers\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
+    Route::get('/visi-misi', [App\Http\Controllers\User\TentangController::class, 'visiMisi'])->name('tentang-kami.visiMisi');
+    Route::get('/tugas-dan-fungsi', [App\Http\Controllers\User\TentangController::class, 'tugasFungsi'])->name('tentang-kami.tugasFungsi');
+    Route::get('/rencana-strategis', [App\Http\Controllers\User\TentangController::class, 'rencanaStrategis'])->name('tentang-kami.rencanaStrategis');
+    Route::get('/profil-biro-rpm', [App\Http\Controllers\User\TentangController::class, 'profilBiro'])->name('tentang-kami.profilBiro');
 });
 Route::get('/lppm', [App\Http\Controllers\User\LppmController::class, 'index'])->name('lppm');
 
@@ -110,3 +114,6 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 Route::get('/index', [App\Http\Controllers\User\DashboardController::class, 'index']);
 Route::get('/get_menu', [App\Http\Controllers\User\DashboardController::class, 'get_menu']);
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'blog'])->name('page.blog');
+Route::get('/produk-penelitian', [App\Http\Controllers\User\ProdukController::class, 'penelitian'])->name('produk-penelitian');
+Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::class, 'pengabdian'])->name('produk-pengabdian');
+Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
