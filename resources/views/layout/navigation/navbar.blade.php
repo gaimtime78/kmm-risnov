@@ -20,13 +20,13 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="/tentang-kami/sambutan">Sambutan WR</a></li>
-                                    <li><a href="/visi-misi">Visi Misi</a></li>
-                                    <li><a href="/tugas-dan-fungsi">Tugas dan Fungsi</a></li>
-                                    <li><a href="/rencana-strategis">Rencana Strategis</a></li>
-                                    <li><a href="/profil-biro-rpm">Profil Biro RPM</a></li>
+                                    <li><a href="/tentang-kami/visi-misi">Visi Misi</a></li>
+                                    <li><a href="/tentang-kami/tugas-dan-fungsi">Tugas dan Fungsi</a></li>
+                                    <li><a href="/tentang-kami/rencana-strategis">Rencana Strategis</a></li>
+                                    <li><a href="/tentang-kami/profil-biro-rpm">Profil Biro RPM</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">LPPM</a></li>
+                            <li><a href="/lppm">LPPM</a></li>
                             <li><a href="#">Direktorat Inovasi </a></li>
                             <li><a href="#">Informasi</a></li>
                             <li><a href="#">PUI</a></li>
