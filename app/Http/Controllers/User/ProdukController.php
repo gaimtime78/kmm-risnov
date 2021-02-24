@@ -12,7 +12,7 @@ class ProdukController extends Controller
         return view('user.produk',$data);
     }
 
-    public function pengujian(){
+    public function pengabdian(){
         $data['judul'] = 'Produk Pengabdian';
         return view('user.produk',$data);
     }
