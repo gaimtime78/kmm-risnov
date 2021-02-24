@@ -77,7 +77,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="input-field col s12">
                               <input name="sub_menu" placeholder="Masukkan Nama Sub Menu" id="sub_menu" type="text" value="{{ old('sub_menu') }}">
                               <label for="sub_menu">Nama Sub Menu</label>
@@ -87,7 +87,7 @@
                                 @endif
                               </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
                             <div class="input-field col s12">
                               <input name="url" placeholder="Masukkan URL" id="url" type="text" value="{{ old('url') }}">
@@ -117,6 +117,17 @@
                             </div>
                         </div>
                         <div class="row">
+                          <div class="input-field col s12">
+                            <select name="page_id" id="page_id">
+                              <option disabled="" value="" selected="">Choose your option
+                              @foreach ($page as $row)
+                                    <option value="{{$row->id}}">{{$row->title}}        
+                              @endforeach
+                            </select>
+                            <label>Page</label>
+                          </div>  
+                        </div>
+                        <div class="row">
                             <div class="input-field col s12">
                               <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Buat Menu
                                 <i class="mdi-content-send right"></i>
@@ -137,5 +148,9 @@
 @endsection
 
 @section('js')
-
+    <script>
+      $(document).ready(function(){
+          $('#page_id').material_select();
+      });
+    </script>
 @endsection

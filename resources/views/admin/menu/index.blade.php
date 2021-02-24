@@ -58,7 +58,7 @@
                             <th>Sub Menu</th>
                             <th>URL</th>
                             <th>Icon</th>
-                            <th>Page ID</th>
+                            <th>Page</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -72,7 +72,11 @@
                             <td>{{$row->sub_menu}}</td>
                             <td>{{$row->url}}</td>
                             <td><img src="{{url('uploads').'/'.$row->icon}}" width="100" alt="{{$row->menu}}"></td>
-                            <td>{{$row->page_id}}</td>
+                            <td>
+                              @isset($row->page)
+                                  {{$row->page->title}}    
+                              @endisset
+                            </td>
                             <td><a href="{{route('admin.menu.edit', ['id' => $row->id])}}">Edit</a>  || <a href="{{ route('admin.menu.delete',['id' => $row->id]) }}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
                         </tr>
                         @endforeach
