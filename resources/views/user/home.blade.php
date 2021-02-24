@@ -8,6 +8,10 @@
 <section id="home" class="video-section js-height-full">
     <div style="color:grey" class="overlay"></div>
     <div class="home-text-wrapper relative container">
+        <div class="home-message">
+            <p>Riset Inovasi</p>
+            <small>Universitas Sebelas Maret</small>
+        </div>
     </div>
 </section>
 
@@ -16,7 +20,7 @@
         <div class="row">
             <div class="col-md-5 hidden-sm hidden-xs">
                 <div class="custom-module">
-                    <img src="/images/img2.jpg" alt="" class="img-responsive wow slideInLeft">
+                    <img src="{{asset('design/upload/device_01.png')}}" alt="" class="img-responsive wow slideInLeft">
                 </div><!-- end module -->
             </div><!-- end col -->
             <div class="col-md-6">
@@ -50,7 +54,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="/images/gallary/1.jpg" alt="" class="img-responsive">
+                        <img src="{{asset('images/gallary/1.jpg')}}" alt="" class="img-responsive">
                         <div class="magnifier">
                             <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -75,7 +79,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="/images/gallary/2.jpg" alt="" class="img-responsive">
+                        <img src="{{asset('images/gallary/2.jpg')}}" alt="" class="img-responsive">
                         <div class="magnifier">
                             <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -100,7 +104,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="/images/gallary/3.jpg" alt="" class="img-responsive">
+                        <img src="{{asset('images/gallary/3.jpg')}}" alt="" class="img-responsive">
                         <div class="magnifier">
                             <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -125,7 +129,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="/images/gallary/4.jpg" alt="" class="img-responsive">
+                        <img src="{{asset('images/gallary/3.jpg')}}" alt="" class="img-responsive">
                         <div class="magnifier">
                             <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -320,22 +324,6 @@
     </div><!-- end container -->
 </section>
 
-<section class="section bgcolor1">
-    <div class="container">
-        <a href="#">
-            <div class="row callout">
-                <div class="col-md-4 text-center">
-                    <h3><sup>$</sup>49.99</h3>
-                    <h4>Start your awesome course today!</h4>
-                </div><!-- end col -->
-
-                <div class="col-md-8">
-                    <p class="lead">Limited time offer! Your profile will be added to our "Students" directory as well. </p>
-                </div>
-            </div><!-- end row -->
-        </a>
-    </div><!-- end container -->
-</section>
 @endsection
 
 @section('js')

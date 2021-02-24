@@ -9,24 +9,24 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="index.html"><img src="" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img  style="width:100px" src="{{asset('images/logo-uns.png')}}" alt=""></a>
                         </div>
                     </div>
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/home">Home</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="/tentang-kami/sambutan">Sambutan WR</a></li>
-                                    <li><a href="/tentang-kami/visi-misi">Visi Misi</a></li>
-                                    <li><a href="/tentang-kami/tugas-dan-fungsi">Tugas dan Fungsi</a></li>
-                                    <li><a href="/tentang-kami/rencana-strategis">Rencana Strategis</a></li>
-                                    <li><a href="/tentang-kami/profil-biro-rpm">Profil Biro RPM</a></li>
+                                    <li><a href="{{route('tentang-kami.sambutan')}}">Sambutan WR</a></li>
+                                    <li><a href="{{route('tentang-kami.visiMisi')}}">Visi Misi</a></li>
+                                    <li><a href="{{route('tentang-kami.tugasFungsi')}}">Tugas dan Fungsi</a></li>
+                                    <li><a href="{{route('tentang-kami.rencanaStrategis')}}">Rencana Strategis</a></li>
+                                    <li><a href="{{route('tentang-kami.profilBiro')}}">Profil Biro RPM</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/lppm">LPPM</a></li>
+                            <li><a href="{{route('lppm')}}">LPPM</a></li>
                             <li><a href="#">Direktorat Inovasi </a></li>
                             <li><a href="#">Informasi</a></li>
                             <li><a href="#">PUI</a></li>
