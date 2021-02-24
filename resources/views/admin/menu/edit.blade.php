@@ -61,11 +61,24 @@
                             <label for="menu">Nama Menu</label>
                           </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="input-field col s12">
                               <input name="sub_menu" placeholder="Masukkan Nama Sub Menu" id="sub_menu" type="text" value="{{$menu->sub_menu}}">
                               <label for="sub_menu">Nama Sub Menu</label>
                             </div>
+                        </div> --}}
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <select name="sub_menu[]" multiple="multiple" id="sub_menu">
+                              <option disabled="" value="" selected="">Choose your option
+                              @foreach ($data as $row)
+                                  @if ($row->id != $menu->id)
+                                    <option value="{{$row->id}}">{{$row->menu}}        
+                                  @endif
+                              @endforeach
+                            </select>
+                            <label>Sub Menu</label>
+                          </div>  
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
@@ -75,7 +88,7 @@
                         </div>
                         <div class="row">
                           <h6>Icon Lama</h6>
-                          <img src="{{url('uploads').'/'.$menu->icon}}" width="300" alt="{{$menu->menu}}">
+                          <img src="{{url('uploads').'/'.$menu->icon}}" width="100" alt="{{$menu->menu}}">
                           <input type="hidden" name="old_icon" value="{{$menu->icon}}">
                         </div>
                         
@@ -90,6 +103,17 @@
                                   <input class="file-path validate" type="text">
                                 </div>
                               </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <select name="page_id" id="page_id">
+                              <option value="" selected="">Choose your option
+                              @foreach ($page as $row)
+                                    <option value="{{$row->id}}" {{$menu->page_id == $row->id ? 'selected' : ''}}>{{$row->title}}        
+                              @endforeach
+                            </select>
+                            <label>Page</label>
+                          </div>  
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
@@ -112,5 +136,9 @@
 @endsection
 
 @section('js')
-
+  <script>
+    $(document).ready(function(){
+        $('select').material_select();
+    });
+  </script>
 @endsection
