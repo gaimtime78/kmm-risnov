@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/home');
-});
+Route::get('/', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => '/tentang-kami'], function(){
     Route::get('/sambutan', [App\Http\Controllers\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
     Route::get('/visi-misi', [App\Http\Controllers\User\TentangController::class, 'visiMisi'])->name('tentang-kami.visiMisi');
