@@ -38,7 +38,7 @@
                                 </ul>
                             </li>
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
-                            <li><a href="#">Agenda</a></li>
+                            <li><a href="{{route('agenda')}}">Agenda</a></li>
                         </ul>
                     </div>
                 </nav><!-- end navbar -->
