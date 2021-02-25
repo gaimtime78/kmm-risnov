@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Site Meta -->
-    <title>Edulogy</title>
+    <title>Risnov</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -25,11 +25,11 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet"> 
 	
     <!-- Custom & Default Styles -->
-	<link rel="stylesheet" href="{{asset('design/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('design/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('design/css/carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('design/css/animate.css')}}">
-    <link rel="stylesheet" href="{{asset('design/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('design\css\bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('design\css\font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('design\css\carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('design\css\animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('design\style.css') }}">
 
 	<!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
@@ -56,13 +56,13 @@
     </div><!-- end wrapper -->
 
     <!-- jQuery Files -->
-    <script src="{{asset('design/js/jquery.min.js')}}"></script>
-    <script src="{{asset('design/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('design/js/carousel.js')}}"></script>
-    <script src="{{asset('design/js/animate.js')}}"></script>
-    <script src="{{asset('design/js/custom.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('design\js\jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('design\js\bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('design\js\carousel.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('design\js\animate.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('design\js\custom.js') }}"></script>
     <!-- VIDEO BG PLUGINS -->
-    <script src="{{asset('design/js/videobg.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('design\js\videobg.js') }}"></script>
     @yield('js')
 </body>
 </html>
