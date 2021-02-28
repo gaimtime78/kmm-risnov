@@ -24,24 +24,24 @@
                         <div class="col-md-4">
                             <div class="course-box">
                                 <div class="image-wrap entry">
-                                    <img src="{{asset('design/upload/blog_04.jpg')}}" alt="" class="img-responsive">
+                                    <img src="{{asset('produk/p1.jpeg')}}" alt="" class="img-responsive">
                                     <div class="magnifier">
-                                         <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                                         <a href="#" title=""><p>Selengkapnya</p></a>
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div class="course-details">
                                     <h4>
-                                        <small>Tips & Tricks</small>
-                                        <a href="blog-single.html" title="">How to make JavaScript Linting With ESLint</a>
+                                        <small>Produk Inovasi</small>
+                                        <a href="#" title="">Program matching fund, kegiatan inkubasi dan Hak Kekayaan Intelektual (HKI)</a>
                                     </h4>
-                                    <p>Donec maximus ligula in ante dignissim pretium. Donec vitae sem fermentum, scelerisque mi quis, cursus ipsum. Cras vitae est eu justo iaculis posuere. </p>
+                                    <p>Kunjungan studi banding dari Lembaga Inovasi dan Pengembangan Universitas Swadaya Gunung Jati Cirebon. <br> Ruang lingkup... </p>
                                 </div><!-- end details -->
                                 <div class="course-footer clearfix">
                                     <div class="pull-left">
                                         <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-user"></i> Martin</a></li>
-                                            <li><a href="#"><i class="fa fa-clock-o"></i> 15 Jun</a></li>
-                                            <li><a href="#"><i class="fa fa-eye"></i> 122 Views</a></li>
+                                            <li><a href="#"><i class="fa fa-user"></i> Khavid</a></li>
+                                            <li><a href="#"><i class="fa fa-clock-o"></i> 24 Feb 2021</a></li>
+                                            <li><a href="#"><i class="fa fa-eye"></i> 100 Views</a></li>
                                         </ul>
                                     </div><!-- end left -->
                                 </div><!-- end footer -->
