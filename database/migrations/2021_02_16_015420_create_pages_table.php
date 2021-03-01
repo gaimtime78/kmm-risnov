@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->longText('content');
             $table->string('slug')->unique();
             $table->boolean('use_post');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }
