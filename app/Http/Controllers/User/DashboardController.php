@@ -13,11 +13,10 @@ class DashboardController extends Controller
     }
 
 
-    //belom jadi
     public function get_menu() 
     {
 
-        $menu = Menu::select('id','menu','sub_menu')->get();
+        $menu = Menu::get();
         $head = array();
         foreach ($menu as $row) {
             $status = true;
@@ -28,7 +27,12 @@ class DashboardController extends Controller
                 }
             }
             if($status) {
-                array_push($head, ['menu' => $row->menu,'sub_menu' => $row->sub_menu]);
+                array_push($head, [
+                    'menu' => $row->menu,
+                    'url' => $row->url,
+                    'icon' => $row->icon,
+                    'sub_menu' => $row->sub_menu
+                    ]);
             }
         }
 
@@ -45,7 +49,12 @@ class DashboardController extends Controller
                 foreach ($sub as $key2 => $value2) {
                     foreach ($menu as $item) {
                         if($item['id'] == $value2) {
-                            array_push($head[$key]['sub_menu'], ['menu' => $item->menu,'sub_menu' => $item->sub_menu]);
+                            array_push($head[$key]['sub_menu'], [
+                                'menu' => $item->menu,
+                                'url' => $item->url,
+                                'icon' => $item->icon,
+                                'sub_menu' => $item->sub_menu
+                                ]);
                             if($item->sub_menu) {
                                 $head[$key]['sub_menu'] = $this->check_sub_menu($head[$key]['sub_menu'], $menu);
                             }
