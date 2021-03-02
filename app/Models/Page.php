@@ -13,7 +13,8 @@ class Page extends Model
         'title',
         'content',
         'slug',
-        'use_post'
+        'use_post',
+        'category_id'
     ];
 
     protected $table = 'pages';
