@@ -110,3 +110,4 @@ Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'blog'])
 Route::get('/produk-penelitian', [App\Http\Controllers\User\ProdukController::class, 'penelitian'])->name('produk-penelitian');
 Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::class, 'pengabdian'])->name('produk-pengabdian');
 Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
+Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');

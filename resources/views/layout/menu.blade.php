@@ -32,11 +32,13 @@
                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Content Management</a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="{{ route('admin.menu.index') }}">Menu</a>
+                            <li><a href="{{ route('admin.category.index') }}">Category</a>
                             </li>
                             <li><a href="{{ route('admin.post.index') }}">Post</a>
                             </li>
                             <li><a href="{{ route('admin.page.index') }}">Page</a>
+                            </li>
+                            <li><a href="{{ route('admin.menu.index') }}">Menu</a>
                             </li>
                         </ul>
                     </div>

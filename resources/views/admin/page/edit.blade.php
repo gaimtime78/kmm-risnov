@@ -1,6 +1,8 @@
 @extends('layout.application')
 
 @section('css')
+    {{-- Select2 CSS --}}
+    <link rel="stylesheet" href="{{ asset('css\select2.min.css') }}">
     <style>
         #actionBtn {
             display: inline;
@@ -64,25 +66,34 @@
                             @method('put')
                             @csrf
                             <div class="mb-3">
-                                <h5><label for="useAsPost" class="form-label">Tampilkan post?</label></h5>
+                                <h5><label for="use_post" class="form-label">Tampilkan post?</label></h5>
                                 @if ($page->use_post == 1)
-                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1
+                                    <input class="form-check-input" type="radio" name="use_post" id="use_post1" value=1
                                         checked>
-                                    <label class="form-check-label" for="useAsPost1">Ya</label>
-                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0>
-                                    <label class="form-check-label" for="useAsPost1">Tidak</label>
+                                    <label class="form-check-label" for="use_post1">Ya</label>
+                                    <input class="form-check-input" type="radio" name="use_post" id="use_post0" value=0>
+                                    <label class="form-check-label" for="use_post1">Tidak</label>
                                 @else
-                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost1" value=1>
-                                    <label class="form-check-label" for="useAsPost1">Ya</label>
-                                    <input class="form-check-input" type="radio" name="useAsPost" id="useAsPost0" value=0
+                                    <input class="form-check-input" type="radio" name="use_post" id="use_post1" value=1>
+                                    <label class="form-check-label" for="use_post1">Ya</label>
+                                    <input class="form-check-input" type="radio" name="use_post" id="use_post0" value=0
                                         checked>
-                                    <label class="form-check-label" for="useAsPost1">Tidak</label>
+                                    <label class="form-check-label" for="use_post1">Tidak</label>
                                 @endif
                             </div>
                             <div class="mb-3">
                                 <h5><label for="title" class="form-label">Judul Laman</label></h5>
                                 <input type="text" name="title" id="title" class="form-control"
                                     placeholder="Masukkan judul laman di sini" value="{{ $page->title }}">
+                            </div>
+                            <div class="mb-3">
+                                <h5><label for="post_category" class="form-label">Kategori Post</label></h5>
+                                <select class="postCategory form-control" name="post_category" style="max-width: 50%">
+                                    <option value="{{$page->category_id}}">{{$currentCategory->category}}</option>
+                                    @foreach ($category as $cat)
+                                        <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <h5><label for="content" class="form-label">Konten</label></h5>
@@ -123,17 +134,17 @@
 @endsection
 
 @section('js')
+    <script type="text/javascript" src="{{ asset('js\select2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\tinyinit.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>
     <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-            toolbar_mode: 'floating',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            height: 480
+        $(document).ready(function() {
+            $('.postCategory').select2({
+                placeholder: 'Pilih kategori post untuk ditampilkan',
+                minimumInputLength: 3,
+                allowClear: true
+            });
         });
 
     </script>
-    <script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>
 @endsection
