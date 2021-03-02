@@ -1,7 +1,19 @@
 @extends('layout.application')
 
 @section('css')
-  
+  <style>
+    .input-field div.error{
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+    font-size: 0.8rem;
+    color:#FF4081;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  </style>
 @endsection
 
 @section('content')
@@ -59,6 +71,11 @@
                           <div class="input-field col s12">
                             <input name="menu" placeholder="Masukkan Nama Menu" id="menu" type="text" value="{{$menu->menu}}">
                             <label for="menu">Nama Menu</label>
+                            <div class="errorTxt">
+                              @if($errors->has('menu'))
+                              <div id="uname-error" class="error">{{ $errors->first('menu') }}</div>    
+                              @endif
+                            </div>
                           </div>
                         </div>
                         {{-- <div class="row">
@@ -78,12 +95,22 @@
                               @endforeach
                             </select>
                             <label>Sub Menu</label>
+                            <div class="errorTxt">
+                              @if($errors->has('sub_menu'))
+                              <div id="uname-error" class="error">{{ $errors->first('sub_menu') }}</div>    
+                              @endif
+                            </div>
                           </div>  
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                               <input name="url" placeholder="Masukkan URL" id="url" type="text" value="{{$menu->url}}">
                               <label for="url">URL</label>
+                              <div class="errorTxt">
+                                @if($errors->has('url'))
+                                <div id="uname-error" class="error">{{ $errors->first('url') }}</div>    
+                                @endif
+                              </div>
                             </div>
                         </div>
                         <div class="row">
@@ -102,6 +129,11 @@
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
                                 </div>
+                                <div class="errorTxt">
+                                  @if($errors->has('new_icon'))
+                                  <div id="uname-error" class="error">{{ $errors->first('new_icon') }}</div>    
+                                  @endif
+                                </div>
                               </div>
                         </div>
                         <div class="row">
@@ -113,6 +145,11 @@
                               @endforeach
                             </select>
                             <label>Page</label>
+                            <div class="errorTxt">
+                              @if($errors->has('page_id'))
+                              <div id="uname-error" class="error">{{ $errors->first('page_id') }}</div>    
+                              @endif
+                            </div>
                           </div>  
                         </div>
                         <div class="row">
