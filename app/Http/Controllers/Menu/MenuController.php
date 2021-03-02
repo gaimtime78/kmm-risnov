@@ -7,13 +7,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\Page;
-
+use Illuminate\Support\Arr;
 
 class MenuController extends Controller
 {
     public function index() 
     {
-
         $menu = Menu::get();
         return view('admin/menu/index', ['menu' => $menu]);
     }
@@ -60,7 +59,8 @@ class MenuController extends Controller
         $request->validate([
             'menu' => 'required',
             'url' => 'required',
-            'old_icon' => 'required'
+            'old_icon' => 'required',
+            'new_icon'  => 'mimes:jpeg,jpg,png|max:500' 
         ]);
 
         $menu = Menu::findOrFail($request->id);
