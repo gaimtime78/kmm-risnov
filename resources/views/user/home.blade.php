@@ -54,7 +54,7 @@
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="{{asset('images/gallary/1.jpg')}}" alt="" class="img-responsive">
+                        <img src="{{asset('berita/b1.jpeg')}}" alt="" class="img-responsive">
                         <div class="magnifier">
                             <a href="#" title=""><i class="flaticon-add"></i></a>
                         </div>
@@ -62,15 +62,17 @@
                     <div style="padding:0" class="course-footer clearfix">
                         <div class="pull-left">
                             <ul class="list-inline">
-                                <li><a href="#">21 March 2017</a></li>
-                                <li><a href="#">14 Share</a></li>
+                                <li><a href="#">19 Februari 2021</a></li>
+                                <!-- <li><a href="#">14 Share</a></li> -->
                             </ul>
                         </div><!-- end left -->
                     </div><!-- end footer -->
                     <div style="padding:0" class="course-details">
                         <h4>
-                            <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>
+                            <a href="#" title="">Penyampaian Catatan Hasil Reviu Program dan Kegiatan Biro RPKM Tahun 2021 oleh SPI UNS</a>
                         </h4>
+                        <p>Tanggal 19 Februari 2020. SPI ( Satuan Pengawas Internal) UNS Menyampaikan hasil reviu atas Rencana Program dan Kegiatan Tahun 2021 termasuk Biro Riset dan PKM.
+    Tanggal 22 Februari 2021.</p>
                     </div><!-- end details -->
                     <a href="#" class="readmore">Selengkapnya</a>
                 </div><!-- end box -->
