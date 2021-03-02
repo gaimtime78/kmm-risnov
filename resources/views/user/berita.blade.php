@@ -26,7 +26,7 @@
                                 <div class="col-md-6">
                                     <div class="course-box">
                                         <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_02.jpg')}}" alt="" class="img-responsive">
+                                            <img src="{{asset('berita/b2.jpeg')}}" alt="" class="img-responsive">
                                             <div class="magnifier">
                                                  <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
                                             </div>
@@ -34,16 +34,19 @@
                                         <div class="course-details">
                                             <h4>
                                                 <small>Language</small>
-                                                <a href="blog-single.html" title="">Learn English Online with our professional teachers</a>
+                                                <a href="blog-single.html" title="">Penyampaian Catatan Hasil Reviu Program dan Kegiatan Biro RPKM Tahun 2021 oleh SPI UNS</a>
                                             </h4>
-                                            <p>Integer pellentesque justo vitae nisl sagittis, nec tristique erat tincidunt. Nunc varius euismod arcu ut volutpat. Praesent massa ex, sodales nullam. </p>
+                                            <p>Tanggal 19 Februari 2020. SPI ( Satuan Pengawas Internal) UNS Menyampaikan hasil reviu atas Rencana Program dan Kegiatan Tahun 2021 termasuk Biro Riset dan PKM.
+                                            Tanggal 22 Februari 2021.</p>
+                                            
+                                            <a href="#" class="readmore">Selengkapnya</a>
                                         </div><!-- end details -->
                                         <div class="course-footer clearfix">
                                             <div class="pull-left">
                                                 <ul class="list-inline">
                                                     <li><a href="#"><i class="fa fa-user"></i> Amanda</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 14 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 455 Views</a></li>
+                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 22 Feb 2021</a></li>
+                                                    <!-- <li><a href="#"><i class="fa fa-eye"></i> 455 Views</a></li> -->
                                                 </ul>
                                             </div><!-- end left -->
                                         </div><!-- end footer -->

@@ -8,11 +8,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        <br>
                         <div class="logo-normal">
                             <a class="navbar-brand" href="index.html"><img  style="width:100px" src="{{asset('images/logo-uns.png')}}" alt=""></a>
                         </div>
                     </div>
-
+<br>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{route('home')}}">Home</a></li>
@@ -30,13 +31,14 @@
                             <li><a href="{{route('direktorat')}}">Direktorat Inovasi </a></li>
                             <li><a href="{{route('informasi')}}">Informasi</a></li>
                             <li><a href="{{route('pui')}}">PUI</a></li>
-                            <li class="dropdown hassubmenu">
+                            <li><a href="{{route('produk-penelitian')}}">Produk Siap Commercial</a></li>
+                            <!-- <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produk <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('produk-penelitian')}}">Penelitian</a></li>
                                     <li><a href="{{route('produk-pengabdian')}}">Pengabdian</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
                             <li><a href="{{route('agenda')}}">Agenda</a></li>
                         </ul>
