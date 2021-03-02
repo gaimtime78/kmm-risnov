@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Page;
 use Faker\Provider\ar_JO\Company;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('admin/page/create');
+        $category = Category::all();
+        return view('admin/page/create', compact('category'));
     }
 
     /**
@@ -42,12 +44,14 @@ class PageController extends Controller
         $data['content'] = $request->get('content');
         $data['slug'] = Str::slug($data['title'], '-');
         $data['use_post'] = $request->get('use_post');
+        $data['category_id'] = $request->get('post_category');
 
         $page = new Page([
             'title' => $data['title'],
             'content' => $data['content'],
             'slug' => $data['slug'],
-            'use_post' => $data['use_post']
+            'use_post' => $data['use_post'],
+            'category_id' => $data['category_id']
         ]);
 
         $page->save();
@@ -78,7 +82,9 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = Page::find($id);
-        return view('admin.page.edit', compact('page'));
+        $currentCategory = Category::find($page->category_id);
+        $category = Category::all();
+        return view('admin.page.edit', compact('page', 'currentCategory', 'category'));
     }
 
     /**
@@ -95,13 +101,16 @@ class PageController extends Controller
         $data['title']  = $request->get('title');
         $data['content'] = $request->get('content');
         $data['slug'] = Str::slug($data['title'], '-');
-        $data['useAsPost'] = $request->get('useAsPost');
+        $data['use_post'] = $request->get('use_post');
+        $data['category_id'] = $request->get('post_category');
 
         $page->update([
             'title' => $data['title'],
             'content' => $data['content'],
             'slug' => $data['slug'],
-            'use_post' => $data['useAsPost']
+            'use_post' => $data['use_post'],
+            'category_id' => $data['category_id']
+
         ]);
 
         $message = "Laman " . $data['title'] . " berhasil diupdate";

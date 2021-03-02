@@ -1,6 +1,8 @@
 @extends('layout.application')
 
 @section('css')
+    {{-- Select2 CSS --}}
+    <link rel="stylesheet" href="{{ asset('css\select2.min.css') }}">
     <style>
         #actionBtn {
             display: inline;
@@ -74,6 +76,15 @@
                                     placeholder="Masukkan judul laman di sini">
                             </div>
                             <div class="mb-3">
+                                <h5><label for="post_category" class="form-label">Kategori Post</label></h5>
+                                <select class="postCategory form-control" name="post_category" style="max-width: 50%">
+                                    <option></option>
+                                    @foreach ($category as $cat)
+                                        <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
                                 <h5><label for="content" class="form-label">Konten</label></h5>
                                 <textarea name="content" class="form-control" id="content"
                                     placeholder="Masukkan konten laman di sini"></textarea>
@@ -113,6 +124,17 @@
 @endsection
 
 @section('js')
-<script type="text/javascript" src="{{ asset('js\tinyinit.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\select2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\tinyinit.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.postCategory').select2({
+                placeholder: 'Pilih kategori post untuk ditampilkan',
+                minimumInputLength: 3,
+                allowClear: true
+            });
+        });
+    </script>
 @endsection
