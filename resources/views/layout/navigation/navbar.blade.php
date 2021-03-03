@@ -17,7 +17,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 
-                            <!-- <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
@@ -41,11 +41,11 @@
                                 </ul>
                             </li> -->
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
-                            <li><a href="{{route('agenda')}}">Agenda</a></li> -->
+                            <li><a href="{{route('agenda')}}">Agenda</a></li>
 
-                            @foreach($menu as $m)
-                                <li><a href="{{ route('page.blog', [$m->url]) }}">{{$m->menu." - ".$m->sub_menu}}</a></li>
-                            @endforeach
+                            <!-- @foreach($menu as $m)
+                                <li><a href="{{ route('page.blog', 'anu') }}">{{$m->menu." - ".$m->sub_menu}}</a></li>
+                            @endforeach -->
                         </ul>
                     </div>
                 </nav><!-- end navbar -->

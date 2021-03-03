@@ -37,24 +37,6 @@ class UserSeeder extends Seeder
             ]
         ]);
 
-        DB::table('category')->insert([
-            ['category' => 'Produk Komersil',
-            'created_at' => '2020-08-07 14:50:24',
-            'updated_at' => '2020-08-07 14:50:24',
-            ]
-        ]);
-
-        DB::table('post')->insert([
-            [
-              'title' => 'Program matching fund, kegiatan inkubasi dan Hak Kekayaan Intelektual (HKI)',
-              'content'=> 'Kunjungan studi banding dari Lembaga Inovasi dan Pengembangan Universitas Swadaya Gunung Jati Cirebon.',
-              'user_id' => 2,
-              'category_id' => 1,
-              'thumbnail' => 'p1.jpeg',
-              'created_at' => '2020-08-07 14:50:24',
-              'updated_at' => '2020-08-07 14:50:24',
-            ]
-        ]);
 
         DB::table('pages')->insert([
             [
