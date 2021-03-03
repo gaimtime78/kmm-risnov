@@ -111,3 +111,8 @@ Route::get('/produk-penelitian', [App\Http\Controllers\User\ProdukController::cl
 Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::class, 'pengabdian'])->name('produk-pengabdian');
 Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
 Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');
+
+
+// Route::get('/njajal', function () {
+//     dd(\App\Models\Post::find(1)->category[0]->category);
+// });
