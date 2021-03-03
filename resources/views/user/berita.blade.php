@@ -38,7 +38,7 @@
                         <div class="col-md-4">
                             <div class="course-box">
                                 <div class="image-wrap entry">
-                                    <img style="height:200px;object-fit:cover;" src="{{url('uploads/'.$p->thumbnail)}}" alt="" class="img-responsive">
+                                    <img style="height:200px;object-fit:cover;" src="{{asset('storage/'.$p->thumbnail)}}" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <a href="#" title=""><p>See More</p></a>
                                     </div>
@@ -74,6 +74,53 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             {{$post->links()}}
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end boxed -->
+
+                <div class="boxed boxedp4">
+                    <div class="row blog-grid">
+                        <!-- CARD -->
+                        @foreach($latest as $p)
+                        <div class="col-md-4">
+                            <div class="course-box">
+                                <div class="image-wrap entry">
+                                    <img style="height:200px;object-fit:cover;" src="{{asset('storage/'.$p->thumbnail)}}" alt="" class="img-responsive">
+                                    <div class="magnifier">
+                                        <a href="#" title=""><p>See More</p></a>
+                                    </div>
+                                </div><!-- end image-wrap -->
+                                <div  class="course-details">
+                                    <div style="display:grid;grid-template-columns:1fr 1fr;grid-gap:1em;">
+                                        <h4>
+                                            <small>Bertia Terkini</small>
+                                        </h4>
+                                    </div>
+                                    <a href="#" title="">{{$p->title}}</a>
+                                    <div style="height:120px;">
+                                        <div class="clamp">{!! $p->content !!}</div>
+                                    </div>
+                                    
+                                </div><!-- end details -->
+                                <div class="course-footer clearfix">
+                                    <div class="pull-left">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-user"></i> {{$p->user->name}}</a></li>
+                                            <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->created_at)) }}</a></li>
+                                        </ul>
+                                    </div><!-- end left -->
+                                </div><!-- end footer -->
+                            </div><!-- end box -->
+                        </div><!-- end col -->
+                        @endforeach
+                        
+                    </div><!-- end row -->
+
+                    <hr class="invis">
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            {{$latest->links()}}
                         </div><!-- end col -->
                     </div><!-- end row -->
                 </div><!-- end boxed -->
