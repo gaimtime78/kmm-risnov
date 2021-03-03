@@ -38,8 +38,16 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('category')->insert([
-            ['category'=>'Berita Terkini'],
-            ['category'=>'Produk Komersil'],
+            [
+                'category'=>'Berita Terkini',
+                'created_at' => '2020-08-07 14:50:24',
+                'updated_at' => '2020-08-07 14:50:24',
+            ],
+            [
+                'category'=>'Produk Komersil',
+                'created_at' => '2020-08-07 14:50:24',
+                'updated_at' => '2020-08-07 14:50:24',
+            ],
             // ['category'=>'user'],
         ]);
 

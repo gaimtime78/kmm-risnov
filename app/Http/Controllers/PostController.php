@@ -25,18 +25,20 @@ class PostController extends Controller
 	public function store(Request $request){
 		// dd($request->active);
 
-		$filename = Storage::disk('public')->putFile('post', $request->file('thumbnail'));
+		// $filename = Storage::disk('public')->putFile('post', $request->file('thumbnail'));
 		// dd($request->title);
 		$file = $request->file("thumbnail");
 		$filename = time()."_".$file->getClientOriginalName();
 		$tujuan_upload = 'upload/post';
-		$file->move($tujuan_upload,$filename);
+		$file->move(public_path()."/".$tujuan_upload,$filename);
 		
 		$post = new Post([
 			'title' => $request->title,
 			'content' => $request->content,
 			'thumbnail' => $filename,
 			'active' => $request->active === 'on'?true:false,
+			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
+			'overview' => $request->overview,
 			'user_id' => Auth::id(),
 			'created_at' => now(),
 		]);
@@ -44,7 +46,36 @@ class PostController extends Controller
 			$post->category()->sync($request->category);
 		}
 		return redirect(route('admin.post.index'))->with('message', 'berhasil');
+	}
+
+	public function edit ($id) {
+		$post = Post::find($id);
+		return view('admin.post.edit', ['post' => $post, 'category' => Category::all()]);
+	}
+
+	public function update (Request $request, $id){
+		$post = Post::find($id);
+		$dataUpdate = [
+			'title' => $request->title,
+			'content' => $request->content,
+			'overview' => $request->overview,
+			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
+			'active' => $request->active === 'on'?true:false,
+		];
+		$file = $request->file("thumbnail");
+		if($file !== null){
+			$filename = time()."_".$file->getClientOriginalName();
+			$tujuan_upload = 'upload/post';
+			$file->move(public_path()."/".$tujuan_upload,$filename);
+			$dataUpdate['thumbnail'] = $filename;
+		}
 		
+		$post->update($dataUpdate);
+		$post->category()->sync($request->category);
+		$message = "Laman " . $dataUpdate['title'] . " berhasil diupdate";
+
+		return redirect(route('admin.post.index'))->with('message', $message);
+
 	}
 	// public function index()
 	// {

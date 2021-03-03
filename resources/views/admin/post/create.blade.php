@@ -50,10 +50,24 @@
                                         <input type="file" name="thumbnail" id="thumbnail" class="form-control"
                                             placeholder="Masukkan gambar">
                                     </div>
+                                    <div class="mb-3">
+                                        <div style="margin-top:2em;" class="switch">
+                                            <label>
+                                            Tampilkan Thumbnail
+                                            <input name="show_thumbnail" checked="checked" type="checkbox">
+                                            <span class="lever"></span>
+                                            </label>
+                                        </div>
+                                    </div>
                                     <div class="mb-3" id="categoryDD"></div>
                                     <div class="mb-3">
+                                        <h5><label for="overview" class="form-label">Overview</label></h5>
+                                        <textarea name="overview" class="form-control" 
+                                            placeholder="Masukkan overview halaman"></textarea>
+                                    </div>
+                                    <div class="mb-3">
                                         <h5><label for="content" class="form-label">Konten</label></h5>
-                                        <textarea name="content" class="form-control" id="content"
+                                        <textarea name="content" class="form-control" id="content-mce"
                                             placeholder="Masukkan konten laman di sini"></textarea>
                                     </div>
                                     <div class="mb-3">
@@ -94,6 +108,7 @@
         let optList = category.map(v => ({value:v.id, text:v.category}))
 
         //Source code fungsi dibwah ini ada di public/js/multiple-dropdown.js
+        initTinyMCE('#content-mce')
         initMulDrop({
             selector:'#categoryDD',
             name:'category',
