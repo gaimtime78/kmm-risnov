@@ -37,28 +37,34 @@ class UserSeeder extends Seeder
             ]
         ]);
 
-
-        DB::table('pages')->insert([
-            [
-              'title' => 'Produk Komersil',
-              'content'=> '<p>...</p>',
-              'slug' => 'Produk-Komersil',
-              'category_id' => 1,
-              'use_post'=> 1, 
-              'created_at' => '2020-08-07 14:50:24',
-              'updated_at' => '2020-08-07 14:50:24',
-            ]
+        DB::table('category')->insert([
+            ['category'=>'Berita Terkini'],
+            ['category'=>'Produk Komersil'],
+            // ['category'=>'user'],
         ]);
 
-        DB::table('menu')->insert([
-            [
-              'menu' => 'Produk',
-              'sub_menu'=> 'Produk Komersil',
-              'page_id' => 1,
-              'created_at' => '2020-08-07 14:50:24',
-              'updated_at' => '2020-08-07 14:50:24',
-            ]
-        ]);
+
+        // DB::table('pages')->insert([
+        //     [
+        //       'title' => 'Produk Komersil',
+        //       'content'=> '<p>...</p>',
+        //       'slug' => 'Produk-Komersil',
+        //       'category_id' => 1,
+        //       'use_post'=> 1, 
+        //       'created_at' => '2020-08-07 14:50:24',
+        //       'updated_at' => '2020-08-07 14:50:24',
+        //     ]
+        // ]);
+
+        // DB::table('menu')->insert([
+        //     [
+        //       'menu' => 'Produk',
+        //       'sub_menu'=> 'Produk Komersil',
+        //       'page_id' => 1,
+        //       'created_at' => '2020-08-07 14:50:24',
+        //       'updated_at' => '2020-08-07 14:50:24',
+        //     ]
+        // ]);
 
         $routeCollection = Route::getRoutes();
         foreach ($routeCollection as $value) {

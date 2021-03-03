@@ -12,6 +12,9 @@ class BeritaController extends Controller
         $post = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category', 'Berita Terkini');
         })->paginate(9);
-        return view('user.berita', ['post' => $post]);
+        $latest = Post::where('active', 1)->whereHas('category', function($v){
+            $v->where('category','!=', 'Berita Terkini');
+        })->orderBy('created_at','DESC')->paginate(9);
+        return view('user.berita', ['post' => $post,'latest' => $latest]);
     }
 }

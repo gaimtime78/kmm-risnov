@@ -32,20 +32,12 @@
                             <li><a href="{{route('direktorat')}}">Direktorat Inovasi </a></li>
                             <li><a href="{{route('informasi')}}">Informasi</a></li>
                             <li><a href="{{route('pui')}}">PUI</a></li>
-                            <li><a href="{{route('produk-penelitian')}}">Produk Siap Commercial</a></li>
-                            <!-- <li class="dropdown hassubmenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produk <span class="fa fa-angle-down"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{route('produk-penelitian')}}">Penelitian</a></li>
-                                    <li><a href="{{route('produk-pengabdian')}}">Pengabdian</a></li>
-                                </ul>
-                            </li> -->
+                            <li><a href="{{route('produk-komersil')}}">Produk Siap Commercial</a></li>
+                         
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
                             <li><a href="{{route('agenda')}}">Agenda</a></li>
 
-                            <!-- @foreach($menu as $m)
-                                <li><a href="{{ route('page.blog', 'anu') }}">{{$m->menu." - ".$m->sub_menu}}</a></li>
-                            @endforeach -->
+                          
                         </ul>
                     </div>
                 </nav><!-- end navbar -->

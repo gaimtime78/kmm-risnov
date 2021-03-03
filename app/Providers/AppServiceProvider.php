@@ -26,7 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('menu', \App\Models\Menu::get());
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
     }
