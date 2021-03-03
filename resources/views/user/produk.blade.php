@@ -38,7 +38,7 @@
                         <div class="col-md-4">
                             <div class="course-box">
                                 <div class="image-wrap entry">
-                                    <img style="height:200px;object-fit:cover;" src="{{asset('storage/'.$p->thumbnail)}}" alt="" class="img-responsive">
+                                    <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <a href="#" title=""><p>See More</p></a>
                                     </div>

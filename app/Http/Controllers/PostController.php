@@ -27,6 +27,10 @@ class PostController extends Controller
 
 		$filename = Storage::disk('public')->putFile('post', $request->file('thumbnail'));
 		// dd($request->title);
+		$file = $request->file("thumbnail");
+		$filename = time()."_".$file->getClientOriginalName();
+		$tujuan_upload = 'upload/post';
+		$file->move($tujuan_upload,$filename);
 		
 		$post = new Post([
 			'title' => $request->title,
