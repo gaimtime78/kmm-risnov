@@ -40,7 +40,7 @@
                                 <div class="image-wrap entry">
                                     <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
                                     <div class="magnifier">
-                                        <a href="#" title=""><p>See More</p></a>
+                                        <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>See More</p></a>
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div  class="course-details">
@@ -49,7 +49,7 @@
                                             <small>Produk Komersil</small>
                                         </h4>
                                     </div>
-                                    <a href="#" title="">{{$p->title}}</a>
+                                    <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                                     <div style="height:120px;">
                                         <div class="clamp">{!! $p->content !!}</div>
                                     </div>

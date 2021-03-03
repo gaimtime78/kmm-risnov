@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                            <h3>Detail Berita</h3>
+                            <h3>POST</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -25,43 +25,30 @@
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
                                     <div class="blog-meta">
-                                        <div class="tags-widget">   
+                                        <div class="tags-widget">
                                             <ul class="list-inline">
-                                                <li><a href="#">Kategori beritanya</a></li>
-                                                
+                                                @foreach($post->category()->pluck('category')->toArray() as $cc)
+                                                    <li><a href="#">{{$cc}}</a></li>
+                                                @endforeach
                                             </ul>
                                         </div>
-                                        <h3>Judul Berita</h3>
+                                        <h3>{{$post->title}}</h3>
                                         <ul class="list-inline">
-                                            <li><i class="fa fa-clock-o"></i> Diupload pada: Waktunya ngupload</li><br>
-                                            <li><i class="fa fa-user"></i><span> Penulis: </span> <a href="#">Siapa namanya</a></li>
+                                            <li><i class="fa fa-clock-o"></i> Diupload pada: {{$post->created_at}}</li><br>
+                                            <li><i class="fa fa-user"></i><span> Penulis: </span> <a href="#">{{$post->user->name}}</a></li>
                                         </ul>
                                     </div><!-- end blog-meta -->
 
                                     <div class="blog-media">
-                                    <img src="{{asset('design/upload/blog_01.jpg')}}" alt="" class="img-responsive img-rounded">
+                                    <img src="{{asset('upload/post/'.$post->thumbnail)}}" alt="" class="img-responsive img-rounded">
                                     </div><!-- end media -->
 
                                     <div class="blog-desc-big">
-                                        <p class="lead">Kalimat Pembuka</p>
-                                        <p>Integer eu urna sit amet dolor fringilla vulputate. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
-
-                                        <p> Cras eu lacus et nulla dignissim <a href="#">ultrices</a>. Duis ullamcorper finibus quam, sed convallis massa pharetra nec. Duis nec molestie dolor. Nam augue neque, efficitur vel lacus sit amet, consequat pharetra massa. Proin nunc magna, congue vitae justo ut, dignissim dapibus enim. Integer sollicitudin lacus a iaculis molestie. Donec quis consequat erat. Cras vitae consequat sem. Integer eleifend purus congue, gravida sem eu, pharetra sapien. Nunc venenatis, lacus id pretium volutpat, augue eros accumsan leo, eu condimentum velit nulla nec sem. Donec interdum bibendum eros, ut facilisis nunc malesuada id. Nulla quis ex non magna sollicitudin sodales vestibulum nec massa. Nullam ut nibh quis est aliquet viverra mattis eu ligula. Pellentesque dui mi, ultricies ut velit id, iaculis lacinia est. </p>
-
-                                        <p>Integer eu urna <a href="#">sit amet dolor fringilla vulputate</a>. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
-
-                                        <p> Quisque at vestibulum neque. Duis eget sapien ac quam interdum euismod. Mauris blandit tincidunt neque, vitae vestibulum tortor dapibus non. Nunc eu sollicitudin diam. Proin vel erat vitae augue eleifend convallis. Curabitur ut risus id ex finibus rhoncus sit amet a libero. Aenean a turpis eget nisi posuere tempor. Aliquam iaculis sem eros. Fusce nec erat eget sem aliquam congue quis vitae mi. Praesent varius dictum cursus. </p>
-
+                                        <p class="lead">{{$post->overview}}</p>
+                                        <p>{{$post->content}}</p>
                                         <hr class="invis">
 
-                                        <div class="tags-widget">   
-                                            <ul class="list-inline">
-                                                <li><a href="#">course</a></li>
-                                                <li><a href="#">web design</a></li>
-                                                <li><a href="#">development</a></li>
-                                                <li><a href="#">language</a></li>
-                                            </ul>
-                                        </div><!-- end list-widget -->
+                                        <!-- end list-widget -->
 
                                     </div><!-- end desc -->
                                 </div><!-- end blog -->

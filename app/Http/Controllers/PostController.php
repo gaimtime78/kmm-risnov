@@ -77,6 +77,16 @@ class PostController extends Controller
 		return redirect(route('admin.post.index'))->with('message', $message);
 
 	}
+
+	public function detail(Request $request, $slug)
+	{
+		$post = POST::where('title',str_replace('-', ' ', $slug))->first();
+		if($post){
+			return view('user.detail-berita',['post' => $post]);
+		}
+		return abort(404);
+		
+	}
 	// public function index()
 	// {
 	// 	$data = DB::table('post')
