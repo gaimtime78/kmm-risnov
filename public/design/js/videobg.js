@@ -60,9 +60,9 @@ this.player.seekTo(0)}}}})(void 0);
                 "loop": true,           //Loop when it reaches the end
                 "autoplay": true,       //Autoplay at start
                 "muted": true,          //Muted at start
-                "mp4":"design/upload/preview.mp4" ,     //Path to video mp4 format
+                "mp4":"design/upload/videoplayback.mp4" ,     //Path to video mp4 format
                 "ogg":"design/upload/preview.ogg" ,     //Path to video ogg format
-                "webm":"design/upload/preview.webm" ,     //Path to video webm format
+                "webm":"design/upload/videoplayback.webm" ,     //Path to video webm format
                 "video_ratio": 1.7778,              // width/height -> If none provided sizing of the video is set to adjust
                 "fallback_image": "design/images/gallary/1.jpg",   //Fallback image path
                 "priority": "html5"             //Priority for html5 (if set to flash and tested locally will give a flash security error)

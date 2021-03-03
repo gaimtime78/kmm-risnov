@@ -13,7 +13,7 @@
                             <a class="navbar-brand" href="index.html"><img  style="width:100px" src="{{asset('images/logo-uns.png')}}" alt=""></a>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 
