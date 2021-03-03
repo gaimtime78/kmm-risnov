@@ -32,7 +32,7 @@
                             <li><a href="{{route('direktorat')}}">Direktorat Inovasi </a></li>
                             <li><a href="{{route('informasi')}}">Informasi</a></li>
                             <li><a href="{{route('pui')}}">PUI</a></li>
-                            <li><a href="{{route('produk-penelitian')}}">Produk Siap Commercial</a></li>
+                            <li><a href="{{route('produk-komersial')}}">Produk Siap Commercial</a></li>
                          
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
                             <li><a href="{{route('agenda')}}">Agenda</a></li>
