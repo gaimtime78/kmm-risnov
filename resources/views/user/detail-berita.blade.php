@@ -25,11 +25,16 @@
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
                                     <div class="blog-meta">
-                                        <small><a href="#">Kategorinya</a></small>
+                                        <div class="tags-widget">   
+                                            <ul class="list-inline">
+                                                <li><a href="#">Kategori beritanya</a></li>
+                                                
+                                            </ul>
+                                        </div>
                                         <h3>Judul Berita</h3>
                                         <ul class="list-inline">
-                                            <li>Waktu upload</li>
-                                            <li><span>ditulis oleh</span> <a href="#">Siapa</a></li>
+                                            <li><i class="fa fa-clock-o"></i> Diupload pada: Waktunya ngupload</li><br>
+                                            <li><i class="fa fa-user"></i><span> Penulis: </span> <a href="#">Siapa namanya</a></li>
                                         </ul>
                                     </div><!-- end blog-meta -->
 
@@ -42,10 +47,6 @@
                                         <p>Integer eu urna sit amet dolor fringilla vulputate. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
 
                                         <p> Cras eu lacus et nulla dignissim <a href="#">ultrices</a>. Duis ullamcorper finibus quam, sed convallis massa pharetra nec. Duis nec molestie dolor. Nam augue neque, efficitur vel lacus sit amet, consequat pharetra massa. Proin nunc magna, congue vitae justo ut, dignissim dapibus enim. Integer sollicitudin lacus a iaculis molestie. Donec quis consequat erat. Cras vitae consequat sem. Integer eleifend purus congue, gravida sem eu, pharetra sapien. Nunc venenatis, lacus id pretium volutpat, augue eros accumsan leo, eu condimentum velit nulla nec sem. Donec interdum bibendum eros, ut facilisis nunc malesuada id. Nulla quis ex non magna sollicitudin sodales vestibulum nec massa. Nullam ut nibh quis est aliquet viverra mattis eu ligula. Pellentesque dui mi, ultricies ut velit id, iaculis lacinia est. </p>
-
-                                        <blockquote class="text-center">
-                                            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                                        </blockquote>
 
                                         <p>Integer eu urna <a href="#">sit amet dolor fringilla vulputate</a>. Sed diam nunc, pellentesque sed lobortis non, tincidunt et sem. Sed sollicitudin elementum mi eget lobortis. Aliquam molestie rhoncus nisl, vitae molestie leo imperdiet ac. Aliquam diam est, aliquam vitae tristique nec, pretium a libero. Vivamus tempor sed turpis sit amet malesuada.</p>
 
