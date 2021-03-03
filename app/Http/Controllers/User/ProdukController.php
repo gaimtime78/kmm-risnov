@@ -22,6 +22,6 @@ class ProdukController extends Controller
         $produk = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category', 'Produk Komersil');
         })->paginate(9);
-        return view('user.berita', ['post' => $produk]);
+        return view('user.produk', ['produk' => $produk]);
     }
 }

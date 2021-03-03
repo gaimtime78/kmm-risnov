@@ -93,7 +93,7 @@
                                 <div  class="course-details">
                                     <div style="display:grid;grid-template-columns:1fr 1fr;grid-gap:1em;">
                                         <h4>
-                                            <small>Bertia Terkini</small>
+                                            <small>Post</small>
                                         </h4>
                                     </div>
                                     <a href="#" title="">{{$p->title}}</a>
