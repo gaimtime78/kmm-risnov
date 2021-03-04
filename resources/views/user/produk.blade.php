@@ -56,7 +56,7 @@
                                     </div>
                                     <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                                     <div style="height:120px;">
-                                        <div class="clamp">{!! $p->content !!}</div>
+                                        <div class="clamp">{{$p->overview}}</div>
                                     </div>
                                     
                                 </div><!-- end details -->
