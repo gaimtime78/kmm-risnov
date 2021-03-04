@@ -23,10 +23,6 @@ class PostController extends Controller
 	}
 
 	public function store(Request $request){
-		// dd($request->active);
-
-		// $filename = Storage::disk('public')->putFile('post', $request->file('thumbnail'));
-		// dd($request->title);
 		$file = $request->file("thumbnail");
 		$filename = time()."_".$file->getClientOriginalName();
 		$tujuan_upload = 'upload/post';
@@ -39,6 +35,7 @@ class PostController extends Controller
 			'active' => $request->active === 'on'?true:false,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
 			'overview' => $request->overview,
+			'published_at' => $request->published_at,
 			'user_id' => Auth::id(),
 			'created_at' => now(),
 		]);
@@ -61,6 +58,7 @@ class PostController extends Controller
 			'overview' => $request->overview,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
 			'active' => $request->active === 'on'?true:false,
+			'published_at' => $request->published_at,
 		];
 		$file = $request->file("thumbnail");
 		if($file !== null){
@@ -72,74 +70,17 @@ class PostController extends Controller
 		
 		$post->update($dataUpdate);
 		$post->category()->sync($request->category);
-		$message = "Laman " . $dataUpdate['title'] . " berhasil diupdate";
+		$message = "Post " . $dataUpdate['title'] . " berhasil diupdate";
 
 		return redirect(route('admin.post.index'))->with('message', $message);
 
 	}
 
-	public function detail(Request $request, $slug)
-	{
-		$post = POST::where('title',str_replace('-', ' ', $slug))->first();
+	public function detail(Request $request, $slug){
+		$post = POST::where('title',str_replace('-', ' ', $slug))->where('active', true)->first();
 		if($post){
 			return view('user.detail-berita',['post' => $post]);
 		}
 		return abort(404);
-		
 	}
-	// public function index()
-	// {
-	// 	$data = DB::table('post')
-	// 		->orderBy('created_at', 'DESC')
-	// 		->get();
-	// 	return view('admin.post.index', ['data' => $data]);
-	// }
-
-	// public function store(Request $request)
-	// {
-	// 	$request->validate([
-	// 		'title' => 'required'
-	// 	]);
-	// 	DB::table('post')
-	// 		->insert([
-	// 			'title' => $request->input('title'),
-	// 			'content' => $request->input('content'),
-	// 			'user_id' => Auth::id(),
-	// 			'created_at' => Carbon::now(),
-	// 			'updated_at' => Carbon::now(),
-	// 		]);
-	// 	return redirect()->route('admin.post.index');
-	// }
-
-	// public function edit($postId)
-	// {
-	// 	$data = DB::table('post')
-	// 		->where('id', '=', $postId)
-	// 		->limit(1)
-	// 		->get();
-	// 	return view('admin.post.edit', ['data' => $data[0]]);
-	// }
-
-	// public function update(Request $request, $postId)
-	// {
-	// 	$request->validate([
-	// 		'title' => 'required'
-	// 	]);
-	// 	DB::table('post')
-	// 		->where('id', '=', $postId)
-	// 		->update([
-	// 			'title' => $request->input('title'),
-	// 			'content' => $request->input('content'),
-	// 			'user_id' => Auth::id(),
-	// 			'updated_at' => Carbon::now(),
-	// 		]);
-	// 	return redirect()->route('admin.post.index');
-	// }
-
-	// public function delete(Request $request, $postId)
-	// {
-	// 	DB::table('post')
-	// 		->delete($postId);
-	// 	return redirect()->route('admin.post.index');
-	// }
 }

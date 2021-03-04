@@ -21,17 +21,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="tagline-message page-title text-center">
+                        <!-- <div class="tagline-message page-title text-center">
                             <h3>Berita Terkini</h3>
-                        </div>
-                    </div><!-- end col -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </section><!-- end section -->
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <section class="section gb nopadtop">
             <div class="container">
                 <div class="boxed boxedp4">
+                    <div style="margin-bottom:3em;" class="tagline-message page-title text-center">
+                        <h3>BERITA TERKINI</h3>
+                    </div>
                     <div class="row blog-grid">
                         <!-- CARD -->
                         @foreach($post as $p)
@@ -40,7 +43,7 @@
                                 <div class="image-wrap entry">
                                     <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
                                     <div class="magnifier">
-                                        <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>See More</p></a>
+                                        <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>Selengkapnya</p></a>
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div  class="course-details">
@@ -59,7 +62,7 @@
                                     <div class="pull-left">
                                         <ul class="list-inline">
                                             <li><a href="#"><i class="fa fa-user"></i> {{$p->user->name}}</a></li>
-                                            <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->created_at)) }}</a></li>
+                                            <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</a></li>
                                         </ul>
                                     </div><!-- end left -->
                                 </div><!-- end footer -->
@@ -77,18 +80,21 @@
                         </div><!-- end col -->
                     </div><!-- end row -->
                     
-                    <div class="row" style="margin-bottom:5px">
-                        <div class="col-md-12 ">
-                            <h2><strong>POSTINGAN TERBARU</strong></h2>
-                        </div><!-- end col -->
-                    </div>
+                    
 
                     <div class="row">
                         <div class="col-md-8">
+                            <div class="row" style="margin-bottom:5px">
+                                <div class="col-md-12 ">
+                                    <h3><strong>POSTINGAN TERBARU</strong></h3>
+                                </div><!-- end col -->
+                            </div>
                             @foreach($latest as $l)
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
                                     <div class="blog-meta">
+                                        
+                                        <h4><a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $l->title)])}}" title="">{{$l->title}}</a></h4>
                                         <div class="tags-widget">
                                             <ul class="list-inline">
                                                 @foreach($l->category()->pluck('category')->toArray() as $cc)
@@ -96,15 +102,14 @@
                                                 @endforeach
                                             </ul>
                                         </div>
-                                        <h3><a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $l->title)])}}" title="">{{$l->title}}</a></h3>
                                         <ul class="list-inline">
-                                            <li>{{$l->created_at}}</li>
+                                            <li>{{date("d M Y", strtotime($p->published_at))}}</li>
                                             <li><span>ditulis oleh</span> <a href="#">{{$l->user->name}}</a></li>
                                         </ul>
                                     </div><!-- end blog-meta -->
 
-                                    <div class="blog-media">
-                                        <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $l->title)])}}" title=""><img src="{{asset('upload/post/'.$l->thumbnail)}}" alt="" class="img-responsive img-rounded"></a>
+                                    <div style="height:200px;overflow:hidden;display:flex;align-items:center;" class="blog-media">
+                                        <a style="width:100%;" href="{{route('detail-post',['slug'=>str_replace(' ', '-', $l->title)])}}" title=""><img style="object-fit:cover;" src="{{asset('upload/post/'.$l->thumbnail)}}" alt="" class="img-responsive img-rounded"></a>
                                     </div><!-- end media -->
 
                                     <div class="blog-desc-big">
@@ -129,9 +134,12 @@
                                     <img src="upload/banner.jpeg" alt="" class="img-responsive img-rounded">
                                 </div>
                             </div> -->
-
+                            <div class="row" style="margin-bottom:5px">
+                                <div class="col-md-12 ">
+                                    <h3><strong>KATEGORI</strong></h3>
+                                </div><!-- end col -->
+                            </div>
                             <div class="widget clearfix">
-                                <h3 class="widget-title">Kategori</h3>
                                 <div class="tags-widget">
                                     <ul class="list-inline">
                                         @foreach($category as $c)

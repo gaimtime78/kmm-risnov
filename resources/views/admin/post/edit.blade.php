@@ -48,11 +48,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <h5><label for="title" class="form-label">Thumbnail</label></h5>
-																				<div style="width:400px">
-																					<img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$post->thumbnail)}}" alt="" class="img-responsive">
-																				</div>
-																					<input type="file" name="thumbnail" id="thumbnail" class="form-control"
-                                            placeholder="Masukkan gambar">
+                                        <div style="width:400px"><img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$post->thumbnail)}}" alt="" class="img-responsive"></div>
+                                        <input type="file" name="thumbnail" id="thumbnail" class="form-control"placeholder="Masukkan gambar">
                                     </div>
                                     <div class="mb-3">
                                         <div style="margin-top:2em;" class="switch">
@@ -73,6 +70,10 @@
                                         <h5><label for="content" class="form-label">Konten</label></h5>
                                         <textarea name="content" class="form-control" id="content-mce"
                                             placeholder="Masukkan konten laman di sini">{{$post->content}}</textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5><label for="content" class="form-label">Tanggal Publikasi</label></h5>
+                                        <div style="width:200px;"><input value="{{$post->published_at}}" type="date" name="published_at"></div>
                                     </div>
                                     <div class="mb-3">
                                         <div style="margin-top:2em;" class="switch">

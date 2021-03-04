@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                            <h3>POST</h3>
+                            <!-- <h3>POST</h3> -->
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -21,10 +21,11 @@
             <div class="container">
                 <div class="boxed">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="padding-right:2em;padding-left:2em;">
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
                                     <div class="blog-meta">
+                                        <h3>{{$post->title}}</h3>
                                         <div class="tags-widget">
                                             <ul class="list-inline">
                                                 @foreach($post->category()->pluck('category')->toArray() as $cc)
@@ -32,10 +33,9 @@
                                                 @endforeach
                                             </ul>
                                         </div>
-                                        <h3>{{$post->title}}</h3>
                                         <ul class="list-inline">
-                                            <li><i class="fa fa-clock-o"></i> Diupload pada: {{$post->created_at}}</li><br>
-                                            <li><i class="fa fa-user"></i><span> Penulis: </span> <a href="#">{{$post->user->name}}</a></li>
+                                            <li><i class="fa fa-clock-o"></i> Dipublikasikan pada : {{date("d M Y", strtotime($post->published_at))}}</li><br>
+                                            <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$post->user->name}}</a></li>
                                         </ul>
                                     </div><!-- end blog-meta -->
 
@@ -44,8 +44,8 @@
                                     </div><!-- end media -->
 
                                     <div class="blog-desc-big">
-                                        <p class="lead">{{$post->overview}}</p>
-                                        <p>{{$post->content}}</p>
+                                        <!-- <p class="lead">{{$post->overview}}</p> -->
+                                        <p>{!! $post->content !!}</p>
                                         <hr class="invis">
 
                                         <!-- end list-widget -->

@@ -22,6 +22,7 @@ class CreatePostTable extends Migration
             $table->string('thumbnail')->nullable();
             $table->boolean('active')->default(false);
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->date('published_at')->useCurrent();
             $table->timestamps();
         });
     }

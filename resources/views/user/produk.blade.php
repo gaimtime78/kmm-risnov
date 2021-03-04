@@ -21,9 +21,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="tagline-message page-title text-center">
+                        <!-- <div class="tagline-message page-title text-center">
                             <h3>Produk Komersil</h3>
-                        </div>
+                        </div> -->
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
@@ -33,6 +33,11 @@
             <div class="container">
                 <div class="boxed boxedp4">
                     <div class="row blog-grid">
+                        <div style="margin-bottom:3em;" class="col-md-12">
+                            <div class="tagline-message page-title text-center">
+                                <h3>Produk Komersil</h3>
+                            </div>
+                        </div><!-- end col -->
                         <!-- CARD -->
                         @foreach($produk as $p)
                         <div class="col-md-4">
@@ -40,7 +45,7 @@
                                 <div class="image-wrap entry">
                                     <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
                                     <div class="magnifier">
-                                        <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>See More</p></a>
+                                        <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>Selengkapnya</p></a>
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div  class="course-details">
@@ -59,7 +64,7 @@
                                     <div class="pull-left">
                                         <ul class="list-inline">
                                             <li><a href="#"><i class="fa fa-user"></i> {{$p->user->name}}</a></li>
-                                            <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->created_at)) }}</a></li>
+                                            <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</a></li>
                                         </ul>
                                     </div><!-- end left -->
                                 </div><!-- end footer -->

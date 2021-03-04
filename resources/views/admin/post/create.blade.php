@@ -34,8 +34,8 @@
                                 <b>{{ session('message') }}</b>
                             </div>
                         @endif
-                        <div class="col s12 m12 l12">
-                            <div class="card-panel">
+                        <div style="padding:1em;" class="col s12 m12 l12">
+                            <div style="padding:2em;" class="card-panel">
                                 <h1 class="mb-5 mt-5">Buat Post</h1>
                                 <div class="divider" style="margin-bottom:2em;"></div>
                                 <form action="{{ route('admin.post.store') }}" method="post" enctype="multipart/form-data">
@@ -71,14 +71,19 @@
                                             placeholder="Masukkan konten laman di sini"></textarea>
                                     </div>
                                     <div class="mb-3">
+                                        <h5><label for="content" class="form-label">Tanggal Publikasi</label></h5>
+                                        <div style="width:200px;"><input type="date" name="published_at"></div>
+                                    </div>
+                                    <div class="mb-3">
                                         <div style="margin-top:2em;" class="switch">
                                             <label>
-                                            active
+                                            Active
                                             <input name="active" checked="checked" type="checkbox">
                                             <span class="lever"></span>
                                             </label>
                                         </div>
                                     </div>
+                                    
                                     <button style="margin-top:2em;" type="submit" class="waves-effect waves-light btn primary darken-1">Simpan</button>
                                 </form>
                             </div>
