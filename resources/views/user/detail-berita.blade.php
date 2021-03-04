@@ -38,10 +38,11 @@
                                             <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$post->user->name}}</a></li>
                                         </ul>
                                     </div><!-- end blog-meta -->
-
+                                    @if($post->show_thumbnail)
                                     <div class="blog-media">
-                                    <img src="{{asset('upload/post/'.$post->thumbnail)}}" alt="" class="img-responsive img-rounded">
+                                        <img src="{{asset('upload/post/'.$post->thumbnail)}}" alt="" class="img-responsive img-rounded">
                                     </div><!-- end media -->
+                                    @endif
 
                                     <div class="blog-desc-big">
                                         <!-- <p class="lead">{{$post->overview}}</p> -->

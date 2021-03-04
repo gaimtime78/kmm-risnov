@@ -55,7 +55,7 @@
                                         <div style="margin-top:2em;" class="switch">
                                             <label>
                                             Tampilkan Thumbnail
-                                            <input name="show_thumbnail" checked="{{$post->show_thumbnail?'checked':''}}" type="checkbox">
+                                            <input name="show_thumbnail" {{$post->show_thumbnail?'checked':''}} type="checkbox">
                                             <span class="lever"></span>
                                             </label>
                                         </div>
@@ -79,7 +79,7 @@
                                         <div style="margin-top:2em;" class="switch">
                                             <label>
                                             active
-                                            <input name="active" checked="checked" type="checkbox">
+                                            <input name="active" {{$post->active?'checked':''}} type="checkbox">
                                             <span class="lever"></span>
                                             </label>
                                         </div>
