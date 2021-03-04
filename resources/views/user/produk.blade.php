@@ -35,7 +35,7 @@
                     <div class="row blog-grid">
                         <div style="margin-bottom:3em;" class="col-md-12">
                             <div class="tagline-message page-title text-center">
-                                <h3>Produk Komersil</h3>
+                                <h3>PRODUK KOMERSIL</h3>
                             </div>
                         </div><!-- end col -->
                         <!-- CARD -->
@@ -51,7 +51,7 @@
                                 <div  class="course-details">
                                     <div style="display:grid;grid-template-columns:1fr 1fr;grid-gap:1em;">
                                         <h4>
-                                            <small>PRODUK KOMERSIL</small>
+                                            <small>Produk Komersil</small>
                                         </h4>
                                     </div>
                                     <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
