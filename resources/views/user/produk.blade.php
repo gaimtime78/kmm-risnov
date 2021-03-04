@@ -51,7 +51,7 @@
                                 <div  class="course-details">
                                     <div style="display:grid;grid-template-columns:1fr 1fr;grid-gap:1em;">
                                         <h4>
-                                            <small>Produk Komersil</small>
+                                            <small>PRODUK KOMERSIL</small>
                                         </h4>
                                     </div>
                                     <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
