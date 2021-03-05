@@ -57,22 +57,6 @@
     <!-- End Page Loading -->
 
     @yield('content')
-    <!-- Floating Action Button -->
-    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
-        <a class="btn-floating btn-large">
-            <i class="mdi-action-stars"></i>
-        </a>
-        <ul>
-            <li><a href="css-helpers.htm" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a>
-            </li>
-            <li><a href="app-widget.htm" class="btn-floating yellow darken-1"><i
-                        class="large mdi-device-now-widgets"></i></a></li>
-            <li><a href="app-calendar.htm" class="btn-floating green"><i
-                        class="large mdi-editor-insert-invitation"></i></a></li>
-            <li><a href="app-email.htm" class="btn-floating blue"><i class="large mdi-communication-email"></i></a></li>
-        </ul>
-    </div>
-    <!-- Floating Action Button -->
 
     <!--end container-->
     </div>
@@ -114,6 +98,7 @@
     ================================================ -->
 
     <!--materialize js-->
+    <script type="text/javascript" src="{{ asset('js\plugins\jquery-1.11.2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js\materialize.min.js') }}"></script>
     <!--scrollbar-->
     <script type="text/javascript" src="{{ asset('js\plugins\perfect-scrollbar\perfect-scrollbar.min.js') }}"></script>

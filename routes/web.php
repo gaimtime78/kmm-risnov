@@ -71,23 +71,15 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/delete/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
         });
 
-        //
-        Route::name('admin.')->group(function () {
-            Route::get('/admin/post', [PostController::class, 'index'])->name('post.index');
-            Route::get('/admin/post/create', [PostController::class, 'create'])->name('post.create');
-            Route::post('/admin/post', [PostController::class, 'store'])->name('post.store');
-            Route::get('/admin/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
-            Route::put('/admin/post/{id}', [PostController::class, 'update'])->name('post.update');
-            Route::delete('/admin/post/{id}', [PostController::class, 'delete'])->name('post.delete');
+        Route::group(['prefix' => '/post'], function(){
+            Route::get('/', [PostController::class, 'index'])->name('post.index');
+            Route::get('/category/{id}', [PostController::class, 'category'])->name('post.category');
+            Route::get('/create', [PostController::class, 'create'])->name('post.create');
+            Route::post('/store', [PostController::class, 'store'])->name('post.store');
+            Route::get('/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+            Route::put('/{id}', [PostController::class, 'update'])->name('post.update');
+            Route::delete('/{id}', [PostController::class, 'delete'])->name('post.delete');
         });
-
-        Route::get('/post', [PostController::class, 'index'])->name('post.index');
-        Route::get('/post/category/{id}', [PostController::class, 'category'])->name('post.category');
-        Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
-        Route::post('/post', [PostController::class, 'store'])->name('post.store');
-        Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
-        Route::put('/post/{id}', [PostController::class, 'update'])->name('post.update');
-        Route::delete('/post/{id}', [PostController::class, 'delete'])->name('post.delete');
 
         Route::group(['prefix' => '/page'], function(){
             Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
@@ -111,3 +103,10 @@ Route::get('/produk-penelitian', [App\Http\Controllers\User\ProdukController::cl
 Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::class, 'pengabdian'])->name('produk-pengabdian');
 Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
 Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');
+Route::get('/produk-komersial', [App\Http\Controllers\User\ProdukController::class, 'index'])->name('produk-komersial');
+Route::get('/post/{slug}', [App\Http\Controllers\PostController::class, 'detail'])->name('detail-post');
+
+
+// Route::get('/njajal', function () {
+//     dd(\App\Models\Post::find(1)->category[0]->category);
+// });

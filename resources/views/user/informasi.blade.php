@@ -1,7 +1,22 @@
 @extends('layout.user')
 
 @section('css')
+<style>
+#chart1 {
+  width: 100%;
+  height: 500px;
+}
 
+#chart2 {
+  width: 100%;
+  height: 500px;
+}
+
+#chart3 {
+  width: 100%;
+  height: 500px;
+}
+</style>
 @endsection
 
 @section('content')
@@ -21,16 +36,11 @@
             <div class="container">
                 <div class="boxed boxedp4">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="row blog-grid">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_02.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
+                                        
                                         <div class="course-details">
                                             <h4>
                                                 <small>Language</small>
@@ -38,26 +48,15 @@
                                             </h4>
                                             <p>Integer pellentesque justo vitae nisl sagittis, nec tristique erat tincidunt. Nunc varius euismod arcu ut volutpat. Praesent massa ex, sodales nullam. </p>
                                         </div><!-- end details -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Amanda</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 14 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 455 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
+                                        <div class="image-wrap entry">
+                                        <div id="chart1"></div>
+                                        </div><!-- end image-wrap -->
                                     </div><!-- end box -->
                                 </div><!-- end col -->
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_03.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
+                                        
                                         <div class="course-details">
                                             <h4>
                                                 <small>Tips & Tricks</small>
@@ -65,6 +64,9 @@
                                             </h4>
                                             <p>Duis id aliquam metus, et consectetur risus. Praesent dictum augue id velit mattis aliquet. Aliquam faucibus sollicitudin libero, sit amet massa nunc. </p>
                                         </div><!-- end details -->
+                                        <div class="image-wrap entry">
+                                        <div id="chart2"></div>
+                                        </div><!-- end image-wrap -->
                                         <div class="course-footer clearfix">
                                             <div class="pull-left">
                                                 <ul class="list-inline">
@@ -77,14 +79,8 @@
                                     </div><!-- end box -->
                                 </div><!-- end col -->
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_01.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
                                         <div class="course-details">
                                             <h4>
                                                 <small>Tips & Tricks</small>
@@ -92,6 +88,9 @@
                                             </h4>
                                             <p>Nulla nisl velit, lobortis vel luctus eu, rutrum ac elit. Donec nec condimentum libero. Maecenas rutrum sit amet mi vel hendrerit. Praesent tempor id. </p>
                                         </div><!-- end details -->
+                                        <div class="image-wrap entry">
+                                        <div id="chart3"></div>
+                                        </div><!-- end image-wrap -->
                                         <div class="course-footer clearfix">
                                             <div class="pull-left">
                                                 <ul class="list-inline">
@@ -104,140 +103,6 @@
                                     </div><!-- end box -->
                                 </div><!-- end col -->
 
-                                <div class="col-md-6">
-                                    <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_05.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
-                                        <div class="course-details">
-                                            <h4>
-                                                <small>Discounts</small>
-                                                <a href="blog-single.html" title="">When you join our community, you will get discount</a>
-                                            </h4>
-                                            <p>Praesent dictum ullamcorper erat, a commodo elit aliquam vitae. Integer id quam ut dolor ultricies faucibus. Aenean auctor metus id mauris massa nunc. </p>
-                                        </div><!-- end details -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Amanda</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 11 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 441 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
-                                    </div><!-- end box -->
-                                </div><!-- end col -->
-
-                                <div class="col-md-6">
-                                    <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_06.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
-                                        <div class="course-details">
-                                            <h4>
-                                                <small>Tips & Tricks</small>
-                                                <a href="blog-single.html" title="">Best Trending Topics for ECommerce Solutions</a>
-                                            </h4>
-                                            <p>Quisque ultrices quam vitae dolor eleifend iaculis. Vivamus ut pretium arcu. Phasellus ut tellus eu est pharetra consectetur. Suspendisse in volutpat. </p>
-                                        </div><!-- end details -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Jenny DOE</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 10 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 178 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
-                                    </div><!-- end box -->
-                                </div><!-- end col -->
-
-                                <div class="col-md-6">
-                                    <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_07.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
-                                        <div class="course-details">
-                                            <h4>
-                                                <small>Coding</small>
-                                                <a href="blog-single.html" title="">Another awesome solution for writing code</a>
-                                            </h4>
-                                            <p>Nunc in elementum ex. Quisque lorem augue,  atquis, eleifend eget diam. Nunc fermentum, velit at malesuada laoreet, velit ante sed. </p>
-                                        </div><!-- end details -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Martin</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 09 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 55 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
-                                    </div><!-- end box -->
-                                </div><!-- end col -->
-
-                                <div class="col-md-6">
-                                    <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_08.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
-                                        <div class="course-details">
-                                            <h4>
-                                                <small>Meet-up</small>
-                                                <a href="blog-single.html" title="">Meet up - 2018 Amsterdam Would you like to join us?</a>
-                                            </h4>
-                                            <p>Phasellus ut tristique augue, dictum pharetra felis. Nam ut blandit nulla. Proin sit amet nisi nec nulla ultricies vulputate at vel lorem. Duis metus. </p>
-                                        </div><!-- end details -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Edulogy</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 05 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 444 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
-                                    </div><!-- end box -->
-                                </div><!-- end col -->
-
-                                <div class="col-md-6">
-                                    <div class="course-box">
-                                        <div class="image-wrap entry">
-                                            <img src="{{asset('design/upload/blog_09.jpg')}}" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                 <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                                            </div>
-                                        </div><!-- end image-wrap -->
-                                        <div class="course-details">
-                                            <h4>
-                                                <small>Tips & Tricks</small>
-                                                <a href="blog-single.html" title="">What will you after complete all courses on Edulogy?</a>
-                                            </h4>
-                                            <p>Suspendisse vehicula tincidunt justo eu vehicula. Praesent placera leo, ac pulvinar lectus scelerisque nec. Phasellus consequat nec lacus metus. </p>
-                                        </div><!-- end details -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Bob DOE</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 01 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 55 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
-                                    </div><!-- end box -->
-                                </div><!-- end col -->
                             </div><!-- end row -->
 
                             <hr class="invis">
@@ -256,75 +121,6 @@
                             </div><!-- end row -->
                         </div><!-- end col -->
 
-                        <div class="sidebar col-md-4">
-                            <div class="widget clearfix">
-                                <div class="banner-widget">
-                                    <img src="{{asset('design/upload/banner.jpeg')}}" alt="" class="img-responsive img-rounded">
-                                </div>
-                            </div>
-
-                            <div class="widget clearfix">
-                                <h3 class="widget-title">Informasi Terbaru</h3>
-                                <div class="post-widget">
-                                    <div class="media">
-                                        <img src="{{asset('design/upload/blog_small_01.jpg')}}" alt="" class="img-responsive alignleft img-rounded">
-                                        <div class="media-body">
-                                            <h5 class="mt-0"><a href="blog-single.html">Learning English Like a Pro..</a></h5>
-                                            <div class="blog-meta">
-                                                <ul class="list-inline">
-                                                    <li>4 days ago</li>
-                                                    <li><span>by</span> <a href="#">Edulogy Team</a></li>
-                                                </ul>
-                                            </div><!-- end blog-meta -->
-                                        </div>
-                                    </div>
-
-                                    <div class="media">
-                                        <img src="{{asset('design/upload/blog_small_02.jpg')}}" alt="" class="img-responsive alignleft img-rounded">
-                                        <div class="media-body">
-                                            <h5 class="mt-0"><a href="blog-single.html">How to create a beautiful website with Bootstrap</a></h5>
-                                            <div class="blog-meta">
-                                                <ul class="list-inline">
-                                                    <li>5 days ago</li>
-                                                    <li><span>by</span> <a href="#">Boby DOE</a></li>
-                                                </ul>
-                                            </div><!-- end blog-meta -->
-                                        </div>
-                                    </div>
-
-                                    <div class="media">
-                                        <img src="{{asset('design/upload/blog_small_03.jpg')}}" alt="" class="img-responsive alignleft img-rounded">
-                                        <div class="media-body">
-                                            <h5 class="mt-0"><a href="blog-single.html">Don't forget to update your Google web master tools</a></h5>
-                                            <div class="blog-meta">
-                                                <ul class="list-inline">
-                                                    <li>6 days ago</li>
-                                                    <li><span>by</span> <a href="#">Martin</a></li>
-                                                </ul>
-                                            </div><!-- end blog-meta -->
-                                        </div>
-                                    </div>
-                                </div><!-- end post-widget -->
-                            </div><!-- end widget -->
-
-                            <div class="widget clearfix">
-                                <h3 class="widget-title">Kategori Informasi</h3>
-                                <div class="tags-widget">   
-                                    <ul class="list-inline">
-                                        <li><a href="#">course</a></li>
-                                        <li><a href="#">web design</a></li>
-                                        <li><a href="#">development</a></li>
-                                        <li><a href="#">language</a></li>
-                                        <li><a href="#">teacher</a></li>
-                                        <li><a href="#">speaking</a></li>
-                                        <li><a href="#">material</a></li>
-                                        <li><a href="#">css3</a></li>
-                                        <li><a href="#">html</a></li>
-                                        <li><a href="#">learning</a></li>
-                                    </ul>
-                                </div><!-- end list-widget -->
-                            </div><!-- end widget -->
-                        </div><!-- end sidebar -->
                     </div><!-- end row -->
                 </div><!-- end boxed -->
             </div><!-- end container -->
@@ -332,5 +128,189 @@
 @endsection
 
 @section('js')
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
 
+<!-- Chart code -->
+
+
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chart1", am4charts.PieChart);
+
+// Add data
+chart.data = [ {
+  "country": "Lithuania",
+  "litres": 501.9
+}, {
+  "country": "Czechia",
+  "litres": 301.9
+}, {
+  "country": "Ireland",
+  "litres": 201.1
+}, {
+  "country": "Germany",
+  "litres": 165.8
+}, {
+  "country": "Australia",
+  "litres": 139.9
+}, {
+  "country": "Austria",
+  "litres": 128.3
+}, {
+  "country": "UK",
+  "litres": 99
+}, {
+  "country": "Belgium",
+  "litres": 60
+}, {
+  "country": "The Netherlands",
+  "litres": 50
+} ];
+
+// Add and configure Series
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "litres";
+pieSeries.dataFields.category = "country";
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeWidth = 2;
+pieSeries.slices.template.strokeOpacity = 1;
+
+// This creates initial animation
+pieSeries.hiddenState.properties.opacity = 1;
+pieSeries.hiddenState.properties.endAngle = -90;
+pieSeries.hiddenState.properties.startAngle = -90;
+
+}); // end am4core.ready()
+</script>
+
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_material);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart2 = am4core.create("chart2", am4charts.PieChart);
+
+// Add data
+chart2.data = [ {
+  "country": "Lithuania",
+  "litres": 501.9
+}, {
+  "country": "Czech Republic",
+  "litres": 301.9
+}, {
+  "country": "Ireland",
+  "litres": 201.1
+}, {
+  "country": "Germany",
+  "litres": 165.8
+}, {
+  "country": "Australia",
+  "litres": 139.9
+}, {
+  "country": "Austria",
+  "litres": 128.3
+}, {
+  "country": "UK",
+  "litres": 99
+}, {
+  "country": "Belgium",
+  "litres": 60
+}, {
+  "country": "The Netherlands",
+  "litres": 50
+} ];
+
+// Set inner radius
+chart2.innerRadius = am4core.percent(50);
+
+// Add and configure Series
+var pieSeries2 = chart2.series.push(new am4charts.PieSeries());
+pieSeries2.dataFields.value = "litres";
+pieSeries2.dataFields.category = "country";
+pieSeries2.slices.template.stroke = am4core.color("#fff");
+pieSeries2.slices.template.strokeWidth = 2;
+pieSeries2.slices.template.strokeOpacity = 1;
+
+// This creates initial animation
+pieSeries.hiddenState.properties.opacity = 1;
+pieSeries.hiddenState.properties.endAngle = -90;
+pieSeries.hiddenState.properties.startAngle = -90;
+
+}); // end am4core.ready()
+</script>
+
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_frozen);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart3 = am4core.create("chart3", am4charts.PieChart);
+chart3.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+chart3.data = [
+  {
+    country: "Lithuania",
+    value: 401
+  },
+  {
+    country: "Czech Republic",
+    value: 300
+  },
+  {
+    country: "Ireland",
+    value: 200
+  },
+  {
+    country: "Germany",
+    value: 165
+  },
+  {
+    country: "Australia",
+    value: 139
+  },
+  {
+    country: "Austria",
+    value: 128
+  }
+];
+chart3.radius = am4core.percent(70);
+chart3.innerRadius = am4core.percent(40);
+chart3.startAngle = 180;
+chart3.endAngle = 360;  
+
+var series = chart3.series.push(new am4charts.PieSeries());
+series.dataFields.value = "value";
+series.dataFields.category = "country";
+
+series.slices.template.cornerRadius = 10;
+series.slices.template.innerCornerRadius = 7;
+series.slices.template.draggable = true;
+series.slices.template.inert = true;
+series.alignLabels = false;
+
+series.hiddenState.properties.startAngle = 90;
+series.hiddenState.properties.endAngle = 90;
+
+chart3.legend = new am4charts.Legend();
+
+}); // end am4core.ready()
+</script>
 @endsection

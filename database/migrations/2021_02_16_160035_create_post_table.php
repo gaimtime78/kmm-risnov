@@ -17,9 +17,12 @@ class CreatePostTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('content');
+            $table->longText('overview')->default('');
+            $table->boolean('show_thumbnail')->default(true);
             $table->string('thumbnail')->nullable();
+            $table->boolean('active')->default(false);
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->date('published_at')->useCurrent();
             $table->timestamps();
         });
     }

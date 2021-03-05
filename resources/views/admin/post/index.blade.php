@@ -13,59 +13,79 @@
 @include('layout.navbar')
 <!-- START MAIN -->
 <div id="main">
-	<!-- START WRAPPER -->
-	<div class="wrapper">
-		@include('layout.menu')
-		<!--DataTables example-->
-		<div id="table-datatables">
-			<h4 class="header">Semua Berita</h4>
-			<div class="row">
-				<div class="input-field col left">
-					<a href="{{ route('admin.post.create') }}">
-						<button class="btn warning waves-effect waves-light right" type="submit" name="action">CREATE
-						</button>
-					</a>
+<!-- START WRAPPER -->
+<div class="wrapper">
+@include('layout.menu')
+	<!-- START CONTENT -->
+	<section id="content">
+		<!--start container-->
+		<div class="container">
+			<div class="section">    
+				<!--DataTables example-->
+				@if (session('message'))
+				<div style="background-color: #aee8e2; border-radius:10px; padding:10px; margin-bottom:10px;">
+					<b>{{ session('message') }}</b>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<table id="data-table-simple" class="responsive-table display" cellspacing="0">
-						<thead>
-							<tr>
-								<th>id</th>
-								<th>title</th>
-								<th>content</th>
-								<th>user</th>
-								<th>category</th>
-								<th>created_at</th>
-								<th>updated_at</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							@foreach($data as $row)
-							<tr>
-								<td>{{ $row->id }}</td>
-								<td>{{ $row->title }}</td>
-								<td>{!! $row->content !!}</td>
-								<td>{{ $row->user_id }}</td>
-								<td>{{ $row->category_id }}</td>
-								<td>{{ $row->created_at }}</td>
-								<td>{{ $row->updated_at }}</td>
-								<td>
-									<div>
-										<a href="{{ route('admin.post.edit', ['id' => $row->id]) }}">Edit</a>
-									</div>
-								</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-				</div>
+				@endif
+				<div id="table-datatables">
+					<h4 class="header left">Post</h4>
+					<a href="{{route('admin.post.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Post</a>
+					<div class="row">
+						<div class="col s12 m12 l12">
+							<table id="data-menu" class="responsive-table display" cellspacing="0">
+								<thead>
+									<tr>
+									<th>id</th>
+									<th width="350">title</th>
+									<th>created by</th>
+									<th>category</th>
+									<th>active</th>
+									<th>Action</th>
+										</tr>
+								</thead>
+								<tbody>
+									@php
+										$i = 1;
+									@endphp
+									@foreach($data as $row)
+										<tr>
+											<td>{{ $i }}</td>
+											<td>{{ $row->title }}</td>
+											<td>{{ $row->user->name }}</td>
+											<td>
+												@foreach($row->category as $c)
+													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat cyan">{{$c->category}}</div>
+												@endforeach
+											</td>
+											<td>
+												@if($row->active)
+													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat cyan">Active</div>
+												@else
+													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat red">Inactive</div>
+												@endif
+											</td>
+											<td>
+												<div>
+													<a class="btn" href="{{ route('admin.post.edit', ['id' => $row->id]) }}">Edit</a>
+												</div>
+											</td>
+										</tr>
+										@php
+											$i++;
+										@endphp
+									@endforeach
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div> 
+				<br>
+				<div class="divider"></div> 
+				<!--DataTables example Row grouping-->
 			</div>
 		</div>
+		<!--end container-->
 
-	</div>
-</div>
+	</section>
+	<!-- END CONTENT -->
 @endsection
