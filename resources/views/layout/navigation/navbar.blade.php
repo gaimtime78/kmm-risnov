@@ -18,7 +18,7 @@
                         <ul class="nav navbar-nav navbar-right">
 
                             <li><a href="{{route('home')}}">Home</a></li>
-                            <li class="dropdown hassubmenu">
+                            {{-- <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('tentang-kami.sambutan')}}">Sambutan WR</a></li>
@@ -27,7 +27,7 @@
                                     <li><a href="{{route('tentang-kami.rencanaStrategis')}}">Rencana Strategis</a></li>
                                     <li><a href="{{route('tentang-kami.profilBiro')}}">Profil Biro RPM</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li><a href="{{route('lppm')}}">LPPM</a></li>
                             <li><a href="{{route('direktorat')}}">Direktorat Inovasi </a></li>
                             <li><a href="{{route('informasi')}}">Informasi</a></li>

@@ -123,8 +123,7 @@
                     <div class="pull-right">
                         <div class="footer-links">
                             <ul class="list-inline">
-                                <li>Design : <a href="https://html.design">HTML.Design</a></li>
-                                <li>Distributed by : <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                                <li>&copy; Copyright | Riset Inovasi</li>
                                 </li>
                             </ul>
                         </div>
