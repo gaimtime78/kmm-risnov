@@ -123,7 +123,7 @@
                     <div class="pull-right">
                         <div class="footer-links">
                             <ul class="list-inline">
-                                <li>&copy; Copyright | Riset Inovasi</li>
+                                <li>&copy; Copyright 2021 | Riset Inovasi</li>
                                 </li>
                             </ul>
                         </div>
