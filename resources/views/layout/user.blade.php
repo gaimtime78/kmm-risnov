@@ -57,7 +57,7 @@
 
     <!-- jQuery Files -->
     <script type="text/javascript" src="{{ asset('design\js\jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('design\js\bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('design\js\bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('design\js\carousel.js') }}"></script>
     <script type="text/javascript" src="{{ asset('design\js\animate.js') }}"></script>
     <script type="text/javascript" src="{{ asset('design\js\custom.js') }}"></script>
