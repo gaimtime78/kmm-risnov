@@ -43,13 +43,13 @@
                                         
                                         <div class="course-details">
                                             <h4>
-                                                <small>Language</small>
-                                                <a href="blog-single.html" title="">Learn English Online with our professional teachers</a>
+                                                <small>KKN</small>
+                                                <a href="blog-single.html" title="">Data Persebaran Mahasiswa KKN Universitas Sebelas Maret</a>
                                             </h4>
-                                            <p>Integer pellentesque justo vitae nisl sagittis, nec tristique erat tincidunt. Nunc varius euismod arcu ut volutpat. Praesent massa ex, sodales nullam. </p>
+                                            <p>Silakan melihat data dibawah ini. </p>
                                         </div><!-- end details -->
                                         <div class="image-wrap entry">
-                                        <div id="chart1"></div>
+                                          <div id="chart1"></div>
                                         </div><!-- end image-wrap -->
                                     </div><!-- end box -->
                                 </div><!-- end col -->
@@ -65,17 +65,9 @@
                                             <p>Duis id aliquam metus, et consectetur risus. Praesent dictum augue id velit mattis aliquet. Aliquam faucibus sollicitudin libero, sit amet massa nunc. </p>
                                         </div><!-- end details -->
                                         <div class="image-wrap entry">
-                                        <div id="chart2"></div>
+                                          <div id="chart2"></div>
                                         </div><!-- end image-wrap -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Bob DOE</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 13 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 444 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
+                                        
                                     </div><!-- end box -->
                                 </div><!-- end col -->
 
@@ -89,17 +81,8 @@
                                             <p>Nulla nisl velit, lobortis vel luctus eu, rutrum ac elit. Donec nec condimentum libero. Maecenas rutrum sit amet mi vel hendrerit. Praesent tempor id. </p>
                                         </div><!-- end details -->
                                         <div class="image-wrap entry">
-                                        <div id="chart3"></div>
+                                          <div id="chart3"></div>
                                         </div><!-- end image-wrap -->
-                                        <div class="course-footer clearfix">
-                                            <div class="pull-left">
-                                                <ul class="list-inline">
-                                                    <li><a href="#"><i class="fa fa-user"></i> Edulogy</a></li>
-                                                    <li><a href="#"><i class="fa fa-clock-o"></i> 12 Jun</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i> 444 Views</a></li>
-                                                </ul>
-                                            </div><!-- end left -->
-                                        </div><!-- end footer -->
                                     </div><!-- end box -->
                                 </div><!-- end col -->
 
@@ -128,12 +111,12 @@
 @endsection
 
 @section('js')
-<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+<script src="{{asset('amcharts4/core.js')}}"></script>
+<script src="{{asset('amcharts4/charts.js')}}"></script>
+<script src="{{asset('amcharts4/themes/animated.js')}}"></script>
+<script src="{{asset('amcharts4/themes/material.js')}}"></script>
+<script src="{{asset('amcharts4/themes/animated.js')}}"></script>
+<script src="{{asset('amcharts4/themes/frozen.js')}}"></script>
 
 <!-- Chart code -->
 
