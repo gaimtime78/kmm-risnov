@@ -1,4 +1,5 @@
-<header class="header">
+<header class="header header-normal">
+            
             <div class="container">
                 <nav class="navbar navbar-default yamm">
                     <div class="navbar-header">
