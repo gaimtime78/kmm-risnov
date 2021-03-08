@@ -21,9 +21,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- <div class="tagline-message page-title text-center">
+                        <div class="tagline-message page-title text-center">
                             <h3>Produk Komersil</h3>
-                        </div> -->
+                        </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
@@ -35,7 +35,7 @@
                     <div class="row blog-grid">
                         <div style="margin-bottom:3em;" class="col-md-12">
                             <div class="tagline-message page-title text-center">
-                                <h3>PRODUK KOMERSIL</h3>
+                                <!-- <h3>PRODUK KOMERSIL</h3> -->
                             </div>
                         </div><!-- end col -->
                         <!-- CARD -->
