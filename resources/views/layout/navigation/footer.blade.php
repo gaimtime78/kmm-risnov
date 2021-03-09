@@ -1,4 +1,4 @@
-        <footer class="section footer noover">
+<footer class="section footer noover">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-4">
@@ -123,8 +123,7 @@
                     <div class="pull-right">
                         <div class="footer-links">
                             <ul class="list-inline">
-                                <li>Design : <a href="https://html.design">HTML.Design</a></li>
-                                <li>Distributed by : <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                                <li>&copy; Copyright 2021 | Riset Inovasi</li>
                                 </li>
                             </ul>
                         </div>
