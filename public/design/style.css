@@ -252,11 +252,7 @@ HEADER
     z-index: 100;
     background-color: #000;
     left: 0;
-<<<<<<< HEAD
-    padding: 0px 15px 55px 15px;
-=======
     padding: 0px 15px 55px 0;
->>>>>>> 8963ac9e78a5d8f5a3ae80fbf79d64826df4a0aa
     right: 0,
 }
 
