@@ -1,4 +1,4 @@
-        <footer class="section footer noover">
+<footer class="section footer noover">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-4">

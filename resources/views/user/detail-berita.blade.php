@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                            <!-- <h3>POST</h3> -->
+                        <h3>{{$post->title}}</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -25,18 +25,14 @@
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
                                     <div class="blog-meta">
-                                        <h3>{{$post->title}}</h3>
+                                        <!-- <h3>{{$post->title}}</h3> -->
                                         <div class="tags-widget">
                                             <ul class="list-inline">
                                                 @foreach($post->category()->pluck('category')->toArray() as $cc)
-                                                    <li><a href="#">{{$cc}}</a></li>
+                                                    <li><a href="#" class="m-1">{{$cc}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </div>
-                                        <ul class="list-inline">
-                                            <li><i class="fa fa-clock-o"></i> Dipublikasikan pada : {{date("d M Y", strtotime($post->published_at))}}</li><br>
-                                            <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$post->user->name}}</a></li>
-                                        </ul>
                                     </div><!-- end blog-meta -->
                                     @if($post->show_thumbnail)
                                     <div class="blog-media">
@@ -50,7 +46,11 @@
                                         <hr class="invis">
 
                                         <!-- end list-widget -->
-
+                                       
+                                        <ul class="list-inline">
+                                            <li><i class="fa fa-clock-o"></i> Dipublikasikan pada : {{date("d M Y", strtotime($post->published_at))}}</li><br>
+                                            <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$post->user->name}}</a></li>
+                                        </ul>
                                     </div><!-- end desc -->
                                 </div><!-- end blog -->
                             </div><!-- end content -->
