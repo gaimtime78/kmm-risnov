@@ -104,6 +104,7 @@ Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::cl
 Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
 Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');
 Route::get('/produk-komersial', [App\Http\Controllers\User\ProdukController::class, 'index'])->name('produk-komersial');
+Route::get('/gallery', [App\Http\Controllers\User\GalleryController::class, 'index'])->name('gallery');
 Route::get('/post/{slug}', [App\Http\Controllers\PostController::class, 'detail'])->name('detail-post');
 
 

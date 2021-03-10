@@ -192,71 +192,23 @@ Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and 
 
         <div class="boxed boxedp4">
             <div class="row blog-grid">
+                @foreach ($gallery as $row)
                 <div class="col-md-4">
                     <div class="course-box">
                         <div class="image-wrap entry">
-                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
+                            <img src="{{asset('upload/post/'.$row->thumbnail)}}" alt="" class="img-responsive">
                             <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                                <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $row->title)])}}" title=""><i class="flaticon-add"></i></a>
                             </div>
                         </div><!-- end image-wrap -->
                     </div><!-- end box -->
                 </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/8.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/4.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/5.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/7.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
+                @endforeach
             </div><!-- end row -->
 
             <hr class="invis">
             <div class="section-button text-center">
-                <a href="#" class="btn btn-primary">Lihat Gallery</a>
+                <a href="{{route('gallery')}}" class="btn btn-primary">Lihat Gallery</a>
             </div>
 
         </div><!-- end boxed -->
