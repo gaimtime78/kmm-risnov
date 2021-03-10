@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Page;
+use App\Models\Posts;
 use Faker\Provider\ar_JO\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -70,7 +71,8 @@ class PageController extends Controller
     public function blog($slug)
     {
         $page = Page::where('slug', $slug)->first();
-        return view('page.blog', compact('page'));
+        $latestPost = Posts::where('category_id',$page->id)->latest()->take(3)->get();
+        return view('page.blog', compact('page', 'latestPost'));
     }
 
     /**
