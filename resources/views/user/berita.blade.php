@@ -13,6 +13,17 @@
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
     }
+    .title-clamp{
+        display:block;
+        width:100%;
+        text-overflow:ellipsis;
+        overflow:hidden;
+        max-height:120px;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
 </style>
 @endsection
 
@@ -47,10 +58,10 @@
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div  class="course-details">
-                                    <div style="display:grid;grid-template-columns:1fr 1fr;grid-gap:1em;">
+                                    <div style="height:50px;">
                                         <h4>
                                             <!-- <small>Bertia Terkini</small> -->
-                                            <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
+                                            <a class="title-clamp" href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                                         </h4>
                                     </div>
                                     <div style="height:120px;">
