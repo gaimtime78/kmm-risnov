@@ -26,11 +26,21 @@
             <div class="col-md-6">
                 <div class="custom-module p40l">
                     <h2><mark>SAMBUTAN WR</mark></h2>
-                    <p style="text-align:justify">Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.Nam dictum sem, ipsum aliquam . Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus.</p>
+                    <p style="text-align:justify">Selamat datang di situs Universitas Sebelas Maret (UNS). Kami merasa terhormat atas kunjungan Anda, semoga Anda tertarik untuk terus dapat memanfaatkan situs ini dalam mencari dan memperoleh informasi dari kami.
+
+UNS merupakan universitas muda dengan potensi yang luar biasa. Selain terletak di kota Solo yang strategis, UNS mempunyai kawasan kampus yang indah, fakultas-fakultas yang berkompetensi tinggi, kegiatan penelitian dan pengabdian masyarakat yang semakin dirasakan manfaatnya oleh stakeholder-nya, perpustakaan yang lengkap dan modern, prasarana dan laboratorium yang canggih di kawasan Jawa Tengah, perkembangan teknologi informasi yang cukup mencengangkan, alumni dengan posisi pekerjaan yang baik di seluruh pelosok negeri serta sumber daya manusia yang sudah diakui baik di tingkat regional ataupun nasional dengan prestasi yang mengesankan di bidangnya masing-masing.
+
+Potensi-potensi tersebut tidak ada artinya jika tidak dilandasi dengan visi, misi dan tujuan akademik yang kuat. Untuk itu,  kami berusaha sekuat tenaga untuk selalu berkomitmen dalam mewujudkan UNS sebagai salah satu pusat pemikiran, pengkajian, dan pengembangan ilmu pengetahuan, seni, teknologi, dan kebudayaan Indonesia dalam rangka memperkaya khasanah kehidupan masyarakat dan mendukung pembangunan nasional.
+
+Selain itu, kami memberikan kesempatan seluas-luasnya kepada segenap elemen civitas academika untuk terus berkompetisi di bidangnya masing-masing, misalnya kami mendorong mahasiswa untuk selalu aktif, kritis dan kreatif dalam setiap kegiatan baik kokurikuler maupun ekstrakurikuler, memacu para dosen dan peneliti untuk selalu dapat menciptakan penemuan-penemuan baru dan mengembangkan inovasi-inovasi yang berguna bagi masyarakat, serta memberikan dukungan bagi unit-unit kerja di lingkungan UNS untuk selalu dapat meningkatkan mutu layanan.
+
+Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and research university. Ini merupakan kesempatan bagi kami dalam abad ini, dan menghadapi tantangan globalisasi. Terima kasih atas waktunya untuk bereksplorasi di UNS lewat situs ini. Kritik dan saran kami harapkan untuk kemajuan ilmu pengetahuan dan universitas kami.
+
+</p>
                     <hr class="invis">
-                    <div class="btn-wrapper">
+                    <!-- <div class="btn-wrapper">
                         <a href="#" class="btn btn-primary">Selengkapnya</a>
-                    </div>
+                    </div> -->
                 </div><!-- end module -->
             </div><!-- end col -->
         </div><!-- end row -->
@@ -42,122 +52,49 @@
         <div class="section-title text-center">
             <h3>BERITA</h3>
         </div><!-- end title -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12 text-right">
                 <ul class="pagination ">
                     <li class="active"><a href="javascript:void(0)">&laquo;</a></li>
                     <li class="active"><a href="javascript:void(0)">&raquo;</a></li>
                 </ul>
-            </div><!-- end col -->
-        </div><!-- end row -->
+            </div>
+        </div> -->
         <div id="owl-01" class="owl-carousel owl-theme owl-theme-01">
+            @foreach($post as $p)
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="{{asset('berita/b1.jpeg')}}" alt="" class="img-responsive">
+                        <img src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
                         <div class="magnifier">
-                            <a href="#" title=""><i class="flaticon-add"></i></a>
+                            <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>Selengkapnya</p></a>
                         </div>
                     </div><!-- end image-wrap -->
                     <div style="padding:0" class="course-footer clearfix">
                         <div class="pull-left">
                             <ul class="list-inline">
-                                <li><a href="#">19 Februari 2021</a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</a></li>
                                 <!-- <li><a href="#">14 Share</a></li> -->
                             </ul>
                         </div><!-- end left -->
                     </div><!-- end footer -->
                     <div style="padding:0" class="course-details">
                         <h4>
-                            <a href="#" title="">Penyampaian Catatan Hasil Reviu Program dan Kegiatan Biro RPKM Tahun 2021 oleh SPI UNS</a>
+                            <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                         </h4>
-                        <p>Tanggal 19 Februari 2020. SPI ( Satuan Pengawas Internal) UNS Menyampaikan hasil reviu atas Rencana Program dan Kegiatan Tahun 2021 termasuk Biro Riset dan PKM.
-    Tanggal 22 Februari 2021.</p>
+                        <p>{{$p->overview}}</p>
                     </div><!-- end details -->
-                    <a href="#" class="readmore">Selengkapnya</a>
+                    <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" class="readmore">Selengkapnya</a>
                 </div><!-- end box -->
             </div><!-- end col -->
+            @endforeach
 
-            <div class="caro-item">
-                <div class="course-box">
-                    <div class="image-wrap entry">
-                        <img src="{{asset('images/gallary/2.jpg')}}" alt="" class="img-responsive">
-                        <div class="magnifier">
-                            <a href="#" title=""><i class="flaticon-add"></i></a>
-                        </div>
-                    </div><!-- end image-wrap -->
-                    <div style="padding:0" class="course-footer clearfix">
-                        <div class="pull-left">
-                            <ul class="list-inline">
-                                <li><a href="#">21 March 2017</a></li>
-                                <li><a href="#">14 Share</a></li>
-                            </ul>
-                        </div><!-- end left -->
-                    </div><!-- end footer -->
-                    <div style="padding:0" class="course-details">
-                        <h4>
-                            <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>
-                        </h4>
-                    </div><!-- end details -->
-                    <a href="#" class="readmore">Selengkapnya</a>
-                </div><!-- end box -->
-            </div><!-- end col -->
-
-            <div class="caro-item">
-                <div class="course-box">
-                    <div class="image-wrap entry">
-                        <img src="{{asset('images/gallary/3.jpg')}}" alt="" class="img-responsive">
-                        <div class="magnifier">
-                            <a href="#" title=""><i class="flaticon-add"></i></a>
-                        </div>
-                    </div><!-- end image-wrap -->
-                    <div style="padding:0" class="course-footer clearfix">
-                        <div class="pull-left">
-                            <ul class="list-inline">
-                                <li><a href="#">21 March 2017</a></li>
-                                <li><a href="#">14 Share</a></li>
-                            </ul>
-                        </div><!-- end left -->
-                    </div><!-- end footer -->
-                    <div style="padding:0" class="course-details">
-                        <h4>
-                            <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>
-                        </h4>
-                    </div><!-- end details -->
-                    <a href="#" class="readmore">Selengkapnya</a>
-                </div><!-- end box -->
-            </div><!-- end col -->
-
-            <div class="caro-item">
-                <div class="course-box">
-                    <div class="image-wrap entry">
-                        <img src="{{asset('images/gallary/3.jpg')}}" alt="" class="img-responsive">
-                        <div class="magnifier">
-                            <a href="#" title=""><i class="flaticon-add"></i></a>
-                        </div>
-                    </div><!-- end image-wrap -->
-                    <div style="padding:0" class="course-footer clearfix">
-                        <div class="pull-left">
-                            <ul class="list-inline">
-                                <li><a href="#">21 March 2017</a></li>
-                                <li><a href="#">14 Share</a></li>
-                            </ul>
-                        </div><!-- end left -->
-                    </div><!-- end footer -->
-                    <div style="padding:0" class="course-details">
-                        <h4>
-                            <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>
-                        </h4>
-                    </div><!-- end details -->
-                    <a href="#" class="readmore">Selengkapnya</a>
-                </div><!-- end box -->
-            </div><!-- end col -->
         </div><!-- end row -->
 
         <hr class="invis">
 
         <div class="section-button text-center">
-            <a href="#" class="btn btn-primary">Lihat Berita Lainnya</a>
+            <a href="{{route('berita-terkini')}}" class="btn btn-primary">Lihat Berita Lainnya</a>
         </div>
     </div><!-- end container -->
 </section>
@@ -210,33 +147,33 @@
 </section>
 
 <section class="section db">
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="stat-count">
                     <h4 class="stat-timer">1230</h4>
                     <h3><i class="flaticon-black-graduation-cap-tool-of-university-student-for-head"></i> Happy Students</h3>
                     <p>Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis. </p>
-                </div><!-- stat-count -->
-            </div><!-- end col -->
+                </div>
+            </div>
 
             <div class="col-lg-4 col-md-4">
                 <div class="stat-count">
                     <h4 class="stat-timer">331</h4>
                     <h3><i class="flaticon-online-course"></i> Course Done</h3>
                     <p>Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis. </p>
-                </div><!-- stat-count -->
-            </div><!-- end col -->
+                </div>
+            </div>
 
             <div class="col-lg-4 col-md-4">
                 <div class="stat-count">
                     <h4 class="stat-timer">8901</h4>
                     <h3><i class="flaticon-coffee-cup"></i> Ordered Coffe's</h3>
                     <p>Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis. </p>
-                </div><!-- stat-count -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
+                </div>
+            </div>
+        </div>
+    </div> -->
 </section>
 
 <section class="section gb">

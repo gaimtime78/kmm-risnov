@@ -9,6 +9,6 @@ class LppmController extends Controller
 {
     //
     public function index(){
-        return view ('user.lppm');
+        return view ('user.coming');
     }
 }
