@@ -21,9 +21,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- <div class="tagline-message page-title text-center">
+                        <div class="tagline-message page-title text-center">
                             <h3>Berita Terkini</h3>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="boxed boxedp4">
                     <div style="margin-bottom:3em;" class="tagline-message page-title text-center">
-                        <h3>BERITA TERKINI</h3>
+                        <!-- <h3>BERITA TERKINI</h3> -->
                     </div>
                     <div class="row blog-grid">
                         <!-- CARD -->
@@ -49,7 +49,7 @@
                                 <div  class="course-details">
                                     <div style="display:grid;grid-template-columns:1fr 1fr;grid-gap:1em;">
                                         <h4>
-                                            <small>Bertia Terkini</small>
+                                            <!-- <small>Bertia Terkini</small> -->
                                             <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                                         </h4>
                                     </div>

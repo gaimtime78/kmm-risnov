@@ -1,4 +1,5 @@
-<header class="header">
+<header class="header header-normal">
+            
             <div class="container">
                 <nav class="navbar navbar-default yamm">
                     <div class="navbar-header">
@@ -10,7 +11,7 @@
                         </button>
                         <br>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="index.html"><img  style="width:100px" src="{{asset('images/logo-uns.png')}}" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img  style="width:70px" src="{{asset('images/logo-uns.png')}}" alt=""></a>
                         </div>
                     </div>
                     <br>
