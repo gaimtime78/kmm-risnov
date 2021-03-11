@@ -9,6 +9,6 @@ class InformasiController extends Controller
 {
     public function index()
     {
-        return view ('user.informasi');
+        return view ('user.coming');
     }
 }
