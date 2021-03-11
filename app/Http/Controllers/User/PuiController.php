@@ -9,6 +9,6 @@ class PuiController extends Controller
 {
     public function index()
     {
-        return view ('user.pui');
+        return view ('user.coming');
     }
 }

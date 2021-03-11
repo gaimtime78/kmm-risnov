@@ -9,6 +9,6 @@ class DirektoratInovasiController extends Controller
 {
     public function index()
     {
-        return view ('user.direktorat');
+        return view ('user.coming');
     }
 }
