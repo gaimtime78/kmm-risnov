@@ -77,31 +77,25 @@ Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and 
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
+                        <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
                         <div class="magnifier">
                             <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>Selengkapnya</p></a>
                         </div>
                     </div><!-- end image-wrap -->
-                    <div class="course-footer clearfix">
-                        <div class="pull-left">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</a></li>
-                                <!-- <li><a href="#">14 Share</a></li> -->
-                            </ul>
-                        </div><!-- end left -->
-                    </div><!-- end footer -->
-                    <div class="course-details">
-                        <div style="display:grid;grid-gap:1em;height:170px;">
+                    <div  class="course-details">
+                        <div style="display:grid;grid-gap:1em;height:110px;">
                             <h4>
-                                <!-- <small>Bertia Terkini</small> -->
+                                <small><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</small>
                                 <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                             </h4>
                         </div>
-                        <div style="height:180px;">
+                        
+                        <div style="height:120px;">
                             <div class="clamp">{{$p->overview}}</div>
-                        </div>
+                        </div><br>
                         <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" class="readmore">Selengkapnya</a>
                     </div><!-- end details -->
+                    
                    
                 </div><!-- end box -->
             </div><!-- end col -->

@@ -47,7 +47,7 @@
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div  class="course-details">
-                                    <div style="display:grid;grid-gap:1em;height:150px;">
+                                    <div style="display:grid;grid-gap:1em;height:90px;">
                                         <h4>
                                             <!-- <small>Bertia Terkini</small> -->
                                             <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
