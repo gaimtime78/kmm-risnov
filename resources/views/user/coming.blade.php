@@ -6,8 +6,8 @@
 
 @section('content')	
 		<section class="section db p120">
-            <div class="container">
-                
+            <div class="container" style="text-align:center;">
+				<h2 style=" color:#FFF;">Halaman ini sedang dalam pengembangan</h2>
             </div>
         </section>
 		<section class="section gb nopadtop">
@@ -16,8 +16,7 @@
 					<div id="notfound">
 						<div class="notfound">
 							<div class="notfound-404">
-								<h1>Oops!</h1>
-								<h2>Halaman ini sedang dalam pengembangan</h2>
+								<h3 text-align="center">Kami, <strong>Biro Riset dan Pengabdian Kepada Masyarakat Universitas Sebelas Maret</strong> sedang bekerja keras untuk menyelesaikan pengembangan situs ini </h3>
 							</div>
 							<a href="{{route('home')}}">Go TO Homepage</a>
 						</div>
