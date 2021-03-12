@@ -21,7 +21,7 @@ class ProdukController extends Controller
     public function index(){
         $produk = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category', 'Produk Komersil');
-        })->paginate(9);
+        })->orderBy('published_at', 'DESC')->paginate(9);
         return view('user.produk', ['produk' => $produk]);
     }
 }
