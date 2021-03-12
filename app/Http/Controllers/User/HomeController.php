@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index(){
         $data['post'] = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category','!=', 'Berita Terkini');
-        })->orderBy('created_at','DESC')->limit(4)->get();
+        })->orderBy('created_at','DESC')->paginate(3);
         return view('user.home', $data);
     }
 }
