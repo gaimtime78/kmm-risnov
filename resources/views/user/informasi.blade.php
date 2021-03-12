@@ -20,7 +20,7 @@
 @endsection
 
 @section('content')
-<section class="section db p120">
+        <section class="section db p120">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -54,7 +54,7 @@
                                     </div><!-- end box -->
                                 </div><!-- end col -->
 
-                                <div class="col-md-12">
+                                <!-- <div class="col-md-12">
                                     <div class="course-box">
                                         
                                         <div class="course-details">
@@ -63,15 +63,15 @@
                                                 <a href="blog-single.html" title="">Working with team members for new projects</a>
                                             </h4>
                                             <p>Duis id aliquam metus, et consectetur risus. Praesent dictum augue id velit mattis aliquet. Aliquam faucibus sollicitudin libero, sit amet massa nunc. </p>
-                                        </div><!-- end details -->
+                                        </div>
                                         <div class="image-wrap entry">
                                           <div id="chart2"></div>
-                                        </div><!-- end image-wrap -->
+                                        </div>
                                         
-                                    </div><!-- end box -->
-                                </div><!-- end col -->
+                                    </div>
+                                </div> -->
 
-                                <div class="col-md-12">
+                                <!-- <div class="col-md-12">
                                     <div class="course-box">
                                         <div class="course-details">
                                             <h4>
@@ -79,12 +79,12 @@
                                                 <a href="blog-single.html" title="">Buy a Macbook and learn code today like a pro</a>
                                             </h4>
                                             <p>Nulla nisl velit, lobortis vel luctus eu, rutrum ac elit. Donec nec condimentum libero. Maecenas rutrum sit amet mi vel hendrerit. Praesent tempor id. </p>
-                                        </div><!-- end details -->
+                                        </div>
                                         <div class="image-wrap entry">
                                           <div id="chart3"></div>
-                                        </div><!-- end image-wrap -->
-                                    </div><!-- end box -->
-                                </div><!-- end col -->
+                                        </div>
+                                    </div>
+                                </div> -->
 
                             </div><!-- end row -->
 
@@ -133,41 +133,42 @@ var chart = am4core.create("chart1", am4charts.PieChart);
 
 // Add data
 chart.data = [ {
-  "country": "Lithuania",
-  "litres": 501.9
+  "province": "Jawa Tengah",
+  "litres": 501.9,
+  "url": "{{route('tentang-kami.sambutan')}}"
 }, {
-  "country": "Czechia",
+  "province": "Jawa Timur",
   "litres": 301.9
 }, {
-  "country": "Ireland",
-  "litres": 201.1
-}, {
-  "country": "Germany",
-  "litres": 165.8
-}, {
-  "country": "Australia",
-  "litres": 139.9
-}, {
-  "country": "Austria",
-  "litres": 128.3
-}, {
-  "country": "UK",
-  "litres": 99
-}, {
-  "country": "Belgium",
+  "province": "Jawa Barat",
   "litres": 60
 }, {
-  "country": "The Netherlands",
-  "litres": 50
+  "province": "D.I.Yogyakarta",
+  "litres": 201.1
+}, {
+  "province": "NTT",
+  "litres": 165.8
+}, {
+  "province": "NTB",
+  "litres": 139.9
+}, {
+  "province": "Maluku",
+  "litres": 128.3
+}, {
+  "province": "Maluku Utara",
+  "litres": 99
 } ];
 
 // Add and configure Series
 var pieSeries = chart.series.push(new am4charts.PieSeries());
 pieSeries.dataFields.value = "litres";
-pieSeries.dataFields.category = "country";
+pieSeries.dataFields.category = "province";
 pieSeries.slices.template.stroke = am4core.color("#fff");
 pieSeries.slices.template.strokeWidth = 2;
 pieSeries.slices.template.strokeOpacity = 1;
+pieSeries.slices.template.propertyFields.url = "url";
+pieSeries.slices.template.urlTarget = "_blank";
+
 
 // This creates initial animation
 pieSeries.hiddenState.properties.opacity = 1;

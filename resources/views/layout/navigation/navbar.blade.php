@@ -29,8 +29,8 @@
                                     <li><a href="{{route('tentang-kami.profilBiro')}}">Profil Biro RPM</a></li>
                                 </ul>
                             </li> --}}
-                            <li><a href="{{route('lppm')}}">LPPM</a></li>
-                            <li><a href="{{route('direktorat')}}">Direktorat Inovasi </a></li>
+                            <li><a href="http://lppm.uns.ac.id/" target="_blank">LPPM</a></li>
+                            <li><a href="{{route('coming')}}">Direktorat Inovasi </a></li>
                             <li><a href="{{route('informasi')}}">Informasi</a></li>
                             <li><a href="{{route('pui')}}">PUI</a></li>
                             <li><a href="{{route('produk-komersial')}}">Produk Siap Commercial</a></li>
