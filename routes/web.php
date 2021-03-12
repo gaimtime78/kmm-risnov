@@ -84,6 +84,15 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::delete('/{id}', [PostController::class, 'delete'])->name('post.delete');
         });
 
+        Route::group(['prefix' => '/banner'], function(){
+            Route::get('/', [App\Http\Controllers\BannerController::class, 'index'])->name('banner.index');
+            Route::get('/create', [App\Http\Controllers\BannerController::class, 'create'])->name('banner.create');
+            Route::post('/store', [App\Http\Controllers\BannerController::class, 'store'])->name('banner.store');
+            Route::get('/{id}/edit', [App\Http\Controllers\BannerController::class, 'edit'])->name('banner.edit');
+            Route::put('/{id}', [App\Http\Controllers\BannerController::class, 'update'])->name('banner.update');
+            Route::delete('/{id}', [App\Http\Controllers\BannerController::class, 'delete'])->name('banner.delete');
+        });
+
         Route::group(['prefix' => '/page'], function(){
             Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
             Route::get('/create', [App\Http\Controllers\PageController::class, 'create'])->name('page.create');
