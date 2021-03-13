@@ -52,15 +52,17 @@
                     <div class="section">
                         <!--DataTables example-->
                         @if (session('message'))
-                            <div class="alert" style="background-color: #aee8e2; border-radius:10px; padding:10px; margin-bottom:10px;">
+                            <div class="alert"
+                                style="background-color: #aee8e2; border-radius:10px; padding:10px; margin-bottom:10px;">
                                 <b>{{ session('message') }}</b>
                             </div>
                         @endif
 
                         <div id="table-datatables">
                             <h4 class="header left">Banner</h4>
-                            <a href="{{ route('admin.banner.create') }}" class="waves-effect waves-light btn-large right"><i
-                                    class="mdi-content-add left"></i>Tambah Banner</a>
+                            <a href="{{ route('admin.banner.create') }}"
+                                class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah
+                                Banner</a>
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <table id="data-menu" class="responsive-table display" cellspacing="0">
@@ -69,7 +71,8 @@
                                                 <th>#</th>
                                                 <th>Jenis Banner</th>
                                                 <th>Filename</th>
-                                                <th>Created</th>
+                                                <th>Diperbarui</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -82,7 +85,26 @@
                                                     <th scope="row">{{ $i }}</th>
                                                     <td>{{ $item->content_type }}</td>
                                                     <td>{{ $item->filenames }}</td>
-                                                    <td>{{ $item->created_at->diffForHumans() }}</td>
+                                                    <td>{{ $item->updated_at->diffForHumans() }}</td>
+                                                    <td>
+                                                        <form
+                                                            action="{{ route('admin.banner.updatestatus', [$item->id]) }}"
+                                                            method="post" name="updateStatus{{$item->id}}">
+                                                            @method('put')
+                                                            @csrf
+                                                            <div class="switch">
+                                                                <label>
+                                                                    @if ($item->status == 1)
+                                                                        <input type="checkbox" name="status" checked>
+                                                                        <span class="lever" onclick="updateStatus{{$item->id}}.submit()"></span>
+                                                                    @else
+                                                                        <input type="checkbox" name="status">
+                                                                        <span class="lever" onclick="updateStatus{{$item->id}}.submit()"></span>
+                                                                    @endif
+                                                                </label>
+                                                            </div>
+                                                        </form>
+                                                    </td>
                                                     <td>
                                                         <form id="actionBtn"
                                                             action="{{ route('admin.banner.edit', [$item->id]) }}"
@@ -149,6 +171,10 @@
                 $('.alert').slideUp(500);
             });
         });
+
+        // function updateStatus() {
+        //     document.getElementsByClassName("updateStatus").submit();
+        // }
 
     </script>
     <script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>

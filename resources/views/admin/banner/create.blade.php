@@ -80,6 +80,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="mb-3">
+                                    <h5><label for="status" class="form-label">Status</label></h5>
+                                    <!-- Switch -->
+                                    <div class="switch">
+                                        <label>
+                                            Off
+                                            <input type="checkbox" name="status">
+                                            <span class="lever"></span>
+                                            On
+                                        </label>
+                                    </div>
+                                </div>
+                                <br>
                                 <button type="submit" class="waves-effect waves-light btn cyan darken-1">Simpan</button>
                             </form>
                         </div>

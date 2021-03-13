@@ -12,6 +12,7 @@ class Banner extends Model
     protected $fillable = [
         'content_type',
         'filenames',
+        'status'
     ];
 
     protected $table = 'banners';

@@ -1,18 +1,12 @@
 @extends('layout.application')
 
 @section('css')
-    {{-- Select2 CSS --}}
-    <link rel="stylesheet" href="{{ asset('css\select2.min.css') }}">
     <style>
         #actionBtn {
             display: inline;
         }
 
     </style>
-
-    {{-- TinyMCE js --}}
-    <script src="https://cdn.tiny.cloud/1/t62fq0838f1hd6wos3ckh1y04j1b4lyew06g54f7bl5m6fxg/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin"></script>
 @endsection
 
 @section('content')
@@ -59,72 +53,66 @@
                                 <b>{{ session('message') }}</b>
                             </div>
                         @endif
+                        <div class="card-panel">
+                            <h1 class="mb-5 mt-5">Edit Banner</h1>
+                            <form action="{{ route('admin.banner.update', [$banner->id]) }}" method="post" enctype="multipart/form-data">
+                                @method('put')
+                                @csrf
+                                <div class="mb-3">
+                                    <h5><label for="content_type" class="form-label">Tipe Banner</label></h5>
+                                    @if ($banner->content_type == 'gambar')
+                                        <input class="form-check-input" type="radio" name="content_type" id="content_type1"
+                                            value='video'>
+                                        <label class="form-check-label" for="content_type1">Video</label>
+                                        <input class="form-check-input" type="radio" name="content_type" id="content_type0"
+                                            value='gambar' checked>
+                                        <label class="form-check-label" for="content_type0">Gambar</label>
+                                    @else
+                                        <input class="form-check-input" type="radio" name="content_type" id="content_type1"
+                                            value='video' checked>
+                                        <label class="form-check-label" for="content_type1">Video</label>
+                                        <input class="form-check-input" type="radio" name="content_type" id="content_type0"
+                                            value='gambar'>
+                                        <label class="form-check-label" for="content_type0">Gambar</label>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
+                                    <h5><label for="content[]" class="form-label">Upload Konten</label></h5>
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>Browse</span>
+                                            <input name="content[]" type="file" multiple />
+                                        </div>
 
-                        <h1 class="mb-5 mt-5">Edit Page</h1>
-                        <form action="{{ route('admin.page.update', [$page->id]) }}" method="post"
-                            enctype="multipart/form-data">
-                            @method('put')
-                            @csrf
-                            <div class="mb-3">
-                                <h5><label for="use_post" class="form-label">Tampilkan post?</label></h5>
-                                @if ($page->use_post == 1)
-                                    <input class="form-check-input" type="radio" name="use_post" id="use_post1" value=1
-                                        checked>
-                                    <label class="form-check-label" for="use_post1">Ya</label>
-                                    <input class="form-check-input" type="radio" name="use_post" id="use_post0" value=0>
-                                    <label class="form-check-label" for="use_post1">Tidak</label>
-                                @else
-                                    <input class="form-check-input" type="radio" name="use_post" id="use_post1" value=1>
-                                    <label class="form-check-label" for="use_post1">Ya</label>
-                                    <input class="form-check-input" type="radio" name="use_post" id="use_post0" value=0
-                                        checked>
-                                    <label class="form-check-label" for="use_post1">Tidak</label>
-                                @endif
-                            </div>
-                            <div class="mb-3">
-                                <h5><label for="title" class="form-label">Judul Laman</label></h5>
-                                <input type="text" name="title" id="title" class="form-control"
-                                    placeholder="Masukkan judul laman di sini" value="{{ $page->title }}">
-                            </div>
-                            <div class="mb-3">
-                                <h5><label for="post_category" class="form-label">Kategori Post</label></h5>
-                                <select class="postCategory form-control" name="post_category" style="max-width: 50%">
-                                    <option value="{{$page->category_id}}">{{$currentCategory->category}}</option>
-                                    @foreach ($category as $cat)
-                                        <option value="{{ $cat->id }}">{{ $cat->category }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <h5><label for="content" class="form-label">Konten</label></h5>
-                                <textarea name="content" class="form-control" id="content"
-                                    placeholder="Masukkan konten laman di sini">{{ $page->content }}</textarea>
-                            </div>
-                            <button type="submit" class="waves-effect waves-light btn cyan darken-1">Simpan</button>
-                        </form>
+                                        <div class="file-path-wrapper">
+                                            <input name="content_path" class="file-path validate" type="text"
+                                                placeholder="Upload multiple files" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h5><label for="status" class="form-label">Status</label></h5>
+                                    <!-- Switch -->
+                                    <div class="switch">
+                                        <label>
+                                            @if ($banner->status == 1)
+                                                <input type="checkbox" name="status" checked>
+                                            @else
+                                                <input type="checkbox" name="status">
+                                            @endif
+                                            <span class="lever"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <br>
+                                <button type="submit" class="waves-effect waves-light btn cyan darken-1">Simpan</button>
+                            </form>
+                        </div>
                         <br>
                         <div class="divider"></div>
                         <!--DataTables example Row grouping-->
                     </div>
-                    <!-- Floating Action Button -->
-                    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
-                        <a class="btn-floating btn-large">
-                            <i class="mdi-action-stars"></i>
-                        </a>
-                        <ul>
-                            <li><a href="css-helpers.htm" class="btn-floating red"><i
-                                        class="large mdi-communication-live-help"></i></a></li>
-                            <li><a href="app-widget.htm" class="btn-floating yellow darken-1"><i
-                                        class="large mdi-device-now-widgets"></i></a></li>
-                            <li><a href="app-calendar.htm" class="btn-floating green"><i
-                                        class="large mdi-editor-insert-invitation"></i></a></li>
-                            <li><a href="app-email.htm" class="btn-floating blue"><i
-                                        class="large mdi-communication-email"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- Floating Action Button -->
-                </div>
-                <!--end container-->
+                    <!--end container-->
             </section>
 
             <!-- END CONTENT -->
@@ -134,17 +122,5 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript" src="{{ asset('js\select2.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js\tinyinit.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('.postCategory').select2({
-                placeholder: 'Pilih kategori post untuk ditampilkan',
-                minimumInputLength: 3,
-                allowClear: true
-            });
-        });
-
-    </script>
 @endsection

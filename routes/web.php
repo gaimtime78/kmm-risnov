@@ -90,6 +90,7 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::post('/store', [App\Http\Controllers\BannerController::class, 'store'])->name('banner.store');
             Route::get('/{id}/edit', [App\Http\Controllers\BannerController::class, 'edit'])->name('banner.edit');
             Route::put('/{id}', [App\Http\Controllers\BannerController::class, 'update'])->name('banner.update');
+            Route::put('/{id}/status', [App\Http\Controllers\BannerController::class, 'updateStatus'])->name('banner.updatestatus');
             Route::delete('/{id}', [App\Http\Controllers\BannerController::class, 'delete'])->name('banner.delete');
         });
 
