@@ -4,7 +4,7 @@
 <style>
     .clamp{
         display:block;
-        width:300px;
+        width:200px;
         text-overflow:ellipsis;
         overflow:hidden;
         max-height:120px;
@@ -47,7 +47,7 @@
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div  class="course-details">
-                                    <div style="display:grid;grid-template-columns:1fr 1fr;grid-gap:1em;">
+                                    <div style="display:grid;grid-gap:1em;height:150px;">
                                         <h4>
                                             <!-- <small>Bertia Terkini</small> -->
                                             <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>

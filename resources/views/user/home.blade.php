@@ -191,80 +191,32 @@ Sed eget pulvinar urna. Fusce volutpat accumsan dolor ac malesuada. Mauris et to
         </div><!-- end title -->
         <div class="row">
             <div class="col-md-12 text-right">
-                <ul class="pagination ">
-                    <li class="active"><a href="javascript:void(0)">&laquo;</a></li>
-                    <li class="active"><a href="javascript:void(0)">&raquo;</a></li>
+                <ul class="pagination">
+                    <li class="active" id="prev_gallery"><a href="javascript:prev_page()">&laquo;</a></li>
+                    <li id="next_gallery"><a href="javascript:next_page()">&raquo;</a></li>    
                 </ul>
             </div><!-- end col -->
         </div><!-- end row -->
 
         <div class="boxed boxedp4">
-            <div class="row blog-grid">
+            <div class="row blog-grid" id="gallery">
+                @foreach ($gallery as $row)
                 <div class="col-md-4">
                     <div class="course-box">
                         <div class="image-wrap entry">
-                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
+                            <img src="{{asset('upload/post/'.$row->thumbnail)}}" alt="{{$row->title}}" class="img-responsive">
                             <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                                <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $row->title)])}}" title=""><i class="flaticon-add"></i></a>
                             </div>
                         </div><!-- end image-wrap -->
                     </div><!-- end box -->
                 </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/8.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/4.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/5.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/7.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
+                @endforeach
             </div><!-- end row -->
 
             <hr class="invis">
             <div class="section-button text-center">
-                <a href="#" class="btn btn-primary">Lihat Gallery</a>
+                <a href="{{route('gallery')}}" class="btn btn-primary">Lihat Gallery</a>
             </div>
 
         </div><!-- end boxed -->
@@ -274,5 +226,50 @@ Sed eget pulvinar urna. Fusce volutpat accumsan dolor ac malesuada. Mauris et to
 @endsection
 
 @section('js')
+    <script>
+        var currentPage = 1;
+        var lastPage = {{$gallery->lastPage()}};
+
+        function next_page() {
+            if(currentPage < lastPage) {
+                currentPage = currentPage + 1;
+                get_page();
+            }
+        }
+
+        function prev_page() {
+            if(currentPage > 1) {
+                currentPage = currentPage - 1;
+                get_page();
+            }
+        }
+
+        function get_page() {
+            $("#gallery").animate({ opacity: 0 })
+                $.ajax({
+                    type: "GET",
+                    url: "{{route('get_gallery')}}" + '?page='+ currentPage,
+                    success: function(data){
+                        $('#gallery').html(data);
+                        check_page()
+                        $("#gallery").animate({ opacity: 100 })
+                    }
+                });
+        }
+
+        function check_page() {
+            if(currentPage != 1) {
+                $('#prev_gallery').removeClass("active");
+            } else {
+                $('#prev_gallery').addClass('active');
+            }
+
+            if(currentPage != lastPage) {
+                $('#next_gallery').removeClass("active");
+            } else {
+                $('#next_gallery').addClass('active');
+            }
+        }
+    </script>
 
 @endsection
