@@ -36,12 +36,16 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/coming', function () {
+    return view('user.coming');
+})->name('coming');
 
 Route::get('/admin_pusat_list_dosen_aktif', function () {
     return view('/admin_pusat/ap_dosen_aktif/dosen_aktif_list');
 })->name('admin_pusat_list_dosen_aktif');
 
 Route::group(['prefix' => '/mahasiswa-kkn'], function(){
+    Route::get('/list', [App\Http\Controllers\User\MahasiswaKKNController::class, 'index'])->name('mahasiswa-kkn.list');
     Route::get('/nama', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nama'])->name('mahasiswa-kkn.nama');
     Route::get('/nim', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nim'])->name('mahasiswa-kkn.nim');
     Route::get('/jurusan', [App\Http\Controllers\User\MahasiswaKKNController::class, 'jurusan'])->name('mahasiswa-kkn.jurusan');
@@ -50,7 +54,6 @@ Route::group(['prefix' => '/mahasiswa-kkn'], function(){
     Route::get('/kecamatan-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'kecamatanKKN'])->name('mahasiswa-kkn.kecamatan-kkn');
     Route::get('/desa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'desaKKN'])->name('mahasiswa-kkn.desa-kkn');
     Route::get('/foto-mahasiswa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'FotoMahasiswaKKN'])->name('mahasiswa-kkn.foto-mahasiswa-kkn');
-    Route::get('/', [App\Http\Controllers\User\MahasiswaKKNController::class, 'index'])->name('mahasiswa-kkn');
 });
 
 Route::get('/slider', [App\Http\Controllers\SliderController::class, 'index']);
@@ -92,6 +95,16 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::delete('/{id}', [PostController::class, 'delete'])->name('post.delete');
         });
 
+        Route::group(['prefix' => '/banner'], function(){
+            Route::get('/', [App\Http\Controllers\BannerController::class, 'index'])->name('banner.index');
+            Route::get('/create', [App\Http\Controllers\BannerController::class, 'create'])->name('banner.create');
+            Route::post('/store', [App\Http\Controllers\BannerController::class, 'store'])->name('banner.store');
+            Route::get('/{id}/edit', [App\Http\Controllers\BannerController::class, 'edit'])->name('banner.edit');
+            Route::put('/{id}', [App\Http\Controllers\BannerController::class, 'update'])->name('banner.update');
+            Route::put('/{id}/status', [App\Http\Controllers\BannerController::class, 'updateStatus'])->name('banner.updatestatus');
+            Route::delete('/{id}', [App\Http\Controllers\BannerController::class, 'delete'])->name('banner.delete');
+        });
+
         Route::group(['prefix' => '/page'], function(){
             Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
             Route::get('/create', [App\Http\Controllers\PageController::class, 'create'])->name('page.create');
@@ -115,8 +128,11 @@ Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::cl
 Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
 Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');
 Route::get('/produk-komersial', [App\Http\Controllers\User\ProdukController::class, 'index'])->name('produk-komersial');
+Route::get('/gallery', [App\Http\Controllers\User\GalleryController::class, 'index'])->name('gallery');
+Route::get('/get_gallery', [App\Http\Controllers\User\HomeController::class, 'get_gallery'])->name('get_gallery');
 Route::get('/post/{slug}', [App\Http\Controllers\PostController::class, 'detail'])->name('detail-post');
-
+Route::get('/search', [App\Http\Controllers\PostController::class, 'search'])->name('search');
+Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 'searchKategory'])->name('category');
 
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
