@@ -154,7 +154,7 @@
                                 <div class="tags-widget">
                                     <ul class="list-inline">
                                         @foreach($category as $c)
-                                        <li><a href="#">{{$c->category}}</a></li>
+                                        <li><a href="{{route('category',['category'=>$c->category])}}">{{$c->category}}</a></li>
                                         @endforeach
                                     </ul>
                                 </div><!-- end list-widget -->
