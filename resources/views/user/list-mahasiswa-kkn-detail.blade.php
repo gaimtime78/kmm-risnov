@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="image-wrap entry">
-                            <img style="width:80%; margin-top:30px;" src="{{asset('design/upload/course_03.jpg')}}" alt="foto mahasiswa" class="img-responsive">
+                            <img style="width:80%; margin-top:30px;" src="{{asset('design/images/logo-uns.png')}}" alt="foto mahasiswa" class="img-responsive">
                         </div><!-- end image-wrap -->
                     </div>
                 </div><!-- end row -->
