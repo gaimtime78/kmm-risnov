@@ -83,4 +83,20 @@ class PostController extends Controller
 		}
 		return abort(404);
 	}
+
+	public function search(Request $request)
+	{
+		$data['post'] = POST::where('title','LIKE','%'.$request->cari.'%')
+		->orWhere('content','LIKE','%'.strip_tags($request->cari).'%')
+		->paginate(5);
+		return view('user.search', $data);
+	}
+
+	public function searchKategory(Request $request)
+	{
+		$data['post'] = POST::whereHas('category', function($q) use ($request){
+			$q->where('category', 'LIKE', $request->category);
+		})->paginate(5);
+		return view('user.search', $data);
+	}
 }

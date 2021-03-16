@@ -29,18 +29,41 @@
                                     <li><a href="{{route('tentang-kami.profilBiro')}}">Profil Biro RPM</a></li>
                                 </ul>
                             </li> --}}
-                            <li><a href="{{route('lppm')}}">LPPM</a></li>
-                            <li><a href="{{route('direktorat')}}">Direktorat Inovasi </a></li>
+                            <li><a href="http://lppm.uns.ac.id/" target="_blank">LPPM</a></li>
+                            <li><a href="{{route('coming')}}">Direktorat Inovasi </a></li>
+                            <li><a href="{{route('coming')}}">KHDDTK </a></li>
                             <li><a href="{{route('informasi')}}">Informasi</a></li>
                             <li><a href="{{route('pui')}}">PUI</a></li>
                             <li><a href="{{route('produk-komersial')}}">Produk Siap Commercial</a></li>
                          
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
                             <li><a href="{{route('agenda')}}">Agenda</a></li>
-
+                            <li class="iconitem"><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-search"></i></a></li>
                           
                         </ul>
                     </div>
                 </nav><!-- end navbar -->
             </div><!-- end container -->
         </header>
+
+         <!-- BEGIN # MODAL LOGIN -->
+         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Begin # DIV Form -->
+                    <div id="div-forms">
+                        <form id="login-form" method="get" action="{{route('search')}}">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="flaticon-add" aria-hidden="true"></span>
+                            </button>
+                            <div class="modal-body">
+                                <input class="form-control" name="cari" type="text" placeholder="Apa yang anda cari" required>
+                                <button style="margin-top:5px" type="submit" class="btn btn-info btn-sm ">Cari</button>
+                            </div>
+                        
+                        </form><!-- End # Login Form -->
+                    </div><!-- End # DIV Form -->
+                </div>
+            </div>
+        </div>
+        <!-- END # MODAL LOGIN -->
