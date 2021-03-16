@@ -10,4 +10,5 @@ class MahasiswaKKNController extends Controller
     public function index(){
         return view ('user.list-mahasiswa-kkn');
     }
+
 }
