@@ -45,6 +45,7 @@ Route::get('/admin_pusat_list_dosen_aktif', function () {
 })->name('admin_pusat_list_dosen_aktif');
 
 Route::group(['prefix' => '/mahasiswa-kkn'], function(){
+<<<<<<< HEAD
     Route::get('/nama', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'nama'])->name('mahasiswa-kkn.nama');
     Route::get('/nim', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'nim'])->name('mahasiswa-kkn.nim');
     Route::get('/jurusan', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'jurusan'])->name('mahasiswa-kkn.jurusan');
@@ -53,6 +54,20 @@ Route::group(['prefix' => '/mahasiswa-kkn'], function(){
     Route::get('/kecamatan-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'kecamatanKKN'])->name('mahasiswa-kkn.kecamatan-kkn');
     Route::get('/desa-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'desaKKN'])->name('mahasiswa-kkn.desa-kkn');
     Route::get('/foto-mahasiswa-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'FotoMahasiswaKKN'])->name('mahasiswa-kkn.foto-mahasiswa-kkn');
+=======
+    Route::get('/nama', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nama'])->name('mahasiswa-kkn.nama');
+    Route::get('/nim', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nim'])->name('mahasiswa-kkn.nim');
+    Route::get('/jurusan', [App\Http\Controllers\User\MahasiswaKKNController::class, 'jurusan'])->name('mahasiswa-kkn.jurusan');
+    Route::get('/provinsi-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'provinsiKKN'])->name('mahasiswa-kkn.provinsi-kkn');
+    Route::get('/kabupaten-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'kabupatenKKN'])->name('mahasiswa-kkn.kabupaten-kkn');
+    Route::get('/kecamatan-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'kecamatanKKN'])->name('mahasiswa-kkn.kecamatan-kkn');
+    Route::get('/desa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'desaKKN'])->name('mahasiswa-kkn.desa-kkn');
+    Route::get('/foto-mahasiswa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'FotoMahasiswaKKN'])->name('mahasiswa-kkn.foto-mahasiswa-kkn');
+
+
+    Route::get('/', [App\Http\Controllers\User\MahasiswaKKNController::class, 'index'])->name('mahasiswa-kkn.index');
+
+>>>>>>> fbe52a2e9b923f593dd7aae91d0bcd9cd3cee4ee
 });
 
 Route::get('/slider', [App\Http\Controllers\SliderController::class, 'index']);
@@ -94,6 +109,16 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::delete('/{id}', [PostController::class, 'delete'])->name('post.delete');
         });
 
+        Route::group(['prefix' => '/banner'], function(){
+            Route::get('/', [App\Http\Controllers\BannerController::class, 'index'])->name('banner.index');
+            Route::get('/create', [App\Http\Controllers\BannerController::class, 'create'])->name('banner.create');
+            Route::post('/store', [App\Http\Controllers\BannerController::class, 'store'])->name('banner.store');
+            Route::get('/{id}/edit', [App\Http\Controllers\BannerController::class, 'edit'])->name('banner.edit');
+            Route::put('/{id}', [App\Http\Controllers\BannerController::class, 'update'])->name('banner.update');
+            Route::put('/{id}/status', [App\Http\Controllers\BannerController::class, 'updateStatus'])->name('banner.updatestatus');
+            Route::delete('/{id}', [App\Http\Controllers\BannerController::class, 'delete'])->name('banner.delete');
+        });
+
         Route::group(['prefix' => '/page'], function(){
             Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
             Route::get('/create', [App\Http\Controllers\PageController::class, 'create'])->name('page.create');
@@ -118,6 +143,7 @@ Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class
 Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');
 Route::get('/produk-komersial', [App\Http\Controllers\User\ProdukController::class, 'index'])->name('produk-komersial');
 Route::get('/gallery', [App\Http\Controllers\User\GalleryController::class, 'index'])->name('gallery');
+Route::get('/get_gallery', [App\Http\Controllers\User\HomeController::class, 'get_gallery'])->name('get_gallery');
 Route::get('/post/{slug}', [App\Http\Controllers\PostController::class, 'detail'])->name('detail-post');
 Route::get('/search', [App\Http\Controllers\PostController::class, 'search'])->name('search');
 Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 'searchKategory'])->name('category');
