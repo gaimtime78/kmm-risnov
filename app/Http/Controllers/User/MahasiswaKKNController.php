@@ -11,4 +11,8 @@ class MahasiswaKKNController extends Controller
         return view ('user.list-mahasiswa-kkn');
     }
 
+    public function detail(){
+        return view ('user.list-mahasiswa-kkn-detail');
+    }
+
 }

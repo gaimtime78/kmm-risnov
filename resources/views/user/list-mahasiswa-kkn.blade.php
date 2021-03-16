@@ -50,7 +50,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -66,7 +66,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"></i> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->
@@ -77,7 +77,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -93,7 +93,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->
@@ -104,7 +104,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -120,7 +120,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->
@@ -131,7 +131,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -147,7 +147,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->
@@ -158,7 +158,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -174,7 +174,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->
@@ -185,7 +185,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -201,7 +201,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->
@@ -212,7 +212,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -228,7 +228,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->
@@ -239,7 +239,7 @@
                             <div class="image-wrap entry">
                                 <img src="{{asset('images/logo-uns.png')}}" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                                    <a href="{{route('mahasiswa-kkn.detail')}}" title=""><i class="flaticon-add"></i></a>
                                 </div>
                             </div>
                             <!-- end image-wrap -->
@@ -255,7 +255,7 @@
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a href="#"><i class="fa fa-user"></i> Lihat Detail</a></li>
+                                        <li><a href="{{route('mahasiswa-kkn.detail')}}" class="readmore"> Lihat Detail</a></li>
                                     </ul>
                                 </div><!-- end left -->
                             </div><!-- end footer -->

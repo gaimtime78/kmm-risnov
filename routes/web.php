@@ -45,16 +45,6 @@ Route::get('/admin_pusat_list_dosen_aktif', function () {
 })->name('admin_pusat_list_dosen_aktif');
 
 Route::group(['prefix' => '/mahasiswa-kkn'], function(){
-<<<<<<< HEAD
-    Route::get('/nama', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'nama'])->name('mahasiswa-kkn.nama');
-    Route::get('/nim', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'nim'])->name('mahasiswa-kkn.nim');
-    Route::get('/jurusan', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'jurusan'])->name('mahasiswa-kkn.jurusan');
-    Route::get('/provinsi-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'provinsiKKN'])->name('mahasiswa-kkn.provinsi-kkn');
-    Route::get('/kabupaten-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'kabupatenKKN'])->name('mahasiswa-kkn.kabupaten-kkn');
-    Route::get('/kecamatan-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'kecamatanKKN'])->name('mahasiswa-kkn.kecamatan-kkn');
-    Route::get('/desa-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'desaKKN'])->name('mahasiswa-kkn.desa-kkn');
-    Route::get('/foto-mahasiswa-kkn', [App\Http\Controllers\Users\MahasiswaKKNController::class, 'FotoMahasiswaKKN'])->name('mahasiswa-kkn.foto-mahasiswa-kkn');
-=======
     Route::get('/nama', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nama'])->name('mahasiswa-kkn.nama');
     Route::get('/nim', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nim'])->name('mahasiswa-kkn.nim');
     Route::get('/jurusan', [App\Http\Controllers\User\MahasiswaKKNController::class, 'jurusan'])->name('mahasiswa-kkn.jurusan');
@@ -64,10 +54,9 @@ Route::group(['prefix' => '/mahasiswa-kkn'], function(){
     Route::get('/desa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'desaKKN'])->name('mahasiswa-kkn.desa-kkn');
     Route::get('/foto-mahasiswa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'FotoMahasiswaKKN'])->name('mahasiswa-kkn.foto-mahasiswa-kkn');
 
-
+    Route::get('/detail-mahasiswa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'detail'])->name('mahasiswa-kkn.detail');
     Route::get('/', [App\Http\Controllers\User\MahasiswaKKNController::class, 'index'])->name('mahasiswa-kkn.index');
 
->>>>>>> fbe52a2e9b923f593dd7aae91d0bcd9cd3cee4ee
 });
 
 Route::get('/slider', [App\Http\Controllers\SliderController::class, 'index']);

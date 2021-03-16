@@ -67,7 +67,7 @@ input[type="number"] {
                                         <div class="course-details">
                                             <h4>
                                                 <small>Bagian Informasi</small>
-                                                <!-- <p>Data Persebaran Mahasiswa KKN</p> -->
+                                                <p>Data Persebaran Mahasiswa KKN</p>
                                             </h4>
                                         </div>
                                         <div id="container"></div>
@@ -135,7 +135,7 @@ Highcharts.chart('container', {
     type: 'pie'
   },
   title: {
-    text: 'Data Persebaran Mahasiswa KKN'
+    text: 'Klik chart untuk melihat detail'
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -165,31 +165,31 @@ Highcharts.chart('container', {
       y: 61.41,
       sliced: true,
       selected: true,
-      url: 'http://bing.com/search?q=foo'
+      url: "{{route('mahasiswa-kkn.index')}}"
     }, {
       name: 'Yogyakarta',
       y: 11.84,
-      url: 'http://bing.com/search?q=foo'
+      url: "{{route('mahasiswa-kkn.index')}}"
     }, {
       name: 'Jawa Timur',
       y: 10.85,
-      url: 'http://bing.com/search?q=foo'
+      url: "{{route('mahasiswa-kkn.index')}}"
     }, {
       name: 'Jawa Barat',
       y: 4.67,
-      url: 'http://bing.com/search?q=foo'
+      url: "{{route('mahasiswa-kkn.index')}}"
     }, {
       name: 'Banten',
       y: 4.18,
-      url: 'http://bing.com/search?q=foo'
+      url: "{{route('mahasiswa-kkn.index')}}"
     }, {
       name: 'NTT',
       y: 1.64,
-      url: 'http://bing.com/search?q=foo'
+      url: "{{route('mahasiswa-kkn.index')}}"
     }, {
       name: 'NTB',
       y: 1.6,
-      url: 'http://bing.com/search?q=foo'
+      url: "{{route('mahasiswa-kkn.index')}}"
     }]
   }]
 });
