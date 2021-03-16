@@ -45,7 +45,6 @@ Route::get('/admin_pusat_list_dosen_aktif', function () {
 })->name('admin_pusat_list_dosen_aktif');
 
 Route::group(['prefix' => '/mahasiswa-kkn'], function(){
-    Route::get('/list', [App\Http\Controllers\User\MahasiswaKKNController::class, 'index'])->name('mahasiswa-kkn.list');
     Route::get('/nama', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nama'])->name('mahasiswa-kkn.nama');
     Route::get('/nim', [App\Http\Controllers\User\MahasiswaKKNController::class, 'nim'])->name('mahasiswa-kkn.nim');
     Route::get('/jurusan', [App\Http\Controllers\User\MahasiswaKKNController::class, 'jurusan'])->name('mahasiswa-kkn.jurusan');
