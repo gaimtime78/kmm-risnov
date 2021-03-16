@@ -36,6 +36,9 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/coming', function () {
+    return view('user.coming');
+})->name('coming');
 
 Route::get('/admin_pusat_list_dosen_aktif', function () {
     return view('/admin_pusat/ap_dosen_aktif/dosen_aktif_list');

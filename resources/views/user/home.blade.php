@@ -1,7 +1,19 @@
 @extends('layout.user')
 
 @section('css')
+<style>
+    .clamp{
+        display:block;
+        width:200px;
+        text-overflow:ellipsis;
+        overflow:hidden;
+        max-height:120px;
 
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -65,26 +77,26 @@ Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and 
             <div class="caro-item">
                 <div class="course-box">
                     <div class="image-wrap entry">
-                        <img src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
+                        <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive">
                         <div class="magnifier">
                             <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>Selengkapnya</p></a>
                         </div>
                     </div><!-- end image-wrap -->
-                    <div style="padding:0" class="course-footer clearfix">
-                        <div class="pull-left">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</a></li>
-                                <!-- <li><a href="#">14 Share</a></li> -->
-                            </ul>
-                        </div><!-- end left -->
-                    </div><!-- end footer -->
-                    <div style="padding:0" class="course-details">
-                        <h4>
-                            <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
-                        </h4>
-                        <p>{{$p->overview}}</p>
+                    <div  class="course-details">
+                        <div style="display:grid;grid-gap:1em;height:110px;">
+                            <h4>
+                                <small><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</small>
+                                <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
+                            </h4>
+                        </div>
+                        
+                        <div style="height:120px;">
+                            <div class="clamp">{{$p->overview}}</div>
+                        </div><br>
+                        <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" class="readmore">Selengkapnya</a>
                     </div><!-- end details -->
-                    <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" class="readmore">Selengkapnya</a>
+                    
+                   
                 </div><!-- end box -->
             </div><!-- end col -->
             @endforeach
