@@ -15,7 +15,7 @@
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="description" content="IRIS1103 Premiere Suite | Intelligent Research and Innovation Services 1103">
   <meta name="keywords" content="IRIS1103 Premiere Suite | Intelligent Research and Innovation Services 1103">
-  <title>IRIS1103 Premiere Suite | Intelligent Research and Innovation Services 1103</title>
+  <title>RISNOV LOGIN</title>
 
   <!-- Favicons-->
   <link rel="icon" href="images\favicon\favicon-32x32.png" sizes="32x32">
@@ -61,7 +61,7 @@
          
             <!-- <img src="images\login-logo.png" alt="" class="circle responsive-img valign profile-image-login"> -->
             <p class="center login-form-text">Seluruh Akun User Peneliti ataupun Ketua RG login menggunakan SSO UNS Klik disini</p>
-            <a href="index.htm" class="btn waves-effect waves-light col s12">Login dengan SSO</a>
+            <!-- <a href="index.htm" class="btn waves-effect waves-light col s12">Login dengan SSO</a> -->
           </div>
         </div>
         <div class="row margin">

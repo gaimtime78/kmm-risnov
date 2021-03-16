@@ -2,19 +2,43 @@
 
 @section('css')
 <style>
-#chart1 {
-  width: 100%;
-  height: 500px;
+.highcharts-figure, .highcharts-data-table table {
+  min-width: 320px; 
+  max-width: 800px;
+  margin: 1em auto;
 }
 
-#chart2 {
-  width: 100%;
-  height: 500px;
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
 }
 
-#chart3 {
-  width: 100%;
-  height: 500px;
+
+input[type="number"] {
+	min-width: 50px;
 }
 </style>
 @endsection
@@ -40,17 +64,15 @@
                             <div class="row blog-grid">
                                 <div class="col-md-12">
                                     <div class="course-box">
-                                        
                                         <div class="course-details">
                                             <h4>
-                                                <small>KKN</small>
-                                                <a href="blog-single.html" title="">Data Persebaran Mahasiswa KKN Universitas Sebelas Maret</a>
+                                                <small>Bagian Informasi</small>
+                                                <!-- <p>Data Persebaran Mahasiswa KKN</p> -->
                                             </h4>
-                                            <p>Silakan melihat data dibawah ini. </p>
-                                        </div><!-- end details -->
-                                        <div class="image-wrap entry">
-                                          <div id="chart1"></div>
-                                        </div><!-- end image-wrap -->
+                                        </div>
+                                        <div id="container"></div>
+                                          
+                                        
                                     </div><!-- end box -->
                                 </div><!-- end col -->
 
@@ -90,18 +112,7 @@
 
                             <hr class="invis">
                             
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul class="pagination">
-                                        <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                                        <li class="active"><a href="javascript:void(0)">1</a></li>
-                                        <li><a href="javascript:void(0)">2</a></li>
-                                        <li><a href="javascript:void(0)">3</a></li>
-                                        <li><a href="javascript:void(0)">...</a></li>
-                                        <li><a href="javascript:void(0)">&raquo;</a></li>
-                                    </ul>
-                                </div><!-- end col -->
-                            </div><!-- end row -->
+                            
                         </div><!-- end col -->
 
                     </div><!-- end row -->
@@ -111,190 +122,76 @@
 @endsection
 
 @section('js')
-<script src="{{asset('amcharts4/core.js')}}"></script>
-<script src="{{asset('amcharts4/charts.js')}}"></script>
-<script src="{{asset('amcharts4/themes/animated.js')}}"></script>
-<script src="{{asset('amcharts4/themes/material.js')}}"></script>
-<script src="{{asset('amcharts4/themes/animated.js')}}"></script>
-<script src="{{asset('amcharts4/themes/frozen.js')}}"></script>
-
-<!-- Chart code -->
-
-
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script>
-am4core.ready(function() {
-
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-// Create chart instance
-var chart = am4core.create("chart1", am4charts.PieChart);
-
-// Add data
-chart.data = [ {
-  "province": "Jawa Tengah",
-  "litres": 501.9,
-  "url": "{{route('tentang-kami.sambutan')}}"
-}, {
-  "province": "Jawa Timur",
-  "litres": 301.9
-}, {
-  "province": "Jawa Barat",
-  "litres": 60
-}, {
-  "province": "D.I.Yogyakarta",
-  "litres": 201.1
-}, {
-  "province": "NTT",
-  "litres": 165.8
-}, {
-  "province": "NTB",
-  "litres": 139.9
-}, {
-  "province": "Maluku",
-  "litres": 128.3
-}, {
-  "province": "Maluku Utara",
-  "litres": 99
-} ];
-
-// Add and configure Series
-var pieSeries = chart.series.push(new am4charts.PieSeries());
-pieSeries.dataFields.value = "litres";
-pieSeries.dataFields.category = "province";
-pieSeries.slices.template.stroke = am4core.color("#fff");
-pieSeries.slices.template.strokeWidth = 2;
-pieSeries.slices.template.strokeOpacity = 1;
-pieSeries.slices.template.propertyFields.url = "url";
-pieSeries.slices.template.urlTarget = "_blank";
-
-
-// This creates initial animation
-pieSeries.hiddenState.properties.opacity = 1;
-pieSeries.hiddenState.properties.endAngle = -90;
-pieSeries.hiddenState.properties.startAngle = -90;
-
-}); // end am4core.ready()
-</script>
-
-<script>
-am4core.ready(function() {
-
-// Themes begin
-am4core.useTheme(am4themes_material);
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-// Create chart instance
-var chart2 = am4core.create("chart2", am4charts.PieChart);
-
-// Add data
-chart2.data = [ {
-  "country": "Lithuania",
-  "litres": 501.9
-}, {
-  "country": "Czech Republic",
-  "litres": 301.9
-}, {
-  "country": "Ireland",
-  "litres": 201.1
-}, {
-  "country": "Germany",
-  "litres": 165.8
-}, {
-  "country": "Australia",
-  "litres": 139.9
-}, {
-  "country": "Austria",
-  "litres": 128.3
-}, {
-  "country": "UK",
-  "litres": 99
-}, {
-  "country": "Belgium",
-  "litres": 60
-}, {
-  "country": "The Netherlands",
-  "litres": 50
-} ];
-
-// Set inner radius
-chart2.innerRadius = am4core.percent(50);
-
-// Add and configure Series
-var pieSeries2 = chart2.series.push(new am4charts.PieSeries());
-pieSeries2.dataFields.value = "litres";
-pieSeries2.dataFields.category = "country";
-pieSeries2.slices.template.stroke = am4core.color("#fff");
-pieSeries2.slices.template.strokeWidth = 2;
-pieSeries2.slices.template.strokeOpacity = 1;
-
-// This creates initial animation
-pieSeries.hiddenState.properties.opacity = 1;
-pieSeries.hiddenState.properties.endAngle = -90;
-pieSeries.hiddenState.properties.startAngle = -90;
-
-}); // end am4core.ready()
-</script>
-
-<script>
-am4core.ready(function() {
-
-// Themes begin
-am4core.useTheme(am4themes_frozen);
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-var chart3 = am4core.create("chart3", am4charts.PieChart);
-chart3.hiddenState.properties.opacity = 0; // this creates initial fade-in
-
-chart3.data = [
-  {
-    country: "Lithuania",
-    value: 401
+Highcharts.chart('container', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
   },
-  {
-    country: "Czech Republic",
-    value: 300
+  title: {
+    text: 'Data Persebaran Mahasiswa KKN'
   },
-  {
-    country: "Ireland",
-    value: 200
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
   },
-  {
-    country: "Germany",
-    value: 165
+  accessibility: {
+    point: {
+      valueSuffix: '%'
+    }
   },
-  {
-    country: "Australia",
-    value: 139
+  plotOptions: {
+      series: {
+          cursor: 'pointer',
+          point: {
+              events: {
+                  click: function() {
+                      location.href = this.options.url;
+                  }
+              }
+          }
+      }
   },
-  {
-    country: "Austria",
-    value: 128
-  }
-];
-chart3.radius = am4core.percent(70);
-chart3.innerRadius = am4core.percent(40);
-chart3.startAngle = 180;
-chart3.endAngle = 360;  
-
-var series = chart3.series.push(new am4charts.PieSeries());
-series.dataFields.value = "value";
-series.dataFields.category = "country";
-
-series.slices.template.cornerRadius = 10;
-series.slices.template.innerCornerRadius = 7;
-series.slices.template.draggable = true;
-series.slices.template.inert = true;
-series.alignLabels = false;
-
-series.hiddenState.properties.startAngle = 90;
-series.hiddenState.properties.endAngle = 90;
-
-chart3.legend = new am4charts.Legend();
-
-}); // end am4core.ready()
+  series: [{
+    name: 'Presentase',
+    colorByPoint: true,
+    data: [{
+      name: 'Jawa Tengah',
+      y: 61.41,
+      sliced: true,
+      selected: true,
+      url: 'http://bing.com/search?q=foo'
+    }, {
+      name: 'Yogyakarta',
+      y: 11.84,
+      url: 'http://bing.com/search?q=foo'
+    }, {
+      name: 'Jawa Timur',
+      y: 10.85,
+      url: 'http://bing.com/search?q=foo'
+    }, {
+      name: 'Jawa Barat',
+      y: 4.67,
+      url: 'http://bing.com/search?q=foo'
+    }, {
+      name: 'Banten',
+      y: 4.18,
+      url: 'http://bing.com/search?q=foo'
+    }, {
+      name: 'NTT',
+      y: 1.64,
+      url: 'http://bing.com/search?q=foo'
+    }, {
+      name: 'NTB',
+      y: 1.6,
+      url: 'http://bing.com/search?q=foo'
+    }]
+  }]
+});
 </script>
 @endsection

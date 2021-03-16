@@ -50,7 +50,7 @@ Route::group(['prefix' => '/mahasiswa-kkn'], function(){
     Route::get('/kecamatan-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'kecamatanKKN'])->name('mahasiswa-kkn.kecamatan-kkn');
     Route::get('/desa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'desaKKN'])->name('mahasiswa-kkn.desa-kkn');
     Route::get('/foto-mahasiswa-kkn', [App\Http\Controllers\User\MahasiswaKKNController::class, 'FotoMahasiswaKKN'])->name('mahasiswa-kkn.foto-mahasiswa-kkn');
-    Route::get('/', [App\Http\Controllers\User\MahasiswaKKNController::class, 'index'])->name('mahasiswa-kkn');
+    Route::get('/', [App\Http\Controllers\User\MahasiswaKKNController::class, 'index'])->name('mahasiswa-kkn.index');
 });
 
 Route::get('/slider', [App\Http\Controllers\SliderController::class, 'index']);
