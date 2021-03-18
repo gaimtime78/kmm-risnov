@@ -36,9 +36,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informasi&nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
-                                    <li><a href="{{route('informasi')}}">Sertifikat HAKI</a></li>
-                                    <li><a href="{{route('informasi')}}">Produk Buku Siap Komersial</a></li>
-                                    
+                                    <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
+                                    <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>                                 
                                 </ul>
                             </li>
                             {{-- <li><a href="{{route('pui')}}">PUI</a></li> --}}
