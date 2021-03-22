@@ -17,7 +17,6 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->enum('content_type', ['gambar', 'video']);
             $table->string('filenames');
-            $table->boolean('status');
             $table->timestamps();
         });
     }

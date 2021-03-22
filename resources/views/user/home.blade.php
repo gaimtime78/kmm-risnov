@@ -38,11 +38,15 @@
             <div class="col-md-6">
                 <div class="custom-module p40l">
                     <h2><mark>SAMBUTAN WR</mark></h2>
-                    <p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa erat, convallis id augue in, ultrices condimentum elit. Proin congue sem id lacinia feugiat. Cras ornare ante id vestibulum laoreet. Praesent blandit cursus felis at posuere. Nunc non purus purus. Donec ut facilisis nibh, et sodales quam. Donec mollis ipsum eu ligula tempus, et condimentum lorem pellentesque. Aliquam tempus leo sed diam rutrum accumsan.
+                    <p style="text-align:justify">Selamat datang di situs Universitas Sebelas Maret (UNS). Kami merasa terhormat atas kunjungan Anda, semoga Anda tertarik untuk terus dapat memanfaatkan situs ini dalam mencari dan memperoleh informasi dari kami.
 
-Donec dapibus massa vitae lacus congue, nec faucibus ligula elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ut ligula maximus lacus porttitor laoreet. Nam vel laoreet orci, a iaculis velit. Nullam convallis lacus at ex dictum, sit amet scelerisque ipsum suscipit. Donec ipsum dui, vulputate eu est sit amet, rhoncus euismod elit. Quisque a ante scelerisque massa efficitur sollicitudin. Nunc vel tellus vel elit laoreet mattis. Donec at mauris libero. In tempus sodales lectus, at ultrices nisl mollis eu.
+UNS merupakan universitas muda dengan potensi yang luar biasa. Selain terletak di kota Solo yang strategis, UNS mempunyai kawasan kampus yang indah, fakultas-fakultas yang berkompetensi tinggi, kegiatan penelitian dan pengabdian masyarakat yang semakin dirasakan manfaatnya oleh stakeholder-nya, perpustakaan yang lengkap dan modern, prasarana dan laboratorium yang canggih di kawasan Jawa Tengah, perkembangan teknologi informasi yang cukup mencengangkan, alumni dengan posisi pekerjaan yang baik di seluruh pelosok negeri serta sumber daya manusia yang sudah diakui baik di tingkat regional ataupun nasional dengan prestasi yang mengesankan di bidangnya masing-masing.
 
-Sed eget pulvinar urna. Fusce volutpat accumsan dolor ac malesuada. Mauris et tortor laoreet, gravida elit nec, cursus est. Pellentesque dolor lectus, congue ac mi eu, luctus volutpat elit. Aliquam scelerisque semper felis. Cras ultrices tellus at diam venenatis, vel molestie ipsum egestas. Praesent ut risus ligula. Morbi vitae ligula congue, volutpat mi eu, cursus libero. Duis at facilisis nisi. Sed volutpat felis sed urna consequat, sed elementum ipsum mattis. Curabitur euismod, ex eu blandit tincidunt, orci metus aliquet massa, ac dapibus diam ipsum eu felis. Sed porttitor diam eros, sit amet euismod sapien rhoncus vel. In auctor id nibh porta rhoncus.
+Potensi-potensi tersebut tidak ada artinya jika tidak dilandasi dengan visi, misi dan tujuan akademik yang kuat. Untuk itu,  kami berusaha sekuat tenaga untuk selalu berkomitmen dalam mewujudkan UNS sebagai salah satu pusat pemikiran, pengkajian, dan pengembangan ilmu pengetahuan, seni, teknologi, dan kebudayaan Indonesia dalam rangka memperkaya khasanah kehidupan masyarakat dan mendukung pembangunan nasional.
+
+Selain itu, kami memberikan kesempatan seluas-luasnya kepada segenap elemen civitas academika untuk terus berkompetisi di bidangnya masing-masing, misalnya kami mendorong mahasiswa untuk selalu aktif, kritis dan kreatif dalam setiap kegiatan baik kokurikuler maupun ekstrakurikuler, memacu para dosen dan peneliti untuk selalu dapat menciptakan penemuan-penemuan baru dan mengembangkan inovasi-inovasi yang berguna bagi masyarakat, serta memberikan dukungan bagi unit-unit kerja di lingkungan UNS untuk selalu dapat meningkatkan mutu layanan.
+
+Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and research university. Ini merupakan kesempatan bagi kami dalam abad ini, dan menghadapi tantangan globalisasi. Terima kasih atas waktunya untuk bereksplorasi di UNS lewat situs ini. Kritik dan saran kami harapkan untuk kemajuan ilmu pengetahuan dan universitas kami.
 
 </p>
                     <hr class="invis">
@@ -191,32 +195,80 @@ Sed eget pulvinar urna. Fusce volutpat accumsan dolor ac malesuada. Mauris et to
         </div><!-- end title -->
         <div class="row">
             <div class="col-md-12 text-right">
-                <ul class="pagination">
-                    <li class="active" id="prev_gallery"><a href="javascript:prev_page()">&laquo;</a></li>
-                    <li id="next_gallery"><a href="javascript:next_page()">&raquo;</a></li>    
+                <ul class="pagination ">
+                    <li class="active"><a href="javascript:void(0)">&laquo;</a></li>
+                    <li class="active"><a href="javascript:void(0)">&raquo;</a></li>
                 </ul>
             </div><!-- end col -->
         </div><!-- end row -->
 
         <div class="boxed boxedp4">
-            <div class="row blog-grid" id="gallery">
-                @foreach ($gallery as $row)
+            <div class="row blog-grid">
                 <div class="col-md-4">
                     <div class="course-box">
                         <div class="image-wrap entry">
-                            <img src="{{asset('upload/post/'.$row->thumbnail)}}" alt="{{$row->title}}" class="img-responsive">
+                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
                             <div class="magnifier">
-                                <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $row->title)])}}" title=""><i class="flaticon-add"></i></a>
+                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
                             </div>
                         </div><!-- end image-wrap -->
                     </div><!-- end box -->
                 </div><!-- end col -->
-                @endforeach
+                <div class="col-md-4">
+                    <div class="course-box">
+                        <div class="image-wrap entry">
+                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
+                            <div class="magnifier">
+                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                            </div>
+                        </div><!-- end image-wrap -->
+                    </div><!-- end box -->
+                </div><!-- end col -->
+                <div class="col-md-4">
+                    <div class="course-box">
+                        <div class="image-wrap entry">
+                            <img src="images/gallary/8.jpg" alt="" class="img-responsive">
+                            <div class="magnifier">
+                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                            </div>
+                        </div><!-- end image-wrap -->
+                    </div><!-- end box -->
+                </div><!-- end col -->
+                <div class="col-md-4">
+                    <div class="course-box">
+                        <div class="image-wrap entry">
+                            <img src="images/gallary/4.jpg" alt="" class="img-responsive">
+                            <div class="magnifier">
+                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                            </div>
+                        </div><!-- end image-wrap -->
+                    </div><!-- end box -->
+                </div><!-- end col -->
+                <div class="col-md-4">
+                    <div class="course-box">
+                        <div class="image-wrap entry">
+                            <img src="images/gallary/5.jpg" alt="" class="img-responsive">
+                            <div class="magnifier">
+                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                            </div>
+                        </div><!-- end image-wrap -->
+                    </div><!-- end box -->
+                </div><!-- end col -->
+                <div class="col-md-4">
+                    <div class="course-box">
+                        <div class="image-wrap entry">
+                            <img src="images/gallary/7.jpg" alt="" class="img-responsive">
+                            <div class="magnifier">
+                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
+                            </div>
+                        </div><!-- end image-wrap -->
+                    </div><!-- end box -->
+                </div><!-- end col -->
             </div><!-- end row -->
 
             <hr class="invis">
             <div class="section-button text-center">
-                <a href="{{route('gallery')}}" class="btn btn-primary">Lihat Gallery</a>
+                <a href="#" class="btn btn-primary">Lihat Gallery</a>
             </div>
 
         </div><!-- end boxed -->
@@ -226,50 +278,5 @@ Sed eget pulvinar urna. Fusce volutpat accumsan dolor ac malesuada. Mauris et to
 @endsection
 
 @section('js')
-    <script>
-        var currentPage = 1;
-        var lastPage = {{$gallery->lastPage()}};
-
-        function next_page() {
-            if(currentPage < lastPage) {
-                currentPage = currentPage + 1;
-                get_page();
-            }
-        }
-
-        function prev_page() {
-            if(currentPage > 1) {
-                currentPage = currentPage - 1;
-                get_page();
-            }
-        }
-
-        function get_page() {
-            $("#gallery").animate({ opacity: 0 })
-                $.ajax({
-                    type: "GET",
-                    url: "{{route('get_gallery')}}" + '?page='+ currentPage,
-                    success: function(data){
-                        $('#gallery').html(data);
-                        check_page()
-                        $("#gallery").animate({ opacity: 100 })
-                    }
-                });
-        }
-
-        function check_page() {
-            if(currentPage != 1) {
-                $('#prev_gallery').removeClass("active");
-            } else {
-                $('#prev_gallery').addClass('active');
-            }
-
-            if(currentPage != lastPage) {
-                $('#next_gallery').removeClass("active");
-            } else {
-                $('#next_gallery').addClass('active');
-            }
-        }
-    </script>
 
 @endsection

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use View;
 
 class HomeController extends Controller
 {
@@ -16,16 +15,7 @@ class HomeController extends Controller
 
         $data['gallery'] = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category','=', 'Gallery');
-        })->orderBy('created_at','DESC')->paginate(6);
+        })->orderBy('created_at','DESC')->limit(6)->get();
         return view('user.home', $data);
-    }
-
-    public function get_gallery() {
-        $gallery = Post::where('active', 1)->whereHas('category', function($v){
-            $v->where('category','=', 'Gallery');
-        })->orderBy('created_at','DESC')->paginate(6);
-        
-        $data = View::make('user.view.gallery', ['gallery' => $gallery])->render();
-        return response()->json($data);
     }
 }
