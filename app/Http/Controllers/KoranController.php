@@ -12,5 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class KoranController extends Controller
 {
-	
+	public function index(){
+    return ['Halo'];
+  }
 }
