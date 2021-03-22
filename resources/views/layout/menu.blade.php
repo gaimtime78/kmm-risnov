@@ -32,6 +32,8 @@
                             </li>
                             <li><a href="{{ route('admin.menu.index') }}">Menu</a>
                             </li>
+                            <li><a href="{{ route('admin.koran.index') }}">Koran Online</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
