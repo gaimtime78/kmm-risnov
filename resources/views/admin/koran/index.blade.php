@@ -28,8 +28,8 @@
 				</div>
 				@endif
 				<div id="table-datatables">
-					<h4 class="header left">Post</h4>
-					<a href="{{route('admin.post.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Post</a>
+					<h4 class="header left">Koran</h4>
+					<a href="{{route('admin.koran.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Koran</a>
 					<div class="row">
 						<div class="col s12 m12 l12">
 							<table id="data-menu" class="responsive-table display" cellspacing="0">
@@ -38,7 +38,6 @@
 									<th>id</th>
 									<th width="350">title</th>
 									<th>created by</th>
-									<th>category</th>
 									<th>active</th>
 									<th>Action</th>
 										</tr>
@@ -53,11 +52,6 @@
 											<td>{{ $row->title }}</td>
 											<td>{{ $row->user->name }}</td>
 											<td>
-												@foreach($row->category as $c)
-													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat cyan">{{$c->category}}</div>
-												@endforeach
-											</td>
-											<td>
 												@if($row->active)
 													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat cyan">Active</div>
 												@else
@@ -66,7 +60,7 @@
 											</td>
 											<td>
 												<div>
-													<a class="btn" href="{{ route('admin.post.edit', ['id' => $row->id]) }}">Edit</a>
+													<a class="btn" href="{{ route('admin.koran.edit', ['id' => $row->id]) }}">Edit</a>
 												</div>
 											</td>
 										</tr>
