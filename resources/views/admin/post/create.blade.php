@@ -40,6 +40,7 @@
                                 <div class="divider" style="margin-bottom:2em;"></div>
                                 <form action="{{ route('admin.post.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
+                                  
                                     <div class="mb-3">
                                         <h5><label for="title" class="form-label">Judul Post</label></h5>
                                         <input type="text" name="title" id="title" class="form-control"

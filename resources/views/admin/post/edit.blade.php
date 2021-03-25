@@ -41,6 +41,11 @@
                                 <form action="{{ route('admin.post.update', [$post->id]) }}" method="post" enctype="multipart/form-data">
 																		@method('put')
                                     @csrf
+                                    @foreach($post->gallery as $gal)
+                                        <input type="text" value="{{$gal->file}}" name="filelama[]">
+                                        <input type="text" value="{{$gal->deskripsi}}" name="deskripsilama[]">
+                                    @endforeach
+
                                     <div class="mb-3">
                                         <h5><label for="title" class="form-label">Judul Post</label></h5>
                                         <input value="{{$post->title}}" type="text" name="title" id="title" class="form-control"

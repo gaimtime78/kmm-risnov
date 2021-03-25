@@ -85,18 +85,39 @@ class PostController extends Controller
 			$file->move(public_path()."/".$tujuan_upload,$filename);
 			$dataUpdate['thumbnail'] = $filename;
 		}
+
 		//Upload Gallery
 		if($post->update($dataUpdate)){
 			$listGallery = [];
-			foreach ($request->gallery as $key => $v) {
-				if($v !== null){
-					$filename = time()."_".$v->getClientOriginalName();
-					$tujuan_upload = 'upload/post';
-					$v->move(public_path()."/".$tujuan_upload,$filename);
-				}
-				
+			// dd($request->filelama);
+			$post->gallery()->whereNotIn('file',$request->filelama)->delete();
+			$upData = array();
+			foreach ($request->filelama as $key => $value) {
+				array_push($upData,
+				array(
+					"file" => $value,
+					"deskripsi" => $request->deskripsilama[$key],
+					"post_id" => $post->id,
+				));
 			}
-			$post->gallery()->sync($listGallery);
+			$post->gallery()->upsert($upData , ['file'],['deskripsi']);
+			if($request->gallery != null){
+				foreach ($request->gallery as $key => $v) {
+					if($v !== null){
+						$filename = time()."_".$v->getClientOriginalName();
+						$tujuan_upload = 'upload/post';
+						$v->move(public_path()."/".$tujuan_upload,$filename);
+						$gallery = new Gallery([
+							'post_id' => $post->id,
+							'file' => $filename,
+							'deskripsi' => $request->deskripsiGallery[$key]
+						]);
+						$gallery->save();
+					}
+				}
+			}
+		
+			// $post->gallery()->sync($listGallery);
 		}
 		
 		
@@ -130,4 +151,6 @@ class PostController extends Controller
 		})->paginate(5);
 		return view('user.search', $data);
 	}
+
+	
 }
