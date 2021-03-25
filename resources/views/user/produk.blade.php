@@ -60,7 +60,7 @@
                                     </div>
                                 </div><!-- end image-wrap -->
                                 <div  class="course-details">
-                                    <div style="display:grid;grid-gap:1em;height:160px;">
+                                    <div style="">
                                         <h4>
                                             <small>Produk Komersil</small>
                                             <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>

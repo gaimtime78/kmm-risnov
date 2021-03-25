@@ -19,14 +19,14 @@
                         <ul class="nav navbar-nav navbar-right">
 
                             <li><a href="{{route('home')}}">Home</a></li>
-                            {{-- <li class="dropdown hassubmenu">
+                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('tentang-kami.sambutan')}}">Sambutan WR</a></li>
-                                    <li><a href="{{route('tentang-kami.visiMisi')}}">Visi Misi</a></li>
+                                    <!-- <li><a href="{{route('tentang-kami.visiMisi')}}">Visi Misi</a></li>
                                     <li><a href="{{route('tentang-kami.tugasFungsi')}}">Tugas dan Fungsi</a></li>
                                     <li><a href="{{route('tentang-kami.rencanaStrategis')}}">Rencana Strategis</a></li>
-                                    <li><a href="{{route('tentang-kami.profilBiro')}}">Profil Biro RPM</a></li>
+                                    <li><a href="{{route('tentang-kami.profilBiro')}}">Profil Biro RPM</a></li> -->
                                 </ul>
                             </li> 
                             <li><a href="http://lppm.uns.ac.id/" target="_blank">LPPM</a></li>
@@ -38,7 +38,7 @@
                                     <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
                                     <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
                                     <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>                                 
-                                    <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>                                 
+                                    <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>                                  -->
                                 </ul>
                             </li>
                             {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li> --}}
