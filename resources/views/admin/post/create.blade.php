@@ -66,6 +66,13 @@
                                             placeholder="Masukkan overview halaman"></textarea>
                                     </div>
                                     <div class="mb-3">
+                                        <h5><label for="title" class="form-label">Gallery</label></h5>
+                                        <div id="gallery-container"></div>
+                                        <button style="margin-top:2em;" type="button" onClick="addGallery()" class="waves-effect waves-light btn primary darken-1">Tambah Foto</button>
+                                        
+                                        
+                                    </div>
+                                    <div class="mb-3">
                                         <h5><label for="content" class="form-label">Konten</label></h5>
                                         <textarea name="content" class="form-control" id="content-mce"
                                             placeholder="Masukkan konten laman di sini"></textarea>
@@ -121,5 +128,30 @@
             options:optList,
             initialValue:[]
         })
+
+        //Gallery
+        let indexGallery = 0
+        const addGallery = (e) =>{
+            indexGallery += 1
+            const container = document.querySelector('#gallery-container')
+            container.insertAdjacentHTML( 'beforeend', `
+                <div id="gal-${indexGallery}" style="display:grid; grid-template-columns:5fr 1fr; grid-gap:1em;">
+                    <div>
+                        <input type="file" name="gallery[]" class="form-control"
+                            placeholder="Masukkan gambar">
+                        <input type="text" name="deskripsiGallery[]" class="form-control" placeholder="Masukkan deskripsi foto">
+                    </div>
+                    <div>
+                        <button style="margin-top:2em;" type="button" onClick="removeGallery(${indexGallery})" class="waves-effect waves-light btn primary darken-1">Hapus</button>
+                    </div>
+                </div>
+            ` );
+        }
+
+        const removeGallery = (e) =>{
+            indexGallery -= 1
+            let gallery = document.querySelector(`#gal-${e}`)
+            gallery.remove()
+        }
     </script>
 @endsection

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Gallery;
 
 class PostController extends Controller
 {
@@ -26,7 +27,7 @@ class PostController extends Controller
 		$file = $request->file("thumbnail");
 		$filename = time()."_".$file->getClientOriginalName();
 		$tujuan_upload = 'upload/post';
-		$file->move(public_path()."/".$tujuan_upload,$filename);
+		$file->move(public_path()."/".$tujuan_upload, $filename);
 		
 		$post = new Post([
 			'title' => $request->title,
@@ -40,6 +41,21 @@ class PostController extends Controller
 			'created_at' => now(),
 		]);
 		if($post->save()){
+			$listGallery = [];
+			
+			foreach ($request->gallery as $key => $v) {
+				$filename = time()."_".$v->getClientOriginalName();
+				$tujuan_upload = 'upload/post';
+				$v->move(public_path()."/".$tujuan_upload,$filename);
+				$gallery = new Gallery([
+					'post_id' => $post->id,
+					'file' => $filename,
+					'deskripsi' => $request->deskripsiGallery[$key]
+				]);
+				// array_push($listGallery, $gallery->id);
+				$gallery->save();
+			}
+			// $post->gallery()->save($listGallery);
 			$post->category()->sync($request->category);
 		}
 		return redirect(route('admin.post.index'))->with('message', 'berhasil');
@@ -60,6 +76,8 @@ class PostController extends Controller
 			'active' => $request->active === 'on'?true:false,
 			'published_at' => $request->published_at,
 		];
+
+		//Upload Thumbnail
 		$file = $request->file("thumbnail");
 		if($file !== null){
 			$filename = time()."_".$file->getClientOriginalName();
@@ -67,8 +85,21 @@ class PostController extends Controller
 			$file->move(public_path()."/".$tujuan_upload,$filename);
 			$dataUpdate['thumbnail'] = $filename;
 		}
+		//Upload Gallery
+		if($post->update($dataUpdate)){
+			$listGallery = [];
+			foreach ($request->gallery as $key => $v) {
+				if($v !== null){
+					$filename = time()."_".$v->getClientOriginalName();
+					$tujuan_upload = 'upload/post';
+					$v->move(public_path()."/".$tujuan_upload,$filename);
+				}
+				
+			}
+			$post->gallery()->sync($listGallery);
+		}
 		
-		$post->update($dataUpdate);
+		
 		$post->category()->sync($request->category);
 		$message = "Post " . $dataUpdate['title'] . " berhasil diupdate";
 

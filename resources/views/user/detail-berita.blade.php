@@ -42,6 +42,20 @@
 
                                     <div class="blog-desc-big">
                                         <!-- <p class="lead">{{$post->overview}}</p> -->
+                                        <div class="row blog-grid" style="margin-top:6em;">
+                                            @foreach($post->gallery as $gal)
+                                            <div class="col-md-4">
+                                                <div class="course-box">
+                                                    <div class="image-wrap entry">
+                                                        <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$gal->file)}}" alt="" class="img-responsive">
+                                                    </div><!-- end image-wrap -->
+                                                    <div  class="course-details" style="padding:1em">
+                                                        {{$gal->deskripsi}}                           
+                                                    </div><!-- end details -->
+                                                </div><!-- end box -->
+                                            </div><!-- end col -->
+                                            @endforeach
+                                        </div>
                                         <p>{!! $post->content !!}</p>
                                         <hr class="invis">
 
