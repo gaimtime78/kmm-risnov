@@ -38,7 +38,7 @@
                                     <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
                                     <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
                                     <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>                                 
-                                    <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>                                  -->
+                                    <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>                                 
                                 </ul>
                             </li>
                             {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li> --}}
