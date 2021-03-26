@@ -83,7 +83,7 @@ Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and 
                         </div>
                     </div><!-- end image-wrap -->
                     <div  class="course-details">
-                        <div style="display:grid;grid-gap:1em;height:110px;">
+                        <div style="">
                             <h4>
                                 <small><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($p->published_at)) }}</small>
                                 <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
