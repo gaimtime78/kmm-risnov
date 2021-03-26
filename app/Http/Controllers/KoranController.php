@@ -61,6 +61,13 @@ class KoranController extends Controller
 		  return redirect(route('admin.koran.index'))->with('message', 'error');
     }
 		
+	}
 
+	public function detail(Request $request, $slug){
+		$koran = Koran::where('title',str_replace('-', ' ', $slug))->where('active', true)->first();
+		if($koran){
+			return view('user.detail-koran',['koran' => $koran]);
+		}
+		return abort(404);
 	}
 }

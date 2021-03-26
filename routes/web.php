@@ -138,6 +138,7 @@ Route::get('/produk-komersial', [App\Http\Controllers\User\ProdukController::cla
 Route::get('/gallery', [App\Http\Controllers\User\GalleryController::class, 'index'])->name('gallery');
 Route::get('/get_gallery', [App\Http\Controllers\User\HomeController::class, 'get_gallery'])->name('get_gallery');
 Route::get('/post/{slug}', [App\Http\Controllers\PostController::class, 'detail'])->name('detail-post');
+Route::get('/koran/{slug}', [App\Http\Controllers\KoranController::class, 'detail'])->name('detail-koran');
 Route::get('/search', [App\Http\Controllers\PostController::class, 'search'])->name('search');
 Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 'searchKategory'])->name('category');
 
