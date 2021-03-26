@@ -49,9 +49,11 @@
                                                     <div class="image-wrap entry">
                                                         <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$gal->file)}}" alt="" class="img-responsive">
                                                     </div><!-- end image-wrap -->
+                                                    @if($gal->deskripsi !== null)
                                                     <div  class="course-details" style="padding:1em">
                                                         {{$gal->deskripsi}}                           
                                                     </div><!-- end details -->
+                                                    @endif
                                                 </div><!-- end box -->
                                             </div><!-- end col -->
                                             @endforeach

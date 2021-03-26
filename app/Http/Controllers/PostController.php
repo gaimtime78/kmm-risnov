@@ -68,6 +68,7 @@ class PostController extends Controller
 
 	public function update (Request $request, $id){
 		$post = Post::find($id);
+		// dd($request->all());
 		$dataUpdate = [
 			'title' => $request->title,
 			'content' => $request->content,
@@ -87,20 +88,54 @@ class PostController extends Controller
 		}
 
 		//Upload Gallery
+		$listFile = [];
+		$indexFile = 0;
+		// dd($request->fileLama);
+		if($request->mapperFileLama !== null){
+			foreach($request->mapperFileLama as $key => $v){
+				if($v !== "null"){
+					array_push($listFile, $request->fileLama[$key]);
+					$indexFile = $indexFile + 1;
+				}else{
+					array_push($listFile, null);
+				}
+			}
+		}
+		
 		if($post->update($dataUpdate)){
 			$listGallery = [];
-			// dd($request->filelama);
-			$post->gallery()->whereNotIn('file',$request->filelama)->delete();
+			$post->gallery()->whereNotIn('id',$request->galleryId === null?[]:$request->galleryId)->delete();
 			$upData = array();
-			foreach ($request->filelama as $key => $value) {
-				array_push($upData,
-				array(
-					"file" => $value,
-					"deskripsi" => $request->deskripsilama[$key],
-					"post_id" => $post->id,
-				));
+			// dd($request->galleryId);
+			if($request->galleryId !== null ){
+				foreach ($request->galleryId as $key => $value) {
+					// $file = $request->fileLama[$key];
+					if($listFile[$key] !== null){
+						$filename = time()."_".$request->fileLama[$key]->getClientOriginalName();
+						$tujuan_upload = 'upload/post';
+						$request->fileLama[$key]->move(public_path()."/".$tujuan_upload,$filename);
+						array_push($upData,
+						array(
+							"id" => $value,
+							"file" => $filename,
+							"deskripsi" => $request->deskripsiLama[$key],
+							"post_id" => $post->id,
+						));
+					}else{
+						array_push($upData,
+						array(
+							"id" => $value,
+							"file" => $request->namaGalleryLama[$key],
+							"deskripsi" => $request->deskripsiLama[$key],
+							"post_id" => $post->id,
+						));
+					}
+					
+				}
+				// dd($upData);
+				$post->gallery()->upsert($upData , ['id'], ['file', 'deskripsi']);
 			}
-			$post->gallery()->upsert($upData , ['file'],['deskripsi']);
+			
 			if($request->gallery != null){
 				foreach ($request->gallery as $key => $v) {
 					if($v !== null){

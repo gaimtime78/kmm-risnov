@@ -38,13 +38,13 @@
                             <div class="card-panel">
                                 <h1 class="mb-5 mt-5">Edit Post</h1>
                                 <div class="divider" style="margin-bottom:2em;"></div>
-                                <form action="{{ route('admin.post.update', [$post->id]) }}" method="post" enctype="multipart/form-data">
+                                <form onsubmit="return submitForm()" action="{{ route('admin.post.update', [$post->id]) }}" method="post" enctype="multipart/form-data">
 																		@method('put')
                                     @csrf
-                                    @foreach($post->gallery as $gal)
+                                    <!-- @foreach($post->gallery as $gal)
                                         <input type="text" value="{{$gal->file}}" name="filelama[]">
                                         <input type="text" value="{{$gal->deskripsi}}" name="deskripsilama[]">
-                                    @endforeach
+                                    @endforeach -->
 
                                     <div class="mb-3">
                                         <h5><label for="title" class="form-label">Judul Post</label></h5>
@@ -72,6 +72,28 @@
                                             placeholder="Masukkan overview halaman">{{$post->overview}}</textarea>
                                     </div>
                                     <div class="mb-3">
+                                        <h5><label for="title" class="form-label">Gallery</label></h5>
+                                        <div id="gallery-container">
+                                        <div id="hiddenInput"></div>
+                                        @foreach($post->gallery as $key => $gal)
+                                            <div id="gal-{{$key}}" style="margin-bottom:1em;display:grid; grid-template-columns:5fr 1fr; grid-gap:1em;">
+                                                <div>
+                                                    <input type="hidden" name="galleryId[]" value="{{$gal->id}}">
+                                                    <input type="hidden" name="namaGalleryLama[]" value="{{$gal->file}}">
+                                                    <div style="margin-bottom:0.5em">File Lama : {{$gal->file}}</div>
+                                                    <input type="file" name="fileLama[]" class="form-control"
+                                                        placeholder="Masukkan gambar">
+                                                    <input type="text" value="{{$gal->deskripsi}}" name="deskripsiLama[]" class="form-control" placeholder="Masukkan deskripsi foto">
+                                                </div>
+                                                <div>
+                                                    <button style="margin-top:2em;" type="button" onClick="removeGallery({{$key}})" class="waves-effect waves-light btn primary darken-1">Hapus</button>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                        </div>
+                                        <button style="margin-top:2em;" type="button" onClick="addGallery()" class="waves-effect waves-light btn primary darken-1">Tambah Foto</button>
+                                    </div>
+                                    <div class="mb-3">
                                         <h5><label for="content" class="form-label">Konten</label></h5>
                                         <textarea name="content" class="form-control" id="content-mce"
                                             placeholder="Masukkan konten laman di sini">{{$post->content}}</textarea>
@@ -89,7 +111,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <button style="margin-top:2em;" type="submit" class="waves-effect waves-light btn primary darken-1">Simpan</button>
+                                    <button style="margin-top:2em;" onClick="" type="submit" class="waves-effect waves-light btn primary darken-1">Simpan</button>
                                 </form>
                             </div>
                         </div>
@@ -129,5 +151,45 @@
             options:optList,
             initialValue:defValCatList
         })
+
+        //Gallery
+        let galleryArr = {!! json_encode($post->gallery)!!}
+        let galleryInitialLength = galleryArr.length
+        let indexGallery = galleryInitialLength
+        const addGallery = (e) =>{
+            indexGallery += 1
+            const container = document.querySelector('#gallery-container')
+            container.insertAdjacentHTML( 'beforeend', `
+                <div id="gal-${indexGallery}" style="display:grid; grid-template-columns:5fr 1fr; grid-gap:1em;">
+                    <div>
+                        <input type="file" name="gallery[]" class="form-control"
+                            placeholder="Masukkan gambar">
+                        <input type="text" name="deskripsiGallery[]" class="form-control" placeholder="Masukkan deskripsi foto">
+                    </div>
+                    <div>
+                        <button style="margin-top:2em;" type="button" onClick="removeGallery(${indexGallery})" class="waves-effect waves-light btn primary darken-1">Hapus</button>
+                    </div>
+                </div>
+            ` );
+        }
+
+        const removeGallery = (e) =>{
+            indexGallery -= 1
+            let gallery = document.querySelector(`#gal-${e}`)
+            gallery.remove()
+        }
+
+        const submitForm = (e) =>{
+            let inp = document.querySelectorAll(`input[name="fileLama[]"]`)
+            let cont = document.querySelector("#hiddenInput")
+            let arr = Array.from(inp)
+            let temp = []
+            arr.map(v => {
+                cont.insertAdjacentHTML( 'beforeend', `
+                    <input type="hidden" name="mapperFileLama[]" value="${v.value?v.value:null}">
+                ` );
+            })
+            return true
+        }
     </script>
 @endsection
