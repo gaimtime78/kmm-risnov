@@ -43,14 +43,17 @@
             <div class="container">
                 <div class="boxed boxedp4">
                     <div class="row blog-grid">
+                      
+                      <form id="login-form" method="get" action="{{route('koran-search')}}">
                         <div style="display:grid;grid-template-columns:5fr 1fr; grid-gap:1em;margin-bottom:2em;">
                           <div>
-                            <input class="form-control input-lg" type="text" placeholder="Masukkan Judul / Konten Koran">
+                            <input class="form-control input-lg" name="cari" type="text" placeholder="Masukkan Judul / Konten Koran">
                           </div>
                           <div>  
-                            <button class="btn btn-primary" href="">Cari</button>
+                            <button class="btn btn-primary" type="submit">Cari</button>
                           </div>
                         </div>
+                      </form>
 
                         <!-- CARD -->                        
                         @foreach($koran as $p)
