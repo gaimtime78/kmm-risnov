@@ -93,6 +93,6 @@
     <script type="text/javascript" src="{{ asset('js\plugins\prism\prism.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js\multiple-dropdown.js') }}"></script>
     <script>
-		initTinyMCE('#content-mce')
+		// initTinyMCE('#content-mce')
     </script>
 @endsection

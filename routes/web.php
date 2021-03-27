@@ -140,6 +140,7 @@ Route::get('/get_gallery', [App\Http\Controllers\User\HomeController::class, 'ge
 Route::get('/post/{slug}', [App\Http\Controllers\PostController::class, 'detail'])->name('detail-post');
 Route::get('/koran/{slug}', [App\Http\Controllers\KoranController::class, 'detail'])->name('detail-koran');
 Route::get('/search', [App\Http\Controllers\PostController::class, 'search'])->name('search');
+Route::get('/koran_search', [App\Http\Controllers\KoranController::class, 'search'])->name('koran-search');
 Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 'searchKategory'])->name('category');
 
 // Route::get('/njajal', function () {

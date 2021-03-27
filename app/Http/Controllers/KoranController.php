@@ -70,4 +70,12 @@ class KoranController extends Controller
 		}
 		return abort(404);
 	}
+
+	public function search(Request $request)
+	{
+		$data['koran'] = Koran::where('title','LIKE','%'.$request->cari.'%')
+		->orWhere('content','LIKE','%'.strip_tags($request->cari).'%')
+		->paginate(5);
+		return view('user.koran-search', $data);
+	}
 }

@@ -94,6 +94,6 @@
     <script type="text/javascript" src="{{ asset('js\multiple-dropdown.js') }}"></script>
     <script>
         //Source code fungsi dibwah ini ada di public/js/multiple-dropdown.js
-        initTinyMCE('#content-mce')
+        // initTinyMCE('#content-mce')
     </script>
 @endsection
