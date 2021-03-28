@@ -38,7 +38,16 @@
                                     <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
                                     <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
                                     <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>                                 
-                                    <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>                                 
+                                    <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>        -->
+                                    <li class="dropdown level-2">
+                                        <a href="#" class="dropdown-toggle" data-toggle="level-2" role="button" aria-expanded="false">Dokumentasi&nbsp;<span class="fa fa-angle-right"></span></a>
+                                        <ul class="dropdown-menu level-3" role="menu">
+                                            <!-- <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
+                                            <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
+                                            <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>                                  -->
+                                            <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>                                 
+                                        </ul>
+                                    </li>                          
                                 </ul>
                             </li>
                             {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li> --}}
@@ -75,3 +84,15 @@
             </div>
         </div>
         <!-- END # MODAL LOGIN -->
+
+<style>
+    ul.nav li ul.dropdown-menu li:hover ul.level-3 {
+        min-width: 150px;
+        display: block;
+        -webkit-animation:mantul-horizontal 1s;
+        animation:mantul-horizontal 1s;
+        top:0;
+        left:100%;
+    }
+ 
+</style>
