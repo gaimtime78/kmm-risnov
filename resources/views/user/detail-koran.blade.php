@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                        <h3>{{$post->title}}</h3>
+                        <h3>{{$koran->title}}</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -25,47 +25,21 @@
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
                                     <div class="blog-meta">
-                                        <!-- <h3>{{$post->title}}</h3> -->
+                                        <!-- <h3>{{$koran->title}}</h3> -->
                                         <div class="tags-widget">
-                                            <ul class="list-inline">
-                                                @foreach($post->category()->pluck('category')->toArray() as $cc)
-                                                    <li><a href="#" class="m-1">{{$cc}}</a></li>
-                                                @endforeach
-                                            </ul>
+                                            <a href="{{$koran->source}}">{{$koran->source}}</a>
                                         </div>
                                     </div><!-- end blog-meta -->
-                                    @if($post->show_thumbnail)
-                                    <div class="blog-media">
-                                        <img src="{{asset('upload/post/'.$post->thumbnail)}}" alt="" class="img-responsive img-rounded">
-                                    </div><!-- end media -->
-                                    @endif
 
                                     <div class="blog-desc-big">
-                                        <!-- <p class="lead">{{$post->overview}}</p> -->
-                                        <div class="row blog-grid" style="margin-top:6em;">
-                                            @foreach($post->gallery as $gal)
-                                            <div class="col-md-4">
-                                                <div class="course-box">
-                                                    <div class="image-wrap entry">
-                                                        <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$gal->file)}}" alt="" class="img-responsive">
-                                                    </div><!-- end image-wrap -->
-                                                    @if($gal->deskripsi !== null)
-                                                    <div  class="course-details" style="padding:1em">
-                                                        {{$gal->deskripsi}}                           
-                                                    </div><!-- end details -->
-                                                    @endif
-                                                </div><!-- end box -->
-                                            </div><!-- end col -->
-                                            @endforeach
-                                        </div>
-                                        <p>{!! $post->content !!}</p>
+                                        <p>{!! $koran->content !!}</p>
                                         <hr class="invis">
 
                                         <!-- end list-widget -->
                                        
                                         <ul class="list-inline">
-                                            <li><i class="fa fa-clock-o"></i> Dipublikasikan pada : {{date("d M Y", strtotime($post->published_at))}}</li><br>
-                                            <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$post->user->name}}</a></li>
+                                            <li><i class="fa fa-clock-o"></i> Dipublikasikan pada : {{date("d M Y", strtotime($koran->published_at))}}</li><br>
+                                            <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$koran->user->name}}</a></li>
                                         </ul>
                                     </div><!-- end desc -->
                                 </div><!-- end blog -->
