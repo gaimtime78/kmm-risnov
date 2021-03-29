@@ -121,6 +121,15 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::delete('/delete/{id}', [App\Http\Controllers\PageController::class, 'delete'])->name('page.delete');
         });
 
+        Route::group(['prefix' => '/agenda'], function(){
+            Route::get('/', [App\Http\Controllers\AgendaController::class, 'index'])->name('agenda.index');
+            Route::get('/create', [App\Http\Controllers\AgendaController::class, 'create'])->name('agenda.create');
+            Route::post('/store', [App\Http\Controllers\AgendaController::class, 'store'])->name('agenda.store');
+            Route::get('/edit/{id}', [App\Http\Controllers\AgendaController::class, 'edit'])->name('agenda.edit');
+            Route::post('/update/{id}', [App\Http\Controllers\AgendaController::class, 'update'])->name('agenda.update');
+            Route::get('/delete/{id}', [App\Http\Controllers\AgendaController::class, 'delete'])->name('agenda.delete');
+        });
+
         
     });
 });
