@@ -73,9 +73,9 @@ class KoranController extends Controller
 
 	public function search(Request $request)
 	{
-		$data['koran'] = Koran::where('title','LIKE','%'.$request->cari.'%')
+		$koran = Koran::where('title','LIKE','%'.$request->cari.'%')
 		->orWhere('content','LIKE','%'.strip_tags($request->cari).'%')
 		->paginate(5);
-		return view('user.koran-search', $data);
+		return view('user.koran-search', ['koran' => $koran, 'searchVal' => $request->cari]);
 	}
 }

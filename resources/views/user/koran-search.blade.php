@@ -47,7 +47,7 @@
                       <form id="login-form" method="get" action="{{route('koran-search')}}">
                         <div style="display:grid;grid-template-columns:5fr 1fr; grid-gap:1em;margin-bottom:2em;">
                           <div>
-                            <input class="form-control input-lg" name="cari" type="text" placeholder="Masukkan Judul / Konten Koran">
+                            <input class="form-control input-lg" value="{{$searchVal}}" name="cari" type="text" placeholder="Masukkan Judul / Konten Koran">
                           </div>
                           <div>  
                             <button class="btn btn-primary" type="submit">Cari</button>
