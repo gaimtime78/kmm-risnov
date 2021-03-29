@@ -239,7 +239,8 @@ HEADER
 .header-normal {
     position: relative;
     padding: 0 0 24px;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background: linear-gradient(to right, #ffffff 20%, #38f9d7 100%);
 }
 
 .header-normal .navbar-default .nav>li>a {
