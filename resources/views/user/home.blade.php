@@ -30,25 +30,38 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 hidden-sm hidden-xs">
+            <div class="col-md-6 hidden-sm hidden-xs">
                 <div class="custom-module">
-                    <img src="{{asset('design/upload/device_01.png')}}" alt="" class="img-responsive wow slideInLeft">
+                    <h2><mark>Produk Siap Komersial</mark></h2>
+                </div>
+                <div class="custom-module">
+                    <img style="height:500px;object-fit:cover;" src="{{asset('images/produk-siap.PNG')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
+                    <a href="https://cloud.uns.ac.id/index.php/s/mq67vUFZMJWDT6T" target="_blank"><p style="text-align:center">Download E-book</p></a>
                 </div><!-- end module -->
             </div><!-- end col -->
             <div class="col-md-6">
                 <div class="custom-module p40l">
-                    <h2><mark>SAMBUTAN WR</mark></h2>
-                    <p style="text-align:justify">Selamat datang di situs Universitas Sebelas Maret (UNS). Kami merasa terhormat atas kunjungan Anda, semoga Anda tertarik untuk terus dapat memanfaatkan situs ini dalam mencari dan memperoleh informasi dari kami.
-
-UNS merupakan universitas muda dengan potensi yang luar biasa. Selain terletak di kota Solo yang strategis, UNS mempunyai kawasan kampus yang indah, fakultas-fakultas yang berkompetensi tinggi, kegiatan penelitian dan pengabdian masyarakat yang semakin dirasakan manfaatnya oleh stakeholder-nya, perpustakaan yang lengkap dan modern, prasarana dan laboratorium yang canggih di kawasan Jawa Tengah, perkembangan teknologi informasi yang cukup mencengangkan, alumni dengan posisi pekerjaan yang baik di seluruh pelosok negeri serta sumber daya manusia yang sudah diakui baik di tingkat regional ataupun nasional dengan prestasi yang mengesankan di bidangnya masing-masing.
-
-Potensi-potensi tersebut tidak ada artinya jika tidak dilandasi dengan visi, misi dan tujuan akademik yang kuat. Untuk itu,  kami berusaha sekuat tenaga untuk selalu berkomitmen dalam mewujudkan UNS sebagai salah satu pusat pemikiran, pengkajian, dan pengembangan ilmu pengetahuan, seni, teknologi, dan kebudayaan Indonesia dalam rangka memperkaya khasanah kehidupan masyarakat dan mendukung pembangunan nasional.
-
-Selain itu, kami memberikan kesempatan seluas-luasnya kepada segenap elemen civitas academika untuk terus berkompetisi di bidangnya masing-masing, misalnya kami mendorong mahasiswa untuk selalu aktif, kritis dan kreatif dalam setiap kegiatan baik kokurikuler maupun ekstrakurikuler, memacu para dosen dan peneliti untuk selalu dapat menciptakan penemuan-penemuan baru dan mengembangkan inovasi-inovasi yang berguna bagi masyarakat, serta memberikan dukungan bagi unit-unit kerja di lingkungan UNS untuk selalu dapat meningkatkan mutu layanan.
-
-Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and research university. Ini merupakan kesempatan bagi kami dalam abad ini, dan menghadapi tantangan globalisasi. Terima kasih atas waktunya untuk bereksplorasi di UNS lewat situs ini. Kritik dan saran kami harapkan untuk kemajuan ilmu pengetahuan dan universitas kami.
-
-</p>
+                    <p style="text-align:justify; 
+                        margin: 18rem 0px 0px 0px;
+                        width: 100%;
+                        padding: 10px;">Bidang Riset dan Inovasi UNS (RISNOV UNS)
+                        menyampaikan terima kasih yang sebesar-besarnya atas kegigihan kepada para
+                        inventor yang telah menghilirkan hasil risetnya dan para inovator yang telah menghasilkan produk inovasinya. RISNOV mendorong
+                        para peneliti dan inovator UNS untuk
+                        melakukan riset dan inovasi secara berkelanjutan hingga produknya dimanfaatkan
+                        masyarakat. Mari bersama-sama majukan
+                        Riset dan Inovasi UNS untuk masyarakat.
+                    </p>
+                    <div class="authorbox">
+                        <div class="site-publisher clearfix">
+                            <!-- <img src="upload/people_10.jpeg" alt="" class="img-responsive img-circle"> -->
+                            <a href="#" title="" style="text-align: right;" >
+                                <h4><span>Prof. Dr. Kuncoro Diharjo, S.T., M.T.</span></h4>
+                            </a>
+                            <p style="text-align: right;">Wakil Rektor Riset dan Inovasi</p>
+                            <!-- end share -->
+                        </div><!-- end publisher -->
+                    </div><!-- end details -->
                     <hr class="invis">
                     <!-- <div class="btn-wrapper">
                         <a href="#" class="btn btn-primary">Selengkapnya</a>
