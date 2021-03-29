@@ -1007,7 +1007,9 @@ SECTIONS
 }
 
 .section.db {
-    background-color: #000000;
+    
+    background: url(../images/banner.png) ;
+    background-color: #cccccc;
 }
 
 .overlay {
