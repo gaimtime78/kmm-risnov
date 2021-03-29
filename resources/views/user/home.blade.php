@@ -13,6 +13,15 @@
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
     }
+    .hr-primary{
+        background-image: -webkit-linear-gradient(left, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
+    }
+
+    .hr {
+    height: 4px;
+    margin-left: 15px;
+    margin-bottom:-3px;
+    }
 </style>
 @endsection
 
@@ -30,11 +39,15 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 hidden-sm hidden-xs">
+            <div class="col-md-12 hidden-sm hidden-xs">
                 <div class="custom-module">
                     <h2><mark>Produk Siap Komersial</mark></h2>
                 </div>
+                <hr class="hr-primary">
+            </div>
+            <div class="col-md-6 hidden-sm hidden-xs">
                 <div class="custom-module">
+                    <br>
                     <img style="height:500px;object-fit:cover;" src="{{asset('images/produk-siap.PNG')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
                     <a href="https://cloud.uns.ac.id/index.php/s/mq67vUFZMJWDT6T" target="_blank"><p style="text-align:center">Download E-book</p></a>
                 </div><!-- end module -->
@@ -68,6 +81,51 @@
                     </div> -->
                 </div><!-- end module -->
             </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <div class="custom-module p40l">
+                    <a href="{{route('produk-komersial')}}">
+                        <h3><mark>Publikasi Produk Siap Komersial</mark></h3>
+                    </a>
+                    <hr class="hr-primary">
+                    <p style="text-align:justify; 
+                        margin: 3rem 0px 0px 0px;
+                        width: 100%;
+                        padding: 10px;">Universitas Sebelas Maret (UNS) memberikan
+                        apresiasi yang tinggi kepada Bidang Riset dan
+                        Inovasi yang telah melangkah sebagai inisiator hilirisasi Produk Siap Komersial. Langkah ini merupakan salah satu capaian Indek
+                        Kinerja Utama (IKU) UNS, khususnya dalam
+                        menghadirkan produk yang dimanfaatkan
+                        oleh masyarakat. Produk-produk ini dapat
+                        segera dipasarkan oleh unit bisnis UNS agar
+                        secepatnya memberikan revenue generating untuk meningkatkan pendapatan non
+                        akademik. Peluncuran Produk Siap Komersial pada puncak DIES NATALIS UNS ke-45
+                        tahun 2021 ini, sangat relevan dengan semangat otonomi kampus PTN-BH UNS.
+                    </p>
+                    <hr class="invis">
+
+                </div><!-- end module -->
+                
+            </div><!-- end col -->
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="custom-module">
+                </div>
+                <div class="custom-module">
+                    <img style="height:500px;object-fit:cover;" src="{{asset('images/penelitian.jpg')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
+                </div><!-- end module -->
+            </div><!-- end col -->
+            <div class="col-md-12 text-center">
+                <div class="btn-wrapper">
+                    <a href="{{route('produk-komersial')}}" class="readmore btn btn-primary">Selengkapnya</a>
+                </div>
+            </div>
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
