@@ -13,6 +13,18 @@
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
     }
+    .hr-primary{
+        background-image: -webkit-linear-gradient(left, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
+    }
+    .hr-primary2{
+        background-image: -webkit-linear-gradient(right, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
+    }
+
+    .hr {
+    height: 4px;
+    margin-left: 15px;
+    margin-bottom:-3px;
+    }
 </style>
 @endsection
 
@@ -26,35 +38,132 @@
         </div>
     </div>
 </section>
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-computer-tool-for-education"></i>
+                    <h4>KHDDTK</h4></br>
+                    <a href="{{route('coming')}}" class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->
 
+            <div class="col-md-6">
+                <div class="box m30">
+                    <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                    <h4>Lembaga Penelitian dan Pengabdian Kepada Masyarakat</h4>
+                    <a href="http://lppm.uns.ac.id/" class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->
+
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
+                    <h4>Direktorat Inovasi dan Hilirisasi</h4>
+                    <a href="{{route('coming')}}" class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+
+        <hr class="invis">
+        
+    </div><!-- end container -->
+</section>
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 hidden-sm hidden-xs">
+            <div class="col-md-12 hidden-sm hidden-xs">
                 <div class="custom-module">
-                    <img src="{{asset('design/upload/device_01.png')}}" alt="" class="img-responsive wow slideInLeft">
+                    <h2><mark>Produk Siap Komersial</mark></h2>
+                </div>
+                <hr class="hr-primary">
+            </div>
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="custom-module">
+                    <br>
+                    <img style="height:500px;object-fit:cover;" src="{{asset('images/produk-siap.PNG')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
+                    <a href="https://cloud.uns.ac.id/index.php/s/mq67vUFZMJWDT6T" target="_blank"><p style="text-align:center">Download E-book</p></a>
                 </div><!-- end module -->
             </div><!-- end col -->
             <div class="col-md-6">
                 <div class="custom-module p40l">
-                    <h2><mark>SAMBUTAN WR</mark></h2>
-                    <p style="text-align:justify">Selamat datang di situs Universitas Sebelas Maret (UNS). Kami merasa terhormat atas kunjungan Anda, semoga Anda tertarik untuk terus dapat memanfaatkan situs ini dalam mencari dan memperoleh informasi dari kami.
-
-UNS merupakan universitas muda dengan potensi yang luar biasa. Selain terletak di kota Solo yang strategis, UNS mempunyai kawasan kampus yang indah, fakultas-fakultas yang berkompetensi tinggi, kegiatan penelitian dan pengabdian masyarakat yang semakin dirasakan manfaatnya oleh stakeholder-nya, perpustakaan yang lengkap dan modern, prasarana dan laboratorium yang canggih di kawasan Jawa Tengah, perkembangan teknologi informasi yang cukup mencengangkan, alumni dengan posisi pekerjaan yang baik di seluruh pelosok negeri serta sumber daya manusia yang sudah diakui baik di tingkat regional ataupun nasional dengan prestasi yang mengesankan di bidangnya masing-masing.
-
-Potensi-potensi tersebut tidak ada artinya jika tidak dilandasi dengan visi, misi dan tujuan akademik yang kuat. Untuk itu,  kami berusaha sekuat tenaga untuk selalu berkomitmen dalam mewujudkan UNS sebagai salah satu pusat pemikiran, pengkajian, dan pengembangan ilmu pengetahuan, seni, teknologi, dan kebudayaan Indonesia dalam rangka memperkaya khasanah kehidupan masyarakat dan mendukung pembangunan nasional.
-
-Selain itu, kami memberikan kesempatan seluas-luasnya kepada segenap elemen civitas academika untuk terus berkompetisi di bidangnya masing-masing, misalnya kami mendorong mahasiswa untuk selalu aktif, kritis dan kreatif dalam setiap kegiatan baik kokurikuler maupun ekstrakurikuler, memacu para dosen dan peneliti untuk selalu dapat menciptakan penemuan-penemuan baru dan mengembangkan inovasi-inovasi yang berguna bagi masyarakat, serta memberikan dukungan bagi unit-unit kerja di lingkungan UNS untuk selalu dapat meningkatkan mutu layanan.
-
-Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and research university. Ini merupakan kesempatan bagi kami dalam abad ini, dan menghadapi tantangan globalisasi. Terima kasih atas waktunya untuk bereksplorasi di UNS lewat situs ini. Kritik dan saran kami harapkan untuk kemajuan ilmu pengetahuan dan universitas kami.
-
-</p>
+                    <p style="text-align:justify; 
+                        margin: 18rem 0px 0px 0px;
+                        width: 100%;
+                        padding: 10px;">Bidang Riset dan Inovasi UNS (RISNOV UNS)
+                        menyampaikan terima kasih yang sebesar-besarnya atas kegigihan kepada para
+                        inventor yang telah menghilirkan hasil risetnya dan para inovator yang telah menghasilkan produk inovasinya. RISNOV mendorong
+                        para peneliti dan inovator UNS untuk
+                        melakukan riset dan inovasi secara berkelanjutan hingga produknya dimanfaatkan
+                        masyarakat. Mari bersama-sama majukan
+                        Riset dan Inovasi UNS untuk masyarakat.
+                    </p>
+                    <div class="authorbox">
+                        <div class="site-publisher clearfix">
+                            <!-- <img src="upload/people_10.jpeg" alt="" class="img-responsive img-circle"> -->
+                            <a href="#" title="" style="text-align: right;" >
+                                <h4><span>Prof. Dr. Kuncoro Diharjo, S.T., M.T.</span></h4>
+                            </a>
+                            <p style="text-align: right;">Wakil Rektor Riset dan Inovasi</p>
+                            <!-- end share -->
+                        </div><!-- end publisher -->
+                    </div><!-- end details -->
                     <hr class="invis">
                     <!-- <div class="btn-wrapper">
                         <a href="#" class="btn btn-primary">Selengkapnya</a>
                     </div> -->
                 </div><!-- end module -->
             </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="custom-module p40l">
+                    <a href="{{route('produk-komersial')}}">
+                        <h3><mark>Publikasi Produk Siap Komersial</mark></h3>
+                    </a>
+                    <hr class="hr-primary2">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="custom-module p40l">
+                    <p style="text-align:justify; 
+                        margin: 3rem 0px 0px 0px;
+                        width: 100%;
+                        padding: 10px;">Universitas Sebelas Maret (UNS) memberikan
+                        apresiasi yang tinggi kepada Bidang Riset dan
+                        Inovasi yang telah melangkah sebagai inisiator hilirisasi Produk Siap Komersial. Langkah ini merupakan salah satu capaian Indek
+                        Kinerja Utama (IKU) UNS, khususnya dalam
+                        menghadirkan produk yang dimanfaatkan
+                        oleh masyarakat. Produk-produk ini dapat
+                        segera dipasarkan oleh unit bisnis UNS agar
+                        secepatnya memberikan revenue generating untuk meningkatkan pendapatan non
+                        akademik. Peluncuran Produk Siap Komersial pada puncak DIES NATALIS UNS ke-45
+                        tahun 2021 ini, sangat relevan dengan semangat otonomi kampus PTN-BH UNS.
+                    </p>
+                    <hr class="invis">
+
+                </div><!-- end module -->
+                
+            </div><!-- end col -->
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="custom-module">
+                </div>
+                <div class="custom-module">
+                    <img style="height:500px;object-fit:cover;margin-top: 1rem;" src="{{asset('images/penelitian.jpg')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
+                </div><!-- end module -->
+            </div><!-- end col -->
+            <div class="col-md-12 text-center">
+                <div class="btn-wrapper">
+                    <a href="{{route('produk-komersial')}}" class="readmore btn btn-primary">Selengkapnya</a>
+                </div>
+            </div>
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
@@ -110,7 +219,7 @@ Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and 
         </div>
     </div><!-- end container -->
 </section>
-
+{{--
 <section class="section db p120">
     <div class="container">
         <div class="row">
@@ -121,45 +230,10 @@ Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and 
             </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
-</section><!-- end section -->
-
-<section class="section gb nopadtop">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div style="background-color:aqua" class="box m30">
-                    <i class="flaticon-computer-tool-for-education"></i>
-                    <h4>BIDANG 1</h4>
-                    <!-- <p>All sections required for online training are included to Edulogy.</p> -->
-                    <a href="#" class="readmore">Read more</a>
-                </div>
-            </div><!-- end col -->
-
-            <div class="col-md-4">
-                <div style="background-color:brown" class="box m30">
-                    <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                    <h4>BIDANG 2</h4>
-                    <!-- <p>The most important feature of this template is that it is compatible with all mobile devices. Your customers can also visit your site easily from tablets and phones.</p> -->
-                    <a href="#" class="readmore">Read more</a>
-                </div>
-            </div><!-- end col -->
-
-            <div class="col-md-4">
-                <div style="background-color:aquamarine" class="box m30">
-                    <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
-                    <h4>BIDANG 3</h4>
-                    <!-- <p>We designed the design of all the sub-pages needed for the users.</p> -->
-                    <a href="#" class="readmore">Read more</a>
-                </div>
-            </div><!-- end col -->
-        </div><!-- end row -->
-
-        <hr class="invis">
-    </div><!-- end container -->
-</section>
-
+</section><!-- end section -->--}}
+<!-- 
 <section class="section db">
-    <!-- <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="stat-count">
@@ -185,8 +259,8 @@ Ke depan, kami berharap dapat memposisikan universitas ini sebagai learning and 
                 </div>
             </div>
         </div>
-    </div> -->
-</section>
+    </div>
+</section> -->
 
 <section class="section gb">
     <div class="container">

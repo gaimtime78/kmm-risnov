@@ -1,3 +1,18 @@
+<style>
+    .kotak{
+        width: 150px;
+        height: 148px;
+        position: absolute;
+        left: 0;
+        top: -40px;
+        padding: 15px;
+        text-align: center;
+        z-index: 99;
+        background-color: #FFFFFF;
+    }
+
+</style>
+
 <header class="header header-normal">
             
             <div class="container">
@@ -11,7 +26,7 @@
                         </button>
                         <br>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="index.html"><img  style="width:70px" src="{{asset('images/logo-uns.png')}}" alt=""></a>
+                            <a class="navbar-brand" href="{{route('home')}}"><img style="width:70px;margin-top: 4rem;" src="{{asset('images/logo-uns2.png')}}" alt=""></a>
                         </div>
                     </div>
                     <br>
@@ -38,7 +53,18 @@
                                     <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
                                     <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
                                     <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>                                 
-                                    <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>                                 
+                                    <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>        -->
+                                    <li class="dropdown level-2">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dokumentasi&nbsp;<span class="fa fa-angle-right"></span></a>
+                                        <ul class="dropdown-menu level-3" role="menu">
+                                            <!-- <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
+                                            <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
+                                            <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li> -->
+                                            <li><a href="{{route('dokumentasi')}}">Koran Digital</a></li>    
+                                            <li><a href="{{route('dokumentasi')}}">E-Book</a></li>    
+                                            <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>        -->
+                                        </ul>
+                                    </li>                          
                                 </ul>
                             </li>
                             {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li> --}}
@@ -75,3 +101,15 @@
             </div>
         </div>
         <!-- END # MODAL LOGIN -->
+
+<style>
+    ul.nav li ul.dropdown-menu li:hover ul.level-3 {
+        min-width: 150px;
+        display: block;
+        -webkit-animation:mantul-horizontal 1s;
+        animation:mantul-horizontal 1s;
+        top:0;
+        left:30%;
+    }
+ 
+</style>
