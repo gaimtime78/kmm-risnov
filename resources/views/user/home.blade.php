@@ -16,6 +16,9 @@
     .hr-primary{
         background-image: -webkit-linear-gradient(left, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
     }
+    .hr-primary2{
+        background-image: -webkit-linear-gradient(right, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
+    }
 
     .hr {
     height: 4px;
@@ -88,13 +91,16 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="custom-module p40l">
                     <a href="{{route('produk-komersial')}}">
                         <h3><mark>Publikasi Produk Siap Komersial</mark></h3>
                     </a>
-                    <hr class="hr-primary">
+                    <hr class="hr-primary2">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="custom-module p40l">
                     <p style="text-align:justify; 
                         margin: 3rem 0px 0px 0px;
                         width: 100%;
@@ -118,7 +124,7 @@
                 <div class="custom-module">
                 </div>
                 <div class="custom-module">
-                    <img style="height:500px;object-fit:cover;" src="{{asset('images/penelitian.jpg')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
+                    <img style="height:500px;object-fit:cover;margin-top: 1rem;" src="{{asset('images/penelitian.jpg')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
                 </div><!-- end module -->
             </div><!-- end col -->
             <div class="col-md-12 text-center">
