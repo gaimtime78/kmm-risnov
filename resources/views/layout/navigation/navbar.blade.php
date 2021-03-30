@@ -26,7 +26,7 @@
                         </button>
                         <br>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="{{route('home')}}"><img style="width:70px;margin-top: 4rem;" src="{{asset('images/logo-uns.png')}}" alt=""></a>
+                            <a class="navbar-brand" href="{{route('home')}}"><img style="width:70px;margin-top: 4rem;" src="{{asset('images/logo-uns2.png')}}" alt=""></a>
                         </div>
                     </div>
                     <br>
