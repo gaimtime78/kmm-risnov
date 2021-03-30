@@ -47,7 +47,7 @@
                                 <!-- end image-wrap -->
                                 <div class="course-details shop-box text-center">
                                     <p>
-                                        <a href="shop-single.html" title="">Dokumentasi Koran Digital</a>
+                                        <a href="{{route('koran-search')}}" title="">Dokumentasi Koran Digital</a>
                                     </p>
                                 </div>
                                 <!-- end details -->

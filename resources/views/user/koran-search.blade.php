@@ -47,7 +47,7 @@
                       <form id="login-form" method="get" action="{{route('koran-search')}}">
                         <div style="display:grid;grid-template-columns:5fr 1fr; grid-gap:1em;margin-bottom:2em;">
                           <div>
-                            <input class="form-control input-lg" value="{{$searchVal}}" name="cari" type="text" placeholder="Masukkan Judul / Konten Koran">
+                            <input class="form-control input-lg" value="{{$searchVal}}" name="cari" type="text" placeholder="Cari koran berdasarkan judul">
                           </div>
                           <div>  
                             <button class="btn btn-primary" type="submit">Cari</button>
@@ -64,9 +64,9 @@
                                         <a class="title-clamp" href="{{route('detail-koran',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                                     </h3>
                                     <div style="text-align: justify;">
-                                      <p class="clamp" style="margin-top:1em; margin-bottom:1em;">{{$p->content}} It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                                      <p class="clamp" style="margin-top:1em; margin-bottom:1em;">{{$p->content}}</p>
                                     </div>
-                                    <button style="width:100%; padding-top:0.5em; padding-bottom:0.5em; margin-top:1em;" class="btn btn-primary" href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}">Selengkapnya</button>
+                                    <a style="width:100%; padding-top:0.5em; padding-bottom:0.5em; margin-top:1em;" class="btn btn-primary" href="{{route('detail-koran',['slug'=>str_replace(' ', '-', $p->title)])}}">Selengkapnya</a>
                                     
                                 </div><!-- end details -->
                                 <div class="course-footer clearfix">

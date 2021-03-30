@@ -24,19 +24,19 @@
                         <div class="col-md-12" style="padding-right:2em;padding-left:2em;">
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
-                                    <div class="blog-meta">
-                                        <!-- <h3>{{$koran->title}}</h3> -->
-                                        <div class="tags-widget">
-                                            <a href="{{$koran->source}}">{{$koran->source}}</a>
-                                        </div>
-                                    </div><!-- end blog-meta -->
+                                    
 
                                     <div class="blog-desc-big">
                                         <p>{!! $koran->content !!}</p>
                                         <hr class="invis">
 
                                         <!-- end list-widget -->
-                                       
+                                        <div class="blog-meta">
+                                            <!-- <h3>{{$koran->title}}</h3> -->
+                                            <div class="tags-widget">
+                                                Sumber : <a href="{{$koran->source}}">{{$koran->source}}</a>
+                                            </div>
+                                        </div><!-- end blog-meta -->
                                         <ul class="list-inline">
                                             <li><i class="fa fa-clock-o"></i> Dipublikasikan pada : {{date("d M Y", strtotime($koran->published_at))}}</li><br>
                                             <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$koran->user->name}}</a></li>
