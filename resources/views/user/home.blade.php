@@ -38,7 +38,38 @@
         </div>
     </div>
 </section>
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-computer-tool-for-education"></i>
+                    <h4>KHDDTK</h4></br>
+                    <a href="{{route('coming')}}" class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->
 
+            <div class="col-md-6">
+                <div class="box m30">
+                    <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                    <h4>Lembaga Penelitian dan Pengabdian Kepada Masyarakat</h4>
+                    <a href="http://lppm.uns.ac.id/" class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->
+
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
+                    <h4>Direktorat Inovasi dan Hilirisasi</h4>
+                    <a href="{{route('coming')}}" class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+
+        <hr class="invis">
+        
+    </div><!-- end container -->
+</section>
 <section class="section">
     <div class="container">
         <div class="row">
@@ -87,6 +118,7 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
+
 
 <section class="section">
     <div class="container">
@@ -187,7 +219,7 @@
         </div>
     </div><!-- end container -->
 </section>
-
+{{--
 <section class="section db p120">
     <div class="container">
         <div class="row">
@@ -198,45 +230,10 @@
             </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
-</section><!-- end section -->
-
-<section class="section gb nopadtop">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div style="background-color:aqua" class="box m30">
-                    <i class="flaticon-computer-tool-for-education"></i>
-                    <h4>BIDANG 1</h4>
-                    <!-- <p>All sections required for online training are included to Edulogy.</p> -->
-                    <a href="#" class="readmore">Read more</a>
-                </div>
-            </div><!-- end col -->
-
-            <div class="col-md-4">
-                <div style="background-color:brown" class="box m30">
-                    <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                    <h4>BIDANG 2</h4>
-                    <!-- <p>The most important feature of this template is that it is compatible with all mobile devices. Your customers can also visit your site easily from tablets and phones.</p> -->
-                    <a href="#" class="readmore">Read more</a>
-                </div>
-            </div><!-- end col -->
-
-            <div class="col-md-4">
-                <div style="background-color:aquamarine" class="box m30">
-                    <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
-                    <h4>BIDANG 3</h4>
-                    <!-- <p>We designed the design of all the sub-pages needed for the users.</p> -->
-                    <a href="#" class="readmore">Read more</a>
-                </div>
-            </div><!-- end col -->
-        </div><!-- end row -->
-
-        <hr class="invis">
-    </div><!-- end container -->
-</section>
-
+</section><!-- end section -->--}}
+<!-- 
 <section class="section db">
-    <!-- <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="stat-count">
@@ -262,8 +259,8 @@
                 </div>
             </div>
         </div>
-    </div> -->
-</section>
+    </div>
+</section> -->
 
 <section class="section gb">
     <div class="container">

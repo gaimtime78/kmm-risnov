@@ -1,3 +1,18 @@
+<style>
+    .kotak{
+        width: 150px;
+        height: 148px;
+        position: absolute;
+        left: 0;
+        top: -40px;
+        padding: 15px;
+        text-align: center;
+        z-index: 99;
+        background-color: #FFFFFF;
+    }
+
+</style>
+
 <header class="header header-normal">
             
             <div class="container">
@@ -11,7 +26,7 @@
                         </button>
                         <br>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="{{route('home')}}"><img  style="width:70px" src="{{asset('images/logo-uns.png')}}" alt=""></a>
+                            <a class="navbar-brand" href="{{route('home')}}"><img style="width:70px;margin-top: 4rem;" src="{{asset('images/logo-uns.png')}}" alt=""></a>
                         </div>
                     </div>
                     <br>
