@@ -7,7 +7,7 @@
 @section('content')	
 		<section class="section db p120">
             <div class="container" style="text-align:center;">
-				<h2 style=" color:#FFF;">Dokumentasi Risnov</h2>
+				<h2 >Dokumentasi Risnov</h2>
             </div>
         </section>
 		{{--<section class="section gb nopadtop">
@@ -41,7 +41,7 @@
                                 <div class="image-wrap entry">
                                     <img style="height:200px;object-fit:cover;" src="{{asset('images/collection-onlinenews.jpeg')}}" alt="" class="img-responsive">
                                     <div class="magnifier">
-                                        <a href="{{route('coming')}}" title="">Selengkapnya</a>
+                                        <a href="{{route('koran-search')}}" title="">Selengkapnya</a>
                                     </div>
                                 </div>
                                 <!-- end image-wrap -->

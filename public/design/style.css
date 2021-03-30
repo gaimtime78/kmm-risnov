@@ -977,7 +977,7 @@ SECTIONS
     background-color: #ffffff;
     padding: 8rem 0;
     position: relative;
-    display: block;
+    display: cover;
 }
 
 .section-title {
