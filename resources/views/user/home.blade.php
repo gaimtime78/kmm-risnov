@@ -44,8 +44,8 @@
             <div class="col-md-3">
                 <div class="box m30">
                     <i class="flaticon-computer-tool-for-education"></i>
-                    <h4>KHDDTK</h4></br>
-                    <a href="{{route('coming')}}" class="readmore">Read more</a>
+                    <h4>KHDTK</h4></br>
+                    <a href="https://diklathut.uns.ac.id/" class="readmore">Pelajari Selengkapnya</a>
                 </div>
             </div><!-- end col -->
 
@@ -53,7 +53,7 @@
                 <div class="box m30">
                     <i class="flaticon-monitor-tablet-and-smartohone"></i>
                     <h4>Lembaga Penelitian dan Pengabdian Kepada Masyarakat</h4>
-                    <a href="http://lppm.uns.ac.id/" class="readmore">Read more</a>
+                    <a href="http://lppm.uns.ac.id/" class="readmore">Pelajari Selengkapnya</a>
                 </div>
             </div><!-- end col -->
 
@@ -61,7 +61,7 @@
                 <div class="box m30">
                     <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
                     <h4>Direktorat Inovasi dan Hilirisasi</h4>
-                    <a href="{{route('coming')}}" class="readmore">Read more</a>
+                    <a href="{{route('coming')}}" class="readmore">Pelajari Selengkapnya</a>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->

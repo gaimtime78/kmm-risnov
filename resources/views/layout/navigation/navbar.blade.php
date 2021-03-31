@@ -46,7 +46,7 @@
                             </li> 
                             <li><a href="http://lppm.uns.ac.id/" target="_blank">LPPM</a></li>
                             <li><a href="{{route('coming')}}">Direktorat Inovasi </a></li>
-                            <li><a href="{{route('coming')}}">KHDDTK </a></li>
+                            <li><a href="https://diklathut.uns.ac.id/">KHDTK </a></li>
                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informasi&nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
