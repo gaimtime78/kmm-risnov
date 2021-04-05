@@ -11,7 +11,11 @@ class HomeController extends Controller
     public function index(){
         $data['post'] = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category','!=', 'Berita Terkini');
-        })->orderBy('created_at','DESC')->paginate(3);
+        })->orderBy('created_at','DESC')->paginate(1);
+
+        $data['left'] = Post::where('active', 1)->whereHas('category', function($v){
+            $v->where('category','!=', 'Berita Terkini');
+        })->orderBy('created_at','DESC')->paginate(6);
 
         $data['gallery'] = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category','=', 'Gallery');
