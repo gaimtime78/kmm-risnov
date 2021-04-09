@@ -68,7 +68,7 @@
                                 </ul>
                             </li>
                             {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li> --}}
-                            <li><a href="{{route('produk-komersial')}}">Produk Siap Commercial</a></li>
+                            <li><a href="{{route('produk-komersial')}}">Produk Siap Komersial</a></li>
                          
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
                             <li><a href="{{route('agenda')}}">Agenda</a></li>
