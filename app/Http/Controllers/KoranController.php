@@ -25,7 +25,7 @@ class KoranController extends Controller
 		
 		$koran = new Koran([
 			'title' => $request->title,
-      'source' => $request->source,
+    		'source' => $request->source,
 			'content' => $request->content,
 			'active' => $request->active === 'on'?true:false,
 			'published_at' => $request->published_at,
