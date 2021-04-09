@@ -228,7 +228,7 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
-
+{{--
 <section class="section gb">
     <div class="container">
         <div class="section-title text-center">
@@ -279,7 +279,7 @@
             <a href="{{route('berita-terkini')}}" class="btn btn-primary">Lihat Berita Lainnya</a>
         </div>
     </div><!-- end container -->
-</section>
+</section>--}}
 {{--
 <section class="section db p120">
     <div class="container">
