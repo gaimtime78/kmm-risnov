@@ -65,70 +65,9 @@
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
-    </div><!-- end container -->
-</section>
-<section class="section gb nopadtop">
-    <div class="container">
-        <div class="boxed">
-            <div class="row">
-                <div class="section-title text-center">
-                    </div><!-- end title -->
-                    <div class="sidebar col-md-4">
-                        <div class="widget clearfix">
-                            <div class="banner-widget">
-                                <!-- <img src="upload/banner.jpeg" alt="" class="img-responsive img-rounded"> -->
-                                <h3>BERITA TERKINI</h3>
-                            </div>
-                        </div>
-                    <div class="widget clearfix">
-                        <h3 class="widget-title">Popular Post</h3>
-                        @foreach($left as $q)
-                        <div class="post-widget">
-                            <div class="media">
-                                <img style="width:50px;object-fit:cover;" src="{{asset('upload/post/'.$q->thumbnail)}}" alt="" class="img-responsive alignleft img-rounded">
-                                <div class="media-body">
-                                   
-                                    <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $q->title)])}}" title="">{{$q->title}}</a>
-                                    <div class="blog-meta">
-                                        <ul class="list-inline">
-                                            <li> <small><i class="fa fa-clock-o"></i> {{date("d M Y", strtotime($q->published_at)) }}</small></li>
-                                        </ul>
-                                    </div><!-- end blog-meta -->
-                                </div>
-                            </div>
-                        </div><!-- end post-widget -->
-                        @endforeach
-                    </div><!-- end widget -->
-                </div><!-- end sidebar -->
-                @foreach($post as $p)
-                <div class="col-md-8">
-                    <div class="content blog-list">
-                        <div class="blog-wrapper clearfix">
-                            <div class="blog-meta">
-                                <!-- <small><a href="#">Berita Terkini</a></small> -->
-                                <h3><a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a></h3>
-                                <ul class="list-inline">
-                                    <li>{{date("d M Y", strtotime($p->published_at)) }}</li>
-                                </ul>
-                            </div><!-- end blog-meta -->
 
-                            <div class="blog-media">
-                                <img src="{{asset('upload/post/'.$p->thumbnail)}}" alt="" class="img-responsive img-rounded">
-                            </div><!-- end media -->
-
-                            <div class="blog-desc-big">
-                                <p >{{$p->overview}}</p>
-                                <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" class="btn btn-primary">Read More</a>
-                            </div><!-- end desc -->
-                        </div><!-- end blog -->
-                    </div><!-- end content -->
-                    <div class="section-button text-center">
-                        <a href="{{route('berita-terkini')}}" class="btn btn-primary">Lihat Berita Lainnya</a>
-                    </div>
-                </div><!-- end col -->
-                @endforeach
-            </div><!-- end row -->
-        </div><!-- end boxed -->
+        <hr class="invis">
+        
     </div><!-- end container -->
 </section>
 <section class="section">
