@@ -31,7 +31,7 @@
                     <div class="content blog-list" style="padding-bottom: 10px !important;">
                         <div class="blog-wrapper clearfix">
                             <div class="col-md-6 blog-media">
-                                <img style="width:400px" src="{{asset('images/wr4/wr4.png')}}" alt="" class="img-responsive img-rounded  wow slideInLeft">
+                                <img style="width:400px" src="{{asset('images/wr4/new2_wr4.png')}}" alt="" class="img-responsive img-rounded  wow slideInLeft">
                             </div><!-- end media -->
                             <div style="text-align:justify" class=" col-md-6 blog-desc-big">
 
