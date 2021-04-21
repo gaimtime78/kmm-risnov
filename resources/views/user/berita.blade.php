@@ -4,7 +4,7 @@
 <style>
     .clamp{
         display:block;
-        width:200px;
+        width:100%;
         text-overflow:ellipsis;
         overflow:hidden;
         max-height:120px;
@@ -65,8 +65,8 @@
                                             <a class="title-clamp" href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                                         </h4>
                                     </div>
-                                    <div style="height:120px;">
-                                        <div class="clamp">{{$p->overview}}</div>
+                                    <div style="height:80px;">
+                                        <div class="clamp" style="text-align:justify;">{{$p->overview}}</div>
                                     </div>
                                     
                                 </div><!-- end details -->
