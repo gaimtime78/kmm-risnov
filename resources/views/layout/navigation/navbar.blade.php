@@ -14,7 +14,30 @@
 </style>
 
 <header class="header header-normal">
-            
+
+            <div class="topbar clearfix">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="col-md-6 col-sm-6 text-left">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Language <span class="fa fa-angle-down"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{route('home')}}"><img draggable="false" role="img" class="emoji" alt="🇮🇩" style="width:15px" src="https://s.w.org/images/core/emoji/13.0.1/svg/1f1ee-1f1e9.svg"> Bahasa Indonesia</a></li>
+                                <li><a href="#"><img draggable="false" role="img" class="emoji" alt="🇬🇧" style="width:15px" src="https://s.w.org/images/core/emoji/13.0.1/svg/1f1ec-1f1e7.svg"> English</a></li>
+                            </ul>
+                        </div><!-- end left -->
+                        <div class="col-md-6 col-sm-6 hidden-xs text-right">
+                            <!-- <div class="social">
+                                <a class="facebook" href="#" data-tooltip="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
+                                <a class="twitter" href="#" data-tooltip="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a class="google" href="#" data-tooltip="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                                <a class="linkedin" href="#" data-tooltip="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                <a class="pinterest" href="#" data-tooltip="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                            </div> -->
+                            <!-- end social -->
+                        </div><!-- end left -->
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end topbar -->
             <div class="container">
                 <nav class="navbar navbar-default yamm">
                     <div class="navbar-header">
@@ -24,12 +47,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <br>
+                       
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="{{route('home')}}"><img style="width:70px;margin-top: 4rem;" src="{{asset('images/logo-uns2.png')}}" alt=""></a>
+                            <a class="navbar-brand" href="{{route('home')}}"><img style="width:50px;" src="{{asset('images/logo-uns2.png')}}" alt=""></a>
                         </div>
                     </div>
-                    <br>
+                   
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 

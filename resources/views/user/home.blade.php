@@ -134,13 +134,13 @@
 <section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 hidden-sm hidden-xs">
+            <div class="col-md-12 ">
                 <div class="custom-module">
                     <h2><mark>Produk Siap Komersial</mark></h2>
                 </div>
                 <hr class="hr-primary">
             </div>
-            <div class="col-md-6 hidden-sm hidden-xs">
+            <div class="col-md-6 ">
                 <div class="custom-module">
                     <br>
                     <img style="height:500px;object-fit:cover;" src="{{asset('images/produk-siap.PNG')}}" alt="download-ebook" class="img-responsive wow slideInLeft">
@@ -213,7 +213,7 @@
                 </div><!-- end module -->
                 
             </div><!-- end col -->
-            <div class="col-md-6 hidden-sm hidden-xs">
+            <div class="col-md-6">
                 <div class="custom-module">
                 </div>
                 <div class="custom-module">
