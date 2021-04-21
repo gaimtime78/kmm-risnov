@@ -22,7 +22,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Language <span class="fa fa-angle-down"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{route('home')}}"><img draggable="false" role="img" class="emoji" alt="🇮🇩" style="width:15px" src="https://s.w.org/images/core/emoji/13.0.1/svg/1f1ee-1f1e9.svg"> Bahasa Indonesia</a></li>
-                                <li><a href="#"><img draggable="false" role="img" class="emoji" alt="🇬🇧" style="width:15px" src="https://s.w.org/images/core/emoji/13.0.1/svg/1f1ec-1f1e7.svg"> English</a></li>
+                                <li><a href="{{route('coming')}}"><img draggable="false" role="img" class="emoji" alt="🇬🇧" style="width:15px" src="https://s.w.org/images/core/emoji/13.0.1/svg/1f1ec-1f1e7.svg"> English</a></li>
                             </ul>
                         </div><!-- end left -->
                         <div class="col-md-6 col-sm-6 hidden-xs text-right">
