@@ -243,7 +243,8 @@ HEADER
     background: linear-gradient(to right, #43cae9 0%, #38f9d7 100%);
 }
 
-.header-normal .navbar-default .nav>li>a {
+.header-normal .navbar-default .nav>li>a:hover,.header-normal .navbar-default .nav>li>a:focus {
+    /* background-color: #fff; */
     color: #848484 !important;
 }
 
