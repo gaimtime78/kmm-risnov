@@ -42,20 +42,22 @@ class PostController extends Controller
 		]);
 		if($post->save()){
 			$listGallery = [];
-			
-			foreach ($request->gallery as $key => $v) {
-				$filename = time()."_".$v->getClientOriginalName();
-				$tujuan_upload = 'upload/post';
-				$v->move(public_path()."/".$tujuan_upload,$filename);
-				$gallery = new Gallery([
-					'post_id' => $post->id,
-					'file' => $filename,
-					'deskripsi' => $request->deskripsiGallery[$key]
-				]);
-				// array_push($listGallery, $gallery->id);
-				$gallery->save();
+			if($request->gallery){
+				foreach ($request->gallery as $key => $v) {
+					$filename = time()."_".$v->getClientOriginalName();
+					$tujuan_upload = 'upload/post';
+					$v->move(public_path()."/".$tujuan_upload,$filename);
+					$gallery = new Gallery([
+						'post_id' => $post->id,
+						'file' => $filename,
+						'deskripsi' => $request->deskripsiGallery[$key]
+					]);
+					// array_push($listGallery, $gallery->id);
+					$gallery->save();
+				}
+				// $post->gallery()->save($listGallery);
 			}
-			// $post->gallery()->save($listGallery);
+			
 			$post->category()->sync($request->category);
 		}
 		return redirect(route('admin.post.index'))->with('message', 'berhasil');

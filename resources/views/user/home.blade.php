@@ -327,84 +327,29 @@
     <div class="container">
         <div class="section-title text-center">
             <h3>Gallery</h3>
+            <?php $groupIndex = 0?>
         </div><!-- end title -->
         <div class="row">
             <div class="col-md-12 text-right">
-                <ul class="pagination ">
-                    <li class="active"><a href="javascript:void(0)">&laquo;</a></li>
-                    <li class="active"><a href="javascript:void(0)">&raquo;</a></li>
+                <ul class="pagination" id="container-pagination">
+                    @if($groupIndex > 0)
+                        <li class="active"><a onclick="prevGallery()" href="javascript:void(0)">&laquo;</a></li>
+                        <li class="active"><a onclick="nextGallery()" href="javascript:void(0)">&raquo;</a></li>
+                    @endif
                 </ul>
             </div><!-- end col -->
         </div><!-- end row -->
 
         <div class="boxed boxedp4">
-            <div class="row blog-grid">
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/6.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/8.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/4.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/5.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="course-box">
-                        <div class="image-wrap entry">
-                            <img src="images/gallary/7.jpg" alt="" class="img-responsive">
-                            <div class="magnifier">
-                                <a href="blog-single.html" title=""><i class="flaticon-add"></i></a>
-                            </div>
-                        </div><!-- end image-wrap -->
-                    </div><!-- end box -->
-                </div><!-- end col -->
+            <div class="row blog-grid" id="container-gallery">
+                
+                
             </div><!-- end row -->
 
             <hr class="invis">
-            <div class="section-button text-center">
+            <!-- <div class="section-button text-center">
                 <a href="#" class="btn btn-primary">Lihat Gallery</a>
-            </div>
+            </div> -->
 
         </div><!-- end boxed -->
     </div><!-- end container -->
@@ -413,5 +358,80 @@
 @endsection
 
 @section('js')
+<script>
+    let dataGallery = {!! json_encode($gallery->toArray()) !!}
+    let showedGallery = 6
+    let maxGroup = Math.floor(dataGallery.length/showedGallery)
+    let groupGallery = Array.from(Array(maxGroup + 1), () => new Array())
+    let ind = 0
+    let currGroupInd = 0
+    console.log(dataGallery)
+    dataGallery.map(v =>{
+        if(ind === showedGallery){
+            ind = 0
+        } 
+        groupGallery[currGroupInd].push(v)
+        if(ind === showedGallery - 1) currGroupInd ++
+        ind ++
+
+    })
+    console.log(maxGroup)
+    let currIndex = 0
+    let renderPagination = (currIndex) => {
+        let container = document.querySelector('#container-pagination')
+        if(maxGroup > 0){
+            if(currIndex === 0){
+                container.innerHTML = `
+                    <li class="active"><a style="cursor:pointer" onclick="nextGallery(${currIndex + 1})" href="javascript:void(0)">&raquo;</a></li>
+                `
+            }else if(currIndex === maxGroup){
+                container.innerHTML = `
+                    <li class="active"><a style="cursor:pointer" onclick="prevGallery(${currIndex - 1})" href="javascript:void(0)">&laquo;</a></li>
+                `
+            }else{
+                container.innerHTML = `
+                    <li class="active"><a style="cursor:pointer" onclick="prevGallery(${currIndex - 1})" href="javascript:void(0)">&laquo;</a></li>
+                    <li class="active"><a style="cursor:pointer" onclick="nextGallery(${currIndex + 1})" href="javascript:void(0)">&raquo;</a></li>
+                `
+            }
+        }else{
+            container.innerHTML = ''
+        }
+    }
+    let renderGallery = (index) =>{
+        let container = document.querySelector('#container-gallery')
+        let temp = JSON.parse(JSON.stringify(groupGallery))
+        let res = ''
+        let data = temp[index].map(v => {
+            res = res + `
+                <div class="col-md-4">
+                    <div class="course-box">
+                        <div class="image-wrap entry">
+                            <img src="public/upload/post/${v.thumbnail}" alt="" class="img-responsive">
+                            <div class="magnifier">
+                                <a onclick="goToPost('${v.title}')" href="javascript:void(0)" title=""><i class="flaticon-add"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+        container.innerHTML = res
+    }
+    let prevGallery = (index) => {
+        renderGallery(index)
+        renderPagination(index)
+    }
+    let nextGallery = (index) => {
+        renderGallery(index)
+        renderPagination(index)
+    }
+    let goToPost = (title) => {
+        title = title.split(' ').join('-')
+        window.location.href = `post/${title}`
+    }
+    renderGallery(currIndex)
+    renderPagination(currIndex)
+</script>
 
 @endsection
