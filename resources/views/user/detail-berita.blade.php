@@ -2,7 +2,7 @@
 
 @section('css')
 <style>
-    #myImg {
+#myImg {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
@@ -133,7 +133,7 @@
                                             <div class="col-md-4">
                                                 <div class="course-box">
                                                     <div class="image-wrap entry">
-                                                        <img src="{{asset('upload/post/'.$gal->file)}}" alt="" class="img-responsive">
+                                                        <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$gal->file)}}" alt="" class="img-responsive">
                                                         <div class="magnifier">
                                                             <a onclick="showModal(`{{asset('upload/post/'.$gal->file)}}`)" href="javascript:void(0)" title=""><i class="flaticon-add"></i></a>
                                                         </div>

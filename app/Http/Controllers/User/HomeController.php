@@ -17,9 +17,18 @@ class HomeController extends Controller
             $v->where('category','!=', 'Berita Terkini');
         })->orderBy('created_at','DESC')->paginate(6);
 
-        $data['gallery'] = Post::where('active', 1)->whereHas('category', function($v){
-            $v->where('category','=', 'Gallery');
-        })->orderBy('created_at','DESC')->limit(6)->get();
+        // $data['gallery'] = Post::where('active', 1)->whereHas('category', function($v){
+        //     $v->where('category','=', 'Gallery');
+        // })->orderBy('created_at','DESC')->limit(6)->get();
+        $allPost = Post::where('active', 1)->orderBy('created_at','DESC')->get();
+        $allPic = [];
+        foreach ($allPost as $key => $value) {
+            foreach($value->gallery as $k => $v){
+                array_push($allPic, $v->file);
+            }
+ 
+        }
+        $data['gallery'] = $allPic;
         return view('user.home', $data);
     }
 }

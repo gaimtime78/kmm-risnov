@@ -25,6 +25,93 @@
     margin-left: 15px;
     margin-bottom:-3px;
     }
+
+    /* MODAL */
+    #myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+
+    #myImg:hover {opacity: 0.7;}
+
+    /* The Modal (background) */
+    .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 110%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
+
+    /* Modal Content (image) */
+    .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    }
+
+    /* Caption of Modal Image */
+    #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    }
+
+    /* Add Animation */
+    .modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+    }
+
+    @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+    }
+
+    /* The Close Button */
+    .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+    }
 </style>
 @endsection
 
@@ -228,7 +315,7 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
-{{--
+
 <section class="section gb">
     <div class="container">
         <div class="section-title text-center">
@@ -279,8 +366,8 @@
             <a href="{{route('berita-terkini')}}" class="btn btn-primary">Lihat Berita Lainnya</a>
         </div>
     </div><!-- end container -->
-</section>--}}
-{{--
+</section>
+
 <section class="section db p120">
     <div class="container">
         <div class="row">
@@ -291,7 +378,7 @@
             </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
-</section><!-- end section -->--}}
+</section><!-- end section -->
 <!-- 
 <section class="section db">
     <div class="container">
@@ -322,20 +409,14 @@
         </div>
     </div>
 </section> -->
-
 <section class="section gb">
     <div class="container">
         <div class="section-title text-center">
-            <h3>Gallery</h3>
-            <?php $groupIndex = 0?>
-        </div><!-- end title -->
+            <h3>Gallery</h3>        </div><!-- end title -->
         <div class="row">
             <div class="col-md-12 text-right">
                 <ul class="pagination" id="container-pagination">
-                    @if($groupIndex > 0)
-                        <li class="active"><a onclick="prevGallery()" href="javascript:void(0)">&laquo;</a></li>
-                        <li class="active"><a onclick="nextGallery()" href="javascript:void(0)">&raquo;</a></li>
-                    @endif
+                   
                 </ul>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -354,12 +435,15 @@
         </div><!-- end boxed -->
     </div><!-- end container -->
 </section>
+<div onclick="modalClose()" id="myModal" class="modal">
+    <img class="modal-content" id="img01">
+</div>
 
 @endsection
 
 @section('js')
 <script>
-    let dataGallery = {!! json_encode($gallery->toArray()) !!}
+    let dataGallery = {!! json_encode($gallery) !!}
     let showedGallery = 6
     let maxGroup = Math.floor(dataGallery.length/showedGallery)
     let groupGallery = Array.from(Array(maxGroup + 1), () => new Array())
@@ -407,9 +491,9 @@
                 <div class="col-md-4">
                     <div class="course-box">
                         <div class="image-wrap entry">
-                            <img src="public/upload/post/${v.thumbnail}" alt="" class="img-responsive">
+                            <img style="height:200px;object-fit:cover;" src="public/upload/post/${v}" alt="" class="img-responsive">
                             <div class="magnifier">
-                                <a onclick="goToPost('${v.title}')" href="javascript:void(0)" title=""><i class="flaticon-add"></i></a>
+                                <a onclick="showModal('public/upload/post/${v}')" href="javascript:void(0)" title=""><i class="flaticon-add"></i></a>
                             </div>
                         </div>
                     </div>
@@ -432,6 +516,26 @@
     }
     renderGallery(currIndex)
     renderPagination(currIndex)
+
+    ///MODAL
+    let showModal = (imgUrl) =>{ 
+        // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+        
+        modal.style.display = "block";
+        modalImg.src = imgUrl;
+        captionText.innerHTML = this.alt;
+    }
+    // When the user clicks on <span> (x), close the modal
+    let modalClose = () =>{
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none"
+    }
 </script>
 
 @endsection
