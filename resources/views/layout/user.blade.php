@@ -48,6 +48,11 @@
     <!-- END LOADER -->
 
     <div id="wrapper">
+        <div style="position:fixed;z-index:1000;right:1em;bottom:1em;width:200px;" class="col-md-6 col-sm-6 text-right">
+            <div class="social" id="container-share">
+                
+            </div><!-- end social -->
+        </div>
         @include('layout.navigation.navbar')
 
         @yield('content')
@@ -63,6 +68,19 @@
     <script type="text/javascript" src="{{ asset('design\js\custom.js') }}"></script>
     <!-- VIDEO BG PLUGINS -->
     <script type="text/javascript" src="{{ asset('design\js\videobg.js') }}"></script>
+    <script>
+        let renderShare = () =>{
+            let currURL = window.location.href
+            let container = document.querySelector("#container-share")
+            console.log(currURL)
+            container.innerHTML = `
+                <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=${currURL}" target="_blank" data-tooltip="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=Share+title&url=${currURL}" target="_blank" data-tooltip="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a style="background-color:green;" class="whatsapp" href="https://wa.me/?text=${currURL}" target="_blank" data-tooltip="tooltip" data-placement="bottom" title="Whatsapp"><i class="fa fa-whatsapp"></i></a>
+            `
+        }
+        renderShare()
+    </script>
     @yield('js')
 </body>
 </html>
