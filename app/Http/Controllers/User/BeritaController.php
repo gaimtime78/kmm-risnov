@@ -12,7 +12,7 @@ class BeritaController extends Controller
     public function index(){
         $post = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category', 'Berita Terkini');
-        })->orderBy('published_at','DESC')->paginate(9);
+        })->orderBy('published_at','DESC')->paginate(6);
         $latest = Post::where('active', 1)->whereHas('category', function($v){
             $v->where('category','!=', 'Berita Terkini');
         })->orderBy('published_at','DESC')->paginate(3);
