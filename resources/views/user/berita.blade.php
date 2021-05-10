@@ -57,20 +57,20 @@
                                         <a href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title=""><p>Selengkapnya</p></a>
                                     </div>
                                 </div><!-- end image-wrap -->
-                                <div  class="course-details">
+                                <div  class="course-details" style="height:250px">
                                 <!-- display:grid;grid-gap:1em;height:150px; -->
-                                    <div style="">
+                                    <div>
                                         <h4>
                                             <!-- <small>Bertia Terkini</small> -->
                                             <a class="title-clamp" href="{{route('detail-post',['slug'=>str_replace(' ', '-', $p->title)])}}" title="">{{$p->title}}</a>
                                         </h4>
                                     </div>
-                                    <div style="height:80px;">
+                                    <div>
                                         <div class="clamp" style="text-align:justify;">{{$p->overview}}</div>
                                     </div>
                                     
                                 </div><!-- end details -->
-                                <div class="course-footer clearfix">
+                                <div class="course-footer clearfix" >
                                     <div class="pull-left">
                                         <ul class="list-inline">
                                             <li><a href="#"><i class="fa fa-user"></i> {{$p->user->name}}</a></li>
