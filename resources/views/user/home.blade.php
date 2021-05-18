@@ -582,10 +582,10 @@
                 <div class="content blog-list boxed" style="padding:1em;height:300px;margin-bottom:0px;">
                     <div class="blog-wrapper clearfix">
                         <div style="height:200px;overflow:hidden;display:flex;align-items:center;" class="blog-media">
-                            <a style="width:100%;" href="" title=""><img style="height:200px;object-fit:cover;" src="public/upload/post/${v.thumbnail}" alt="gambar" class="img-responsive img-rounded"></a>
+                            <a href="post/${v.title.split(" ").join("-")}" style="width:100%;" title=""><img style="height:200px;object-fit:cover;" src="public/upload/post/${v.thumbnail}" alt="gambar" class="img-responsive img-rounded"></a>
                         </div><!-- end media -->
                         <div class="blog-meta">
-                            <h4><a href="" title="">${v.title}</a></h4>
+                            <h4><a href="post/${v.title.split(" ").join("-")}" title="">${v.title}</a></h4>
                         </div><!-- end blog-meta -->
                     </div><!-- end blog -->
                 </div><!-- end content -->
