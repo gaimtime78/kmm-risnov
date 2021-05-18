@@ -105,6 +105,11 @@
     text-decoration: none;
     cursor: pointer;
     }
+    #container-slider{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+        grid-gap:1em;
+    }
 
     /* 100% Image Width on Smaller Screens */
     @media only screen and (max-width: 700px){
@@ -215,6 +220,25 @@
                 </div><!-- end col -->
                 @endforeach
             </div><!-- end row -->
+        </div><!-- end boxed -->
+    </div><!-- end container -->
+</section>
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Post Terbaru</h3>
+        </div>
+        <div class="boxed" style="display:flex">
+            <div style="width:50px; display:flex; justiify-content:center; align-items:center;">
+                <div onclick="prevSlider()" style="height:50px;width:100%;margin-bottom:30px;background-color:grey;cursor:pointer;display:flex;justify-content:center;align-items:center;margin-right:1em;"><i class="fa fa-arrow-left"></i></div>
+            </div>
+            <div style="width:100%;">
+                <div id="container-slider">
+                </div>
+            </div>
+            <div style="width:50px; display:flex; justiify-content:center; align-items:center;">
+                <div onclick="nextSlider()" style="height:50px;width:100%;margin-bottom:30px;background-color:grey;cursor:pointer;display:flex;justify-content:center;align-items:center;margin-left:1em;"><i class="fa fa-arrow-right"></i></div>
+            </div>
         </div><!-- end boxed -->
     </div><!-- end container -->
 </section>
@@ -443,13 +467,13 @@
 
 @section('js')
 <script>
+    //Gallery
     let dataGallery = {!! json_encode($gallery) !!}
     let showedGallery = 6
     let maxGroup = Math.floor(dataGallery.length/showedGallery)
     let groupGallery = Array.from(Array(maxGroup + 1), () => new Array())
     let ind = 0
     let currGroupInd = 0
-    console.log(dataGallery)
     dataGallery.map(v =>{
         if(ind === showedGallery){
             ind = 0
@@ -459,7 +483,6 @@
         ind ++
 
     })
-    console.log(maxGroup)
     let currIndex = 0
     let renderPagination = (currIndex) => {
         let container = document.querySelector('#container-pagination')
@@ -536,6 +559,56 @@
         var modal = document.getElementById("myModal");
         modal.style.display = "none"
     }
+
+    //Slider Post
+    let dataSlider = {!! json_encode($allPost) !!}
+    let indexSlider = 0
+    let totalDisplay = 3
+    let dataLength = dataSlider.length
+    let groupLength = Math.ceil(dataLength/totalDisplay)
+
+    let renderSlider = (indexSlider) =>{
+        let container = document.querySelector("#container-slider")
+        let temp = JSON.parse(JSON.stringify(dataSlider))
+        let res = ''
+        let arrDisplay = []
+        indexSlider = (indexSlider%groupLength)+1
+        let startDisplay = totalDisplay*indexSlider - 3 
+        arrDisplay.push(temp[startDisplay])
+        arrDisplay.push(temp[startDisplay + 1])
+        arrDisplay.push(temp[startDisplay + 2])
+        let data = arrDisplay.map(v => {
+            res = res + `
+                <div class="content blog-list boxed" style="padding:1em;height:300px;margin-bottom:0px;">
+                    <div class="blog-wrapper clearfix">
+                        <div style="height:200px;overflow:hidden;display:flex;align-items:center;" class="blog-media">
+                            <a style="width:100%;" href="" title=""><img style="height:200px;object-fit:cover;" src="public/upload/post/${v.thumbnail}" alt="gambar" class="img-responsive img-rounded"></a>
+                        </div><!-- end media -->
+                        <div class="blog-meta">
+                            <h4><a href="" title="">${v.title}</a></h4>
+                        </div><!-- end blog-meta -->
+                    </div><!-- end blog -->
+                </div><!-- end content -->
+            `
+        })
+        container.innerHTML = res
+        
+        
+    }
+    let nextSlider = () =>{
+        indexSlider = indexSlider + 1
+        renderSlider(indexSlider);
+        console.log(indexSlider, "next")
+    }
+    let prevSlider = () =>{
+        indexSlider = indexSlider - 1
+        if(indexSlider === 0){
+            indexSlider = groupLength
+        }
+        renderSlider(indexSlider);
+        console.log(indexSlider, "prev")
+    }
+    renderSlider(0);
 </script>
 
 @endsection

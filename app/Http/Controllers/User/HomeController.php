@@ -29,6 +29,7 @@ class HomeController extends Controller
  
         }
         $data['gallery'] = $allPic;
+        $data['allPost'] = $allPost;
         return view('user.home', $data);
     }
 }
