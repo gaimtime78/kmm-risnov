@@ -11,10 +11,13 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Site Meta -->
-    <title>Risnov</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>Risnov - @yield('title')</title>
+    <meta name="description" content="@yield('meta-description')">
+    <meta name="author" content="Risnov UNS">
+    <meta property="og:title" content="@yield('title')">
+    <meta property="og:description" content="@yield('meta-description')">
+    <meta property="og:site_name" content="Riset Inovasi Universitas Sebelas Maret" />
+    <meta property="og:image" content="@yield('meta-image')">
     
     <!-- Site Icons -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />

@@ -16,6 +16,7 @@ class CreatePostTable extends Migration
         Schema::create('post', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->longText('slug');
             $table->longText('content');
             $table->longText('overview')->default('');
             $table->boolean('show_thumbnail')->default(true);

@@ -31,6 +31,7 @@ class PostController extends Controller
 		
 		$post = new Post([
 			'title' => $request->title,
+			'slug' => str_replace(" ","-",$request->title),
 			'content' => $request->content,
 			'thumbnail' => $filename,
 			'active' => $request->active === 'on'?true:false,
@@ -73,6 +74,7 @@ class PostController extends Controller
 		// dd($request->all());
 		$dataUpdate = [
 			'title' => $request->title,
+			'slug' => str_replace(" ","-",$request->title),
 			'content' => $request->content,
 			'overview' => $request->overview,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
@@ -166,7 +168,7 @@ class PostController extends Controller
 	}
 
 	public function detail(Request $request, $slug){
-		$post = POST::where('title',str_replace('-', ' ', $slug))->where('active', true)->first();
+		$post = POST::where('slug',$slug)->where('active', true)->first();
 		if($post){
 			return view('user.detail-berita',['post' => $post]);
 		}
