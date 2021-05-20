@@ -132,6 +132,9 @@
 
                                     <div class="blog-desc-big">
                                         <!-- <p class="lead">{{$post->overview}}</p> -->
+                                        
+                                        <p>{!! $post->content !!}</p>
+
                                         <div class="row blog-grid" style="margin-top:6em;">
                                             @foreach($post->gallery as $gal)
                                             <div class="col-md-4">
@@ -154,7 +157,6 @@
                                             </div><!-- end col -->
                                             @endforeach
                                         </div>
-                                        <p>{!! $post->content !!}</p>
                                         <hr class="invis">
 
                                         <!-- end list-widget -->

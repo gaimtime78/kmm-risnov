@@ -7,7 +7,7 @@
 @section('content')	
 		<section class="section db p120">
             <div class="container" style="text-align:center;">
-				<h2 >Dokumentasi Risnov</h2>
+				<h2 >E-Book</h2>
             </div>
         </section>
 		{{--<section class="section gb nopadtop">
@@ -38,18 +38,18 @@
 
                         <div class="col-md-3">
                             <div class="course-box shop-wrapper">
-                                <div class="image-wrap entry">
+                                <!-- <div class="image-wrap entry">
                                     <img style="height:200px;object-fit:cover;" src="{{asset('images/collection-onlinenews.jpeg')}}" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <a href="{{route('koran-search')}}" title="">Selengkapnya</a>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- end image-wrap -->
-                                <div class="course-details shop-box text-center">
+                                <!-- <div class="course-details shop-box text-center">
                                     <p>
                                         <a href="{{route('koran-search')}}" title="">Dokumentasi Koran Digital</a>
                                     </p>
-                                </div>
+                                </div> -->
                                 <!-- end details -->
                                 <div class="course-footer clearfix">
                                 </div><!-- end footer -->
