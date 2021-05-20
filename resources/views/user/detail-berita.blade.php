@@ -1,5 +1,9 @@
 @extends('layout.user')
 
+@section('title', $post->title)
+@section('meta-description',$post->overview)
+@section('meta-image', asset('upload/post/'.$post->thumbnail))
+
 @section('css')
 <style>
 #myImg {
