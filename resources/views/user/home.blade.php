@@ -222,8 +222,8 @@
             <div style="width:50px; display:flex; justiify-content:center; align-items:center;">
                 <div onclick="nextSlider()" style="height:50px;width:100%;margin-bottom:30px;background-color:grey;cursor:pointer;display:flex;justify-content:center;align-items:center;margin-left:1em;"><i class="fa fa-arrow-right"></i></div>
             </div>
-        </div><!-- end boxed -->
-    </div><!-- end container -->
+        </div>
+    </div>
 </section> -->
 <section class="section">
     <div class="container">

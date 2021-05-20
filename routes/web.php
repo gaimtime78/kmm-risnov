@@ -38,14 +38,6 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::group(['prefix' => '/admin/agenda'], function(){
-    Route::get('/', [App\Http\Controllers\AgendaController::class, 'index'])->name('admin.agenda.index');
-    Route::get('/create', [App\Http\Controllers\AgendaController::class, 'create'])->name('admin.agenda.create');
-    Route::post('/store', [App\Http\Controllers\AgendaController::class, 'store'])->name('admin.agenda.store');
-    Route::get('/edit/{id}', [App\Http\Controllers\AgendaController::class, 'edit'])->name('admin.agenda.edit');
-    Route::post('/update/{id}', [App\Http\Controllers\AgendaController::class, 'update'])->name('admin.agenda.update');
-    Route::get('/delete/{id}', [App\Http\Controllers\AgendaController::class, 'delete'])->name('admin.agenda.delete');
-});
 Route::get('/coming', function () {
     return view('user.coming');
 })->name('coming');
@@ -127,6 +119,24 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/edit/{id}', [App\Http\Controllers\PageController::class, 'edit'])->name('page.edit');
             Route::put('/update/{id}', [App\Http\Controllers\PageController::class, 'update'])->name('page.update');
             Route::delete('/delete/{id}', [App\Http\Controllers\PageController::class, 'delete'])->name('page.delete');
+        });
+
+        Route::group(['prefix' => '/user'], function(){
+            Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+            Route::get('/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+            Route::post('/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+            Route::get('/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+            Route::put('/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+            Route::delete('/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
+        });
+
+        Route::group(['prefix' => '/agenda'], function(){
+            Route::get('/', [App\Http\Controllers\AgendaController::class, 'index'])->name('agenda.index');
+            Route::get('/create', [App\Http\Controllers\AgendaController::class, 'create'])->name('agenda.create');
+            Route::post('/store', [App\Http\Controllers\AgendaController::class, 'store'])->name('agenda.store');
+            Route::get('/edit/{id}', [App\Http\Controllers\AgendaController::class, 'edit'])->name('agenda.edit');
+            Route::post('/update/{id}', [App\Http\Controllers\AgendaController::class, 'update'])->name('agenda.update');
+            Route::get('/delete/{id}', [App\Http\Controllers\AgendaController::class, 'delete'])->name('agenda.delete');
         });
        
     });
