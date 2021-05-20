@@ -10,7 +10,8 @@ class AgendaController extends Controller
     public function index()
     {
         $agenda = Agenda::get();
-        return view('admin/agenda/index', ['agenda' => $agenda]);
+        // dd("cehck");
+        return view('admin.agenda.index', ['agenda' => $agenda]);
     }
 
     public function create(){
