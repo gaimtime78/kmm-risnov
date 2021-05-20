@@ -86,7 +86,7 @@
         <div class="footer-copyright">
             <div class="container">
                 Copyright © 2021 <a class="grey-text text-lighten-4" href="https://iris1103.uns.ac.id/"
-                    target="_blank">©Engineering IRIS1103</a> All rights reserved.
+                    target="_blank">©Engineering Risnov</a> All rights reserved.
                 <!-- <span class="right"> Design and Developed by <a class="grey-text text-lighten-4" href="http://geekslabs.com/">GeeksLabs</a></span> -->
             </div>
         </div>
