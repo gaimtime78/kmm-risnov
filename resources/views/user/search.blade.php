@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                            <h3>POST</h3>
+                            <h3>{{$category}}</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
