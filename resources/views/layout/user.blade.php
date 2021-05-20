@@ -11,13 +11,20 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Site Meta -->
-    <title>Risnov - @yield('title')</title>
+    <title>RISET DAN INOVASI | @yield('title')</title>
+    <meta name="title" content="@yield('title')">
     <meta name="description" content="@yield('meta-description')">
-    <meta name="author" content="Risnov UNS">
+    <meta name="author" content="RISET DAN INOVASI">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://risnov.uns.ac.id/">
     <meta property="og:title" content="@yield('title')">
     <meta property="og:description" content="@yield('meta-description')">
-    <meta property="og:site_name" content="Riset Inovasi Universitas Sebelas Maret" />
-    <meta property="og:image" content="@yield('meta-image')">
+    <meta property="og:image:secure" itemprop="image" content="@yield('meta-image')">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="400">
+    <meta property="og:site_name" content="Riset Inovasi Universitas Sebelas Maret">
     
     <!-- Site Icons -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
@@ -41,7 +48,10 @@
     <meta name="google-site-verification" content="e6UXMEpodd4Gkid3WCrUYVJ4zcvxzm7aFsHlokWOgyc">
     @yield('css')
 </head>
-<body>  
+<body>
+    <span itemprop="image" itemscope itemtype="image/jpeg"> 
+        <link itemprop="url" href="@yield('meta-image')"> 
+      </span>  
 
     <!-- LOADER -->
     <!-- <div id="preloader">
