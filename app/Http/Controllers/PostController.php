@@ -180,6 +180,7 @@ class PostController extends Controller
 		$data['post'] = POST::where('title','LIKE','%'.$request->cari.'%')
 		->orWhere('content','LIKE','%'.strip_tags($request->cari).'%')
 		->paginate(5);
+		$data['category'] = "Pencarian";
 		return view('user.search', $data);
 	}
 
@@ -188,6 +189,7 @@ class PostController extends Controller
 		$data['post'] = POST::whereHas('category', function($q) use ($request){
 			$q->where('category', 'LIKE', $request->category);
 		})->paginate(5);
+		$data['category'] = $request->category;
 		return view('user.search', $data);
 	}
 
