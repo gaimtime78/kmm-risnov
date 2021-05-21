@@ -31,12 +31,30 @@
                 <div class=" ">
                     <div class="col-md-3">
                         <div class="course-box shop-wrapper">
-                                <div class="course-footer clearfix">
-                                </div><!-- end footer -->
-                            </div><!-- end box -->
-                        </div><!-- end col -->
+                              
+                        </div><!-- end box -->
+                    </div><!-- end col -->
+                    <div class="col-md-6">
+                        <div class="course-box shop-wrapper">
+                            <div class="image-wrap entry">
+                                <img style="height:200px;object-fit:cover;" src="{{asset('images/produk-siap.PNG')}}" alt="" class="img-responsive">
+                                <div class="magnifier">
+                                    <a href="https://risnov.uns.ac.id/id/category/Dokumen" title="">Selengkapnya</a>
+                                </div>
+                            </div>
+                            <!-- end image-wrap -->
+                            <div class="course-details shop-box text-center">
+                                <p>
+                                    <a href="https://risnov.uns.ac.id/id/category/Dokumen" title="">Download E-Book</a>
+                                </p>
+                            </div>
+                            <!-- end details -->
+                            <div class="course-footer clearfix">
+                            </div><!-- end footer -->
+                        </div><!-- end box -->
+                    </div><!-- end col -->
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="course-box shop-wrapper">
                                 <!-- <div class="image-wrap entry">
                                     <img style="height:200px;object-fit:cover;" src="{{asset('images/collection-onlinenews.jpeg')}}" alt="" class="img-responsive">
@@ -51,39 +69,9 @@
                                     </p>
                                 </div> -->
                                 <!-- end details -->
-                                <div class="course-footer clearfix">
-                                </div><!-- end footer -->
+                               
                             </div><!-- end box -->
                         </div><!-- end col -->
-
-                        <div class="col-md-3">
-                        <div class="course-box shop-wrapper">
-                                <div class="image-wrap entry">
-                                    <img style="height:200px;object-fit:cover;" src="{{asset('images/produk-siap.PNG')}}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <a href="{{route('coming')}}" title="">Selengkapnya</a>
-                                    </div>
-                                </div>
-                                <!-- end image-wrap -->
-                                <div class="course-details shop-box text-center">
-                                    <p>
-                                        <a href="{{route('coming')}}" title="">Download E-Book</a>
-                                    </p>
-                                </div>
-                                <!-- end details -->
-                                <div class="course-footer clearfix">
-                                </div><!-- end footer -->
-                            </div><!-- end box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3">
-                            <div class="course-box shop-wrapper">
-                            </div><!-- end box -->
-                        </div><!-- end col -->
-
-                            
-                        </div><!-- end row -->
-
                     <hr class="invis">
                 </div>
             </div>
