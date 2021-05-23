@@ -15,7 +15,7 @@
  * 
  * 
 */
-function initMulDrop ({selector, label, options, name, initialValue}){
+function initMulDrop ({selector, label, options, name, initialValue, single=false}){
   let container = document.querySelector(selector)
   let optionDom = ''
   let optionForm = ''
@@ -44,7 +44,7 @@ function initMulDrop ({selector, label, options, name, initialValue}){
     ${containerOption}
     <div style="width:100%;"><label>(Pilih Opsi/ Klik Tombol Diatas untuk menghilangkan)</label></div>
     </div>
-    <select name="${name}Select" id="category" onchange="addValue(this, '${name}')">
+    <select name="${name}Select" id="category" onchange="addValue(this, '${name}', ${single})">
         <option id="${name}-select-zero" value="" disabled selected>Select this options</option>
         ${optionDom}
     </select>
@@ -52,7 +52,7 @@ function initMulDrop ({selector, label, options, name, initialValue}){
   }
 }
 
-function addValue (e, name) {
+function addValue (e, name, single) {
   const valVal = e.options[e.selectedIndex].value
   const valText = e.options[e.selectedIndex].text
   const listChild = document.querySelector(`#${name}-opt-${valVal}`)
@@ -63,8 +63,15 @@ function addValue (e, name) {
   }else{
     const catContainer = document.getElementById(`${name}-option-form`)
     const catForm = document.getElementById(`${name}-container-option`)
-    catForm.innerHTML += `<input type="hidden" name="${name}[]" value="${valVal}" id="${name}-opt-${valVal}"></input>`
-    catContainer.innerHTML += `<div onclick="removeValue('${valVal}', '${name}')" id="${name}-opt-btn-${valVal}" style="margin-right:1em; margin-top:1em;" class="waves-effect waves-light btn btn-sm cyan darken-1" value="${valVal}">${valText} </div>`
+    
+    if(single){
+      catForm.innerHTML = `<input type="hidden" name="${name}[]" value="${valVal}" id="${name}-opt-${valVal}"></input>`
+      catContainer.innerHTML = `<div onclick="removeValue('${valVal}', '${name}')" id="${name}-opt-btn-${valVal}" style="margin-right:1em; margin-top:1em;" class="waves-effect waves-light btn btn-sm cyan darken-1" value="${valVal}">${valText} </div>`
+    }else{
+      catForm.innerHTML += `<input type="hidden" name="${name}[]" value="${valVal}" id="${name}-opt-${valVal}"></input>`
+      catContainer.innerHTML += `<div onclick="removeValue('${valVal}', '${name}')" id="${name}-opt-btn-${valVal}" style="margin-right:1em; margin-top:1em;" class="waves-effect waves-light btn btn-sm cyan darken-1" value="${valVal}">${valText} </div>`
+    }
+    
   }
 }
 
