@@ -151,6 +151,7 @@ Route::get('/produk-penelitian', [App\Http\Controllers\User\ProdukController::cl
 Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::class, 'pengabdian'])->name('produk-pengabdian');
 Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
 Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');
+Route::get('/get_agendas', [App\Http\Controllers\User\AgendaController::class, 'getAgendas'])->name('get_agendas');
 Route::get('/produk-komersial', [App\Http\Controllers\User\ProdukController::class, 'index'])->name('produk-komersial');
 Route::get('/gallery', [App\Http\Controllers\User\GalleryController::class, 'index'])->name('gallery');
 Route::get('/get_gallery', [App\Http\Controllers\User\HomeController::class, 'get_gallery'])->name('get_gallery');
