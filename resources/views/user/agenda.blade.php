@@ -23,7 +23,7 @@
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
-      events: '/get_agendas'
+      events: '/id/get_agendas'
     });
 
     calendar.render();
