@@ -36,6 +36,8 @@
                             </li>
                             <li><a href="{{ route('admin.agenda.index') }}">Agenda</a>
                             </li>
+                            <li><a href="{{ route('admin.user.index') }}">User</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
