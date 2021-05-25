@@ -15,13 +15,13 @@ class AgendaController extends Controller
 
     public function getAgendas()
     {
-        $agendas = Agenda::get(['title',DB::raw("CONCAT(date,' ',time) AS start"), 'url']);
+        $agendas = Agenda::get(['title',DB::raw("CONCAT(date,' ',time) AS start"), 'url', 'title AS description']);
         return $agendas->toJson();
     }
 
     public function detail($slug)
     {
-        $url = url('id/agenda/' . $slug);
+        $url = url('agenda/' . $slug);
         $agenda = Agenda::where('url',$url)->first();
         return view('user.detail-agenda', compact('agenda'));
     }

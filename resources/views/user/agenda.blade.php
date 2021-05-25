@@ -22,11 +22,22 @@
                 navLinks: true, // can click day/week names to navigate views
                 editable: true,
                 dayMaxEvents: true, // allow "more" link when too many events
-                events: '/id/get_agendas',
+                events: '/get_agendas',
                 eventClick: function(info) {
-                    alert('Agenda: ' + info.event.title + ' akan membuka tab baru');
-                    // change the border color just for fun
-                    info.el.style.borderColor = 'red';
+                    info.jsEvent.preventDefault(); // don't let the browser navigate
+
+                    if (info.event.url) {
+                        window.open(info.event.url);
+                    }
+                },
+                displayEventTime: false,
+                eventRender: function(info) {
+                    var tooltip = new Tooltip(info.el, {
+                        title: info.event.extendedProps.description,
+                        placement: 'top',
+                        trigger: 'hover',
+                        container: 'body',
+                    });
                 }
             });
 
@@ -100,5 +111,4 @@
 @endsection
 
 @section('js')
-
 @endsection

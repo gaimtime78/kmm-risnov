@@ -22,7 +22,7 @@ class AgendaController extends Controller
     public function store(Request $request)
     {
         $customizedTitle = date("Ymd") . '-' . str_replace(' ', '-', $request->title);
-        $url = url('id/agenda/' . $customizedTitle);
+        $url = url('agenda/' . $customizedTitle);
         $request->validate([
             'date' => 'required',
             'title' => 'required',
@@ -57,7 +57,7 @@ class AgendaController extends Controller
         $agenda = Agenda::find($id);
         $time = now();
         $customizedTitle = date("Ymd") . '-' . str_replace(' ', '-', $request->title);
-        $url = url('id/agenda/' . $customizedTitle);
+        $url = url('agenda/' . $customizedTitle);
         $dataUpdate = [
                 'date' => $request->date,
                 'time' => $request->time,
