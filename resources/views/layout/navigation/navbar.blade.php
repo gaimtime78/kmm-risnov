@@ -72,8 +72,8 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="http://lppm.uns.ac.id/" target="_blank">LPPM</a></li>
                                     <li><a href="https://risnov.uns.ac.id/id/post/WEBINAR-DAN-GRAND-LAUNCHING-SEMESTA-2021">Direktorat Inovasi dan Hilirisasi</a></li>
-                                    <li><a href="https://diklathut.uns.ac.id/">KHDTK </a></li>
-                                    <li><a href="https://kkn.uns.ac.id/">KKN </a></li>
+                                    <li><a href="https://diklathut.uns.ac.id/">UPT PPK</a></li>
+                                    <li><a href="https://kkn.uns.ac.id/">UP KKN </a></li>
                                 </ul>
                             </li> 
                             <li class="dropdown hassubmenu">

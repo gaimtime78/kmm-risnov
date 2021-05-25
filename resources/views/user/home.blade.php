@@ -135,20 +135,11 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="box m30">
-                    <i class="flaticon-computer-tool-for-education"></i>
-                    <h4>KHDTK</h4></br>
-                    <a href="https://diklathut.uns.ac.id/" class="readmore">Pelajari Selengkapnya</a>
-                </div>
-            </div><!-- end col -->
-
-            <div class="col-md-6">
-                <div class="box m30">
                     <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                    <h4>Lembaga Penelitian dan Pengabdian Kepada Masyarakat</h4>
+                    <h4>LPPM</h4>
                     <a href="http://lppm.uns.ac.id/" class="readmore">Pelajari Selengkapnya</a>
                 </div>
             </div><!-- end col -->
-
             <div class="col-md-3">
                 <div class="box m30">
                     <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
@@ -156,7 +147,24 @@
                     <a href="{{route('coming')}}" class="readmore">Pelajari Selengkapnya</a>
                 </div>
             </div><!-- end col -->
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-computer-tool-for-education"></i>
+                    <h4>UPT PPK</br></br></h4> 
+                    <a href="https://diklathut.uns.ac.id/" class="readmore">Pelajari Selengkapnya</a>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                    <h4>UP KKN</h4>
+                    <a href="https://kkn.uns.ac.id/" class="readmore">Pelajari Selengkapnya</a>
+                </div>
+            </div><!-- end col -->
         </div><!-- end row -->
+        <div class="row">
+        
+        </div>
     </div><!-- end container -->
 </section>
 <section class="section gb nopadtop">
@@ -222,8 +230,8 @@
             <div style="width:50px; display:flex; justiify-content:center; align-items:center;">
                 <div onclick="nextSlider()" style="height:50px;width:100%;margin-bottom:30px;background-color:grey;cursor:pointer;display:flex;justify-content:center;align-items:center;margin-left:1em;"><i class="fa fa-arrow-right"></i></div>
             </div>
-        </div>
-    </div>
+        </div><!-- end boxed -->
+    </div><!-- end container -->
 </section> -->
 <section class="section">
     <div class="container">
@@ -322,7 +330,7 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section>
-
+{{-- 
 <section class="section gb">
     <div class="container">
         <div class="section-title text-center">
@@ -336,7 +344,7 @@
                 </ul>
             </div>
         </div> -->
-        <div id="owl-01" class="owl-carousel owl-theme owl-theme-01">
+      <div id="owl-01" class="owl-carousel owl-theme owl-theme-01">
             @foreach($post as $p)
             <div class="caro-item">
                 <div class="course-box">
@@ -386,6 +394,7 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end section -->
+--}}
 <!-- 
 <section class="section db">
     <div class="container">
