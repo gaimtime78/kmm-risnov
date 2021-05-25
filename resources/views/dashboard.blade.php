@@ -21,8 +21,9 @@
     <div class="container">
     <p class="card-stats-title"><i class="mdi-social-group-add"></i> Halaman Dashboar Admin Pusat IRIS Universitas Sebelas Maret </p>
      <!--card stats start-->
+     <h5>Selamat Datang di Halaman Dashboard Risnov Universitas Sebelas Maret</h5>
      <div id="card-stats">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-content  green white-text">
@@ -75,12 +76,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
      <!--card stats end-->
 
        <!--chart dashboard start-->
-       <div id="chart-dashboard">
+       {{-- <div id="chart-dashboard">
                         <div class="row">
                             <div class="col s12 m8 l8">
                                 <div class="card">
@@ -310,7 +311,7 @@
                     </div>
                     <!--chart dashboard end-->
 
-   
+    --}}
 @endsection
 
 @section('js')
