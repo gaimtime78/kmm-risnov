@@ -22,7 +22,7 @@ class AgendaController extends Controller
     public function store(Request $request)
     {
         $customizedTitle = date("Ymd") . '-' . str_replace(' ', '-', $request->title);
-        $url = url('agenda/' . $customizedTitle);
+        $url = url('id/agenda/' . $customizedTitle);
         $request->validate([
             'date' => 'required',
             'title' => 'required',
@@ -40,6 +40,7 @@ class AgendaController extends Controller
             'thumbnail' => $filename,
             'description' => $request->description,
             'url' => $url,
+			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
         ]);
         $status = $this->status($agenda, 'Agenda berhasil ditambahkan!', 'Agenda gagal ditambahkan!');
         return redirect()->route('admin.agenda.index')->with($status);
@@ -56,13 +57,14 @@ class AgendaController extends Controller
         $agenda = Agenda::find($id);
         $time = now();
         $customizedTitle = date("Ymd") . '-' . str_replace(' ', '-', $request->title);
-        $url = url('agenda/' . $customizedTitle);
+        $url = url('id/agenda/' . $customizedTitle);
         $dataUpdate = [
                 'date' => $request->date,
                 'time' => $request->time,
                 'title' => $request->title,
                 'url' => $url,
                 'description' => $request->description,
+                'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
             ];
         $file = $request->file("thumbnail");
         if ($file !== null) {

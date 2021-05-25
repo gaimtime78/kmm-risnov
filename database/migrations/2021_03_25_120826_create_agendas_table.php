@@ -19,6 +19,7 @@ class CreateAgendasTable extends Migration
             $table->date('date')->useCurrent();
             $table->time('time')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->boolean('show_thumbnail')->default(true);
             $table->longText('url')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
