@@ -20,10 +20,14 @@
     <meta property="og:url" content="https://risnov.uns.ac.id/">
     <meta property="og:title" content="@yield('title')">
     <meta property="og:description" content="@yield('meta-description')">
-    <meta property="og:image:secure" itemprop="image" content="@yield('meta-image')">
+    <meta property="og:image" itemprop="image" content="@yield('meta-image')">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="400">
-	<meta property="og:image:height" content="400">
+    <meta property="og:image:width" content="300">
+	<meta property="og:image:height" content="300">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="1440432930" />
+
     <meta property="og:site_name" content="Riset Inovasi Universitas Sebelas Maret">
     
     <!-- Site Icons -->
