@@ -73,7 +73,7 @@
                           <td>{{$row->date}}</td>
                           <td>{{$row->time}}</td>
                          
-                          <td><a href="#modal{{$row->id}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="{{route('admin.agenda.edit', [$row->id])}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Edit -->
                           <div id="modal{{$row->id}}" class="modal modal-fixed-footer">
                             <form action="{{route('admin.agenda.update', [$row->id])}}" method="post">
