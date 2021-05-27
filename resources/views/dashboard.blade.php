@@ -7,8 +7,6 @@
 @section('content')
 
 @include('layout.navbar')
-
-
 <!-- START MAIN -->
 <div id="main">
 <!-- START WRAPPER -->
