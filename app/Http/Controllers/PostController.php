@@ -16,7 +16,7 @@ use App\Models\Gallery;
 class PostController extends Controller
 {
 	public function index(){
-		$data = Post::all();
+		$data = Post::where('user_id', Auth::id())->get();
 		return view('admin.post.index', ['data' => $data]);
 	}
 

@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Agenda;
 
 class AgendaController extends Controller
 {
     public function index()
     {
-        $agenda = Agenda::get();
+        $agenda = Agenda::where('user_id', Auth::id())->get();
         // dd("cehck");
         return view('admin.agenda.index', ['agenda' => $agenda]);
     }
@@ -39,6 +40,7 @@ class AgendaController extends Controller
             'title' => $request->title,
             'thumbnail' => $filename,
             'description' => $request->description,
+            'user_id' => Auth::id(),
             'url' => $url,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
         ]);

@@ -22,6 +22,7 @@ class CreateAgendasTable extends Migration
             $table->boolean('show_thumbnail')->default(true);
             $table->longText('url')->nullable();
             $table->longText('description')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }
