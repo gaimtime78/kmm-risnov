@@ -67,8 +67,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <h5><label for="video_url" class="form-label">URL Video</label></h5>
-                                        <textarea name="video_url" class="form-control" 
-                                            placeholder="Masukkan URL Video"></textarea>
+                                        <textarea rows="3" name="video_url" class="form-control" 
+                                            placeholder="Masukkan URL Video">{{ $post->video_url }}</textarea>
                                     </div>
                                     <div class="mb-3" id="categoryDD"></div>
                                     <div class="mb-3">
