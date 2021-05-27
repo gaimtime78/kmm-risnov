@@ -28,17 +28,15 @@
 				</div>
 				@endif
 				<div id="table-datatables">
-					<h4 class="header left">User</h4>
-					<a href="{{route('admin.user.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah User</a>
+					<h4 class="header left">Permission</h4>
+					<a href="{{route('admin.permission.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Role</a>
 					<div class="row">
 						<div class="col s12 m12 l12">
 							<table id="data-menu" class="responsive-table display" cellspacing="0">
 								<thead>
 									<tr>
 									<th>id</th>
-									<th width="350">Name</th>
-									<th>Email</th>
-									<th>Role</th>
+									<th width="350">Role</th>
 									<th>Action</th>
 										</tr>
 								</thead>
@@ -50,11 +48,10 @@
 										<tr>
 											<td>{{ $i }}</td>
 											<td>{{ $row->name }}</td>
-											<td>{{ $row->email }}</td>
-											<td>{{ $row->role->name }}</td>
 											<td>
 												<div>
-													<a class="btn" href="{{ route('admin.user.edit', ['id' => $row->id]) }}">Edit</a>
+													<a class="btn" href="{{ route('admin.permission.edit', ['id' => $row->id]) }}">Edit</a>
+													<a href="{{ route('admin.permission.delete', ['id' => $row->id]) }}" class="btn modal-trigger" style="background-color: red;">Delete</a>
 												</div>
 											</td>
 										</tr>

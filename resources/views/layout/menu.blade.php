@@ -1,4 +1,4 @@
-  <!-- START LEFT SIDEBAR NAV-->
+    <!-- START LEFT SIDEBAR NAV-->
   <aside id="left-sidebar-nav">
         <ul id="slide-out" class="side-nav fixed leftside-navigation" >
         <li class="user-details cyan darken-2">
@@ -24,20 +24,38 @@
                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Content Management</a>
                     <div class="collapsible-body">
                         <ul>
+                            @if(in_array("admin.category.index", $permissionUser))
                             <li><a href="{{ route('admin.category.index') }}">Category</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.post.index", $permissionUser))
                             <li><a href="{{ route('admin.post.index') }}">Post</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.page.index", $permissionUser))
                             <li><a href="{{ route('admin.page.index') }}">Page</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.menu.index", $permissionUser))
                             <li><a href="{{ route('admin.menu.index') }}">Menu</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.koran.index", $permissionUser))
                             <li><a href="{{ route('admin.koran.index') }}">Koran Online</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.agenda.index", $permissionUser))
                             <li><a href="{{ route('admin.agenda.index') }}">Agenda</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.user.index", $permissionUser))
                             <li><a href="{{ route('admin.user.index') }}">User</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.permission.index') }}">Permission</a>
+                            </li>
+                            @endif
                         </ul>
                     </div>
                 </li>
