@@ -56,32 +56,8 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 
-                            {{-- <li><a href="{{route('home')}}">Home</a></li> --}}
-
-                            @foreach ($menus as $menu)
-                                @if ($menu['sub_menu'] != null) 
-                                <li class="dropdown hassubmenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{$menu['menu']}} <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        @php
-                                        $i = 0;
-                                        @endphp
-                                        @foreach ($menu['sub_menu'] as $sub)
-                                        {{-- <li><a href="/{{$menu['page']->slug}}/{{$menu['url'][$i]}}">{{$sub}}</a></li> --}}
-                                        <li><a href="{{route('submenu', ['slug' => $menu['page']->slug, 'sub' => $menu['url'][$i]] )}}">{{$sub}}</a></li>
-                                        @php
-                                            $i++;
-                                        @endphp
-                                        @endforeach
-                                    </ul>
-                                </li> 
-                                @else
-                                <li><a href="{{route('userpage', $menu['url'])}}">{{$menu['menu']}}</a></li>
-                                @endif
-                            @endforeach
-
-
-                             {{-- <li class="dropdown hassubmenu">
+                            <li><a href="{{route('home')}}">Home</a></li>
+                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('tentang-kami.sambutan')}}">Sambutan WR</a></li>
@@ -121,17 +97,13 @@
                                     </li>                           -->
                                 </ul>
                             </li>
-                            {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li>
+                            {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li> --}}
                             <li><a href="{{route('produk-komersial')}}">Produk Siap Komersial</a></li>
                          
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
-                            <li><a href="{{route('agenda')}}">Agenda</a></li> 
-                            @foreach ($allMenu as $menu)
-                            <li><a href="{{$menu->url}}">{{$menu->menu}}</a></li>
-                            @endforeach
+                            <li><a href="{{route('agenda')}}">Agenda</a></li>
                             <li class="iconitem"><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-search"></i></a></li>
-                             --}}
-
+                          
                         </ul>
                     </div>
                 </nav><!-- end navbar -->

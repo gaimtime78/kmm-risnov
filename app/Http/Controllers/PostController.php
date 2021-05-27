@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\Post;
+use App\Models\Menu;
 use App\Models\Category;
 use App\Models\Gallery;
 
 class PostController extends Controller
 {
 	public function index(){
-		$data = Post::all();
+		$data = Post::where('user_id', Auth::id())->get();
 		return view('admin.post.index', ['data' => $data]);
 	}
 
@@ -171,6 +172,7 @@ class PostController extends Controller
 
 	public function detail(Request $request, $slug){
 		$post = POST::where('slug',$slug)->where('active', true)->first();
+		$allMenu = Menu::with('page')->get();
 		$video_urls = preg_split("/[\s,]+/", $post->video_url);
         $urls = array();
         foreach ($video_urls as $url) {
@@ -180,7 +182,7 @@ class PostController extends Controller
             $urls[] = $embed_url;
         }
 		if($post){
-			return view('user.detail-berita',['post' => $post, 'urls' => $urls]);
+			return view('user.detail-berita',['post' => $post, 'allMenu' => $allMenu, 'urls' => $urls]);
 		}
 		return abort(404);
 	}

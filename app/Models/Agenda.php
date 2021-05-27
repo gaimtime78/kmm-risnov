@@ -10,6 +10,10 @@ class Agenda extends Model
     use HasFactory;
     protected $table = 'agendas';
     protected $fillable = [
-        "title","date","time","thumbnail","url","description"
+        "title","date","time","thumbnail","url","description", 'user_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
