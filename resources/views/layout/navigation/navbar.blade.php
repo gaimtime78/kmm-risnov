@@ -95,28 +95,30 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kelembagaan <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="http://lppm.uns.ac.id/" target="_blank">LPPM</a></li>
-                                    <li><a href="{{route('coming')}}">Direktorat Inovasi dan Hilirisasi</a></li>
-                                    <li><a href="https://diklathut.uns.ac.id/">KHDTK </a></li>
+                                    <li><a href="https://risnov.uns.ac.id/id/post/WEBINAR-DAN-GRAND-LAUNCHING-SEMESTA-2021">Direktorat Inovasi dan Hilirisasi</a></li>
+                                    <li><a href="https://diklathut.uns.ac.id/">UPT PPK</a></li>
+                                    <li><a href="https://kkn.uns.ac.id/">UP KKN </a></li>
                                 </ul>
                             </li> 
                             <li class="dropdown hassubmenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informasi&nbsp;<span class="fa fa-angle-down"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dokumentasi&nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
-                                    <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
-                                    <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>                                 
+                                    <!-- <li><a href="{{route('informasi')}}">Sebaran KKN</a></li> -->
+                                    <!-- <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li> -->
+                                    <!-- <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>    -->
+                                    <li><a href="{{route('koran-search')}}">Koran Digital</a></li>    
+                                    <li><a href="{{route('dokumentasi')}}">E-Book</a></li>                               
                                     <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>        -->
-                                    <li class="dropdown level-2">
+                                    <!-- <li class="dropdown level-2">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dokumentasi&nbsp;<span class="fa fa-angle-right"></span></a>
                                         <ul class="dropdown-menu level-3" role="menu">
-                                            <!-- <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
+                                            <li><a href="{{route('informasi')}}">Sebaran KKN</a></li>
                                             <li><a href="{{route('coming')}}">Sertifikat HAKI</a></li>
-                                            <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li> -->
-                                            <li><a href="{{route('dokumentasi')}}">Koran Digital</a></li>    
-                                            <li><a href="{{route('dokumentasi')}}">E-Book</a></li>    
-                                            <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>        -->
+                                            <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>
+                                           
+                                            <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>       
                                         </ul>
-                                    </li>                          
+                                    </li>                           -->
                                 </ul>
                             </li>
                             {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li>
