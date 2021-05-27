@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -22,14 +23,41 @@ class HomeController extends Controller
         // })->orderBy('created_at','DESC')->limit(6)->get();
         $allPost = Post::where('active', 1)->orderBy('created_at','DESC')->get();
         $allPic = [];
+        $allMenu = Menu::with('page')->get();
         foreach ($allPost as $key => $value) {
             foreach($value->gallery as $k => $v){
                 array_push($allPic, $v->file);
             }
  
         }
+        
+        $menuname = Menu::pluck('menu');
+        
         $data['gallery'] = $allPic;
         $data['allPost'] = $allPost;
+        $data['allMenu'] = $allMenu;
+        $data['menuName'] = array_unique($menuname->toArray());
+        $max = count($data['menuName']);
+        $mn = [];
+        for ($i=0; $i < $max; $i++) { 
+            $mn[$i]['menu'] = $data['menuName'][$i];
+            $mn[$i]['page'] = $allMenu[$i]->page;
+            $mn[$i]['icon'] = $allMenu[$i]['icon'];
+            $mn[$i]['sub_menu'] = [];
+            $mn[$i]['url'] = [];
+            for ($j=0; $j < count($allMenu); $j++) { 
+                if ($mn[$i]['menu'] == $allMenu[$j]['menu']) {
+                    array_push($mn[$i]['sub_menu'], $allMenu[$j]['sub_menu']) ;
+                    array_push($mn[$i]['url'], $allMenu[$j]['url']) ;
+                } else {
+                    $mn[$i]['sub_menu'] = [];
+                }
+            }
+        }
+
+        $data['menus'] = $mn;
+        
+
         return view('user.home', $data);
     }
 }

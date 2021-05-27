@@ -20,7 +20,8 @@ class MenuController extends Controller
     public function add() 
     {
         $page = Page::select('id','title')->get();
-        return view('admin/menu/add',['page' => $page]);
+        $menu = Menu::all();
+        return view('admin/menu/add',['page' => $page, 'menu' => $menu]);
     }
 
     public function create(Request $request) 

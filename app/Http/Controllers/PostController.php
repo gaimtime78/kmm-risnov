@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\Post;
+use App\Models\Menu;
 use App\Models\Category;
 use App\Models\Gallery;
 
@@ -169,8 +170,10 @@ class PostController extends Controller
 
 	public function detail(Request $request, $slug){
 		$post = POST::where('slug',$slug)->where('active', true)->first();
+		$allMenu = Menu::with('page')->get();
+
 		if($post){
-			return view('user.detail-berita',['post' => $post]);
+			return view('user.detail-berita',['post' => $post, 'allMenu' => $allMenu]);
 		}
 		return abort(404);
 	}

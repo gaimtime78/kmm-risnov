@@ -155,3 +155,6 @@ Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
 // });
+
+Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
+Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('submenu');
