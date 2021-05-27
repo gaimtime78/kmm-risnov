@@ -3,6 +3,7 @@
 @section('css')
     {{-- Select2 CSS --}}
     <link rel="stylesheet" href="{{ asset('css\select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css\bootstrap-tagsinput.css') }}">
     <style>
         #actionBtn {
             display: inline;
@@ -13,6 +14,7 @@
     {{-- TinyMCE js --}}
     <script src="https://cdn.tiny.cloud/1/t62fq0838f1hd6wos3ckh1y04j1b4lyew06g54f7bl5m6fxg/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
+        <script src="{{ asset('css\bootstrap-tagsinput.js') }}"></script>
 @endsection
 
 @section('content')
@@ -59,6 +61,11 @@
                                             <span class="lever"></span>
                                             </label>
                                         </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5><label for="video_url" class="form-label">URL Video</label></h5>
+                                        <textarea name="video_url" class="form-control" 
+                                            placeholder="Masukkan URL Video"></textarea>
                                     </div>
                                     <div class="mb-3" id="categoryDD"></div>
                                     <div class="mb-3">

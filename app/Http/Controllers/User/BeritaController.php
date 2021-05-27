@@ -9,14 +9,16 @@ use App\Models\Category;
 
 class BeritaController extends Controller
 {
-    public function index(){
-        $post = Post::where('active', 1)->whereHas('category', function($v){
+    public function index()
+    {
+        $post = Post::where('active', 1)->whereHas('category', function ($v) {
             $v->where('category', 'Berita Terkini');
-        })->orderBy('published_at','DESC')->paginate(6);
-        $latest = Post::where('active', 1)->whereHas('category', function($v){
-            $v->where('category','!=', 'Berita Terkini');
-        })->orderBy('published_at','DESC')->paginate(3);
+        })->orderBy('published_at', 'DESC')->paginate(6);
+        $latest = Post::where('active', 1)->whereHas('category', function ($v) {
+            $v->where('category', '!=', 'Berita Terkini');
+        })->orderBy('published_at', 'DESC')->paginate(3);
         $category = Category::get();
-        return view('user.berita', ['post' => $post,'latest' => $latest, 'category' => $category]);
+        // dd($urls);
+        return view('user.berita', ['post' => $post, 'latest' => $latest, 'category' => $category]);
     }
 }

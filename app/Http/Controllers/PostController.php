@@ -34,6 +34,7 @@ class PostController extends Controller
 			'slug' => str_replace(" ","-",$request->title),
 			'content' => $request->content,
 			'thumbnail' => $filename,
+			'video_url' => $request->video_url,
 			'active' => $request->active === 'on'?true:false,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
 			'overview' => $request->overview,
@@ -78,6 +79,7 @@ class PostController extends Controller
 			'content' => $request->content,
 			'overview' => $request->overview,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
+			'video_url' => $request->video_url,
 			'active' => $request->active === 'on'?true:false,
 			'published_at' => $request->published_at,
 		];
@@ -169,8 +171,16 @@ class PostController extends Controller
 
 	public function detail(Request $request, $slug){
 		$post = POST::where('slug',$slug)->where('active', true)->first();
+		$video_urls = preg_split("/[\s,]+/", $post->video_url);
+        $urls = array();
+        foreach ($video_urls as $url) {
+            $pattern = '/(https?\:\/\/)?(www\.youtube\.com|youtube\.com|youtu\.?be)\/watch\?v=/';
+            $replacement = '${1}${2}/embed/';
+            $embed_url = preg_replace($pattern, $replacement, $url);
+            $urls[] = $embed_url;
+        }
 		if($post){
-			return view('user.detail-berita',['post' => $post]);
+			return view('user.detail-berita',['post' => $post, 'urls' => $urls]);
 		}
 		return abort(404);
 	}
