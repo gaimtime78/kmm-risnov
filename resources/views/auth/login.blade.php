@@ -60,7 +60,7 @@
           <div class="input-field col s12 center">
          
             <!-- <img src="images\login-logo.png" alt="" class="circle responsive-img valign profile-image-login"> -->
-            <p class="center login-form-text">Seluruh Akun User Peneliti ataupun Ketua RG login menggunakan SSO UNS Klik disini</p>
+            <p class="center login-form-text">Login Admin Risnov</p>
             <!-- <a href="index.htm" class="btn waves-effect waves-light col s12">Login dengan SSO</a> -->
           </div>
         </div>

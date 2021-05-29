@@ -1,8 +1,8 @@
 @extends('layout.user')
 
-@section('title', $post->title)
-@section('meta-description',$post->overview)
-@section('meta-image', asset('upload/post/'.str_replace(' ', '%20', $post->thumbnail)))
+@section('title', $agenda->title)
+@section('meta-description',$agenda->description)
+@section('meta-image', asset('upload/agenda/'.str_replace(' ', '%20', $agenda->thumbnail)))
 
 @section('css')
 <style>
@@ -100,7 +100,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                        <h3>{{$post->title}}</h3>
+                        <h3>{{$agenda->title}}</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -115,78 +115,32 @@
                             <div class="content blog-list">
                                 <div class="blog-wrapper clearfix">
                                     <div class="blog-meta">
-                                        <!-- <h3>{{$post->title}}</h3> -->
-                                        <div class="tags-widget">
+                                        {{-- <div class="tags-widget">
                                             <ul class="list-inline">
                                                 @foreach($post->category()->pluck('category')->toArray() as $cc)
                                                     <li><a href="#" class="m-1">{{$cc}}</a></li>
                                                 @endforeach
                                             </ul>
-                                        </div>
+                                        </div> --}}
                                     </div><!-- end blog-meta -->
-                                    @if($post->show_thumbnail)
+                                    {{-- @if($agenda->show_thumbnail) --}}
                                     <div class="blog-media">
-                                        <img src="{{asset('upload/post/'.$post->thumbnail)}}" alt="" class="img-responsive img-rounded">
+                                        <img src="{{asset('upload/agenda/'.$agenda->thumbnail)}}" alt="" class="img-responsive img-rounded">
                                     </div><!-- end media -->
-                                    @endif
+                                    {{-- @endif --}}
 
                                     <div class="blog-desc-big">
-                                        <!-- <p class="lead">{{$post->overview}}</p> -->
                                         
-                                        <p>{!! $post->content !!}</p>
+                                        <p>{!! $agenda->description !!}</p>
 
-                                        <div class="row blog-grid" style="margin-top:6em;">
-                                            @foreach($post->gallery as $gal)
-                                            <div class="col-md-4">
-                                                <div class="course-box">
-                                                    <div class="image-wrap entry">
-                                                        <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$gal->file)}}" alt="" class="img-responsive">
-                                                        <div class="magnifier">
-                                                            <a onclick="showModal(`{{asset('upload/post/'.$gal->file)}}`)" href="javascript:void(0)" title=""><i class="flaticon-add"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="image-wrap entry">
-                                                        <img style="height:200px;object-fit:cover;" src="{{asset('upload/post/'.$gal->file)}}" alt="" class="img-responsive">
-                                                    </div> -->
-                                                    @if($gal->deskripsi !== null)
-                                                    <div  class="course-details" style="padding:1em">
-                                                        {{$gal->deskripsi}}                           
-                                                    </div><!-- end details -->
-                                                    @endif
-                                                </div><!-- end box -->
-                                            </div><!-- end col -->
-                                            @endforeach
-                                        </div>
                                         <hr class="invis">
 
                                         <!-- end list-widget -->
                                        
-                                        <ul class="list-inline">
-                                            <li><i class="fa fa-clock-o"></i> Dipublikasikan pada : {{date("d M Y", strtotime($post->published_at))}}</li><br>
-                                            <li><i class="fa fa-user"></i><span> Penulis : </span> <a href="#">{{$post->user->name}}</a></li>
-                                        </ul>
                                     </div><!-- end desc -->
                                 </div><!-- end blog -->
                             </div><!-- end content -->
 
-                            <!-- <div class="authorbox">
-                                <div class="site-publisher clearfix">
-                                    <img src="upload/people_10.jpeg" alt="" class="img-responsive img-circle">
-                                    <a href="single-agency.html" title=""><h4><small>about</small> <span>Martin Martines</span></h4></a>
-                                    <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth.</p>
-
-                                    <div class="authorbox-social">
-                                        <ul class="list-inline">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- end details -->
 
                             
 
