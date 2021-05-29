@@ -19,7 +19,7 @@ Route::get('/', [App\Http\Controllers\User\HomeController::class, 'index'])->nam
 
 // Route::get('/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => '/tentang-kami'], function(){
-    Route::get('/sambutan', [App\Http\Controllers\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
+    // Route::get('/sambutan', [App\Http\Controllers\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
     Route::get('/visi-misi', [App\Http\Controllers\User\TentangController::class, 'visiMisi'])->name('tentang-kami.visiMisi');
     Route::get('/tugas-dan-fungsi', [App\Http\Controllers\User\TentangController::class, 'tugasFungsi'])->name('tentang-kami.tugasFungsi');
     Route::get('/rencana-strategis', [App\Http\Controllers\User\TentangController::class, 'rencanaStrategis'])->name('tentang-kami.rencanaStrategis');
@@ -157,4 +157,4 @@ Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 
 // });
 
 Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
-Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('submenu');
+Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('subs');

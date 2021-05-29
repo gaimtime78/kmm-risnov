@@ -32,15 +32,16 @@ class HomeController extends Controller
         }
         
         $menuname = Menu::pluck('menu');
-        
+
         $data['gallery'] = $allPic;
         $data['allPost'] = $allPost;
         $data['allMenu'] = $allMenu;
         $data['menuName'] = array_unique($menuname->toArray());
+        $unique = array_values($data['menuName']);
         $max = count($data['menuName']);
         $mn = [];
         for ($i=0; $i < $max; $i++) { 
-            $mn[$i]['menu'] = $data['menuName'][$i];
+            $mn[$i]['menu'] = $unique[$i];
             $mn[$i]['page'] = $allMenu[$i]->page;
             $mn[$i]['icon'] = $allMenu[$i]['icon'];
             $mn[$i]['sub_menu'] = [];
@@ -49,15 +50,11 @@ class HomeController extends Controller
                 if ($mn[$i]['menu'] == $allMenu[$j]['menu']) {
                     array_push($mn[$i]['sub_menu'], $allMenu[$j]['sub_menu']) ;
                     array_push($mn[$i]['url'], $allMenu[$j]['url']) ;
-                } else {
-                    $mn[$i]['sub_menu'] = [];
-                }
+                } 
             }
+
         }
-
         $data['menus'] = $mn;
-        
-
         return view('user.home', $data);
     }
 }

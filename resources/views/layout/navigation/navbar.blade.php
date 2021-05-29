@@ -57,9 +57,10 @@
                         <ul class="nav navbar-nav navbar-right">
 
                             {{-- <li><a href="{{route('home')}}">Home</a></li> --}}
+                            <li><a href="{{route('home')}}">Home</a></li>
 
                             @foreach ($menus as $menu)
-                                @if ($menu['sub_menu'] != null) 
+                                @if ($menu['sub_menu'][0] != null) 
                                 <li class="dropdown hassubmenu">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{$menu['menu']}} <span class="fa fa-angle-down"></span></a>
                                     <ul class="dropdown-menu" role="menu">
@@ -68,7 +69,8 @@
                                         @endphp
                                         @foreach ($menu['sub_menu'] as $sub)
                                         {{-- <li><a href="/{{$menu['page']->slug}}/{{$menu['url'][$i]}}">{{$sub}}</a></li> --}}
-                                        <li><a href="{{route('submenu', ['slug' => $menu['page']->slug, 'sub' => $menu['url'][$i]] )}}">{{$sub}}</a></li>
+                                        {{-- <li><a href="{{route('submenu', ['slug' => $menu['page']->slug, 'sub' => $menu['url'][$i]] )}}">{{$sub}}</a></li> --}}
+                                        <li><a href="{{route('subs', ['slug' => $menu['url'][$i], 'sub' => $menu['page']->slug ])}}">{{$sub}}</a></li>
                                         @php
                                             $i++;
                                         @endphp

@@ -32,10 +32,11 @@ class LppmController extends Controller
 
         $data['allMenu'] = $allMenu;
         $data['menuName'] = array_unique($menuname->toArray());
+        $unique = array_values($data['menuName']);
         $max = count($data['menuName']);
         $mn = [];
         for ($i=0; $i < $max; $i++) { 
-            $mn[$i]['menu'] = $data['menuName'][$i];
+            $mn[$i]['menu'] = $unique[$i];
             $mn[$i]['page'] = $allMenu[$i]->page;
             $mn[$i]['icon'] = $allMenu[$i]['icon'];
             $mn[$i]['sub_menu'] = [];
@@ -44,8 +45,6 @@ class LppmController extends Controller
                 if ($mn[$i]['menu'] == $allMenu[$j]['menu']) {
                     array_push($mn[$i]['sub_menu'], $allMenu[$j]['sub_menu']) ;
                     array_push($mn[$i]['url'], $allMenu[$j]['url']) ;
-                } else {
-                    $mn[$i]['sub_menu'] = [];
                 }
             }
         }
@@ -82,8 +81,6 @@ class LppmController extends Controller
 
         $data['menus'] = $mn;
         $path = 'user/'.$slug.'/'.$sub.'/index';
-
-
         return view($path, $data);
     }
 
