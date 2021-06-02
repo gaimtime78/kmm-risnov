@@ -68,8 +68,6 @@
                                         $i = 0;
                                         @endphp
                                         @foreach ($menu['sub_menu'] as $sub)
-                                        {{-- <li><a href="/{{$menu['page']->slug}}/{{$menu['url'][$i]}}">{{$sub}}</a></li> --}}
-                                        {{-- <li><a href="{{route('submenu', ['slug' => $menu['page']->slug, 'sub' => $menu['url'][$i]] )}}">{{$sub}}</a></li> --}}
                                         <li><a href="{{route('subs', ['slug' => $menu['url'][$i], 'sub' => $menu['page']->slug ])}}">{{$sub}}</a></li>
                                         @php
                                             $i++;
