@@ -117,8 +117,8 @@
     }
     }
     .wrapper         {width:80%;height:100%;margin:0 auto;background:#CCC}
-    .h_iframe        {position:relative;}
-    .h_iframe .ratio {display:block;width:100%;height:auto;}
+    .h_iframe        {position:static;}
+    .h_iframe .ratio {display:block;width:auto;height:auto;}
     .h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:100%;}
 </style>
 @endsection
@@ -180,11 +180,10 @@
                         <div class="widget clearfix">
                             <div class="banner-widget">
                                 <!-- <img src="upload/banner.jpeg" alt="" class="img-responsive img-rounded"> -->
-                                <h3>BERITA TERKINI</h3>
+                                <h3 class="widget-title">Popular Post</h3>
                             </div>
                         </div>
                     <div class="widget clearfix">
-                        <h3 class="widget-title">Popular Post</h3>
                         @foreach($left as $q)
                         <div class="post-widget">
                             <div class="media">
