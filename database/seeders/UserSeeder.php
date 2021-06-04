@@ -34,6 +34,13 @@ class UserSeeder extends Seeder
                 'password' => '$2y$12$6ios7VDkZmT3NIs1pt9pSeYdM47hQnxflemAO1Ojvbotm11Px.JCK',
                 'role_id' => 2,
                 'email_verified_at' => '2020-08-07 14:50:24',
+            ],
+            [
+                'name' => 'user1',
+                'email' => 'user1@uns.com',
+                'password' => bcrypt('user1'),
+                'role_id' => 2,
+                'email_verified_at' => '2020-08-07 14:50:24',
             ]
         ]);
 

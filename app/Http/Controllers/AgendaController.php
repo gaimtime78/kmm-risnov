@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Agenda;
+use App\Exports\AgendasExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AgendaController extends Controller
 {
@@ -22,7 +24,7 @@ class AgendaController extends Controller
 
     public function store(Request $request)
     {
-        $customizedTitle = date("Ymd") . '-' . str_replace(' ', '-', $request->title);
+        $customizedTitle = date("YmdHis") . '-' . str_replace(' ', '-', $request->title);
         $url = url('agenda/' . $customizedTitle);
         $request->validate([
             'date' => 'required',
@@ -30,10 +32,13 @@ class AgendaController extends Controller
         ]);
 
         $file = $request->file("thumbnail");
-        $filename = time() . "_" . $file->getClientOriginalName();
-        $tujuan_upload = 'upload/agenda';
-        $file->move(public_path() . "/" . $tujuan_upload, $filename);
-
+        if ($file !== null) {
+            $filename = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'upload/agenda';
+            $file->move(public_path() . "/" . $tujuan_upload, $filename);
+        } else {
+            $filename = null;
+        }
         $agenda = Agenda::create([
             'date' => $request->date,
             'time' => $request->time,
@@ -42,7 +47,7 @@ class AgendaController extends Controller
             'description' => $request->description,
             'user_id' => Auth::id(),
             'url' => $url,
-			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
+            'show_thumbnail' => $request->show_thumbnail === 'on' ? true : false,
         ]);
         $status = $this->status($agenda, 'Agenda berhasil ditambahkan!', 'Agenda gagal ditambahkan!');
         return redirect()->route('admin.agenda.index')->with($status);
@@ -58,16 +63,16 @@ class AgendaController extends Controller
     {
         $agenda = Agenda::find($id);
         $time = now();
-        $customizedTitle = date("Ymd") . '-' . str_replace(' ', '-', $request->title);
+        $customizedTitle = date("YmdHis") . '-' . str_replace(' ', '-', $request->title);
         $url = url('agenda/' . $customizedTitle);
         $dataUpdate = [
-                'date' => $request->date,
-                'time' => $request->time,
-                'title' => $request->title,
-                'url' => $url,
-                'description' => $request->description,
-                'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
-            ];
+            'date' => $request->date,
+            'time' => $request->time,
+            'title' => $request->title,
+            'url' => $url,
+            'description' => $request->description,
+            'show_thumbnail' => $request->show_thumbnail === 'on' ? true : false,
+        ];
         $file = $request->file("thumbnail");
         if ($file !== null) {
             $filename = time() . "_" . $file->getClientOriginalName();
@@ -86,5 +91,10 @@ class AgendaController extends Controller
 
         return redirect()->route('admin.agenda.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new AgendasExport, 'agenda.xlsx');
     }
 }

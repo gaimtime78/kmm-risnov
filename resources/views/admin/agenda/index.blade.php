@@ -46,12 +46,15 @@
           </div>
           @endif
 
+          
 
           <div id="table-datatables">
             <h4 class="header left">Agenda</h4>
             <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a>
             <div class="row">
               <div class="col s12 m12 l12">
+                <a href="#" class="waves-effect waves-light btn right" role="button">Import</a>
+                <a href="{{route('admin.agenda.export')}}" class="waves-effect waves-light btn right" role="button">Export</a>
                 <table id="data-menu" class="responsive-table display" cellspacing="0">
                   <thead>
                       <tr>
