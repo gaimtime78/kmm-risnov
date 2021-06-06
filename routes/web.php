@@ -142,6 +142,7 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::post('/update/{id}', [App\Http\Controllers\AgendaController::class, 'update'])->name('agenda.update');
             Route::delete('/delete/{id}', [App\Http\Controllers\AgendaController::class, 'delete'])->name('agenda.delete');
             Route::get('/export', [App\Http\Controllers\AgendaController::class, 'export'])->name('agenda.export');
+            Route::post('/import', [App\Http\Controllers\AgendaController::class, 'import'])->name('agenda.import');
         });
        
     });

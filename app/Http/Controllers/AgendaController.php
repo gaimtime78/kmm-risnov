@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Agenda;
 use App\Exports\AgendasExport;
+use App\Imports\AgendasImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AgendaController extends Controller
@@ -96,5 +97,14 @@ class AgendaController extends Controller
     public function export()
     {
         return Excel::download(new AgendasExport, 'agenda.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $file = $request->file("agendas");
+        if ($file !== null) {
+            Excel::import(new AgendasImport, $file);
+        }
+        return redirect()->route('admin.agenda.index');
     }
 }
