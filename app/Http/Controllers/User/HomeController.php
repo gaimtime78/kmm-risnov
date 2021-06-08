@@ -47,10 +47,11 @@ class HomeController extends Controller
         $data['allMenu'] = $allMenu;
         $data['allVideo'] = $allVideo;
         $data['menuName'] = array_unique($menuname->toArray());
+        $unique = array_values($data['menuName']);
         $max = count($data['menuName']);
         $mn = [];
         for ($i=0; $i < $max; $i++) { 
-            $mn[$i]['menu'] = $data['menuName'][$i];
+            $mn[$i]['menu'] = $unique[$i];
             $mn[$i]['page'] = $allMenu[$i]->page;
             $mn[$i]['icon'] = $allMenu[$i]['icon'];
             $mn[$i]['sub_menu'] = [];
