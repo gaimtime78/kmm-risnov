@@ -10,7 +10,7 @@ class Agenda extends Model
     use HasFactory;
     protected $table = 'agendas';
     protected $fillable = [
-        "title","date","time","thumbnail","url","description", 'user_id'
+        "title","date","time","thumbnail","show_thumbnail","url","description", 'user_id'
     ];
 
     public function user(){
