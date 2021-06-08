@@ -56,37 +56,8 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 
-<<<<<<< HEAD
-                            {{-- <li><a href="{{route('home')}}">Home</a></li> --}}
-                            <li><a href="{{route('home')}}">Home</a></li>
-
-                            @foreach ($menus as $menu)
-                                @if ($menu['sub_menu'][0] != null) 
-                                <li class="dropdown hassubmenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{$menu['menu']}} <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        @php
-                                        $i = 0;
-                                        @endphp
-                                        @foreach ($menu['sub_menu'] as $sub)
-                                        <li><a href="{{route('subs', ['slug' => $menu['url'][$i], 'sub' => $menu['page']->slug ])}}">{{$sub}}</a></li>
-                                        @php
-                                            $i++;
-                                        @endphp
-                                        @endforeach
-                                    </ul>
-                                </li> 
-                                @else
-                                <li><a href="{{route('userpage', $menu['url'])}}">{{$menu['menu']}}</a></li>
-                                @endif
-                            @endforeach
-
-
-                             {{-- <li class="dropdown hassubmenu">
-=======
                             <li><a href="{{route('home')}}">Home</a></li>
                              <li class="dropdown hassubmenu">
->>>>>>> 4d6d2d928511e9b4cd80ec78c881740a15047e0e
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('tentang-kami.sambutan')}}">Sambutan WR</a></li>
@@ -113,7 +84,6 @@
                                     <!-- <li><a href="{{route('coming')}}">Produk Buku Siap Komersial</a></li>    -->
                                     <li><a href="{{route('koran-search')}}">Koran Digital</a></li>    
                                     <li><a href="{{route('dokumentasi')}}">E-Book</a></li>                               
-                                    <li><a href="https://risnov.uns.ac.id/id/category/Dokumen">Unduhan</a></li>                               
                                     <!-- <li><a href="{{route('dokumentasi')}}">Dokumentasi</a></li>        -->
                                     <!-- <li class="dropdown level-2">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dokumentasi&nbsp;<span class="fa fa-angle-right"></span></a>

@@ -33,6 +33,7 @@ class RoleAuth
                         array_push($arrPermission, $value->permission);
                     }
                     \View::share('permissionUser', $arrPermission);
+                    \View::share('userName', Auth::user()->name);
                     return $next($request);
                 }
             }

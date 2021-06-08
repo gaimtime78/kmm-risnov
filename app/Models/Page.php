@@ -14,9 +14,13 @@ class Page extends Model
         'content',
         'slug',
         'use_post',
-        'category_id'
+        'category_id',
+        'user_id'
     ];
 
     protected $table = 'pages';
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

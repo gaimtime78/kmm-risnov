@@ -18,11 +18,11 @@
                 },
                 locale: initialLocaleCode,
                 buttonIcons: false, // show the prev/next text
-                weekNumbers: true,
+                weekNumbers: false,
                 navLinks: true, // can click day/week names to navigate views
                 editable: true,
                 dayMaxEvents: true, // allow "more" link when too many events
-                events: '/get_agendas',
+                events: '/id/get_agendas',
                 eventClick: function(info) {
                     info.jsEvent.preventDefault(); // don't let the browser navigate
 

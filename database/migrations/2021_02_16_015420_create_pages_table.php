@@ -20,6 +20,7 @@ class CreatePagesTable extends Migration
             $table->string('slug')->unique();
             $table->boolean('use_post');
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }
