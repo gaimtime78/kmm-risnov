@@ -17,7 +17,7 @@
         }
 
         /* The Modal (background) */
-        .modal {
+        .modal-img {
             display: none;
             /* Hidden by default */
             position: fixed;
@@ -41,7 +41,7 @@
         }
 
         /* Modal Content (image) */
-        .modal-content {
+        .modal-img-content {
             margin: auto;
             display: block;
             width: 80%;
@@ -61,7 +61,7 @@
         }
 
         /* Add Animation */
-        .modal-content,
+        .modal-img-content,
         #caption {
             -webkit-animation-name: zoom;
             -webkit-animation-duration: 0.6s;
@@ -109,7 +109,7 @@
 
         /* 100% Image Width on Smaller Screens */
         @media only screen and (max-width: 700px) {
-            .modal-content {
+            .modal-img-content {
                 width: 100%;
             }
         }
@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="tagline-message page-title text-center">
-                        <h3>{{ $post->title }}</h3>
+                        <h3 style="color: rgb(48, 48, 48)">{{ $post->title }}</h3>
                     </div>
                 </div><!-- end col -->
             </div><!-- end row -->
@@ -234,8 +234,8 @@
                 </div><!-- end row -->
             </div><!-- end boxed -->
             <!-- The Modal -->
-            <div onclick="modalClose()" id="myModal" class="modal">
-                <img class="modal-content" id="img01">
+            <div onclick="modalClose()" id="myModal" class="modal-img">
+                <img class="modal-img-content" id="img01">
             </div>
         </div><!-- end container -->
     </section>

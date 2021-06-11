@@ -19,7 +19,6 @@ class BeritaController extends Controller
             $v->where('category', '!=', 'Berita Terkini');
         })->orderBy('published_at', 'DESC')->paginate(3);
         $category = Category::get();
-<<<<<<< HEAD
 
         $allMenu = Menu::with('page')->get();
         $menuname = Menu::pluck('menu');
@@ -44,9 +43,5 @@ class BeritaController extends Controller
         $menus = $mn;
 
         return view('user.berita', ['post' => $post,'latest' => $latest, 'category' => $category, 'menus' => $menus]);
-=======
-        // dd($urls);
-        return view('user.berita', ['post' => $post, 'latest' => $latest, 'category' => $category]);
->>>>>>> 4d6d2d928511e9b4cd80ec78c881740a15047e0e
     }
 }

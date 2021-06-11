@@ -35,7 +35,7 @@
     #myImg:hover {opacity: 0.7;}
 
     /* The Modal (background) */
-    .modal {
+    .modal-img {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -50,7 +50,7 @@
     }
 
     /* Modal Content (image) */
-    .modal-content {
+    .modal-img-content {
     margin: auto;
     display: block;
     width: 80%;
@@ -70,7 +70,7 @@
     }
 
     /* Add Animation */
-    .modal-content, #caption {  
+    .modal-img-content, #caption {  
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -112,7 +112,7 @@
 
     /* 100% Image Width on Smaller Screens */
     @media only screen and (max-width: 700px){
-    .modal-content {
+    .modal-img-content {
         width: 100%;
     }
     }
@@ -470,8 +470,34 @@
         </div><!-- end boxed -->
     </div><!-- end container -->
 </section>
-<div onclick="modalClose()" id="myModal" class="modal">
-    <img class="modal-content" id="img01">
+
+ <!--you can copy the below code to your htm 
+page-----------------------------begin--->
+<!--change the width and height value as you want.--> 
+<!-- Do change "index.htm" to your real html name of the flippingbook--> 
+<section class="section gb">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-12 boxed ">
+                <div class="section-title text-center">
+                    <h3>Riset Inovasi Dalam Angka</h3>        
+                </div><!-- end title -->
+                <div class="tagline-message text-center">
+                    <iframe class="responsive-iframe" src="https://online.flipbuilder.com/pbnwt/tfxo/index.html"  
+                    seamless="seamless" scrolling="no" frameborder="0" 
+                    allowtransparency="true" allowfullscreen="true"></iframe>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+
+<!--you can copy the above code to your htm 
+page-----------------------------end--->  
+
+<div onclick="modalClose()" id="myModal" class="modal-img">
+    <img class="modal-img-content" id="img01">
 </div>
 
 @endsection
@@ -651,11 +677,12 @@
 
     //sliderVideo
     let dataSliderVid = {!! json_encode($allVideo) !!}
+    dataSliderVid = dataSliderVid.filter(v => v !== "")
     let indexSliderVid = 0
     // let totalDisplay = 3
     let dataLengthVid = dataSliderVid.length
     // let groupLength = Math.ceil(dataLengthVid/totalDisplay)
-
+	console.log(dataSliderVid, "anu")
     let renderSliderVid = (indexSliderVid) =>{
         let container = document.querySelector("#container-slider-video")
         let temp = JSON.parse(JSON.stringify(dataSliderVid))
@@ -685,7 +712,7 @@
             res = res + `
                 <div class="h_iframe">
                     <!-- a transparent image is preferable -->
-                    <img class="ratio" src="http://placehold.it/16x9"/>
+                    <img class="ratio" src="public/images/16x9.png"/>
                     <iframe src="${v}" frameborder="0" allowfullscreen></iframe>
                 </div>
             `

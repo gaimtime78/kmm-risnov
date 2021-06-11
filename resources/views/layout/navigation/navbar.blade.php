@@ -56,7 +56,6 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 
-<<<<<<< HEAD
                             {{-- <li><a href="{{route('home')}}">Home</a></li> --}}
                             <li><a href="{{route('home')}}">Home</a></li>
 
@@ -83,10 +82,6 @@
 
 
                              {{-- <li class="dropdown hassubmenu">
-=======
-                            <li><a href="{{route('home')}}">Home</a></li>
-                             <li class="dropdown hassubmenu">
->>>>>>> 4d6d2d928511e9b4cd80ec78c881740a15047e0e
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tentang Kami <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('tentang-kami.sambutan')}}">Sambutan WR</a></li>

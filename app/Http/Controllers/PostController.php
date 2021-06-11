@@ -173,7 +173,6 @@ class PostController extends Controller
 	public function detail(Request $request, $slug){
 		$post = POST::where('slug',$slug)->where('active', true)->first();
 		$allMenu = Menu::with('page')->get();
-<<<<<<< HEAD
 
 		$menuname = Menu::pluck('menu');
 
@@ -199,18 +198,6 @@ class PostController extends Controller
 
 		if($post){
 			return view('user.detail-berita',['post' => $post, 'allMenu' => $allMenu, 'menus' => $menus]);
-=======
-		$video_urls = preg_split("/[\s,]+/", $post->video_url);
-        $urls = array();
-        foreach ($video_urls as $url) {
-            $pattern = '/(https?\:\/\/)?(www\.youtube\.com|youtube\.com|youtu\.?be)\/watch\?v=/';
-            $replacement = '${1}${2}/embed/';
-            $embed_url = preg_replace($pattern, $replacement, $url);
-            $urls[] = $embed_url;
-        }
-		if($post){
-			return view('user.detail-berita',['post' => $post, 'allMenu' => $allMenu, 'urls' => $urls]);
->>>>>>> 4d6d2d928511e9b4cd80ec78c881740a15047e0e
 		}
 		return abort(404);
 	}
