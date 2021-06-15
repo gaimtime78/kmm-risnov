@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
+Route::get('/ruang', [App\Http\Controllers\User\HomeController::class, 'ruang'])->name('ruang');
 
 // Route::get('/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => '/tentang-kami'], function(){

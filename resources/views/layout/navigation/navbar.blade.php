@@ -98,11 +98,15 @@
                                     </li>                           -->
                                 </ul>
                             </li>
-                            {{-- <li><a href="{{route('pui')}}">Dokumentasi</a></li> --}}
                             <li><a href="{{route('produk-komersial')}}">Produk Siap Komersial</a></li>
-                         
                             <li><a href="{{route('berita-terkini')}}">Berita Terkini</a></li>
-                            <li><a href="{{route('agenda')}}">Agenda</a></li>
+                            <li class="dropdown hassubmenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Agenda&nbsp;<span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{route('agenda')}}">Agenda</a></li>
+                                    <li><a href="{{route('ruang')}}">Jadwal</a></li>
+                                </ul>
+                            </li>
                             <li class="iconitem"><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-search"></i></a></li>
                           
                         </ul>

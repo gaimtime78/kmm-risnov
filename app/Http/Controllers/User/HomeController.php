@@ -71,4 +71,8 @@ class HomeController extends Controller
 
         return view('user.home', $data);
     }
+    public function ruang(){
+        return view('user.ruang');
+    }
+
 }
