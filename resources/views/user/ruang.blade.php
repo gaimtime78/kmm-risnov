@@ -7,7 +7,7 @@
 @section('content')	
 		<section class="section db p120">
             <div class="container" style="text-align:center;">
-				<h2 >E-Book</h2>
+				<h2 >Jadwal Agenda LPPM UNS</h2>
             </div>
         </section>
 		{{--<section class="section gb nopadtop">
