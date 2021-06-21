@@ -66,6 +66,16 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::post('/edit/{id}', [App\Http\Controllers\Menu\MenuController::class, 'update'])->name('update');
             Route::get('/delete/{id}', [App\Http\Controllers\Menu\MenuController::class, 'delete'])->name('delete');
         });
+
+        
+        Route::group(['as'=> 'rida.', 'prefix' => '/rida'], function(){
+            Route::get('/', [App\Http\Controllers\Rida::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\Rida::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida::class, 'delete'])->name('delete');
+        });
         
         Route::group(['prefix' => '/category'], function(){
             Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
