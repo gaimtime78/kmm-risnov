@@ -70,12 +70,12 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
         
         Route::group(['as'=> 'rida.', 'prefix' => '/rida'], function(){
-            Route::get('/', [App\Http\Controllers\Rida::class, 'index'])->name('index');
-            Route::get('/create', [App\Http\Controllers\Rida::class, 'add'])->name('add');
-            Route::post('/create', [App\Http\Controllers\Rida::class, 'create'])->name('create');
-            Route::get('/edit/{id}', [App\Http\Controllers\Rida::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida::class, 'delete'])->name('delete');
+            Route::get('/', [App\Http\Controllers\RidaController::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\RidaController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\RidaController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\RidaController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\RidaController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\RidaController::class, 'delete'])->name('delete');
         });
         
         Route::group(['prefix' => '/category'], function(){
