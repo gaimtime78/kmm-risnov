@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\Post;
+use App\Models\Menu;
 use App\Models\Category;
 use App\Models\Gallery;
 
 class PostController extends Controller
 {
 	public function index(){
-		$data = Post::all();
+		$data = Post::where('user_id', Auth::id())->get();
 		return view('admin.post.index', ['data' => $data]);
 	}
 
@@ -34,6 +35,7 @@ class PostController extends Controller
 			'slug' => str_replace(" ","-",$request->title),
 			'content' => $request->content,
 			'thumbnail' => $filename,
+			'video_url' => $request->video_url,
 			'active' => $request->active === 'on'?true:false,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
 			'overview' => $request->overview,
@@ -78,6 +80,7 @@ class PostController extends Controller
 			'content' => $request->content,
 			'overview' => $request->overview,
 			'show_thumbnail' => $request->show_thumbnail === 'on'?true:false,
+			'video_url' => $request->video_url,
 			'active' => $request->active === 'on'?true:false,
 			'published_at' => $request->published_at,
 		];
@@ -169,8 +172,32 @@ class PostController extends Controller
 
 	public function detail(Request $request, $slug){
 		$post = POST::where('slug',$slug)->where('active', true)->first();
+		$allMenu = Menu::with('page')->get();
+
+		$menuname = Menu::pluck('menu');
+
+		$data['allMenu'] = $allMenu;
+        $data['menuName'] = array_unique($menuname->toArray());
+        $unique = array_values($data['menuName']);
+        $max = count($data['menuName']);
+        $mn = [];
+        for ($i=0; $i < $max; $i++) { 
+            $mn[$i]['menu'] = $unique[$i];
+            $mn[$i]['page'] = $allMenu[$i]->page;
+            $mn[$i]['icon'] = $allMenu[$i]['icon'];
+            $mn[$i]['sub_menu'] = [];
+            $mn[$i]['url'] = [];
+            for ($j=0; $j < count($allMenu); $j++) { 
+                if ($mn[$i]['menu'] == $allMenu[$j]['menu']) {
+                    array_push($mn[$i]['sub_menu'], $allMenu[$j]['sub_menu']) ;
+                    array_push($mn[$i]['url'], $allMenu[$j]['url']) ;
+                }
+            }
+        }
+		$menus = $mn;
+
 		if($post){
-			return view('user.detail-berita',['post' => $post]);
+			return view('user.detail-berita',['post' => $post, 'allMenu' => $allMenu, 'menus' => $menus]);
 		}
 		return abort(404);
 	}
@@ -180,6 +207,32 @@ class PostController extends Controller
 		$data['post'] = POST::where('title','LIKE','%'.$request->cari.'%')
 		->orWhere('content','LIKE','%'.strip_tags($request->cari).'%')
 		->paginate(5);
+		$data['category'] = "Pencarian";
+
+		$menuname = Menu::pluck('menu');
+		$allMenu = Menu::with('page')->get();
+		$data['allMenu'] = $allMenu;
+        $data['menuName'] = array_unique($menuname->toArray());
+        $unique = array_values($data['menuName']);
+        $max = count($data['menuName']);
+        $mn = [];
+        for ($i=0; $i < $max; $i++) { 
+            $mn[$i]['menu'] = $unique[$i];
+            $mn[$i]['page'] = $allMenu[$i]->page;
+            $mn[$i]['icon'] = $allMenu[$i]['icon'];
+            $mn[$i]['sub_menu'] = [];
+            $mn[$i]['url'] = [];
+            for ($j=0; $j < count($allMenu); $j++) { 
+                if ($mn[$i]['menu'] == $allMenu[$j]['menu']) {
+                    array_push($mn[$i]['sub_menu'], $allMenu[$j]['sub_menu']) ;
+                    array_push($mn[$i]['url'], $allMenu[$j]['url']) ;
+                }
+            }
+        }
+
+		$data['menus'] = $mn;
+
+
 		return view('user.search', $data);
 	}
 
@@ -188,6 +241,30 @@ class PostController extends Controller
 		$data['post'] = POST::whereHas('category', function($q) use ($request){
 			$q->where('category', 'LIKE', $request->category);
 		})->paginate(5);
+		$data['category'] = $request->category;
+
+		$menuname = Menu::pluck('menu');
+		$allMenu = Menu::with('page')->get();
+		$data['allMenu'] = $allMenu;
+        $data['menuName'] = array_unique($menuname->toArray());
+        $unique = array_values($data['menuName']);
+        $max = count($data['menuName']);
+        $mn = [];
+        for ($i=0; $i < $max; $i++) { 
+            $mn[$i]['menu'] = $unique[$i];
+            $mn[$i]['page'] = $allMenu[$i]->page;
+            $mn[$i]['icon'] = $allMenu[$i]['icon'];
+            $mn[$i]['sub_menu'] = [];
+            $mn[$i]['url'] = [];
+            for ($j=0; $j < count($allMenu); $j++) { 
+                if ($mn[$i]['menu'] == $allMenu[$j]['menu']) {
+                    array_push($mn[$i]['sub_menu'], $allMenu[$j]['sub_menu']) ;
+                    array_push($mn[$i]['url'], $allMenu[$j]['url']) ;
+                }
+            }
+        }
+
+		$data['menus'] = $mn;
 		return view('user.search', $data);
 	}
 

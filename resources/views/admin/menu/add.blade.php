@@ -77,7 +77,7 @@
                             </div>
                           </div>
                         </div>
-                        {{-- <div class="row">
+                        <div class="row">
                             <div class="input-field col s12">
                               <input name="sub_menu" placeholder="Masukkan Nama Sub Menu" id="sub_menu" type="text" value="{{ old('sub_menu') }}">
                               <label for="sub_menu">Nama Sub Menu</label>
@@ -87,7 +87,7 @@
                                 @endif
                               </div>
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="row">
                             <div class="input-field col s12">
                               <input name="url" placeholder="Masukkan URL" id="url" type="text" value="{{ old('url') }}">
@@ -116,6 +116,17 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- <div class="row">
+                          <div class="input-field col s12">
+                            <select name="sub_menu" id="sub_menu">
+                              <option disabled="" value="" selected="">Choose your option
+                              @foreach ($menu as $menu)
+                                    <option value="{{$menu->menu}}">{{$menu->menu}}        
+                              @endforeach
+                            </select>
+                            <label>Sub Menu</label>
+                          </div>  
+                        </div> --}}
                         <div class="row">
                           <div class="input-field col s12">
                             <select name="page_id" id="page_id">

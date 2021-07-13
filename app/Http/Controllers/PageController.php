@@ -9,6 +9,8 @@ use Faker\Provider\ar_JO\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\Auth;
+
 class PageController extends Controller
 {
     /**
@@ -18,7 +20,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::all();
+        $pages = Page::where('user_id', Auth::id())->get();
         return view('admin/page/index', compact('pages'));
     }
 
@@ -35,7 +37,7 @@ class PageController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -52,6 +54,7 @@ class PageController extends Controller
             'content' => $data['content'],
             'slug' => $data['slug'],
             'use_post' => $data['use_post'],
+            'user_id' => Auth::id(),
             'category_id' => $data['category_id']
         ]);
 

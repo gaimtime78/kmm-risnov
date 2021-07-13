@@ -1,5 +1,7 @@
 @extends('layout.user')
-
+@section('title', $koran->title)
+@section('meta-description',$koran->content)
+@section('meta-image', asset('upload/post/'.$koran->thumbnail))
 @section('css')
 
 @endsection

@@ -46,12 +46,33 @@
           </div>
           @endif
 
-
           <div id="table-datatables">
             <h4 class="header left">Agenda</h4>
-            <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Category</a>
+            <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a>
             <div class="row">
               <div class="col s12 m12 l12">
+                <a href="#import" class="waves-effect waves-light btn right modal-trigger" role="button">Import</a>
+                <a href="{{route('admin.agenda.export')}}" class="waves-effect waves-light btn right" role="button">Export</a>
+
+                {{-- Modal import --}}
+                <div id="import" class="modal">
+                  <form action="{{route('admin.agenda.import')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-content">
+                      <h4>Import Agenda</h4>
+                      <p>Untuk import agenda melalui excel, silahkan download template excel dan sesuaikan masukan</p>
+                      <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a>
+                      <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
+                      <input type="file" name="agendas">
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                      <button type="submit" class="waves-effect waves-green btn">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                {{-- End of modal import --}}
+
                 <table id="data-menu" class="table display" cellspacing="0">
                   <thead>
                       <tr>
@@ -73,7 +94,7 @@
                           <td>{{$row->date}}</td>
                           <td>{{$row->time}}</td>
                          
-                          <td><a href="#modal{{$row->id}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="{{route('admin.agenda.edit', [$row->id])}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Edit -->
                           <div id="modal{{$row->id}}" class="modal modal-fixed-footer">
                             <form action="{{route('admin.agenda.update', [$row->id])}}" method="post">

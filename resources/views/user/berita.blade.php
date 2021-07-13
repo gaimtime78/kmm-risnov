@@ -1,5 +1,4 @@
 @extends('layout.user')
-
 @section('css')
 <style>
     .clamp{

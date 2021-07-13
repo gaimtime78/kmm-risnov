@@ -27,6 +27,13 @@ class RoleAuth
             if($permission != null){
                 $cek = Auth::user()->role->permissions()->where('permission_id',$permission->id)->get();
                 if( count($cek)>0){
+                    $permission = Auth::user()->role->permissions;
+                    $arrPermission = [];
+                    foreach($permission as $value){
+                        array_push($arrPermission, $value->permission);
+                    }
+                    \View::share('permissionUser', $arrPermission);
+                    \View::share('userName', Auth::user()->name);
                     return $next($request);
                 }
             }

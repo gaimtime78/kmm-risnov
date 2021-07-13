@@ -77,7 +77,7 @@
                             </div>
                             <div class="mb-3">
                                 <h5><label for="post_category" class="form-label">Kategori Post</label></h5>
-                                <select class="postCategory form-control" name="post_category" style="max-width: 50%">
+                                <select class="" name="post_category" style="max-width: 50%">
                                     <option></option>
                                     @foreach ($category as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->category }}</option>

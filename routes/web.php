@@ -19,7 +19,7 @@ Route::get('/', [App\Http\Controllers\User\HomeController::class, 'index'])->nam
 
 // Route::get('/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => '/tentang-kami'], function(){
-    Route::get('/sambutan', [App\Http\Controllers\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
+    // Route::get('/sambutan', [App\Http\Controllers\User\TentangController::class, 'sambutan'])->name('tentang-kami.sambutan');
     Route::get('/visi-misi', [App\Http\Controllers\User\TentangController::class, 'visiMisi'])->name('tentang-kami.visiMisi');
     Route::get('/tugas-dan-fungsi', [App\Http\Controllers\User\TentangController::class, 'tugasFungsi'])->name('tentang-kami.tugasFungsi');
     Route::get('/rencana-strategis', [App\Http\Controllers\User\TentangController::class, 'rencanaStrategis'])->name('tentang-kami.rencanaStrategis');
@@ -35,9 +35,6 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index']
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.post');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 Route::get('/coming', function () {
     return view('user.coming');
 })->name('coming');
@@ -59,9 +56,7 @@ Route::post('/slider/view', [App\Http\Controllers\SliderController::class, 'view
 
 Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
         
         Route::group(['as'=> 'menu.', 'prefix' => '/menu'], function(){
             Route::get('/', [App\Http\Controllers\Menu\MenuController::class, 'index'])->name('index');
@@ -121,16 +116,35 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::delete('/delete/{id}', [App\Http\Controllers\PageController::class, 'delete'])->name('page.delete');
         });
 
+        Route::group(['prefix' => '/user'], function(){
+            Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+            Route::get('/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+            Route::post('/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+            Route::get('/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+            Route::put('/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+            Route::delete('/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
+        });
+
+        Route::group(['prefix' => '/permission'], function(){
+            Route::get('/', [App\Http\Controllers\PermissionController::class, 'index'])->name('permission.index');
+            Route::get('/create', [App\Http\Controllers\PermissionController::class, 'create'])->name('permission.create');
+            Route::post('/store', [App\Http\Controllers\PermissionController::class, 'store'])->name('permission.store');
+            Route::get('/edit/{id}', [App\Http\Controllers\PermissionController::class, 'edit'])->name('permission.edit');
+            Route::put('/update/{id}', [App\Http\Controllers\PermissionController::class, 'update'])->name('permission.update');
+            Route::get('/delete/{id}', [App\Http\Controllers\PermissionController::class, 'delete'])->name('permission.delete');
+        });
+
         Route::group(['prefix' => '/agenda'], function(){
             Route::get('/', [App\Http\Controllers\AgendaController::class, 'index'])->name('agenda.index');
             Route::get('/create', [App\Http\Controllers\AgendaController::class, 'create'])->name('agenda.create');
             Route::post('/store', [App\Http\Controllers\AgendaController::class, 'store'])->name('agenda.store');
             Route::get('/edit/{id}', [App\Http\Controllers\AgendaController::class, 'edit'])->name('agenda.edit');
             Route::post('/update/{id}', [App\Http\Controllers\AgendaController::class, 'update'])->name('agenda.update');
-            Route::get('/delete/{id}', [App\Http\Controllers\AgendaController::class, 'delete'])->name('agenda.delete');
+            Route::delete('/delete/{id}', [App\Http\Controllers\AgendaController::class, 'delete'])->name('agenda.delete');
+            Route::get('/export', [App\Http\Controllers\AgendaController::class, 'export'])->name('agenda.export');
+            Route::post('/import', [App\Http\Controllers\AgendaController::class, 'import'])->name('agenda.import');
         });
-
-        
+       
     });
 });
 //yg digunakan yg atas, selain yang diatas bisa ditambahkan, klo error merge   
@@ -143,6 +157,8 @@ Route::get('/produk-penelitian', [App\Http\Controllers\User\ProdukController::cl
 Route::get('/produk-pengabdian', [App\Http\Controllers\User\ProdukController::class, 'pengabdian'])->name('produk-pengabdian');
 Route::get('/berita-terkini', [App\Http\Controllers\User\BeritaController::class, 'index'])->name('berita-terkini');
 Route::get('/agenda', [App\Http\Controllers\User\AgendaController::class, 'index'])->name('agenda');
+Route::get('/agenda/{slug}', [App\Http\Controllers\User\AgendaController::class, 'detail'])->name('detail-agenda');
+Route::get('/get_agendas', [App\Http\Controllers\User\AgendaController::class, 'getAgendas'])->name('get_agendas');
 Route::get('/produk-komersial', [App\Http\Controllers\User\ProdukController::class, 'index'])->name('produk-komersial');
 Route::get('/gallery', [App\Http\Controllers\User\GalleryController::class, 'index'])->name('gallery');
 Route::get('/get_gallery', [App\Http\Controllers\User\HomeController::class, 'get_gallery'])->name('get_gallery');
@@ -155,3 +171,6 @@ Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
 // });
+
+Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
+Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('subs');
