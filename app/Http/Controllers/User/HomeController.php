@@ -67,4 +67,8 @@ class HomeController extends Controller
         $data['menus'] = $mn;
         return view('user.home', $data);
     }
+    public function ruang(){
+        return view('user.ruang');
+    }
+
 }

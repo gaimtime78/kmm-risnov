@@ -59,6 +59,14 @@
                         </ul>
                     </div>
                 </li>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Rida Controller</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="{{ route('admin.rida.index') }}">Input RIDA</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </li>
         <!-- <li class="no-padding">
