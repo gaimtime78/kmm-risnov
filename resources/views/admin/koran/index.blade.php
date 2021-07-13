@@ -32,7 +32,7 @@
 					<a href="{{route('admin.koran.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Koran</a>
 					<div class="row">
 						<div class="col s12 m12 l12">
-							<table id="data-menu" class="responsive-table display" cellspacing="0">
+							<table id="data-menu" class="table display" cellspacing="0">
 								<thead>
 									<tr>
 									<th>id</th>

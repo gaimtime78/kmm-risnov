@@ -28,18 +28,15 @@
 				</div>
 				@endif
 				<div id="table-datatables">
-					<h4 class="header left">Post</h4>
-					<a href="{{route('admin.post.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Post</a>
+					<h4 class="header left">Permission</h4>
+					<a href="{{route('admin.permission.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Role</a>
 					<div class="row">
 						<div class="col s12 m12 l12">
 							<table id="data-menu" class="table display" cellspacing="0">
 								<thead>
 									<tr>
 									<th>id</th>
-									<th width="350">title</th>
-									<th>created by</th>
-									<th>category</th>
-									<th>active</th>
+									<th width="350">Role</th>
 									<th>Action</th>
 										</tr>
 								</thead>
@@ -50,23 +47,11 @@
 									@foreach($data as $row)
 										<tr>
 											<td>{{ $i }}</td>
-											<td>{{ $row->title }}</td>
-											<td>{{ $row->user->name }}</td>
-											<td>
-												@foreach($row->category as $c)
-													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat cyan">{{$c->category}}</div>
-												@endforeach
-											</td>
-											<td>
-												@if($row->active)
-													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat cyan">Active</div>
-												@else
-													<div style="margin-top:0.5em; margin-bottom:0.5em;" class="task-cat red">Inactive</div>
-												@endif
-											</td>
+											<td>{{ $row->name }}</td>
 											<td>
 												<div>
-													<a class="btn" href="{{ route('admin.post.edit', ['id' => $row->id]) }}">Edit</a>
+													<a class="btn" href="{{ route('admin.permission.edit', ['id' => $row->id]) }}">Edit</a>
+													<a href="{{ route('admin.permission.delete', ['id' => $row->id]) }}" class="btn modal-trigger" style="background-color: red;">Delete</a>
 												</div>
 											</td>
 										</tr>
