@@ -3,6 +3,8 @@
 @section('css')
     <link type="text/css" href="{{ asset('calendar\lib\main.css') }}" rel="stylesheet" />
     <script type="text/javascript" src="{{ asset('calendar\lib\main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/tooltip.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('calendar\lib\locales-all.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -22,7 +24,7 @@
                 navLinks: true, // can click day/week names to navigate views
                 editable: true,
                 dayMaxEvents: true, // allow "more" link when too many events
-                events: '/id/get_agendas',
+                events: '/get_agendas',
                 eventClick: function(info) {
                     info.jsEvent.preventDefault(); // don't let the browser navigate
 
@@ -31,13 +33,18 @@
                     }
                 },
                 displayEventTime: false,
-                eventRender: function(info) {
-                    var tooltip = new Tooltip(info.el, {
-                        title: info.event.extendedProps.description,
-                        placement: 'top',
-                        trigger: 'hover',
-                        container: 'body',
-                    });
+                // eventDidMount: function(info) {
+                //     console.log('halo')
+                //     var tooltip = new Tooltip(info.el, {
+                //         title: info.event.extendedProps.description,
+                //         placement: 'top',
+                //         trigger: 'hover',
+                //         container: 'body',
+                //     });
+                // }
+                eventDidMount: function(info) {
+                    console.log('halo')
+                    $(info.el).tooltip({ title: info.event.title });
                 }
             });
 
