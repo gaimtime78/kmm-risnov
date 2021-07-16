@@ -40,7 +40,7 @@ class AgendaController extends Controller
 
     public function getAgendas()
     {
-        $agendas = Agenda::get(['title',DB::raw("CONCAT(date,' ',time) AS start"), 'url', 'title AS description']);
+        $agendas = Agenda::get(['title',DB::raw("CONCAT(date,' ',time) AS start"), 'url', 'title AS description', DB::raw("REPLACE(thumbnail, ' ', '%20') AS img")]);
         return $agendas->toJson();
     }
 

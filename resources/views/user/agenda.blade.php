@@ -2,73 +2,6 @@
 
 @section('css')
     <link type="text/css" href="{{ asset('calendar\lib\main.css') }}" rel="stylesheet" />
-    <script type="text/javascript" src="{{ asset('calendar\lib\main.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/tooltip.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('calendar\lib\locales-all.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var initialLocaleCode = 'en';
-            var localeSelectorEl = document.getElementById('locale-selector');
-            var calendarEl = document.getElementById('calendar');
-
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-                },
-                locale: initialLocaleCode,
-                buttonIcons: false, // show the prev/next text
-                weekNumbers: false,
-                navLinks: true, // can click day/week names to navigate views
-                editable: true,
-                dayMaxEvents: true, // allow "more" link when too many events
-                events: '/get_agendas',
-                eventClick: function(info) {
-                    info.jsEvent.preventDefault(); // don't let the browser navigate
-
-                    if (info.event.url) {
-                        window.open(info.event.url);
-                    }
-                },
-                displayEventTime: false,
-                // eventDidMount: function(info) {
-                //     console.log('halo')
-                //     var tooltip = new Tooltip(info.el, {
-                //         title: info.event.extendedProps.description,
-                //         placement: 'top',
-                //         trigger: 'hover',
-                //         container: 'body',
-                //     });
-                // }
-                eventDidMount: function(info) {
-                    console.log('halo')
-                    $(info.el).tooltip({ title: info.event.title });
-                }
-            });
-
-            calendar.render();
-
-            // build the locale selector's options
-            calendar.getAvailableLocaleCodes().forEach(function(localeCode) {
-                var optionEl = document.createElement('option');
-                optionEl.value = localeCode;
-                optionEl.selected = localeCode == initialLocaleCode;
-                optionEl.innerText = localeCode;
-                localeSelectorEl.appendChild(optionEl);
-            });
-
-            // when the selected option changes, dynamically change the calendar option
-            localeSelectorEl.addEventListener('change', function() {
-                if (this.value) {
-                    calendar.setOption('locale', this.value);
-                }
-            });
-
-        });
-
-    </script>
     <style>
         #top {
             background: #eee;
@@ -82,6 +15,10 @@
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 10px;
+        }
+
+        .tooltip-inner {
+            max-width: 768px !important;
         }
 
     </style>
@@ -111,11 +48,82 @@
 
                 </div>
 
-                <div id='calendar'></div>
+                <div id='calendar' data-html="true"></div>
             </div><!-- end boxed -->
         </div><!-- end container -->
     </section>
 @endsection
 
 @section('js')
+    <script type="text/javascript" src="{{ asset('calendar\lib\main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/tooltip.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('calendar\lib\locales-all.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var initialLocaleCode = 'en';
+            var localeSelectorEl = document.getElementById('locale-selector');
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+                },
+                locale: initialLocaleCode,
+                buttonIcons: false, // show the prev/next text
+                weekNumbers: false,
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                dayMaxEvents: true, // allow "more" link when too many events
+                events: '/id/get_agendas',
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault(); // don't let the browser navigate
+
+                    if (info.event.url) {
+                        window.open(info.event.url);
+                    }
+                },
+                displayEventTime: false,
+                // eventDidMount: function(info) {
+                //     console.log('halo')
+                //     var tooltip = new Tooltip(info.el, {
+                //         title: info.event.extendedProps.description,
+                //         placement: 'top',
+                //         trigger: 'hover',
+                //         container: 'body',
+                //     });
+                // }
+                eventDidMount: function(info) {
+                    $(info.el).tooltip({
+                        title: '<img width="auto" height="250px" src=' +
+                            "{{ URL::asset('/upload/agenda') }}" + '/' + info.event
+                            .extendedProps.img + '>',
+                        placement: 'bottom',
+                        html: true
+                    })
+                }
+            });
+
+            calendar.render();
+
+            // build the locale selector's options
+            calendar.getAvailableLocaleCodes().forEach(function(localeCode) {
+                var optionEl = document.createElement('option');
+                optionEl.value = localeCode;
+                optionEl.selected = localeCode == initialLocaleCode;
+                optionEl.innerText = localeCode;
+                localeSelectorEl.appendChild(optionEl);
+            });
+
+            // when the selected option changes, dynamically change the calendar option
+            localeSelectorEl.addEventListener('change', function() {
+                if (this.value) {
+                    calendar.setOption('locale', this.value);
+                }
+            });
+
+        });
+    </script>
 @endsection
