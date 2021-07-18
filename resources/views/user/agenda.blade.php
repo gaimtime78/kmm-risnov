@@ -48,7 +48,10 @@
 
                 </div>
 
-                <div id='calendar' data-html="true"></div>
+                <div id='calendar'></div>
+                <div id="thumbnailcard">
+                    
+                </div>
             </div><!-- end boxed -->
         </div><!-- end container -->
     </section>
@@ -79,28 +82,17 @@
                 dayMaxEvents: true, // allow "more" link when too many events
                 events: '/id/get_agendas',
                 eventClick: function(info) {
-                    info.jsEvent.preventDefault(); // don't let the browser navigate
-
+                    info.jsEvent.preventDefault();
                     if (info.event.url) {
                         window.open(info.event.url);
                     }
                 },
                 displayEventTime: false,
-                // eventDidMount: function(info) {
-                //     console.log('halo')
-                //     var tooltip = new Tooltip(info.el, {
-                //         title: info.event.extendedProps.description,
-                //         placement: 'top',
-                //         trigger: 'hover',
-                //         container: 'body',
-                //     });
-                // }
                 eventDidMount: function(info) {
                     $(info.el).tooltip({
-                        title: '<img width="auto" height="250px" src=' +
-                            "{{ URL::asset('/upload/agenda') }}" + '/' + info.event
-                            .extendedProps.img + '>',
+                        title: '<div class="card"> <img class="card-img-top" width="auto" height="120px" id="gambarthumbnail" src="{{ URL::asset("/upload/agenda") }}' + '/' + info.event.extendedProps.img + '" alt="thumbnail"> <div class="card-body"> <p class="card-text">' + info.event.extendedProps.description + '</p> </div> </div>',
                         placement: 'bottom',
+                        trigger: 'hover',
                         html: true
                     })
                 }
