@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rida extends Model
 {
     use HasFactory;
-    protected $table = 'pp_doktors';
+    protected $table = 'peneliti_pengabdi';
     protected $fillable = [
         
     ];
