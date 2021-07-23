@@ -58,11 +58,11 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <a href="#import" class="waves-effect waves-light btn right modal-trigger" role="button">Upload Excel</a>
-                <a href="{{route('admin.rida.export')}}" class="waves-effect waves-light btn right" role="button">Export Excel</a>
+                <a href="{{route('admin.penelitipengabdi.export')}}" class="waves-effect waves-light btn right" role="button">Export Excel</a>
 
                 {{-- Modal import --}}
                 <div id="import" class="modal">
-                  <form action="{{route('admin.rida.import')}}" method="post" enctype="multipart/form-data">
+                  <form action="{{route('admin.penelitipengabdi.import')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-content">
                       <h4>Import Agenda</h4>
@@ -93,14 +93,14 @@
                     @php
                       $i = 1;
                     @endphp
-                      @foreach ($rida as $row)
+                      @foreach ($penelitipengabdi as $row)
                       <tr>
                           <td>{{$i}}</td>
-                          <td>{{$row->title}}</td>
-                          <td>{{$row->date}}</td>
-                          <td>{{$row->time}}</td>
+                          <td>{{$row->fakultas}}</td>
+                          <td>{{$row->periode}}</td>
+                          <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="{{route('admin.rida.edit', [$row->id])}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="{{route('admin.penelitipengabdi.edit', [$row->id])}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Edit -->
                           <div id="modal{{$row->id}}" class="modal modal-fixed-footer">
                             <form action="{{route('admin.agenda.update', [$row->id])}}" method="post">

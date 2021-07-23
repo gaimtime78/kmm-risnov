@@ -4,62 +4,62 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Rida;
-use App\Exports\RidasExport;
-use App\Imports\RidasImport;
+use App\Models\PenelitiPengabdi;
+use App\Exports\PenelitiPengabdiExport;
+use App\Imports\PenelitiPengabdisImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class RidaController extends Controller
 {
     public function index()
     {
-        $rida = Rida::where('id', Auth::id())->get();
-        // dd("check");
-        return view('admin.rida.index', ['rida' => $rida]);
+        $penelitipengabdi = PenelitiPengabdi::where('jenjang', 'Doktor' )->get();
+        
+        return view('admin.penelitipengabdi.index', ['penelitipengabdi' => $penelitipengabdi]);
     }
 
     public function add()
     {
-        return view('admin/rida/add');
+        return view('admin/penelitipengabdi/add');
     }
 
     public function store(Request $request)
     {
-        return redirect()->route('admin.rida.index');
+        return redirect()->route('admin.penelitipengabdi.index');
     }
 
     public function edit(Request $request, $id)
     {
-        $rida = Rida::find($id);
-        return view('admin/rida/edit', compact('rida'));
+        $penelitipengabdi = PenelitiPengabdi::find($id);
+        return view('admin/penelitipengabdi/edit', compact('penelitipengabdi'));
     }
 
     public function update(Request $request, $id)
     {
-        $rida = Rida::find($id);
-        return redirect()->route('admin.rida.index');
+        $penelitipengabdi = PenelitiPengabdi::find($id);
+        return redirect()->route('admin.penelitipengabdi.index');
     }
 
     public function delete($id)
     {
-        $rida = Rida::findOrFail($id);
-        $rida->delete();
+        $penelitipengabdi = PenelitiPengabdi::findOrFail($id);
+        $penelitipengabdi->delete();
 
-        return redirect()->route('admin.rida.index')
+        return redirect()->route('admin.penelitipengabdi.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));
     }
 
     public function export()
     {
-        return Excel::download(new RidasExport, 'rida.xlsx');
+        return Excel::download(new PenelitiPengabdiExport, 'penelitipengabdi.xlsx');
     }
 
     public function import(Request $request)
     {
-        $file = $request->file("rida");
+        $file = $request->file("penelitipengabdi");
         if ($file !== null) {
-            Excel::import(new RidasImport, $file);
+            Excel::import(new PenelitiPengabdisImport, $file);
         }
-        return redirect()->route('admin.rida.index');
+        return redirect()->route('admin.penelitipengabdi.index');
     }
 }

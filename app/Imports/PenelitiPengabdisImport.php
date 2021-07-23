@@ -4,7 +4,7 @@ namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class RidasImport implements WithMultipleSheets 
+class PenelitiPengabdisImport implements WithMultipleSheets 
 {
     /**
     * @param array $row

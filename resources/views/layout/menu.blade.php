@@ -62,7 +62,7 @@
                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Rida Controller</a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="{{ route('admin.rida.index') }}">Input RIDA</a>
+                            <li><a href="{{ route('admin.penelitipengabdi.index') }}">Input Peneliti Pengabdi Doktoral</a>
                             </li>
                         </ul>
                     </div>

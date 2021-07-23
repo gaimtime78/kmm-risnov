@@ -69,7 +69,7 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
         });
 
         
-        Route::group(['as'=> 'rida.', 'prefix' => '/rida'], function(){
+        Route::group(['as'=> 'penelitipengabdi.', 'prefix' => '/penelitipengabdi'], function(){
             Route::get('/', [App\Http\Controllers\RidaController::class, 'index'])->name('index');
             Route::get('/create', [App\Http\Controllers\RidaController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\RidaController::class, 'create'])->name('create');

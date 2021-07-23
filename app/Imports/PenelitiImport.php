@@ -3,7 +3,7 @@
 namespace App\Imports;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\Rida;
+use App\Models\PenelitiPengabdi;
 use Maatwebsite\Excel\Concerns\ToArray;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
@@ -62,6 +62,6 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
         ]);
       }
     }
-    Rida::insert($data);
+    PenelitiPengabdi::insert($data);
   }
 }
