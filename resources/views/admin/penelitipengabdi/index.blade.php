@@ -100,10 +100,10 @@
                           <td>{{$row->periode}}</td>
                           <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="{{route('admin.penelitipengabdi.edit', [$row->id])}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="#" class="btn modal-trigger" style="background-color: grey;">Detail</a> <a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Edit -->
-                          <div id="modal{{$row->id}}" class="modal modal-fixed-footer">
-                            <form action="{{route('admin.agenda.update', [$row->id])}}" method="post">
+                          <div id="#" class="modal modal-fixed-footer">
+                            <form action="#" method="post">
                               @csrf
                               <div class="modal-content">
                                 <h4>Edit Data</h4>
@@ -139,8 +139,8 @@
                             </form>
                           </div>
                           <!-- Modal Hapus -->
-                          <div id="hapus{{$row->id}}" class="modal">
-                            <form action="{{route('admin.agenda.delete', [$row->id])}}" method="get">
+                          <div id="hapus" class="modal">
+                            <form action="#" method="get">
                               @csrf
                               <div class="modal-content">
                                 <h4>Delete Agenda</h4>

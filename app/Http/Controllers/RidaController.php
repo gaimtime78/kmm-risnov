@@ -13,7 +13,7 @@ class RidaController extends Controller
 {
     public function index()
     {
-        $penelitipengabdi = PenelitiPengabdi::where('jenjang', 'Doktor' )->get();
+        $penelitipengabdi = PenelitiPengabdi::distinct()->get('fakultas', 'id');
         
         return view('admin.penelitipengabdi.index', ['penelitipengabdi' => $penelitipengabdi]);
     }
