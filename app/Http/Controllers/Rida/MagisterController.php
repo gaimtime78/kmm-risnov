@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PenelitiPengabdiMagister;
-use App\Exports\PenelitiPengabdiMagistersExport;
-use App\Imports\PenelitiPengabdiMagistersImport;
+use App\Exports\PenelitiPengabdiMagister\PenelitiPengabdiMagistersExport;
+use App\Imports\PenelitiPengabdiMagister\PenelitiPengabdiMagistersImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MagisterController extends Controller
@@ -23,46 +23,46 @@ class MagisterController extends Controller
 
     public function add()
     {
-        return view('admin/penelitipengabdi/add');
+        return view('admin/penelitipengabdimagister/add');
     }
 
     public function store(Request $request)
     {
-        return redirect()->route('admin.penelitipengabdi.index');
+        return redirect()->route('admin.penelitipengabdimagister.index');
     }
 
     public function edit(Request $request, $id)
     {
-        $penelitipengabdi = PenelitiPengabdi::find($id);
-        return view('admin/penelitipengabdi/edit', compact('penelitipengabdi'));
+        $penelitipengabdimagister = PenelitiPengabdiMagister::find($id);
+        return view('admin/penelitipengabdimagister/edit', compact('penelitipengabdimagister'));
     }
 
     public function update(Request $request, $id)
     {
-        $penelitipengabdi = PenelitiPengabdi::find($id);
-        return redirect()->route('admin.penelitipengabdi.index');
+        $penelitipengabdimagister = PenelitiPengabdiMagister::find($id);
+        return redirect()->route('admin.penelitipengabdimagister.index');
     }
 
     public function delete($id)
     {
-        $penelitipengabdi = PenelitiPengabdi::findOrFail($id);
-        $penelitipengabdi->delete();
+        $penelitipengabdimagister = PenelitiPengabdiMagister::findOrFail($id);
+        $penelitipengabdimagister->delete();
 
-        return redirect()->route('admin.penelitipengabdi.index')
+        return redirect()->route('admin.penelitipengabdimagister.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));
     }
 
     public function export()
     {
-        return Excel::download(new PenelitiPengabdiExport, 'penelitipengabdi.xlsx');
+        return Excel::download(new PenelitiPengabdiExport, 'penelitipengabdimagister.xlsx');
     }
 
     public function import(Request $request)
     {
-        $file = $request->file("penelitipengabdi");
+        $file = $request->file("penelitipengabdimagister");
         if ($file !== null) {
-            Excel::import(new PenelitiPengabdisImport, $file);
+            Excel::import(new PenelitiPengabdiMagistersImport, $file);
         }
-        return redirect()->route('admin.penelitipengabdi.index');
+        return redirect()->route('admin.penelitipengabdimagister.index');
     }
 }
