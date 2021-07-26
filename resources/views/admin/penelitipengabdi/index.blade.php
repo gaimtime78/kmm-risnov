@@ -100,7 +100,7 @@
                           <td>{{$row->periode}}</td>
                           <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="#" class="btn modal-trigger" style="background-color: grey;">Detail</a> <a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="{{route('admin.penelitipengabdi.details' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a> <a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Edit -->
                           <div id="#" class="modal modal-fixed-footer">
                             <form action="#" method="post">

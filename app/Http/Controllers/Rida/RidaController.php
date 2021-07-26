@@ -21,6 +21,32 @@ class RidaController extends Controller
         return view('admin.penelitipengabdi.index', ['penelitipengabdi' => $penelitipengabdi]);
     }
 
+    public function details(Request $request, $fakultas)
+    {
+        $nama_fakultas = $fakultas;
+        $penelitipengabdi = PenelitiPengabdi::distinct()->where('fakultas', $fakultas)->get();
+
+        $sum25_35L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia25sd35_L');
+        $sum25_35P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia25sd35_P');
+        $sum25sd35_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia25sd35_jumlah');
+
+        
+        $sum36_45L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_L');
+        $sum36_45P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_P');
+        $sum36sd45_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_jumlah');
+
+        return view('admin.penelitipengabdi.details', ['penelitipengabdi' => $penelitipengabdi, 'fakultas' => $fakultas, 
+                    'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sum25sd35_jumlah' => $sum25sd35_jumlah ,   
+                    'sum36_45L' => $sum36_45L, 'sum36_45P' => $sum36_45P, 'sum36sd45_jumlah' => $sum36sd45_jumlah ,
+
+                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
+                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
+                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
+                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
+                    
+                    ]);
+    }
+
     public function add()
     {
         return view('admin/penelitipengabdi/add');
