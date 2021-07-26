@@ -69,7 +69,7 @@
                       <p>Untuk import agenda melalui excel, silahkan download template excel dan sesuaikan masukan</p>
                       <!-- <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a> -->
                       <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
-                      <input type="file" name="rida">
+                      <input type="file" name="penelitipengabdi">
                     </div>
                     <div class="modal-footer">
                       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
