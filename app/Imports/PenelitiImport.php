@@ -17,7 +17,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
 
   public function array(array $rows){
     // dd($this->periode);
-    $mapperSheet = ['Doktor', 'Magister', 'SP-2', 'SP-1(K)', 'SP-1', 'Profesi'];
+    $mapperSheet = ['Doktor'];
     $tabel = $rows[0][0];
     $tabelIndex = explode(" ", $tabel)[1]*1;
     $jenjang = $mapperSheet[$tabelIndex-1];

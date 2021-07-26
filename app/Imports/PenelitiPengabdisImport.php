@@ -16,11 +16,11 @@ class PenelitiPengabdisImport implements WithMultipleSheets
     {
         return [
             new PenelitiImport('Periode 1', '2020'),
-            new PenelitiImport('Periode 2', '2020'),
-            new PenelitiImport('Periode 3', '2020'),
-            new PenelitiImport('Periode 4', '2020'),
-            new PenelitiImport('Periode 5', '2020'),
-            new PenelitiImport('Periode 6', '2020'),
+            // new PenelitiImport('Periode 2', '2020'),
+            // new PenelitiImport('Periode 3', '2020'),
+            // new PenelitiImport('Periode 4', '2020'),
+            // new PenelitiImport('Periode 5', '2020'),
+            // new PenelitiImport('Periode 6', '2020'),
         ];
     }
 }

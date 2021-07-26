@@ -62,8 +62,15 @@
                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Rida Controller</a>
                     <div class="collapsible-body">
                         <ul>
+                            @if(in_array("admin.permission.index", $permissionUser))
                             <li><a href="{{ route('admin.penelitipengabdi.index') }}">Input Peneliti Pengabdi Doktoral</a>
                             </li>
+                            @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdimagister.index') }}">Input Peneliti Pengabdi Magister</a>
+                            </li>
+                            @endif
+                            
                         </ul>
                     </div>
                 </li>

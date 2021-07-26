@@ -70,14 +70,25 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
         
         Route::group(['as'=> 'penelitipengabdi.', 'prefix' => '/penelitipengabdi'], function(){
-            Route::get('/', [App\Http\Controllers\RidaController::class, 'index'])->name('index');
-            Route::get('/create', [App\Http\Controllers\RidaController::class, 'add'])->name('add');
-            Route::post('/create', [App\Http\Controllers\RidaController::class, 'create'])->name('create');
-            Route::get('/edit/{id}', [App\Http\Controllers\RidaController::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\RidaController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\RidaController::class, 'delete'])->name('delete');
-            Route::get('/export', [App\Http\Controllers\RidaController::class, 'export'])->name('export');
-            Route::post('/import', [App\Http\Controllers\RidaController::class, 'import'])->name('import');
+            Route::get('/', [App\Http\Controllers\Rida\RidaController::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\Rida\RidaController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\RidaController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\RidaController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida\RidaController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida\RidaController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\RidaController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\RidaController::class, 'import'])->name('import');
+        });
+
+        Route::group(['as'=> 'penelitipengabdimagister.', 'prefix' => '/penelitipengabdimagister'], function(){
+            Route::get('/', [App\Http\Controllers\Rida\MagisterController::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\Rida\MagisterController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\MagisterController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\MagisterController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\MagisterController::class, 'import'])->name('import');
         });
         
         Route::group(['prefix' => '/category'], function(){
