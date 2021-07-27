@@ -35,11 +35,15 @@ class RidaController extends Controller
         $sum36_45P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_P');
         $sum36sd45_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_jumlah');
 
+        $sum46_55L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia46sd55_L');
+        $sum46_55P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia46sd55_P');
+        $sum46sd55_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia46sd55_jumlah');
+
         return view('admin.penelitipengabdi.details', ['penelitipengabdi' => $penelitipengabdi, 'fakultas' => $fakultas, 
                     'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sum25sd35_jumlah' => $sum25sd35_jumlah ,   
                     'sum36_45L' => $sum36_45L, 'sum36_45P' => $sum36_45P, 'sum36sd45_jumlah' => $sum36sd45_jumlah ,
+                    'sum46_55L' => $sum46_55L, 'sum46_55P' => $sum46_55P, 'sum46sd55_jumlah' => $sum46sd55_jumlah   
 
-                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
                     // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
                     // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
                     // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   

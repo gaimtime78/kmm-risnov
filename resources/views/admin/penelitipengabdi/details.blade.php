@@ -184,9 +184,9 @@
                           <th style="text-align:justify !important;">{{$sum36_45L}}</th>
                           <th style="text-align:justify !important;">{{$sum36_45P}}</th>
                           <th style="text-align:justify !important;">{{$sum36sd45_jumlah}}</th>
-                          <th style="text-align:justify !important;">36 s/d 45 L</th>
-                          <th style="text-align:justify !important;">36 s/d 45 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
+                          <th style="text-align:justify !important;">{{$sum46_55L}}</th>
+                          <th style="text-align:justify !important;">{{$sum46_55P}}</th>
+                          <th style="text-align:justify !important;">{{$sum46sd55_jumlah}}</th>
                           <th style="text-align:justify !important;"> 46 s/d 55 L</th>
                           <th style="text-align:justify !important;"> 46 s/d 55 P</th>
                           <th style="text-align:justify !important;">Jumlah Total</th>
