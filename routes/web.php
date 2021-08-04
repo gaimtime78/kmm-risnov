@@ -104,6 +104,55 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\SpesialisController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\SpesialisController::class, 'import'])->name('import');
         });
+
+        Route::group(['as'=> 'penelitipengabdispesialiskonsultan.', 'prefix' => '/penelitipengabdispesialiskonsultan'], function(){
+            Route::get('/', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'index'])->name('index');
+            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'import'])->name('import');
+        });
+
+        Route::group(['as'=> 'penelitipengabdispesialis1.', 'prefix' => '/penelitipengabdispesialis1'], function(){
+            Route::get('/', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'index'])->name('index');
+            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'import'])->name('import');
+        });
+        
+
+        Route::group(['as'=> 'penelitipengabdiprofesi.', 'prefix' => '/penelitipengabdiprofesi'], function(){
+            Route::get('/', [App\Http\Controllers\Rida\ProfesiController::class, 'index'])->name('index');
+            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\ProfesiController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\ProfesiController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\ProfesiController::class, 'import'])->name('import');
+        });
+        
+        Route::group(['as'=> 'indekspenelitipkm.', 'prefix' => '/indekspenelitipkm'], function(){
+            Route::get('/', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'index'])->name('index');
+            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'import'])->name('import');
+        });
         
         Route::group(['prefix' => '/category'], function(){
             Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');

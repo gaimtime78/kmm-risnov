@@ -71,7 +71,23 @@
                             </li>
                             @endif
                             @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdispesialis.index') }}">Input Peneliti Pengabdi Spesialis</a>
+                            <li><a href="{{ route('admin.penelitipengabdispesialis.index') }}">Input Peneliti Pengabdi Sp-2</a>
+                            </li>
+                            @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdispesialiskonsultan.index') }}">Input Peneliti Pengabdi Sp-1 (k) </a>
+                            </li>
+                            @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdispesialis1.index') }}">Input Peneliti Pengabdi SP-1 </a>
+                            </li>
+                            @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdiprofesi.index') }}">Input Peneliti Pengabdi Profesi </a>
+                            </li>
+                            @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.indekspenelitipkm.index') }}">Input Indeks Peneliti PKM </a>
                             </li>
                             @endif
                             
