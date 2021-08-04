@@ -53,69 +53,141 @@
 
           <div id="table-datatables">\
           
-            <h4 class="header left">Tabel 1 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $fakultas}}</h4>
+            <h4 class="header left">Tabel 7 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
               
-                <table id="data-menu" class="table display" cellspacing="0">
+                <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
                   <thead>
-                      <tr>
-                          <th style="text-align:justify !important;">#</th>
-                          <th style="text-align:justify !important;">Status</th>
-                          <th style="text-align:justify !important;">Jenjang</th>
-                          <th style="text-align:justify !important;">25 s/d 35 L</th>
-                          <th style="text-align:justify !important;">25 s/d 35 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;">36 s/d 45 L</th>
-                          <th style="text-align:justify !important;">36 s/d 45 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> 46 s/d 55 L</th>
-                          <th style="text-align:justify !important;"> 46 s/d 55 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> 56 s/d 65 L</th>
-                          <th style="text-align:justify !important;"> 56 s/d 65 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> 66 s/d 75 L</th>
-                          <th style="text-align:justify !important;"> 66 s/d 75 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> - > 75 L</th>
-                          <th style="text-align:justify !important;"> - > 75 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;">Total</th>
-                          <th style="text-align:justify !important;">Action</th>
+                      <tr style="border: 1px solid black !important;">
+                          <th  colspan="1" style="border: 1px solid black !important; text-align:center !important;">#</th>
+                          <th  rowspan="2" style="text-align:justify !important;">Fakultas</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">0</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">1</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">2</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">3</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">4</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">5</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">6</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">7</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">8</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">9</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">10</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">11</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">12</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">13</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">14</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">15</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">16</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">17</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">18</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">19</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">20</th>
+                          <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Jumlah Total</th>
+                          <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Percent (%)</th>
+                          <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
+
+                      </tr>
+                      <tr >
+                          <th style="border: 1px solid black !important;text-align:justify !important;">No</th>
+                          
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
                       </tr>
                   </thead>
                   <tbody>
                   @php
                       $i = 1;
                     @endphp
-                      @foreach ($penelitipengabdispesialis as $row)
-                      <tr>
-                          <td style="text-align:center !important;">{{$i}}</td>
-                          <td style="text-align:center !important;">{{$row->status}}</td>
-                          <td style="text-align:center !important;">{{$row->jenjang}}</td>
-                          <td style="text-align:center !important;">{{$row->usia25sd35_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia25sd35_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia25sd35_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia36sd45_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia36sd45_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia36sd45_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia46sd55_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia46sd55_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia46sd55_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia56sd65_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia56sd65_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia56sd65_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia66sd75_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia66sd75_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia66sd75_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia75_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia75_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia75_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->total}}</td>
-                         
-                         
+                      @foreach ($indekspenelitipkm as $row)
+                      <tr style="border: 1px solid black !important;">
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$i}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->fakultas}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah0}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent0}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah1}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent1}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah2}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent2}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah3}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent3}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah4}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent4}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah5}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent5}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah6}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent6}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah7}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent7}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah8}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent8}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah9}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent9}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah10}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent10}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah11}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent11}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah12}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent12}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah13}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent13}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah14}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent14}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah15}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent15}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah16}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent16}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah17}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent17}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah18}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent18}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah19}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent19}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah20}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent20}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlahtotal}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percenttotal}}%</td>
                           <td><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Edit -->
                           <div id="#" class="modal modal-fixed-footer">
@@ -178,25 +250,7 @@
                   <thead>
                       <tr>
                           <th  colspan="3" style="text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
-                          <th style="text-align:justify !important;">{{$sum25_35L}}</th>
-                          <th style="text-align:justify !important;">{{$sum25_35P}}</th>
-                          <th style="text-align:justify !important;">{{$sum25sd35_jumlah}}</th>
-                          <th style="text-align:justify !important;">{{$sum36_45L}}</th>
-                          <th style="text-align:justify !important;">{{$sum36_45P}}</th>
-                          <th style="text-align:justify !important;">{{$sum36sd45_jumlah}}</th>
-                          <th style="text-align:justify !important;">{{$sum46_55L}}</th>
-                          <th style="text-align:justify !important;">{{$sum46_55P}}</th>
-                          <th style="text-align:justify !important;">{{$sum46sd55_jumlah}}</th>
-                          <th style="text-align:justify !important;">{{$sum56_65L}}</th>
-                          <th style="text-align:justify !important;">{{$sum56_65P}}</th>
-                          <th style="text-align:justify !important;">{{$sum56sd65_jumlah}}</th>
-                          <th style="text-align:justify !important;">{{$sum66_75L}}</th>
-                          <th style="text-align:justify !important;">{{$sum66_75P}}</th>
-                          <th style="text-align:justify !important;">{{$sum66sd75_jumlah}}</th>
-                          <th style="text-align:justify !important;">{{$sum75L}}</th>
-                          <th style="text-align:justify !important;">{{$sum75P}}</th>
-                          <th style="text-align:justify !important;">{{$sum75_jumlah}}</th>
-                          <th style="text-align:justify !important;">{{$total}}</th>
+                        
                       </tr>
                       
                   </thead>
