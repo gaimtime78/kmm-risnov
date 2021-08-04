@@ -52,24 +52,24 @@
           @endif
 
           <div id="table-datatables">
-            <h4 class="header left">Tabel 1 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR
+            <h4 class="header left">Tabel 3 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-2
 </h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
                 <a href="#import" class="waves-effect waves-light btn right modal-trigger" role="button">Upload Excel</a>
-                <a href="{{route('admin.penelitipengabdi.export')}}" class="waves-effect waves-light btn right" role="button">Export Excel</a>
+                <a href="{{route('admin.penelitipengabdispesialis.export')}}" class="waves-effect waves-light btn right" role="button">Export Excel</a>
 
                 {{-- Modal import --}}
                 <div id="import" class="modal">
-                  <form action="{{route('admin.penelitipengabdi.import')}}" method="post" enctype="multipart/form-data">
+                  <form action="{{route('admin.penelitipengabdispesialis.import')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-content">
                       <h4>Import Agenda</h4>
                       <p>Untuk import agenda melalui excel, silahkan download template excel dan sesuaikan masukan</p>
                       <!-- <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a> -->
                       <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
-                      <input type="file" name="penelitipengabdi">
+                      <input type="file" name="penelitipengabdispesialis">
                     </div>
                     <div class="modal-footer">
                       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
@@ -93,17 +93,17 @@
                     @php
                       $i = 1;
                     @endphp
-                      @foreach ($penelitipengabdi as $row)
+                      @foreach ($penelitipengabdispesialis as $row)
                       <tr>
                           <td>{{$i}}</td>
                           <td>{{$row->fakultas}}</td>
                           <td>{{$row->periode}}</td>
                           <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="{{route('admin.penelitipengabdi.details' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="{{route('admin.penelitipengabdispesialis.details' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Hapus -->
                           <div id="hapus{{$row->id}}" class="modal">
-                            <form action="{{route('admin.penelitipengabdi.delete', [$row->fakultas])}}" method="get">
+                            <form action="{{route('admin.penelitipengabdispesialis.delete', [$row->fakultas])}}" method="get">
                               @csrf
                               <div class="modal-content">
                                 <h4>Delete Agenda</h4>

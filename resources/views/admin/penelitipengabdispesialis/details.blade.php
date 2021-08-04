@@ -90,7 +90,7 @@
                   @php
                       $i = 1;
                     @endphp
-                      @foreach ($penelitipengabdi as $row)
+                      @foreach ($penelitipengabdispesialis as $row)
                       <tr>
                           <td style="text-align:center !important;">{{$i}}</td>
                           <td style="text-align:center !important;">{{$row->status}}</td>

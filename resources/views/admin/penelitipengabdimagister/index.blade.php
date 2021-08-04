@@ -100,52 +100,15 @@
                           <td>{{$row->periode}}</td>
                           <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="#" class="btn modal-trigger" style="background-color: grey;">Detail</a> <a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
-                          <!-- Modal Edit -->
-                          <div id="#" class="modal modal-fixed-footer">
-                            <form action="#" method="post">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Edit Data</h4>
-                                <hr>
-                                <div class="row">
-                                  <div class="input-field col s12">
-                                    <input value="{{$row->title}}" id="title" name="title"  type="text" class="validate" required>
-                                    <label for="title">RIDA title</label>
-                                  </div>
-                                </div>
-
-                                <div class="row">
-                                  <div class="mb-3" style="margin-left:8px">
-                                    <label for="date">Rida date</label>
-                                    <input value="{{$row->date}}" id="date"  name="date"  type="date" class="validate" required>
-                                  </div>
-                                </div>
-
-                                <div class="row">
-                                  <div class="mb-3" style="margin-left:8px">
-                                    <label for="time">Rida time</label>
-                                    <input value="{{$row->time}}" id="time"  name="time"  type="time" class="validate" required>
-                                  </div>
-                                </div>
-
-                                
-                                
-                              </div>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
-                              </div>
-                            </form>
-                          </div>
+                          <td><a href="{{route('admin.penelitipengabdimagister.details' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Hapus -->
-                          <div id="hapus" class="modal">
-                            <form action="#" method="get">
+                          <div id="hapus{{$row->id}}" class="modal">
+                            <form action="{{route('admin.penelitipengabdimagister.delete', [$row->fakultas])}}" method="get">
                               @csrf
                               <div class="modal-content">
                                 <h4>Delete Agenda</h4>
                                 <hr>
-                                <p>Anda yakin ingin menghapus agenda {{$row->title}}?</p>
+                                <p>Anda yakin ingin menghapus data {{$row->fakultas}}?</p>
                               <div class="modal-footer">
                                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                                 <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>

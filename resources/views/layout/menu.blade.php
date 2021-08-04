@@ -70,6 +70,10 @@
                             <li><a href="{{ route('admin.penelitipengabdimagister.index') }}">Input Peneliti Pengabdi Magister</a>
                             </li>
                             @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdispesialis.index') }}">Input Peneliti Pengabdi Spesialis</a>
+                            </li>
+                            @endif
                             
                         </ul>
                     </div>

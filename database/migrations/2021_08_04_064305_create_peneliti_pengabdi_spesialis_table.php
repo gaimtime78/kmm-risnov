@@ -4,16 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenelitiPengabdiMagister extends Migration
+class CreatePenelitiPengabdiSpesialisTable extends Migration
 {
-   /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('peneliti_pengabdi_magister', function (Blueprint $table) {
+        Schema::create('peneliti_pengabdi_spesialis', function (Blueprint $table) {
             $table->id();
             $table->string('fakultas');
             $table->string('status');
@@ -51,6 +51,6 @@ class CreatePenelitiPengabdiMagister extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peneliti_pengabdi_magister');
+        Schema::dropIfExists('peneliti_pengabdi_spesialis');
     }
 }

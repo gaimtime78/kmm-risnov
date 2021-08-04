@@ -83,6 +83,7 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
         Route::group(['as'=> 'penelitipengabdimagister.', 'prefix' => '/penelitipengabdimagister'], function(){
             Route::get('/', [App\Http\Controllers\Rida\MagisterController::class, 'index'])->name('index');
+            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\MagisterController::class, 'details'])->name('details');
             Route::get('/create', [App\Http\Controllers\Rida\MagisterController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\MagisterController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'edit'])->name('edit');
@@ -90,6 +91,18 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/delete/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\MagisterController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\MagisterController::class, 'import'])->name('import');
+        });
+
+        Route::group(['as'=> 'penelitipengabdispesialis.', 'prefix' => '/penelitipengabdispesialis'], function(){
+            Route::get('/', [App\Http\Controllers\Rida\SpesialisController::class, 'index'])->name('index');
+            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\SpesialisController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\SpesialisController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\SpesialisController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\SpesialisController::class, 'edit'])->name('edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\Rida\SpesialisController::class, 'update'])->name('update');
+            Route::get('/delete/{id}', [App\Http\Controllers\Rida\SpesialisController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\SpesialisController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\SpesialisController::class, 'import'])->name('import');
         });
         
         Route::group(['prefix' => '/category'], function(){
