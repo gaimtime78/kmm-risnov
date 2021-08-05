@@ -249,7 +249,19 @@
                   </tbody>
                   <thead>
                       <tr>
-                          <th  colspan="3" style="text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah0}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent0}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah1}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent1}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah2}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent2}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah3}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent3}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah4}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent4}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah5}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent5}}%</th>
                         
                       </tr>
                       

@@ -65,12 +65,19 @@
                   <form action="{{route('admin.indekspenelitipkm.import')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-content">
-                      <h4>Import Agenda</h4>
+                      <p>Import Excel Table 7 H-Indeks Penelitian PKM</p>
                       <p>Untuk import agenda melalui excel, silahkan download template excel dan sesuaikan masukan</p>
                       <!-- <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a> -->
-                      <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
+                      <h5><label for="indekspenelitipkm" class="form-label">Upload file excel</label></h5>
                       <input type="file" name="indekspenelitipkm">
+
+                      <h5><label for="sumber_data" class="form-label">Tahun Upload</label></h5>
+                      <input type="text" name="tahun">
+                      
+                      <h5><label for="periode" class="form-label">Periode</label></h5>
+                      <input type="text" name="periode">
                     </div>
+
                     <div class="modal-footer">
                       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                       <button type="submit" class="waves-effect waves-green btn">Submit</button>
@@ -84,8 +91,7 @@
                       <tr>
                           <th>#</th>
                           <th>Fakultas</th>
-                          <th>Periode</th>
-                          <th>Tanggal</th>
+                          <th>Tahun</th>
                           <th>Action</th>
                       </tr>
                   </thead>
@@ -96,14 +102,13 @@
                       @foreach ($indekspenelitipkm as $row)
                       <tr>
                           <td>{{$i}}</td>
-                          <td>{{$row->fakultas}}</td>
                           <td>{{$row->periode}}</td>
-                          <td>{{$row->jenjang}}</td>
+                          <td>{{$row->tahun_input}}</td>
                          
-                          <td><a href="{{route('admin.indekspenelitipkm.details' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="{{route('admin.indekspenelitipkm.details' ,[ $row->periode, $row->tahun_input] )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Hapus -->
                           <div id="hapus{{$row->id}}" class="modal">
-                            <form action="{{route('admin.indekspenelitipkm.delete', [$row->fakultas])}}" method="get">
+                            <form action="{{route('admin.indekspenelitipkm.delete', [$row->periode])}}" method="get">
                               @csrf
                               <div class="modal-content">
                                 <h4>Delete Agenda</h4>
