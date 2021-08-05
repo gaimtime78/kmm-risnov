@@ -62,7 +62,6 @@ class RidaController extends Controller
         $sum75_jumlah        = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia75_jumlah');
 
         $total               = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
-        // $sum_total   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
 
         return view('admin.penelitipengabdi.details', ['penelitipengabdi' => $penelitipengabdi, 'fakultas' => $fakultas, 
                     'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sum25sd35_jumlah' => $sum25sd35_jumlah ,   
@@ -72,11 +71,6 @@ class RidaController extends Controller
                     'sum66_75L' => $sum66_75L, 'sum66_75P' => $sum66_75P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,   
                     'sum75L' => $sum75L, 'sum75P' => $sum75P, 'sum75_jumlah' => $sum75_jumlah,   
                     'total' => $total,  
-                    
-                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
-                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
-                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
-                    
                     ]);
     }
 
