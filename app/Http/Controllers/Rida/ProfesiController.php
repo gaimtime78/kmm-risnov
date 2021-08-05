@@ -26,7 +26,7 @@ class ProfesiController extends Controller
         $nama_fakultas  = $fakultas;
         $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input');
         
-        return view('admin.penelitipengabdimagister.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
+        return view('admin.penelitipengabdiprofesi.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
     }
 
     

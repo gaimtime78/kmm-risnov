@@ -26,7 +26,7 @@ class Spesialis1Controller extends Controller
         $nama_fakultas  = $fakultas;
         $data = PenelitiPengabdiSpesialis1::select('periode', 'tahun_input')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input');
         
-        return view('admin.penelitipengabdimagister.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
+        return view('admin.penelitipengabdispesialis1.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
     }
 
     
