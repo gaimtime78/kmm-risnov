@@ -21,11 +21,19 @@ class ProfesiController extends Controller
         return view('admin.penelitipengabdiprofesi.index', ['penelitipengabdiprofesi' => $penelitipengabdiprofesi]);
     }
 
-    
-    public function details(Request $request, $fakultas)
+    public function pilihperiode($fakultas)
     {
-        $nama_fakultas = $fakultas;
-        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::distinct()->where('fakultas', $fakultas)->get();
+        $nama_fakultas  = $fakultas;
+        $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input');
+        
+        return view('admin.penelitipengabdimagister.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
+    }
+
+    
+    public function details($nama_fakultas, $periode, $tahun_input)
+    {
+        $fakultas = $nama_fakultas;
+        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::where([['fakultas', $fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
 
         $sum25_35L              = PenelitiPengabdiProfesi::where('fakultas', $fakultas)->sum('usia25sd35_L');
         $sum25_35P              = PenelitiPengabdiProfesi::where('fakultas', $fakultas)->sum('usia25sd35_P');
@@ -113,6 +121,10 @@ class ProfesiController extends Controller
         if ($file !== null) {
             Excel::import(new PenelitiPengabdiProfesisImport, $file);
         }
+       
+        PenelitiPengabdiProfesi::where('periode', 'kosong')
+                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+
         return redirect()->route('admin.penelitipengabdiprofesi.index');
     }
 }

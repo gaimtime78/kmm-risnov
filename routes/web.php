@@ -68,7 +68,6 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/delete/{id}', [App\Http\Controllers\Menu\MenuController::class, 'delete'])->name('delete');
         });
 
-        
         Route::group(['as'=> 'penelitipengabdi.', 'prefix' => '/penelitipengabdi'], function(){
             Route::get('/', [App\Http\Controllers\Rida\RidaController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\RidaController::class, 'pilihperiode'])->name('pilihperiode');
@@ -84,7 +83,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
         Route::group(['as'=> 'penelitipengabdimagister.', 'prefix' => '/penelitipengabdimagister'], function(){
             Route::get('/', [App\Http\Controllers\Rida\MagisterController::class, 'index'])->name('index');
-            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\MagisterController::class, 'details'])->name('details');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\MagisterController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\MagisterController::class, 'details'])->name('details');
             Route::get('/create', [App\Http\Controllers\Rida\MagisterController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\MagisterController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'edit'])->name('edit');
@@ -96,7 +96,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
         Route::group(['as'=> 'penelitipengabdispesialis.', 'prefix' => '/penelitipengabdispesialis'], function(){
             Route::get('/', [App\Http\Controllers\Rida\SpesialisController::class, 'index'])->name('index');
-            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\SpesialisController::class, 'details'])->name('details');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\SpesialisController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SpesialisController::class, 'details'])->name('details');
             Route::get('/create', [App\Http\Controllers\Rida\SpesialisController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\SpesialisController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\SpesialisController::class, 'edit'])->name('edit');
@@ -108,7 +109,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
         Route::group(['as'=> 'penelitipengabdispesialiskonsultan.', 'prefix' => '/penelitipengabdispesialiskonsultan'], function(){
             Route::get('/', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'index'])->name('index');
-            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'details'])->name('details');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'details'])->name('details');
             Route::get('/create', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'edit'])->name('edit');
@@ -120,7 +122,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
 
         Route::group(['as'=> 'penelitipengabdispesialis1.', 'prefix' => '/penelitipengabdispesialis1'], function(){
             Route::get('/', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'index'])->name('index');
-            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'details'])->name('details');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'details'])->name('details');
             Route::get('/create', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'edit'])->name('edit');
@@ -130,10 +133,10 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::post('/import', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'import'])->name('import');
         });
         
-
         Route::group(['as'=> 'penelitipengabdiprofesi.', 'prefix' => '/penelitipengabdiprofesi'], function(){
             Route::get('/', [App\Http\Controllers\Rida\ProfesiController::class, 'index'])->name('index');
-            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\ProfesiController::class, 'details'])->name('details');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\ProfesiController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ProfesiController::class, 'details'])->name('details');
             Route::get('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'edit'])->name('edit');

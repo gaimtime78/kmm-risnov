@@ -21,11 +21,19 @@ class Spesialis1Controller extends Controller
         return view('admin.penelitipengabdispesialis1.index', ['penelitipengabdispesialis1' => $penelitipengabdispesialis1]);
     }
 
-    
-    public function details(Request $request, $fakultas)
+    public function pilihperiode($fakultas)
     {
-        $nama_fakultas = $fakultas;
-        $penelitipengabdispesialis1 = PenelitiPengabdiSpesialis1::distinct()->where('fakultas', $fakultas)->get();
+        $nama_fakultas  = $fakultas;
+        $data = PenelitiPengabdiSpesialis1::select('periode', 'tahun_input')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input');
+        
+        return view('admin.penelitipengabdimagister.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
+    }
+
+    
+    public function details($nama_fakultas, $periode, $tahun_input)
+    {
+        $fakultas = $nama_fakultas;
+        $penelitipengabdispesialis1 = PenelitiPengabdiSpesialis1::where([['fakultas', $fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
 
         $sum25_35L              = PenelitiPengabdiSpesialis1::where('fakultas', $fakultas)->sum('usia25sd35_L');
         $sum25_35P              = PenelitiPengabdiSpesialis1::where('fakultas', $fakultas)->sum('usia25sd35_P');
@@ -113,6 +121,10 @@ class Spesialis1Controller extends Controller
         if ($file !== null) {
             Excel::import(new PenelitiPengabdiSpesialis1sImport, $file);
         }
+       
+        PenelitiPengabdiSpesialis1::where('periode', 'kosong')
+                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+
         return redirect()->route('admin.penelitipengabdispesialis1.index');
     }
 }

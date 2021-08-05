@@ -65,8 +65,8 @@
                   <form action="{{route('admin.penelitipengabdi.import')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-content">
-                      <h4>Import Agenda</h4>
-                      <p>Untuk import agenda melalui excel, silahkan download template excel dan sesuaikan masukan</p>
+                      <h4>Import Data</h4>
+                      <p>Untuk import data melalui excel, silahkan download template excel dan sesuaikan masukan</p>
                       <!-- <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a> -->
                         <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
                         <input type="file" name="penelitipengabdi">

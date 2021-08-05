@@ -51,7 +51,7 @@
           </div>
           @endif
 
-          <div id="table-datatables">\
+          <div id="table-datatables">
           
             <h4 class="header left">Tabel 1 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $fakultas}}</h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->

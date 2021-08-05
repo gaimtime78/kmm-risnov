@@ -21,11 +21,19 @@ class MagisterController extends Controller
         return view('admin.penelitipengabdimagister.index', ['penelitipengabdimagister' => $penelitipengabdimagister]);
     }
 
-    
-    public function details(Request $request, $fakultas)
+    public function pilihperiode($fakultas)
     {
-        $nama_fakultas = $fakultas;
-        $penelitipengabdimagister = PenelitiPengabdiMagister::distinct()->where('fakultas', $fakultas)->get();
+        $nama_fakultas  = $fakultas;
+        $data = PenelitiPengabdiMagister::select('periode', 'tahun_input')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input');
+        
+        return view('admin.penelitipengabdimagister.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
+    }
+
+    
+    public function details($nama_fakultas, $periode, $tahun_input)
+    {
+        $fakultas = $nama_fakultas;
+        $penelitipengabdimagister = PenelitiPengabdiMagister::where([['fakultas', $fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
 
         $sum25_35L              = PenelitiPengabdiMagister::where('fakultas', $fakultas)->sum('usia25sd35_L');
         $sum25_35P              = PenelitiPengabdiMagister::where('fakultas', $fakultas)->sum('usia25sd35_P');
@@ -104,7 +112,7 @@ class MagisterController extends Controller
 
     public function export()
     {
-        return Excel::download(new PenelitiPengabdiExport, 'penelitipengabdimagister.xlsx');
+        return Excel::download(new PenelitiPengabdiMagistersExport, 'penelitipengabdimagister.xlsx');
     }
 
     public function import(Request $request)
@@ -113,6 +121,10 @@ class MagisterController extends Controller
         if ($file !== null) {
             Excel::import(new PenelitiPengabdiMagistersImport, $file);
         }
+       
+        PenelitiPengabdiMagister::where('periode', 'kosong')
+                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+
         return redirect()->route('admin.penelitipengabdimagister.index');
     }
 }

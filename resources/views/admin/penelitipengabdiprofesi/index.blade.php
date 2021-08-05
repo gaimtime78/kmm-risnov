@@ -65,11 +65,17 @@
                   <form action="{{route('admin.penelitipengabdiprofesi.import')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-content">
-                      <h4>Import Agenda</h4>
-                      <p>Untuk import agenda melalui excel, silahkan download template excel dan sesuaikan masukan</p>
+                      <h4>Import Data</h4>
+                      <p>Untuk import data melalui excel, silahkan download template excel dan sesuaikan masukan</p>
                       <!-- <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a> -->
-                      <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
-                      <input type="file" name="penelitipengabdiprofesi">
+                        <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
+                        <input type="file" name="penelitipengabdiprofesi">
+
+                        <h5><label for="sumber_data" class="form-label">Sumber Data</label></h5>
+                        <input type="text" name="tahun">
+                        
+                        <h5><label for="periode" class="form-label">Periode</label></h5>
+                        <input type="text" name="periode">
                     </div>
                     <div class="modal-footer">
                       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
@@ -100,7 +106,7 @@
                           <td>{{$row->periode}}</td>
                           <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="{{route('admin.penelitipengabdiprofesi.details' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="{{route('admin.penelitipengabdiprofesi.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
                           <!-- Modal Hapus -->
                           <div id="hapus{{$row->id}}" class="modal">
                             <form action="{{route('admin.penelitipengabdiprofesi.delete', [$row->fakultas])}}" method="get">
