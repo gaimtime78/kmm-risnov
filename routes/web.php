@@ -148,7 +148,7 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
         
         Route::group(['as'=> 'indekspenelitipkm.', 'prefix' => '/indekspenelitipkm'], function(){
             Route::get('/', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'index'])->name('index');
-            Route::get('/details/{fakultas}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'details'])->name('details');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'details'])->name('details');
             Route::get('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'edit'])->name('edit');
