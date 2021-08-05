@@ -11,6 +11,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
 {
 
   public function  __construct($periode, $tahun){
+    // dd($periode);
     $this->periode = $periode;
     $this->tahun_input = $tahun;
   }

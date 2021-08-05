@@ -11,6 +11,8 @@ use App\Models\PenelitiPengabdi;
 use App\Exports\PenelitiPengabdiExport;
 use App\Imports\PenelitiPengabdisImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
+
 
 class RidaController extends Controller
 {
@@ -21,37 +23,45 @@ class RidaController extends Controller
         return view('admin.penelitipengabdi.index', ['penelitipengabdi' => $penelitipengabdi]);
     }
 
-    public function details(Request $request, $fakultas)
+    public function pilihperiode($fakultas)
     {
-        $nama_fakultas = $fakultas;
-        $penelitipengabdi = PenelitiPengabdi::distinct()->where('fakultas', $fakultas)->get();
+        $nama_fakultas  = $fakultas;
+        $data = PenelitiPengabdi::select('periode', 'tahun_input')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input');
+        
+        return view('admin.penelitipengabdi.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
+    }
+
+    public function details($nama_fakultas, $periode, $tahun_input)
+    {
+        $fakultas = $nama_fakultas;
+        $penelitipengabdi = PenelitiPengabdi::where([['fakultas', $fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
 
         $sum25_35L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia25sd35_L');
         $sum25_35P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia25sd35_P');
-        $sum25sd35_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia25sd35_jumlah');
+        $sum25sd35_jumlah       = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia25sd35_jumlah');
 
         
         $sum36_45L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_L');
         $sum36_45P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_P');
-        $sum36sd45_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_jumlah');
+        $sum36sd45_jumlah       = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia36sd45_jumlah');
 
         $sum46_55L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia46sd55_L');
         $sum46_55P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia46sd55_P');
-        $sum46sd55_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia46sd55_jumlah');
+        $sum46sd55_jumlah       = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia46sd55_jumlah');
 
         $sum56_65L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia56sd65_L');
         $sum56_65P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia56sd65_P');
-        $sum56sd65_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia56sd65_jumlah');
+        $sum56sd65_jumlah       = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia56sd65_jumlah');
 
         $sum66_75L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia66sd75_L');
         $sum66_75P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia66sd75_P');
-        $sum66sd75_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia66sd75_jumlah');
+        $sum66sd75_jumlah       = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia66sd75_jumlah');
 
         $sum75L              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia75_L');
         $sum75P              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia75_P');
-        $sum75_jumlah   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia75_jumlah');
+        $sum75_jumlah        = PenelitiPengabdi::where('fakultas', $fakultas)->sum('usia75_jumlah');
 
-        $total              = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
+        $total               = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
         // $sum_total   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
 
         return view('admin.penelitipengabdi.details', ['penelitipengabdi' => $penelitipengabdi, 'fakultas' => $fakultas, 
@@ -109,9 +119,16 @@ class RidaController extends Controller
     public function import(Request $request)
     {
         $file = $request->file("penelitipengabdi");
+        $periode = $request->periode;
+        $tahun = $request->tahun;
+        // dd($periode);
         if ($file !== null) {
             Excel::import(new PenelitiPengabdisImport, $file);
         }
+       
+        PenelitiPengabdi::where('periode', 'kosong')
+                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+
         return redirect()->route('admin.penelitipengabdi.index');
     }
 }
