@@ -262,7 +262,39 @@
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percent4}}%</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah5}}</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percent5}}%</th>
-                        
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah6}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent6}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah7}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent7}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah8}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent8}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah9}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent9}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah10}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent10}}%</th>
+
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah11}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent11}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah12}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent12}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah13}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent13}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah14}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent14}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah15}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent15}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah16}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent16}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah17}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent17}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah18}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent18}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah19}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent19}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah20}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent20}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jmltotalfak}} </th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percenttotalfak}}% </th>
                       </tr>
                       
                   </thead>
