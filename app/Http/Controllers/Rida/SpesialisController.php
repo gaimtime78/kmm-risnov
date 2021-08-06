@@ -95,16 +95,24 @@ class SpesialisController extends Controller
         return view('admin/penelitipengabdispesialis/edit', compact('penelitipengabdispesialis'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdispesialis = PenelitiPengabdiSpesialis::find($id);
-        return redirect()->route('admin.penelitipengabdispesialis.index');
+        $penelitipengabdispesialis = PenelitiPengabdiSpesialis::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdispesialis as $peneliti) {
+            $peneliti->periode = $request->periode;
+            $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->save();
+        }
+
+        return redirect()->route('admin.penelitipengabdispesialis.pilihperiode' , $nama_fakultas);
     }
 
-    public function delete($id)
+    public function delete($nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdispesialis = PenelitiPengabdiSpesialis::findOrFail($id);
-        $penelitipengabdispesialis->delete();
+        $penelitipengabdispesialis = PenelitiPengabdiSpesialis::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdispesialis as $peneliti) {
+            $peneliti->delete();
+        }
 
         return redirect()->route('admin.penelitipengabdispesialis.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));

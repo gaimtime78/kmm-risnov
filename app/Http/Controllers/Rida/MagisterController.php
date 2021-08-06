@@ -95,16 +95,24 @@ class MagisterController extends Controller
         return view('admin/penelitipengabdimagister/edit', compact('penelitipengabdimagister'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdimagister = PenelitiPengabdiMagister::find($id);
-        return redirect()->route('admin.penelitipengabdimagister.index');
+        $penelitipengabdimagister = PenelitiPengabdiMagister::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();;
+        foreach ($penelitipengabdimagister as $peneliti) {
+            $peneliti->periode = $request->periode;
+            $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->save();
+        }
+
+        return redirect()->route('admin.penelitipengabdimagister.pilihperiode' , $nama_fakultas);
     }
 
-    public function delete($id)
+    public function delete($nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdimagister = PenelitiPengabdiMagister::findOrFail($id);
-        $penelitipengabdimagister->delete();
+        $penelitipengabdimagister = PenelitiPengabdiMagister::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdimagister as $peneliti) {
+            $peneliti->delete();
+        }
 
         return redirect()->route('admin.penelitipengabdimagister.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));

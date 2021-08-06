@@ -88,8 +88,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\MagisterController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\MagisterController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida\MagisterController::class, 'delete'])->name('delete');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\MagisterController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\MagisterController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\MagisterController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\MagisterController::class, 'import'])->name('import');
         });
@@ -101,8 +101,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\SpesialisController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\SpesialisController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\SpesialisController::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida\SpesialisController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida\SpesialisController::class, 'delete'])->name('delete');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SpesialisController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SpesialisController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\SpesialisController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\SpesialisController::class, 'import'])->name('import');
         });
@@ -114,8 +114,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'delete'])->name('delete');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\SpesialisKonsultanController::class, 'import'])->name('import');
         });
@@ -127,8 +127,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'delete'])->name('delete');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Spesialis1Controller::class, 'import'])->name('import');
         });
@@ -140,8 +140,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'delete'])->name('delete');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ProfesiController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ProfesiController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\ProfesiController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\ProfesiController::class, 'import'])->name('import');
         });

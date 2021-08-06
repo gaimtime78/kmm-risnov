@@ -95,16 +95,24 @@ class SpesialisKonsultanController extends Controller
         return view('admin/penelitipengabdispesialiskonsultan/edit', compact('penelitipengabdispesialiskonsultan'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdispesialiskonsultan = PenelitiPengabdiSpesialisKonsultan::find($id);
-        return redirect()->route('admin.penelitipengabdispesialiskonsultan.index');
+        $penelitipengabdispesialiskonsultan = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdispesialiskonsultan as $peneliti) {
+            $peneliti->periode = $request->periode;
+            $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->save();
+        }
+
+        return redirect()->route('admin.penelitipengabdispesialiskonsultan.pilihperiode' , $nama_fakultas);
     }
 
-    public function delete($id)
+    public function delete($nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdispesialiskonsultan = PenelitiPengabdiSpesialisKonsultan::findOrFail($id);
-        $penelitipengabdispesialiskonsultan->delete();
+        $penelitipengabdispesialiskonsultan = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdispesialiskonsultan as $peneliti) {
+            $peneliti->delete();
+        }
 
         return redirect()->route('admin.penelitipengabdispesialiskonsultan.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));
