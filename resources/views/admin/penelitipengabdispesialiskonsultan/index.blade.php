@@ -71,11 +71,14 @@
                         <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
                         <input type="file" name="penelitipengabdispesialiskonsultan">
 
-                        <h5><label for="sumber_data" class="form-label">Sumber Data</label></h5>
+                        <h5><label for="tahun" class="form-label">Tahun</label></h5>
                         <input type="text" name="tahun">
                         
                         <h5><label for="periode" class="form-label">Periode</label></h5>
                         <input type="text" name="periode">
+
+                        <h5><label for="sumber_data" class="form-label">Sumber Data</label></h5>
+                        <input type="text" name="sumber_data">
                     </div>
                     <div class="modal-footer">
                       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
