@@ -75,8 +75,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\RidaController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\RidaController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\RidaController::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida\RidaController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida\RidaController::class, 'delete'])->name('delete');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RidaController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RidaController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\RidaController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\RidaController::class, 'import'])->name('import');
         });
