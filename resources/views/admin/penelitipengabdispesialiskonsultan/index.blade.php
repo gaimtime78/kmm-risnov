@@ -109,21 +109,8 @@
                           <td>{{$row->periode}}</td>
                           <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="{{route('admin.penelitipengabdispesialiskonsultan.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
-                          <!-- Modal Hapus -->
-                          <div id="hapus{{$row->id}}" class="modal">
-                            <form action="{{route('admin.penelitipengabdispesialiskonsultan.delete', [$row->fakultas])}}" method="get">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Delete Agenda</h4>
-                                <hr>
-                                <p>Anda yakin ingin menghapus data {{$row->fakultas}}?</p>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
-                              </div>
-                            </form>
-                          </div>
+                          <td><a href="{{route('admin.penelitipengabdispesialiskonsultan.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a></td>
+                          
                       </tr>
                       @php
                         $i++;

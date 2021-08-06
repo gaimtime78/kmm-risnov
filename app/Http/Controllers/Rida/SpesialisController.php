@@ -123,7 +123,7 @@ class SpesialisController extends Controller
         }
        
         PenelitiPengabdiSpesialis::where('periode', 'kosong')
-                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data]);
 
         return redirect()->route('admin.penelitipengabdispesialis.index');
     }

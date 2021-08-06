@@ -20,6 +20,7 @@ class CreatePenelitiPengabdiSpesialisKonsultanTable extends Migration
             $table->string('jenjang');
             $table->string('periode');
             $table->string('tahun_input');
+            $table->string('sumber_data');
             $table->string('usia25sd35_L');
             $table->string('usia25sd35_P');
             $table->string('usia25sd35_jumlah');

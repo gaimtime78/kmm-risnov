@@ -115,13 +115,14 @@ class RidaController extends Controller
         $file = $request->file("penelitipengabdi");
         $periode = $request->periode;
         $tahun = $request->tahun;
+        $sumber_data = $request->sumber_data;
         // dd($periode);
         if ($file !== null) {
             Excel::import(new PenelitiPengabdisImport, $file);
         }
        
         PenelitiPengabdi::where('periode', 'kosong')
-                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+                ->update(['periode' => $periode, 'tahun_input' => $tahun, 'sumber_data' => $sumber_data]);
 
         return redirect()->route('admin.penelitipengabdi.index');
     }
