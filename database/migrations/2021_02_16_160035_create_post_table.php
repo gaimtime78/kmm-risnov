@@ -18,7 +18,7 @@ class CreatePostTable extends Migration
             $table->string('title');
             $table->longText('slug');
             $table->longText('content');
-            $table->longText('overview')->default('');
+            $table->longText('overview')->nullable();
             $table->boolean('show_thumbnail')->default(true);
             $table->string('thumbnail')->nullable();
             $table->longText('video_url')->nullable();
