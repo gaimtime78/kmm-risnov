@@ -18,6 +18,7 @@ class CreateIndeksPenelitianPkmTable extends Migration
             $table->string('fakultas');
             $table->string('periode');
             $table->string('tahun_input');
+            $table->string('sumber_data');
 
             $table->string('jumlah0');
             $table->string('percent0');

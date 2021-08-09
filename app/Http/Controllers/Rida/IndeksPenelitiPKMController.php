@@ -74,17 +74,25 @@ class IndeksPenelitiPKMController extends Controller
         return view('admin/indekspenelitipkm/edit', compact('indekspenelitipkm'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $periode, $tahun_input)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::find($id);
+        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        // dd($indekspenelitipkm);
+        foreach ($indekspenelitipkm as $peneliti) {
+            $peneliti->periode = $request->periode;
+            $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->save();
+        }
+
         return redirect()->route('admin.indekspenelitipkm.index');
     }
 
-    public function delete($id)
+    public function delete($periode, $tahun_input)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::findOrFail($id);
-        $indekspenelitipkm->delete();
-
+        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($indekspenelitipkm as $peneliti) {
+            $peneliti->delete();
+        }
         return redirect()->route('admin.indekspenelitipkm.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));
     }
@@ -97,12 +105,15 @@ class IndeksPenelitiPKMController extends Controller
     public function import(Request $request)
     {
         $file = $request->file("indekspenelitipkm");
+        $periode = $request->periode;
+        $tahun = $request->tahun;
+        $sumber_data = $request->sumber_data;
         if ($file !== null) {
             Excel::import(new IndeksPenelitiPKMsImport, $file);
         }
 
         IndeksPenelitiPKM::where('periode', 'kosong')
-        ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+        ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
 
         return redirect()->route('admin.indekspenelitipkm.index');
     }
