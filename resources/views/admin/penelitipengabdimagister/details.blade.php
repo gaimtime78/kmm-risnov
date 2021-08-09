@@ -83,6 +83,7 @@
                           <th style="text-align:justify !important;"> - > 75 P</th>
                           <th style="text-align:justify !important;">Jumlah Total</th>
                           <th style="text-align:justify !important;">Total</th>
+                          <th style="text-align:justify !important;">Total Percent %</th>
                           <th style="text-align:justify !important;">Action</th>
                       </tr>
                   </thead>
@@ -114,6 +115,7 @@
                           <td style="text-align:center !important;">{{$row->usia75_P}}</td>
                           <td style="text-align:center !important;">{{$row->usia75_jumlah}}</td>
                           <td style="text-align:center !important;">{{$row->total}}</td>
+                          <td style="text-align:center !important;"></td>
                          
                          
                           <td><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
@@ -197,6 +199,7 @@
                           <th style="text-align:justify !important;">{{$sum75P}}</th>
                           <th style="text-align:justify !important;">{{$sum75_jumlah}}</th>
                           <th style="text-align:justify !important;">{{$total}}</th>
+                          <th colspan="2"style="text-align:justify !important;">{{number_format((float)$totalpercent, 2, '.', '')}} %</th>
                       </tr>
                       
                   </thead>
