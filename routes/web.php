@@ -68,6 +68,19 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/delete/{id}', [App\Http\Controllers\Menu\MenuController::class, 'delete'])->name('delete');
         });
 
+        Route::group(['as'=> 'capaian_iku.', 'prefix' => '/capaian_iku'], function(){
+            Route::get('/', [App\Http\Controllers\Rida\IkuController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{target_capaian}', [App\Http\Controllers\Rida\IkuController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{target_capaian}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IkuController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\IkuController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\IkuController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\IkuController::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IkuController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IkuController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\IkuController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\IkuController::class, 'import'])->name('import');
+        });
+
         Route::group(['as'=> 'penelitipengabdi.', 'prefix' => '/penelitipengabdi'], function(){
             Route::get('/', [App\Http\Controllers\Rida\RidaController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\RidaController::class, 'pilihperiode'])->name('pilihperiode');
