@@ -152,8 +152,8 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'edit'])->name('edit');
-            Route::post('/edit/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'update'])->name('update');
-            Route::get('/delete/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'delete'])->name('delete');
+            Route::post('/edit/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'update'])->name('update');
+            Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'import'])->name('import');
         });
