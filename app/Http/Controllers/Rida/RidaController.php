@@ -90,16 +90,25 @@ class RidaController extends Controller
         return view('admin/penelitipengabdi/edit', compact('penelitipengabdi'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdi = PenelitiPengabdi::find($id);
-        return redirect()->route('admin.penelitipengabdi.index');
+        $penelitipengabdi = PenelitiPengabdi::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->periode = $request->periode;
+            $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->save();
+        }
+
+        return redirect()->route('admin.penelitipengabdi.pilihperiode' , $nama_fakultas);
     }
 
-    public function delete($id)
+    public function delete($nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdi = PenelitiPengabdi::findOrFail($id);
-        $penelitipengabdi->delete();
+        $penelitipengabdi = PenelitiPengabdi::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->delete();
+        }
 
         return redirect()->route('admin.penelitipengabdi.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));
@@ -115,13 +124,14 @@ class RidaController extends Controller
         $file = $request->file("penelitipengabdi");
         $periode = $request->periode;
         $tahun = $request->tahun;
+        $sumber_data = $request->sumber_data;
         // dd($periode);
         if ($file !== null) {
             Excel::import(new PenelitiPengabdisImport, $file);
         }
        
         PenelitiPengabdi::where('periode', 'kosong')
-                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+                ->update(['periode' => $periode, 'tahun_input' => $tahun, 'sumber_data' => $sumber_data]);
 
         return redirect()->route('admin.penelitipengabdi.index');
     }

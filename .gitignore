@@ -4,6 +4,7 @@
 /public/upload
 /storage/*.key
 /vendor
+/storage/framework/laravel-excel/*
 .env
 .env.backup
 .phpunit.result.cache

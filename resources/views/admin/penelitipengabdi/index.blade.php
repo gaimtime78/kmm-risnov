@@ -71,11 +71,14 @@
                         <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
                         <input type="file" name="penelitipengabdi">
 
-                        <h5><label for="sumber_data" class="form-label">Sumber Data</label></h5>
+                        <h5><label for="tahun" class="form-label">Tahun</label></h5>
                         <input type="text" name="tahun">
                         
                         <h5><label for="periode" class="form-label">Periode</label></h5>
                         <input type="text" name="periode">
+
+                        <h5><label for="sumber_data" class="form-label">Sumber Data</label></h5>
+                        <input type="text" name="sumber_data">
                     </div>
                    
                     <div class="modal-footer">
@@ -103,21 +106,7 @@
                           <td>{{$i}}</td>
                           <td>{{$row->fakultas}}</td>
                          
-                          <td><a href="{{route('admin.penelitipengabdi.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
-                          <!-- Modal Hapus -->
-                          <div id="hapus{{$row->id}}" class="modal">
-                            <form action="{{route('admin.penelitipengabdi.delete', [$row->fakultas])}}" method="get">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Delete Agenda</h4>
-                                <hr>
-                                <p>Anda yakin ingin menghapus data {{$row->fakultas}}?</p>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
-                              </div>
-                            </form>
-                          </div>
+                          <td><a href="{{route('admin.penelitipengabdi.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a></td>
                       </tr>
                       @php
                         $i++;
