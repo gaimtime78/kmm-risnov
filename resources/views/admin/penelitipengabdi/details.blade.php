@@ -274,13 +274,13 @@
                                                         </form>
                                                     </div>
                                                     <!-- Modal Hapus -->
-                                                    <div id="hapus" class="modal">
-                                                        <form action="#" method="get">
+                                                    <div id="hapus{{ $row->id }}" class="modal">
+                                                        <form action="{{ route('admin.penelitipengabdi.deleterow', ['id' => $row->id]) }}" method="get">
                                                             @csrf
                                                             <div class="modal-content">
                                                                 <h4>Delete Agenda</h4>
                                                                 <hr>
-                                                                <p>Anda yakin ingin menghapus agenda {{ $row->title }}?
+                                                                <p>Anda yakin ingin menghapus data?
                                                                 </p>
                                                                 <div class="modal-footer">
                                                                     <a href="#!"
