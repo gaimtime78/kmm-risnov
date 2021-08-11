@@ -93,7 +93,7 @@ Route::middleware(['auth:sanctum','RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\RidaController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\RidaController::class, 'import'])->name('import');
             Route::post('/editrow/{id}', [App\Http\Controllers\Rida\RidaController::class, 'updateRow'])->name('updaterow');
-            Route::post('/deleterow/{id}', [App\Http\Controllers\Rida\RidaController::class, 'deleteRow'])->name('deleterow');
+            Route::get('/deleterow/{id}', [App\Http\Controllers\Rida\RidaController::class, 'deleteRow'])->name('deleterow');
         });
 
         Route::group(['as'=> 'penelitipengabdimagister.', 'prefix' => '/penelitipengabdimagister'], function(){

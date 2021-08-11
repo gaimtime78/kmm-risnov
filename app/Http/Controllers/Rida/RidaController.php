@@ -180,4 +180,14 @@ class RidaController extends Controller
         $penelitipengabdi->save();
         return redirect()->route('admin.penelitipengabdi.details', [$fakultas, $periode, $tahun]);
     }
+
+    public function deleteRow($id)
+    {
+        $penelitipengabdi = PenelitiPengabdi::findOrFail($id);
+        $fakultas = $penelitipengabdi->fakultas;
+        $periode = $penelitipengabdi->periode;
+        $tahun = $penelitipengabdi->tahun_input;
+        $penelitipengabdi->delete();
+        return redirect()->route('admin.penelitipengabdi.details', [$fakultas, $periode, $tahun]);
+    }
 }

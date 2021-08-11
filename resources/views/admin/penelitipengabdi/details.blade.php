@@ -278,7 +278,7 @@
                                                         <form action="{{ route('admin.penelitipengabdi.deleterow', ['id' => $row->id]) }}" method="get">
                                                             @csrf
                                                             <div class="modal-content">
-                                                                <h4>Delete Agenda</h4>
+                                                                <h4>Delete Data</h4>
                                                                 <hr>
                                                                 <p>Anda yakin ingin menghapus data?
                                                                 </p>
