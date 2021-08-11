@@ -26,7 +26,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
     $currNo = '';
    
     // $currDetailCapaian = '';
-    for($i=6;$i<count($rows);$i++){
+    for($i=5;$i<count($rows);$i++){
       if($rows[$i][0] === 'J U M L A H'){
         break;
       }
@@ -57,6 +57,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
         ]);
       }
     }
+    // dd($data);
     Iku::insert($data);
   }
 }
