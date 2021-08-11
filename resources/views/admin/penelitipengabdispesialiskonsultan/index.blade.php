@@ -52,7 +52,7 @@
           @endif
 
           <div id="table-datatables">
-            <h4 class="header left">Tabel 4 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1 (K)
+            <h4 class="header left">Tabel 5 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1 (K)
 </h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
@@ -67,7 +67,7 @@
                     <div class="modal-content">
                       <h4>Import Data</h4>
                       <p>Untuk import data melalui excel, silahkan download template excel dan sesuaikan masukan</p>
-                      <!-- <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a> -->
+                      <a href="{{asset('template\rida\table_5_peneliti_pengabdi_sp-1(k).xlsx')}}">Download template</a>
                         <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
                         <input type="file" name="penelitipengabdispesialiskonsultan">
 
@@ -93,8 +93,6 @@
                       <tr>
                           <th>#</th>
                           <th>Fakultas</th>
-                          <th>Periode</th>
-                          <th>Tanggal</th>
                           <th>Action</th>
                       </tr>
                   </thead>
@@ -106,24 +104,9 @@
                       <tr>
                           <td>{{$i}}</td>
                           <td>{{$row->fakultas}}</td>
-                          <td>{{$row->periode}}</td>
-                          <td>{{$row->jenjang}}</td>
                          
-                          <td><a href="{{route('admin.penelitipengabdispesialiskonsultan.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
-                          <!-- Modal Hapus -->
-                          <div id="hapus{{$row->id}}" class="modal">
-                            <form action="{{route('admin.penelitipengabdispesialiskonsultan.delete', [$row->fakultas])}}" method="get">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Delete Agenda</h4>
-                                <hr>
-                                <p>Anda yakin ingin menghapus data {{$row->fakultas}}?</p>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
-                              </div>
-                            </form>
-                          </div>
+                          <td><a href="{{route('admin.penelitipengabdispesialiskonsultan.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a></td>
+                          
                       </tr>
                       @php
                         $i++;

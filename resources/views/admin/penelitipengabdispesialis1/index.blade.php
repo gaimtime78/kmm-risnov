@@ -52,8 +52,7 @@
           @endif
 
           <div id="table-datatables">
-            <h4 class="header left">Tabel 5 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1 
-</h4>
+            <h4 class="header left">Tabel 6 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1 </h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
@@ -67,7 +66,7 @@
                     <div class="modal-content">
                       <h4>Import Data</h4>
                       <p>Untuk import data melalui excel, silahkan download template excel dan sesuaikan masukan</p>
-                      <!-- <a href="{{asset('template\template_agenda.xlsx')}}">Download template</a> -->
+                      <a href="{{asset('template\rida\table_6_peneliti_pengabdi_sp-1.xlsx')}}">Download template</a>
                         <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
                         <input type="file" name="penelitipengabdispesialis1">
 
@@ -93,8 +92,6 @@
                       <tr>
                           <th>#</th>
                           <th>Fakultas</th>
-                          <th>Periode</th>
-                          <th>Tanggal</th>
                           <th>Action</th>
                       </tr>
                   </thead>
@@ -106,8 +103,6 @@
                       <tr>
                           <td>{{$i}}</td>
                           <td>{{$row->fakultas}}</td>
-                          <td>{{$row->periode}}</td>
-                          <td>{{$row->jenjang}}</td>
                          
                           <td><a href="{{route('admin.penelitipengabdispesialis1.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a></td>
                       </tr>

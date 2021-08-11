@@ -53,9 +53,8 @@
 
           <div id="table-datatables">
            
-              <h4 class="header left">Tabel 1 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $nama_fakultas}} </h4>
-            
-            <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
+              <h4 class="header left">Tabel 2 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $nama_fakultas}} </h4>
+
             <div class="row">
               <div class="col s12 m12 l12">
               
@@ -77,38 +76,40 @@
                           <td style="text-align:center !important;">{{$i}}</td>
                           <td style="text-align:center !important;">{{$row->periode}}</td>
                           <td style="text-align:center !important;">{{$row->tahun_input}}</td>
-                          <td><a href="{{route('admin.penelitipengabdi.details', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" class="btn" style="background-color: grey;">Detail</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td style="text-align:center !important;">{{$row->sumber_data}}</td>
+                          <td>
+                            <a href="{{route('admin.penelitipengabdi.details', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" class="btn" style="background-color: grey;">Detail</a>
+                            <a href="#edit" class="btn modal-trigger" style="background-color: green;">Edit</a>
+                            <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a>
+                          </td>
                           <!-- Modal Edit -->
-                          <div id="#" class="modal modal-fixed-footer">
-                            <form action="#" method="post">
+                          <div id="edit" class="modal modal-fixed-footer">
+                            <form action="{{route('admin.penelitipengabdi.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]  )}}" method="post">
                               @csrf
                               <div class="modal-content">
                                 <h4>Edit Data</h4>
                                 <hr>
                                 <div class="row">
                                   <div class="input-field col s12">
-                                    <input value="{{$row->title}}" id="title" name="title"  type="text" class="validate" required>
-                                    <label for="title">RIDA title</label>
+                                    <input value="{{$row->periode}}" id="periode" name="periode"  type="text" class="validate" required>
+                                    <label for="periode">Periode</label>
                                   </div>
                                 </div>
 
                                 <div class="row">
                                   <div class="mb-3" style="margin-left:8px">
-                                    <label for="date">Rida date</label>
-                                    <input value="{{$row->date}}" id="date"  name="date"  type="date" class="validate" required>
+                                    <label for="tahun_input">Tahun</label>
+                                    <input value="{{$row->tahun_input}}" id="tahun_input"  name="tahun_input"  type="text" class="validate" required>
                                   </div>
                                 </div>
-
                                 <div class="row">
                                   <div class="mb-3" style="margin-left:8px">
-                                    <label for="time">Rida time</label>
-                                    <input value="{{$row->time}}" id="time"  name="time"  type="time" class="validate" required>
+                                    <label for="sumber_data">Sumber Data</label>
+                                    <input value="{{$row->sumber_data}}" id="sumber_data"  name="sumber_data"  type="text" class="validate" required>
                                   </div>
                                 </div>
-
-                                
-                                
                               </div>
+
                               <div class="modal-footer">
                                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                                 <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
@@ -117,12 +118,12 @@
                           </div>
                           <!-- Modal Hapus -->
                           <div id="hapus" class="modal">
-                            <form action="#" method="get">
+                            <form action="{{route('admin.penelitipengabdi.delete', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" method="get">
                               @csrf
                               <div class="modal-content">
-                                <h4>Delete Agenda</h4>
+                                <h4>Hapus Tabel</h4>
                                 <hr>
-                                <p>Anda yakin ingin menghapus agenda {{$row->title}}?</p>
+                                <p>Anda yakin ingin menghapus Tabel {{ $row->periode }} tahun {{ $row->tahun_input }} ?</p>
                               <div class="modal-footer">
                                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                                 <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>

@@ -95,16 +95,25 @@ class ProfesiController extends Controller
         return view('admin/penelitipengabdiprofesi/edit', compact('penelitipengabdiprofesi'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::find($id);
-        return redirect()->route('admin.penelitipengabdiprofesi.index');
-    }
+        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdiprofesi as $peneliti) {
+            $peneliti->periode = $request->periode;
+            $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->save();
+        }
 
-    public function delete($id)
+        return redirect()->route('admin.penelitipengabdiprofesi.pilihperiode' , $nama_fakultas);
+    }
+    
+
+    public function delete($nama_fakultas, $periode, $tahun_input)
     {
-        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::findOrFail($id);
-        $penelitipengabdiprofesi->delete();
+        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::where([['fakultas', $nama_fakultas],['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        foreach ($penelitipengabdiprofesi as $peneliti) {
+            $peneliti->delete();
+        }
 
         return redirect()->route('admin.penelitipengabdiprofesi.index')
             ->with($this->status(0, 'sukses', 'Data Berhasil Dihapus!'));
@@ -123,7 +132,7 @@ class ProfesiController extends Controller
         }
        
         PenelitiPengabdiProfesi::where('periode', 'kosong')
-                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun]);
+                ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data]);
 
         return redirect()->route('admin.penelitipengabdiprofesi.index');
     }

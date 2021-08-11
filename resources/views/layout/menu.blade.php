@@ -63,6 +63,10 @@
                     <div class="collapsible-body">
                         <ul>
                             @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.capaian_iku.index') }}">Input Perkembangan Capaian IKU</a>
+                            </li>
+                            @endif
+                            @if(in_array("admin.permission.index", $permissionUser))
                             <li><a href="{{ route('admin.penelitipengabdi.index') }}">Input Peneliti Pengabdi Doktoral</a>
                             </li>
                             @endif

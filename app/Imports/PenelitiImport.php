@@ -10,10 +10,11 @@ use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 class PenelitiImport implements ToArray, WithCalculatedFormulas
 {
 
-  public function  __construct($periode, $tahun){
+  public function  __construct($periode, $tahun, $sumber_data){
     // dd($periode);
     $this->periode = $periode;
     $this->tahun_input = $tahun;
+    $this->sumber_data = $sumber_data;
   }
 
   public function array(array $rows){
@@ -21,11 +22,11 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
     $mapperSheet = ['Doktor'];
     $tabel = $rows[0][0];
     $tabelIndex = explode(" ", $tabel)[1]*1;
-    $jenjang = $mapperSheet[$tabelIndex-1];
+    $jenjang = 'Doktor';
     $data = [];
     $currFakultas = '';
     $currStatus = '';
-    for($i=6;$i<count($rows);$i++){
+    for($i=5;$i<count($rows);$i++){
       if($rows[$i][0] === 'J U M L A H'){
         break;
       }
@@ -39,30 +40,20 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
           'status' => $currStatus,
           'jenjang' => $jenjang,
           'periode' => $this->periode,
+          'sumber_data' => $this->sumber_data,
           'tahun_input' => $this->tahun_input,
-          'usia25sd35_L' => $rows[$i][2],
-          'usia25sd35_P' => $rows[$i][3],
-          'usia25sd35_jumlah' => $rows[$i][4],
-          'usia36sd45_L' => $rows[$i][5],
-          'usia36sd45_P' => $rows[$i][6],
-          'usia36sd45_jumlah' => $rows[$i][7],
-          'usia46sd55_L' => $rows[$i][8],
-          'usia46sd55_P' => $rows[$i][9],
-          'usia46sd55_jumlah' => $rows[$i][10],
-          'usia56sd65_L' => $rows[$i][11],
-          'usia56sd65_P' => $rows[$i][12],
-          'usia56sd65_jumlah' => $rows[$i][13],
-          'usia66sd75_L' => $rows[$i][14],
-          'usia66sd75_P' => $rows[$i][15],
-          'usia66sd75_jumlah' => $rows[$i][16],
-          'usia75_L' => $rows[$i][17],
-          'usia75_P' => $rows[$i][18],
-          'usia75_jumlah' => $rows[$i][19],
-          'total' => $rows[$i][20],
+          'usia25sd35_jumlah' => $rows[$i][2],
+          'usia36sd45_jumlah' => $rows[$i][3],
+          'usia46sd55_jumlah' => $rows[$i][4],
+          'usia56sd65_jumlah' => $rows[$i][5],
+          'usia66sd75_jumlah' => $rows[$i][6],
+          'usia75_jumlah' => $rows[$i][7],
+          'total' => $rows[$i][8],
           'user_id' => Auth::user()->id
         ]);
       }
     }
+    // dd($data);
     PenelitiPengabdi::insert($data);
   }
 }

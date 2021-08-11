@@ -80,7 +80,6 @@
                         <h5><label for="sumber_data" class="form-label">Sumber Data</label></h5>
                         <input type="text" name="sumber_data">
                     </div>
-                    </div>
                     <div class="modal-footer">
                       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                       <button type="submit" class="waves-effect waves-green btn">Submit</button>
