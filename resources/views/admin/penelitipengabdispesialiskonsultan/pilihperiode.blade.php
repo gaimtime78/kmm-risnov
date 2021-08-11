@@ -55,7 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">Tabel 4 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1
+                            <h4 class="header left">Tabel 5 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1
                                 (K) {{ $nama_fakultas }} </h4>
 
                             <!-- <a href="{{ route('admin.agenda.create') }}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
@@ -68,6 +68,7 @@
                                                 <th style="text-align:justify !important;">#</th>
                                                 <th style="text-align:center !important;">Periode</th>
                                                 <th style="text-align:center !important;">Tahun</th>
+                                                <th style="text-align:center !important;">Sumber Data</th>
                                                 <th style="text-align:justify !important;">Action</th>
                                             </tr>
                                         </thead>
@@ -80,6 +81,7 @@
                                                     <td style="text-align:center !important;">{{ $i }}</td>
                                                     <td style="text-align:center !important;">{{ $row->periode }}</td>
                                                     <td style="text-align:center !important;">{{ $row->tahun_input }}</td>
+                                                    <td style="text-align:center !important;">{{ $row->sumber_data }}</td>
                                                     <td><a href="{{ route('admin.penelitipengabdispesialiskonsultan.details', [$nama_fakultas, $row->periode, $row->tahun_input]) }}"
                                                             class="btn" style="background-color: grey;">Detail</a>
                                                         <a href="#edit" class="btn modal-trigger"
@@ -90,7 +92,7 @@
                                                     <!-- Modal Edit -->
                                                     <div id="edit" class="modal modal-fixed-footer">
                                                         <form
-                                                            action="{{ route('admin.penelitipengabdispesialiskonsultan.update', [$nama_fakultas, $row->periode, $row->tahun_input]) }}"
+                                                            action="{{ route('admin.penelitipengabdispesialiskonsultan.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]) }}"
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-content">
@@ -110,6 +112,15 @@
                                                                         <label for="tahun_input">Tahun</label>
                                                                         <input value="{{ $row->tahun_input }}"
                                                                             id="tahun_input" name="tahun_input" type="text"
+                                                                            class="validate" required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="mb-3" style="margin-left:8px">
+                                                                        <label for="sumber_data">Sumber Data</label>
+                                                                        <input value="{{ $row->sumber_data }}"
+                                                                            id="sumber_data" name="sumber_data" type="text"
                                                                             class="validate" required>
                                                                     </div>
                                                                 </div>

@@ -61,29 +61,12 @@
                 <table id="data-menu" class="table display" cellspacing="0">
                   <thead>
                       <tr>
-                          <th style="text-align:justify !important;">#</th>
-                          <th style="text-align:justify !important;">Status</th>
-                          <th style="text-align:justify !important;">Jenjang</th>
-                          <th style="text-align:justify !important;">25 s/d 35 L</th>
-                          <th style="text-align:justify !important;">25 s/d 35 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;">36 s/d 45 L</th>
-                          <th style="text-align:justify !important;">36 s/d 45 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> 46 s/d 55 L</th>
-                          <th style="text-align:justify !important;"> 46 s/d 55 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> 56 s/d 65 L</th>
-                          <th style="text-align:justify !important;"> 56 s/d 65 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> 66 s/d 75 L</th>
-                          <th style="text-align:justify !important;"> 66 s/d 75 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;"> - > 75 L</th>
-                          <th style="text-align:justify !important;"> - > 75 P</th>
-                          <th style="text-align:justify !important;">Jumlah Total</th>
-                          <th style="text-align:justify !important;">Total</th>
-                          <th style="text-align:justify !important;">Total Percent %</th>
+                          <th style="text-align:justify !important;">No</th>
+                          <th style="text-align:justify !important;">Detail Target</th>
+                          <th style="text-align:justify !important;">Satuan</th>
+                          <th style="text-align:justify !important;">Target</th>
+                          <th style="text-align:justify !important;">Capaian</th>
+                          <th style="text-align:justify !important;">%</th>
                           <th style="text-align:justify !important;">Action</th>
                       </tr>
                   </thead>
@@ -91,34 +74,16 @@
                   @php
                       $i = 1;
                     @endphp
-                      @foreach ($penelitipengabdi as $row)
+                      @foreach ($iku as $row)
                       <tr>
-                          <td style="text-align:center !important;">{{$i}}</td>
-                          <td style="text-align:center !important;">{{$row->status}}</td>
-                          <td style="text-align:center !important;">{{$row->jenjang}}</td>
-                          <td style="text-align:center !important;">{{$row->usia25sd35_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia25sd35_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia25sd35_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia36sd45_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia36sd45_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia36sd45_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia46sd55_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia46sd55_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia46sd55_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia56sd65_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia56sd65_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia56sd65_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia66sd75_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia66sd75_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia66sd75_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->usia75_L}}</td>
-                          <td style="text-align:center !important;">{{$row->usia75_P}}</td>
-                          <td style="text-align:center !important;">{{$row->usia75_jumlah}}</td>
-                          <td style="text-align:center !important;">{{$row->total}}</td>
-                          <td style="text-align:center !important;"></td>
+                          <td style="text-align:center !important;">{{$row->no}}</td>
+                          <td style="text-align:center !important;">{{$row->detail_target}}</td>
+                          <td style="text-align:center !important;">{{$row->satuan}}</td>
+                          <td style="text-align:center !important;">{{$row->target}}</td>
+                          <td style="text-align:center !important;">{{$row->capaian}}</td>
+                          <td style="text-align:center !important;">{{$row->percenttotal}}%</td>
                           
-                          
-                          <td><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   </td>
                           <!-- Modal Edit -->
                           <div id="#" class="modal modal-fixed-footer">
                             <form action="#" method="post">
@@ -161,9 +126,9 @@
                             <form action="#" method="get">
                               @csrf
                               <div class="modal-content">
-                                <h4>Delete Agenda</h4>
+                                <h4>Delete Data IKU</h4>
                                 <hr>
-                                <p>Anda yakin ingin menghapus agenda {{$row->title}}?</p>
+                                <p>Anda yakin ingin menghapus data {{$row->title}}?</p>
                                 <div class="modal-footer">
                                   <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                                   <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
@@ -178,32 +143,6 @@
                           
                           
                         </tbody>
-                        <thead>
-                          <tr>
-                            <th  colspan="3" style="text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
-                            <th style="text-align:justify !important;">{{$sum25_35L}}</th>
-                            <th style="text-align:justify !important;">{{$sum25_35P}}</th>
-                            <th style="text-align:justify !important;">{{$sum25sd35_jumlah}}</th>
-                            <th style="text-align:justify !important;">{{$sum36_45L}}</th>
-                            <th style="text-align:justify !important;">{{$sum36_45P}}</th>
-                            <th style="text-align:justify !important;">{{$sum36sd45_jumlah}}</th>
-                            <th style="text-align:justify !important;">{{$sum46_55L}}</th>
-                            <th style="text-align:justify !important;">{{$sum46_55P}}</th>
-                            <th style="text-align:justify !important;">{{$sum46sd55_jumlah}}</th>
-                            <th style="text-align:justify !important;">{{$sum56_65L}}</th>
-                            <th style="text-align:justify !important;">{{$sum56_65P}}</th>
-                            <th style="text-align:justify !important;">{{$sum56sd65_jumlah}}</th>
-                            <th style="text-align:justify !important;">{{$sum66_75L}}</th>
-                            <th style="text-align:justify !important;">{{$sum66_75P}}</th>
-                            <th style="text-align:justify !important;">{{$sum66sd75_jumlah}}</th>
-                            <th style="text-align:justify !important;">{{$sum75L}}</th>
-                            <th style="text-align:justify !important;">{{$sum75P}}</th>
-                            <th style="text-align:justify !important;">{{$sum75_jumlah}}</th>
-                            <th style="text-align:justify !important;">{{$total}}</th>
-                            <th colspan="2"style="text-align:justify !important;">{{number_format((float)$totalpercent, 2, '.', '')}} %</th>
-                          </tr>
-                          
-                  </thead>
                 </table>
               </div>
             </div>

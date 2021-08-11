@@ -64,6 +64,7 @@
                           <th style="text-align:justify !important;">#</th>
                           <th style="text-align:center !important;">Periode</th>
                           <th style="text-align:center !important;">Tahun</th>
+                          <th style="text-align:center !important;">Sumber Data</th>
                           <th style="text-align:justify !important;">Action</th>
                       </tr>
                   </thead>
@@ -76,6 +77,7 @@
                           <td style="text-align:center !important;">{{$i}}</td>
                           <td style="text-align:center !important;">{{$row->periode}}</td>
                           <td style="text-align:center !important;">{{$row->tahun_input}}</td>
+                          <td style="text-align:center !important;">{{$row->sumber_data}}</td>
                           <td>
                             <a href="{{route('admin.capaian_iku.details', [$target, $row->periode, $row->tahun_input]  )}}" class="btn" style="background-color: grey;">Detail</a>
                             <a href="#edit" class="btn modal-trigger" style="background-color: green;">Edit</a>
@@ -83,7 +85,7 @@
                           </td>
                           <!-- Modal Edit -->
                           <div id="edit" class="modal modal-fixed-footer">
-                            <form action="{{route('admin.capaian_iku.update', [$target, $row->periode, $row->tahun_input]  )}}" method="post">
+                            <form action="{{route('admin.capaian_iku.update', [$target,$row->periode, $row->tahun_input, $row->sumber_data]  )}}" method="post">
                               @csrf
                               <div class="modal-content">
                                 <h4>Edit Data</h4>
@@ -101,6 +103,12 @@
                                     <input value="{{$row->tahun_input}}" id="tahun_input"  name="tahun_input"  type="text" class="validate" required>
                                   </div>
                                 </div>
+                                <div class="row">
+                                  <div class="mb-3" style="margin-left:8px">
+                                    <label for="sumber_data">Sumber Data</label>
+                                    <input value="{{$row->sumber_data}}" id="sumber_data"  name="sumber_data"  type="text" class="validate" required>
+                                  </div>
+                                </div>
                               </div>
 
                               <div class="modal-footer">
@@ -111,7 +119,7 @@
                           </div>
                           <!-- Modal Hapus -->
                           <div id="hapus" class="modal">
-                            <form action="{{route('admin.penelitipengabdi.delete', [$target, $row->periode, $row->tahun_input]  )}}" method="get">
+                            <form action="{{route('admin.capaian_iku.delete', [$target, $row->periode, $row->tahun_input]  )}}" method="get">
                               @csrf
                               <div class="modal-content">
                                 <h4>Hapus Tabel</h4>

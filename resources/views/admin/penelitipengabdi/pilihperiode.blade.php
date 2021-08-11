@@ -53,7 +53,7 @@
 
           <div id="table-datatables">
            
-              <h4 class="header left">Tabel 1 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $nama_fakultas}} </h4>
+              <h4 class="header left">Tabel 2 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $nama_fakultas}} </h4>
 
             <div class="row">
               <div class="col s12 m12 l12">
@@ -76,6 +76,7 @@
                           <td style="text-align:center !important;">{{$i}}</td>
                           <td style="text-align:center !important;">{{$row->periode}}</td>
                           <td style="text-align:center !important;">{{$row->tahun_input}}</td>
+                          <td style="text-align:center !important;">{{$row->sumber_data}}</td>
                           <td>
                             <a href="{{route('admin.penelitipengabdi.details', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" class="btn" style="background-color: grey;">Detail</a>
                             <a href="#edit" class="btn modal-trigger" style="background-color: green;">Edit</a>
@@ -83,7 +84,7 @@
                           </td>
                           <!-- Modal Edit -->
                           <div id="edit" class="modal modal-fixed-footer">
-                            <form action="{{route('admin.penelitipengabdi.update', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" method="post">
+                            <form action="{{route('admin.penelitipengabdi.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]  )}}" method="post">
                               @csrf
                               <div class="modal-content">
                                 <h4>Edit Data</h4>
@@ -99,6 +100,12 @@
                                   <div class="mb-3" style="margin-left:8px">
                                     <label for="tahun_input">Tahun</label>
                                     <input value="{{$row->tahun_input}}" id="tahun_input"  name="tahun_input"  type="text" class="validate" required>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="mb-3" style="margin-left:8px">
+                                    <label for="sumber_data">Sumber Data</label>
+                                    <input value="{{$row->sumber_data}}" id="sumber_data"  name="sumber_data"  type="text" class="validate" required>
                                   </div>
                                 </div>
                               </div>
