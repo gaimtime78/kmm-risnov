@@ -64,6 +64,7 @@
                           <th style="text-align:justify !important;">#</th>
                           <th style="text-align:center !important;">Periode</th>
                           <th style="text-align:center !important;">Tahun</th>
+                          <th style="text-align:center !important;">Sumber Data</th>
                           <th style="text-align:justify !important;">Action</th>
                       </tr>
                   </thead>
