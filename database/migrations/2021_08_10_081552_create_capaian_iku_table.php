@@ -21,10 +21,10 @@ class CreateCapaianIkuTable extends Migration
             $table->string('ik');
             $table->string('target_capaian');
             $table->string('no');
-            $table->string('detail_target');
-            $table->string('satuan');
+            $table->string('detail_target')->nullable();
+            $table->string('satuan')->nullable();
             $table->string('target');
-            $table->string('capaian');
+            $table->string('capaian')->nullable();
             $table->string('percenttotal');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
