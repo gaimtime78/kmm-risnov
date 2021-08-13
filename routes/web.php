@@ -181,6 +181,20 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/import', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'import'])->name('import');
         });
 
+        Route::group(['as' => 'penelitipengabdikependidikanmagister.', 'prefix' => '/penelitipengabdikependidikanmagister'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'updateRow'])->name('updaterow');
+        });
+
         Route::group(['prefix' => '/category'], function () {
             Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
             Route::get('/create', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');
