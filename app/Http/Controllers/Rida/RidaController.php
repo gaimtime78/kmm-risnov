@@ -124,4 +124,53 @@ class RidaController extends Controller
 
         return redirect()->route('admin.penelitipengabdi.index');
     }
+
+    public function updateRow(Request $request, $id)
+    {
+        $penelitipengabdi = PenelitiPengabdi::findOrFail($id);
+        $fakultas = $penelitipengabdi->fakultas;
+        $periode = $penelitipengabdi->periode;
+        $tahun = $penelitipengabdi->tahun_input;
+
+        $usia25sd35_jumlah = $request->usia25sd35_L + $request->usia25sd35_P;
+        $usia36sd45_jumlah = $request->usia36sd45_L + $request->usia36sd45_P;
+        $usia46sd55_jumlah = $request->usia46sd55_L + $request->usia46sd55_P;
+        $usia56sd65_jumlah = $request->usia56sd65_L + $request->usia56sd65_P;
+        $usia66sd75_jumlah = $request->usia66sd75_L + $request->usia66sd75_P;
+        $usia75_jumlah = $request->usia75_L + $request->usia75_P;
+        $total = $usia25sd35_jumlah + $usia36sd45_jumlah + $usia46sd55_jumlah + $usia56sd65_jumlah + $usia66sd75_jumlah + $usia75_jumlah;
+
+        $penelitipengabdi->usia25sd35_L = $request->usia25sd35_L;
+        $penelitipengabdi->usia25sd35_P = $request->usia25sd35_P;
+        $penelitipengabdi->usia25sd35_jumlah = $usia25sd35_jumlah;
+        $penelitipengabdi->usia36sd45_L = $request->usia36sd45_L;
+        $penelitipengabdi->usia36sd45_P = $request->usia36sd45_P;
+        $penelitipengabdi->usia36sd45_jumlah = $usia36sd45_jumlah;
+        $penelitipengabdi->usia46sd55_L = $request->usia46sd55_L;
+        $penelitipengabdi->usia46sd55_P = $request->usia46sd55_P;
+        $penelitipengabdi->usia46sd55_jumlah = $usia46sd55_jumlah;
+        $penelitipengabdi->usia56sd65_L = $request->usia56sd65_L;
+        $penelitipengabdi->usia56sd65_P = $request->usia56sd65_P;
+        $penelitipengabdi->usia56sd65_jumlah = $usia56sd65_jumlah;
+        $penelitipengabdi->usia66sd75_L = $request->usia66sd75_L;
+        $penelitipengabdi->usia66sd75_P = $request->usia66sd75_P;
+        $penelitipengabdi->usia66sd75_jumlah = $usia66sd75_jumlah;
+        $penelitipengabdi->usia75_L = $request->usia75_L;
+        $penelitipengabdi->usia75_P = $request->usia75_P;
+        $penelitipengabdi->usia75_jumlah = $usia75_jumlah;
+        $penelitipengabdi->total = $total;
+
+        $penelitipengabdi->save();
+        return redirect()->route('admin.penelitipengabdi.details', [$fakultas, $periode, $tahun]);
+    }
+
+    public function deleteRow($id)
+    {
+        $penelitipengabdi = PenelitiPengabdi::findOrFail($id);
+        $fakultas = $penelitipengabdi->fakultas;
+        $periode = $penelitipengabdi->periode;
+        $tahun = $penelitipengabdi->tahun_input;
+        $penelitipengabdi->delete();
+        return redirect()->route('admin.penelitipengabdi.details', [$fakultas, $periode, $tahun]);
+    }
 }
