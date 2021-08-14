@@ -31,15 +31,15 @@
                     </div>
                     <div class="container">
                         <!-- <div class="row">
-                    <div class="col s12 m12 l12">
-                      <h5 class="breadcrumbs-title">agenda</h5>
-                      <ol class="breadcrumbs">
-                          <li><a href="index.htm">Dashboard</a></li>
-                          <li><a href="#">Tables</a></li>
-                          <li class="active">Basic Tables</li>
-                      </ol>
-                    </div>
-                  </div> -->
+                        <div class="col s12 m12 l12">
+                          <h5 class="breadcrumbs-title">agenda</h5>
+                          <ol class="breadcrumbs">
+                              <li><a href="index.htm">Dashboard</a></li>
+                              <li><a href="#">Tables</a></li>
+                              <li class="active">Basic Tables</li>
+                          </ol>
+                        </div>
+                      </div> -->
                     </div>
                 </div>
                 <!--breadcrumbs end-->
@@ -55,7 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">Tabel 6 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG PROFESI
+                            <h4 class="header left">Tabel 7 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG PROFESI
                                 {{ $nama_fakultas }} </h4>
 
                             <!-- <a href="{{ route('admin.agenda.create') }}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
@@ -68,6 +68,8 @@
                                                 <th style="text-align:justify !important;">#</th>
                                                 <th style="text-align:center !important;">Periode</th>
                                                 <th style="text-align:center !important;">Tahun</th>
+                                                <th style="text-align:center !important;">Sumber Data</th>
+
                                                 <th style="text-align:justify !important;">Action</th>
                                             </tr>
                                         </thead>
@@ -80,6 +82,7 @@
                                                     <td style="text-align:center !important;">{{ $i }}</td>
                                                     <td style="text-align:center !important;">{{ $row->periode }}</td>
                                                     <td style="text-align:center !important;">{{ $row->tahun_input }}</td>
+                                                    <td style="text-align:center !important;">{{ $row->sumber_data }}</td>
                                                     <td><a href="{{ route('admin.penelitipengabdiprofesi.details', [$nama_fakultas, $row->periode, $row->tahun_input]) }}"
                                                             class="btn" style="background-color: grey;">Detail</a>
                                                         <a href="#edit{{$row->id}}" class="btn modal-trigger"

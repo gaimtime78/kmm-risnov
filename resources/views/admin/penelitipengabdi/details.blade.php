@@ -55,7 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">Tabel 1 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR
+                            <h4 class="header left">Tabel 2 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR
                                 {{ $fakultas }}</h4>
                             <!-- <a href="{{ route('admin.agenda.create') }}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
                             <div class="row">
@@ -64,79 +64,94 @@
                                     <table id="data-menu" class="table display" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th style="text-align:justify !important;">#</th>
-                                                <th style="text-align:justify !important;">Status</th>
-                                                <th style="text-align:justify !important;">Jenjang</th>
-                                                <th style="text-align:justify !important;">25 s/d 35 L</th>
-                                                <th style="text-align:justify !important;">25 s/d 35 P</th>
-                                                <th style="text-align:justify !important;">Jumlah Total</th>
-                                                <th style="text-align:justify !important;">36 s/d 45 L</th>
-                                                <th style="text-align:justify !important;">36 s/d 45 P</th>
-                                                <th style="text-align:justify !important;">Jumlah Total</th>
-                                                <th style="text-align:justify !important;"> 46 s/d 55 L</th>
-                                                <th style="text-align:justify !important;"> 46 s/d 55 P</th>
-                                                <th style="text-align:justify !important;">Jumlah Total</th>
-                                                <th style="text-align:justify !important;"> 56 s/d 65 L</th>
-                                                <th style="text-align:justify !important;"> 56 s/d 65 P</th>
-                                                <th style="text-align:justify !important;">Jumlah Total</th>
-                                                <th style="text-align:justify !important;"> 66 s/d 75 L</th>
-                                                <th style="text-align:justify !important;"> 66 s/d 75 P</th>
-                                                <th style="text-align:justify !important;">Jumlah Total</th>
-                                                <th style="text-align:justify !important;"> - > 75 L</th>
-                                                <th style="text-align:justify !important;"> - > 75 P</th>
-                                                <th style="text-align:justify !important;">Jumlah Total</th>
-                                                <th style="text-align:justify !important;">Total</th>
-                                                <th style="text-align:justify !important;">Total Percent %</th>
-                                                <th style="text-align:justify !important;">Action</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    #</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    Status</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    Jenjang</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    25 s/d 35</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    36 s/d 45</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    46 s/d 55</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    56 s/d 65</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    66 s/d 75</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    - > 75</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    Total</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    Total Percent %</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @php
                                                 $i = 1;
+                                                $x = 0;
                                             @endphp
                                             @foreach ($penelitipengabdi as $row)
                                                 <tr>
-                                                    <td style="text-align:center !important;">{{ $i }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->status }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->jenjang }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia25sd35_L }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia25sd35_P }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia25sd35_jumlah }}
-                                                    </td>
-                                                    <td style="text-align:center !important;">{{ $row->usia36sd45_L }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia36sd45_P }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia36sd45_jumlah }}
-                                                    </td>
-                                                    <td style="text-align:center !important;">{{ $row->usia46sd55_L }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia46sd55_P }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia46sd55_jumlah }}
-                                                    </td>
-                                                    <td style="text-align:center !important;">{{ $row->usia56sd65_L }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia56sd65_P }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia56sd65_jumlah }}
-                                                    </td>
-                                                    <td style="text-align:center !important;">{{ $row->usia66sd75_L }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia66sd75_P }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia66sd75_jumlah }}
-                                                    </td>
-                                                    <td style="text-align:center !important;">{{ $row->usia75_L }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia75_P }}</td>
-                                                    <td style="text-align:center !important;">{{ $row->usia75_jumlah }}
-                                                    </td>
-                                                    <td style="text-align:center !important;">{{ $row->total }}</td>
-                                                    <td style="text-align:center !important;"></td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $i }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->status }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->jenjang }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia25sd35_jumlah }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia36sd45_jumlah }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia46sd55_jumlah }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia56sd65_jumlah }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia66sd75_jumlah }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia75_jumlah }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->total }}</td>
+                                                    @if ($x++ == 0)
+                                                        <td rowspan="{{ count($penelitipengabdi) }}"
+                                                            style="border: 1px solid black !important; text-align:center !important;">
+                                                            {{ number_format((float) $totalpercent, 2, '.', '') }} %</td>
+                                                    @endif
 
-
-                                                    <td>
-                                                        <a href="#edit{{ $row->id }}" class="btn modal-trigger"
-                                                            style="background-color: orange;">Edit</a>
-                                                        <a href="#hapus{{ $row->id }}" class="btn modal-trigger"
-                                                            style="background-color: red;">Delete</a>
-                                                    </td>
+                                                    <td style="border: 1px solid black !important;"><a
+                                                            href="#edit{{ $row->id }}" class="btn modal-trigger"
+                                                            style="background-color: orange;">Edit</a></td>
                                                     <!-- Modal Edit -->
                                                     <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
                                                         <form
-                                                            action="{{ route('admin.penelitipengabdi.updaterow', ['id' => $row->id]) }}"
+                                                            action="{{ route('admin.penelitipengabdi.updaterow', $row->id) }}"
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-content">
@@ -146,121 +161,55 @@
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia25sd35_L }}"
-                                                                            id="usia25sd35_L" name="usia25sd35_L"
+                                                                        <input value="{{ $row->usia25sd35_jumlah }}"
+                                                                            id="usia25sd35_jumlah" name="usia25sd35_jumlah"
                                                                             type="text" class="validate" required>
-                                                                        <label for="usia25sd35_L">Usia 25 s.d. 35
-                                                                            Laki-laki</label>
+                                                                        <label for="usia25sd35_jumlah">Usia 25 s.d. 35</label>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia25sd35_P }}"
-                                                                            id="usia25sd35_P" name="usia25sd35_P"
+                                                                        <input value="{{ $row->usia36sd45_jumlah }}"
+                                                                            id="usia36sd45_jumlah" name="usia36sd45_jumlah"
                                                                             type="text" class="validate" required>
-                                                                        <label for="usia25sd35_P">Usia 25 s.d. 35
-                                                                            Perempuan</label>
+                                                                        <label for="usia36sd45_jumlah">Usia 36 s.d. 45</label>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia36sd45_L }}"
-                                                                            id="usia36sd45_L" name="usia36sd45_L"
+                                                                        <input value="{{ $row->usia46sd55_jumlah }}"
+                                                                            id="usia46sd55_jumlah" name="usia46sd55_jumlah"
                                                                             type="text" class="validate" required>
-                                                                        <label for="usia36sd45_L">Usia 36 s.d. 45
-                                                                            Laki-laki</label>
+                                                                        <label for="usia46sd55_jumlah">Usia 46 s.d. 55</label>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia36sd45_P }}"
-                                                                            id="usia36sd45_P" name="usia36sd45_P"
+                                                                        <input value="{{ $row->usia56sd65_jumlah }}"
+                                                                            id="usia56sd65_jumlah" name="usia56sd65_jumlah"
                                                                             type="text" class="validate" required>
-                                                                        <label for="usia36sd45_P">Usia 36 s.d. 45
-                                                                            Perempuan</label>
+                                                                        <label for="usia56sd65_jumlah">Usia 56 s.d. 65</label>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia46sd55_L }}"
-                                                                            id="usia46sd55_L" name="usia46sd55_L"
+                                                                        <input value="{{ $row->usia66sd75_jumlah }}"
+                                                                            id="usia66sd75_jumlah" name="usia66sd75_jumlah"
                                                                             type="text" class="validate" required>
-                                                                        <label for="usia46sd55_L">Usia 46 s.d. 55
-                                                                            Laki-laki</label>
+                                                                        <label for="usia66sd75_jumlah">Usia 66 s.d. 75</label>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia46sd55_P }}"
-                                                                            id="usia46sd55_P" name="usia46sd55_P"
-                                                                            type="text" class="validate" required>
-                                                                        <label for="usia46sd55_P">Usia 46 s.d. 55
-                                                                            Perempuan</label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia56sd65_L }}"
-                                                                            id="usia56sd65_L" name="usia56sd65_L"
-                                                                            type="text" class="validate" required>
-                                                                        <label for="usia56sd65_L">Usia 56 s.d. 65
-                                                                            Laki-laki</label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia56sd65_P }}"
-                                                                            id="usia56sd65_P" name="usia56sd65_P"
-                                                                            type="text" class="validate" required>
-                                                                        <label for="usia56sd65_P">Usia 56 s.d. 65
-                                                                            Perempuan</label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia66sd75_L }}"
-                                                                            id="usia66sd75_L" name="usia66sd75_L"
-                                                                            type="text" class="validate" required>
-                                                                        <label for="usia66sd75_L">Usia 66 s.d. 75
-                                                                            Laki-laki</label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia66sd75_P }}"
-                                                                            id="usia66sd75_P" name="usia66sd75_P"
-                                                                            type="text" class="validate" required>
-                                                                        <label for="usia66sd75_P">Usia 66 s.d. 75
-                                                                            Perempuan</label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia75_L }}" id="usia75_L"
-                                                                            name="usia75_L" type="text" class="validate"
+                                                                        <input value="{{ $row->usia75_jumlah }}" id="usia75_jumlah"
+                                                                            name="usia75_jumlah" type="text" class="validate"
                                                                             required>
-                                                                        <label for="usia75_L">Usia 75 ke atas
-                                                                            Laki-laki</label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="input-field col s12">
-                                                                        <input value="{{ $row->usia75_P }}" id="usia75_P"
-                                                                            name="usia75_P" type="text" class="validate"
-                                                                            required>
-                                                                        <label for="usia75_P">Usia 75 ke atas
-                                                                            Perempuan</label>
+                                                                        <label for="usia75_jumlah">Usia 75 ke atas</label>
                                                                     </div>
                                                                 </div>
 
@@ -273,23 +222,6 @@
                                                             </div>
                                                         </form>
                                                     </div>
-                                                    <!-- Modal Hapus -->
-                                                    <div id="hapus{{ $row->id }}" class="modal">
-                                                        <form action="{{ route('admin.penelitipengabdi.deleterow', ['id' => $row->id]) }}" method="get">
-                                                            @csrf
-                                                            <div class="modal-content">
-                                                                <h4>Delete Data</h4>
-                                                                <hr>
-                                                                <p>Anda yakin ingin menghapus data?
-                                                                </p>
-                                                                <div class="modal-footer">
-                                                                    <a href="#!"
-                                                                        class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                                                    <button type="submit"
-                                                                        class="modal-close waves-effect waves-green btn-flat">Delete</button>
-                                                                </div>
-                                                        </form>
-                                                    </div>
                                                 </tr>
                                                 @php
                                                     $i++;
@@ -300,29 +232,30 @@
                                         </tbody>
                                         <thead>
                                             <tr>
-                                                <th colspan="3" style="text-align:center !important;">Jumlah Universitas
-                                                    Sebelas Maret</th>
-                                                <th style="text-align:justify !important;">{{ $sum25_35L }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum25_35P }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum25sd35_jumlah }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum36_45L }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum36_45P }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum36sd45_jumlah }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum46_55L }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum46_55P }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum46sd55_jumlah }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum56_65L }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum56_65P }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum56sd65_jumlah }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum66_75L }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum66_75P }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum66sd75_jumlah }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum75L }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum75P }}</th>
-                                                <th style="text-align:justify !important;">{{ $sum75_jumlah }}</th>
-                                                <th style="text-align:justify !important;">{{ $total }}</th>
-                                                <th colspan="2" style="text-align:justify !important;">
-                                                    {{ number_format((float) $totalpercent, 2, '.', '') }} %</th>
+                                                <th colspan="3"
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    Jumlah </th>
+                                                <th
+                                                    style="border: 1px solid black !important;text-align:center !important;">
+                                                    {{ $sum25sd35_jumlah }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important;text-align:center !important;">
+                                                    {{ $sum36sd45_jumlah }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important;text-align:center !important;">
+                                                    {{ $sum46sd55_jumlah }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important;text-align:center !important;">
+                                                    {{ $sum56sd65_jumlah }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important;text-align:center !important;">
+                                                    {{ $sum66sd75_jumlah }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important;text-align:center !important;">
+                                                    {{ $sum75_jumlah }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important;text-align:center !important;">
+                                                    {{ $total }}</th>
                                             </tr>
 
                                         </thead>

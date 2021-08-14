@@ -52,13 +52,12 @@
           @endif
 
           <div id="table-datatables">
-            <h4 class="header left">Tabel 6 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG PROFESI
+            <h4 class="header left">Tabel 7 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG PROFESI
 </h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
                 <a href="#import" class="waves-effect waves-light btn right modal-trigger" role="button">Upload Excel</a>
-                <a href="{{route('admin.penelitipengabdiprofesi.export')}}" class="waves-effect waves-light btn right" role="button">Export Excel</a>
 
                 {{-- Modal import --}}
                 <div id="import" class="modal">
@@ -93,8 +92,6 @@
                       <tr>
                           <th>#</th>
                           <th>Fakultas</th>
-                          <th>Periode</th>
-                          <th>Tanggal</th>
                           <th>Action</th>
                       </tr>
                   </thead>
@@ -106,9 +103,6 @@
                       <tr>
                           <td>{{$i}}</td>
                           <td>{{$row->fakultas}}</td>
-                          <td>{{$row->periode}}</td>
-                          <td>{{$row->jenjang}}</td>
-                         
                           <td><a href="{{route('admin.penelitipengabdiprofesi.pilihperiode' , $row->fakultas )}}" class="btn" style="background-color: grey;">Detail</a></td>
                       </tr>
                       @php

@@ -59,13 +59,13 @@
                         </ul>
                     </div>
                 </li>
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Rida Controller</a>
+                <li class="li-hover"><p class="ultra-small margin more-text">Upload RIDA</p></li>
+                @if(in_array("admin.permission.index", $permissionUser))
+                    <li class="bold"><a href="{{ route('admin.capaian_iku.index')  }}" class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Perkembangan Capaian IKU</a></li>
+                @endif
+                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Upload Tenaga Pendidik</a>
                     <div class="collapsible-body">
                         <ul>
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.capaian_iku.index') }}">Input Perkembangan Capaian IKU</a>
-                            </li>
-                            @endif
                             @if(in_array("admin.permission.index", $permissionUser))
                             <li><a href="{{ route('admin.penelitipengabdi.index') }}">Input Peneliti Pengabdi Doktoral</a>
                             </li>
@@ -90,11 +90,17 @@
                             <li><a href="{{ route('admin.penelitipengabdiprofesi.index') }}">Input Peneliti Pengabdi Profesi </a>
                             </li>
                             @endif
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Upload Tenaga Kependidikan</a>
+                    <div class="collapsible-body">
+                        <ul>
                             @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.indekspenelitipkm.index') }}">Input Indeks Peneliti PKM </a>
+                            <li><a href="{{ route('admin.penelitipengabdikependidikanmagister.index') }}">Input Peneliti Pengabdi Magister</a>
                             </li>
                             @endif
-                            
+                          
                         </ul>
                     </div>
                 </li>

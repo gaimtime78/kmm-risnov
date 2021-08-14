@@ -31,15 +31,15 @@
                     </div>
                     <div class="container">
                         <!-- <div class="row">
-                    <div class="col s12 m12 l12">
-                      <h5 class="breadcrumbs-title">agenda</h5>
-                      <ol class="breadcrumbs">
-                          <li><a href="index.htm">Dashboard</a></li>
-                          <li><a href="#">Tables</a></li>
-                          <li class="active">Basic Tables</li>
-                      </ol>
-                    </div>
-                  </div> -->
+                        <div class="col s12 m12 l12">
+                          <h5 class="breadcrumbs-title">agenda</h5>
+                          <ol class="breadcrumbs">
+                              <li><a href="index.htm">Dashboard</a></li>
+                              <li><a href="#">Tables</a></li>
+                              <li class="active">Basic Tables</li>
+                          </ol>
+                        </div>
+                      </div> -->
                     </div>
                 </div>
                 <!--breadcrumbs end-->
@@ -68,6 +68,8 @@
                                                 <th style="text-align:justify !important;">#</th>
                                                 <th style="text-align:center !important;">Periode</th>
                                                 <th style="text-align:center !important;">Tahun</th>
+                                                <th style="text-align:center !important;">Sumber Data</th>
+
                                                 <th style="text-align:justify !important;">Action</th>
                                             </tr>
                                         </thead>
