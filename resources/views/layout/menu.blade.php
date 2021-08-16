@@ -104,6 +104,10 @@
                         </ul>
                     </div>
                 </li>
+                @if(in_array("admin.permission.index", $permissionUser))
+                    <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index')  }}" class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks Penelitian PKM </a></li>
+                @endif
+
             </ul>
         </li>
         <!-- <li class="no-padding">
