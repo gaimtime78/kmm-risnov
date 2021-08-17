@@ -85,7 +85,7 @@
                           </td>
                           <!-- Modal Edit -->
                           <div id="edit{{$row->id}}" class="modal modal-fixed-footer">
-                            <form action="{{route('admin.penelitipengabdi.update', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" method="post">
+                            <form action="{{route('admin.penelitipengabdi.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]  )}}" method="post">
                               @csrf
                               <div class="modal-content">
                                 <h4>Edit Data</h4>
