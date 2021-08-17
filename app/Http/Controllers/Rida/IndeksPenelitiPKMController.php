@@ -28,7 +28,8 @@ class IndeksPenelitiPKMController extends Controller
         $tahun = $tahun_input;
         $indekspenelitipkm = IndeksPenelitiPKM::get();
         // dd($data);
-        $jmltotalfak = IndeksPenelitiPKM::select('fakultas')->where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlahtotal');
+        $jmltotalfak    = IndeksPenelitiPKM::select('fakultas')->where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlahtotal');
+        // dd($jmltotal);
         $jml0        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah0');
         $percent0    = round((float)$jml0/$jmltotalfak*100);
         $jml1        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah1');
@@ -72,6 +73,8 @@ class IndeksPenelitiPKMController extends Controller
         $percent19    = round((float)$jml19/$jmltotalfak*100);
         $jml20        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah20');
         $percent20    = round((float)$jml20/$jmltotalfak*100);
+        $jml21        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah21');
+        $percent21    = round((float)$jml21/$jmltotalfak*100);
         $percenttotal    = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('percenttotal');
         $percenttotalfak = round((float)$percenttotal);
         //    dd($jml0);
@@ -100,6 +103,7 @@ class IndeksPenelitiPKMController extends Controller
                     'jumlah18' => $jml18, 'percent18' => $percent18,
                     'jumlah19' => $jml19, 'percent19' => $percent19,
                     'jumlah20' => $jml20, 'percent20' => $percent20,
+                    'jumlah21' => $jml21, 'percent21' => $percent21,
                     'percenttotalfak' => $percenttotalfak,
                     // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
                     // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   

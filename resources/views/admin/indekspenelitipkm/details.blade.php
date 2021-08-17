@@ -53,7 +53,7 @@
 
           <div id="table-datatables">\
           
-            <h4 class="header left">Tabel 7 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
+            <h4 class="header left">Tabel 18 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
@@ -61,8 +61,14 @@
                 <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
                   <thead>
                       <tr style="border: 1px solid black !important;">
-                          <th  colspan="1" style="border: 1px solid black !important; text-align:center !important;">#</th>
-                          <th  rowspan="2" style="text-align:justify !important;">Fakultas</th>
+                          <th  rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
+                          <th  rowspan="3" style="text-align:justify !important;">Fakultas</th>
+                          <th  colspan="46" style="border: 1px solid black !important; text-align:center !important;">H - I N D E K S</th>
+                          <th  rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
+
+                      </tr>
+                      <tr style="border: 1px solid black !important;">
+                          
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">0</th>
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">1</th>
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">2</th>
@@ -84,14 +90,15 @@
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">18</th>
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">19</th>
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">20</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">21</th>
                           <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Jumlah Total</th>
                           <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Percent (%)</th>
-                          <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
 
                       </tr>
                       <tr >
-                          <th style="border: 1px solid black !important;text-align:justify !important;">No</th>
                           
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
                           <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
                           <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
                           <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
@@ -186,9 +193,11 @@
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent19}}%</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah20}}</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent20}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah21}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent21}}%</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlahtotal}}</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percenttotal}}%</td>
-                          <td><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a> </td>
                           <!-- Modal Edit -->
                           <div id="#" class="modal modal-fixed-footer">
                             <form action="#" method="post">
@@ -293,6 +302,8 @@
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percent19}}%</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah20}}</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percent20}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah21}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent21}}%</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$jmltotalfak}} </th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percenttotalfak}}% </th>
                       </tr>
