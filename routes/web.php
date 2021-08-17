@@ -195,6 +195,90 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'updateRow'])->name('updaterow');
         });
 
+        Route::group(['as' => 'penelitipengabdikependidikanprofesi.', 'prefix' => '/penelitipengabdikependidikanprofesi'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'updateRow'])->name('updaterow');
+        });
+
+        Route::group(['as' => 'penelitipengabdikependidikandiploma4.', 'prefix' => '/penelitipengabdikependidikandiploma4'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'updateRow'])->name('updaterow');
+        });
+
+        Route::group(['as' => 'penelitipengabdikependidikandiploma3.', 'prefix' => '/penelitipengabdikependidikandiploma3'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'updateRow'])->name('updaterow');
+        });
+
+        Route::group(['as' => 'penelitipengabdikependidikandiploma2.', 'prefix' => '/penelitipengabdikependidikandiploma2'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'updateRow'])->name('updaterow');
+        });
+
+        Route::group(['as' => 'penelitipengabdikependidikandiploma1.', 'prefix' => '/penelitipengabdikependidikandiploma1'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'updateRow'])->name('updaterow');
+        });
+
+        Route::group(['as' => 'penelitipengabdikependidikanslta.', 'prefix' => '/penelitipengabdikependidikanslta'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'updateRow'])->name('updaterow');
+        });
+
         Route::group(['prefix' => '/category'], function () {
             Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
             Route::get('/create', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');

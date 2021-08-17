@@ -100,6 +100,36 @@
                             <li><a href="{{ route('admin.penelitipengabdikependidikanmagister.index') }}">Input Peneliti Pengabdi Magister</a>
                             </li>
                             @endif
+
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdikependidikanprofesi.index') }}">Input Peneliti Pengabdi Profesi</a>
+                            </li>
+                            @endif
+
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma4.index') }}">Input Peneliti Pengabdi Diploma 4</a>
+                            </li>
+                            @endif
+
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma3.index') }}">Input Peneliti Pengabdi Diploma 3</a>
+                            </li>
+                            @endif
+
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma2.index') }}">Input Peneliti Pengabdi Diploma 2</a>
+                            </li>
+                            @endif
+
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma1.index') }}">Input Peneliti Pengabdi Diploma 1</a>
+                            </li>
+                            @endif
+
+                            @if(in_array("admin.permission.index", $permissionUser))
+                            <li><a href="{{ route('admin.penelitipengabdikependidikanslta.index') }}">Input Peneliti Pengabdi Slta</a>
+                            </li>
+                            @endif
                           
                         </ul>
                     </div>
