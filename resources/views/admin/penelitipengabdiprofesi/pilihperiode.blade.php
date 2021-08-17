@@ -93,7 +93,7 @@
                                                     <!-- Modal Edit -->
                                                     <div id="edit{{$row->id}}" class="modal modal-fixed-footer">
                                                         <form
-                                                            action="{{ route('admin.penelitipengabdiprofesi.update', [$nama_fakultas, $row->periode, $row->tahun_input]) }}"
+                                                            action="{{ route('admin.penelitipengabdiprofesi.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]) }}"
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-content">
