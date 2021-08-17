@@ -58,7 +58,6 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <a href="#import" class="waves-effect waves-light btn right modal-trigger" role="button">Upload Excel</a>
-                <a href="{{route('admin.penelitipengabdispesialis.export')}}" class="waves-effect waves-light btn right" role="button">Export Excel</a>
 
                 {{-- Modal import --}}
                 <div id="import" class="modal">

@@ -31,15 +31,15 @@
                     </div>
                     <div class="container">
                         <!-- <div class="row">
-                    <div class="col s12 m12 l12">
-                      <h5 class="breadcrumbs-title">agenda</h5>
-                      <ol class="breadcrumbs">
-                          <li><a href="index.htm">Dashboard</a></li>
-                          <li><a href="#">Tables</a></li>
-                          <li class="active">Basic Tables</li>
-                      </ol>
-                    </div>
-                  </div> -->
+                        <div class="col s12 m12 l12">
+                          <h5 class="breadcrumbs-title">agenda</h5>
+                          <ol class="breadcrumbs">
+                              <li><a href="index.htm">Dashboard</a></li>
+                              <li><a href="#">Tables</a></li>
+                              <li class="active">Basic Tables</li>
+                          </ol>
+                        </div>
+                      </div> -->
                     </div>
                 </div>
                 <!--breadcrumbs end-->
@@ -84,13 +84,13 @@
                                                     <td style="text-align:center !important;">{{ $row->sumber_data }}</td>
                                                     <td><a href="{{ route('admin.penelitipengabdispesialiskonsultan.details', [$nama_fakultas, $row->periode, $row->tahun_input]) }}"
                                                             class="btn" style="background-color: grey;">Detail</a>
-                                                        <a href="#edit" class="btn modal-trigger"
+                                                        <a href="#edit{{$row->id}}" class="btn modal-trigger"
                                                             style="background-color: green;">Edit</a>
-                                                        <a href="#hapus" class="btn modal-trigger"
+                                                        <a href="#hapus{{$row->id}}" class="btn modal-trigger"
                                                             style="background-color: red;">Delete</a>
                                                     </td>
                                                     <!-- Modal Edit -->
-                                                    <div id="edit" class="modal modal-fixed-footer">
+                                                    <div id="edit{{$row->id}}" class="modal modal-fixed-footer">
                                                         <form
                                                             action="{{ route('admin.penelitipengabdispesialiskonsultan.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]) }}"
                                                             method="post">
@@ -135,7 +135,7 @@
                                                         </form>
                                                     </div>
                                                     <!-- Modal Hapus -->
-                                                    <div id="hapus" class="modal">
+                                                    <div id="hapus{{$row->id}}" class="modal">
                                                         <form
                                                             action="{{ route('admin.penelitipengabdispesialiskonsultan.delete', [$nama_fakultas, $row->periode, $row->tahun_input]) }}"
                                                             method="get">
