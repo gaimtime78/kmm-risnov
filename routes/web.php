@@ -378,7 +378,8 @@ Route::get('/koran/{slug}', [App\Http\Controllers\KoranController::class, 'detai
 Route::get('/search', [App\Http\Controllers\PostController::class, 'search'])->name('search');
 Route::get('/koran_search', [App\Http\Controllers\KoranController::class, 'search'])->name('koran-search');
 Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 'searchKategory'])->name('category');
-
+Route::get('/dokumentasi-rida', [App\Http\Controllers\User\RidaController::class, 'index'])->name('dokumentasi-rida');
+Route::get('/dokumentasi-rida/doktoral', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-doktoral');
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
 // });
