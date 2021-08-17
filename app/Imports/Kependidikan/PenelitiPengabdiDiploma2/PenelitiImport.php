@@ -20,7 +20,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
 
   public function array(array $rows){
     $tabel = $rows[0][0];
-    $tabelIndex = explode(" ", $tabel)[1]*1;
+    // $tabelIndex = explode(" ", $tabel)[1]*1;
     $jenjang = 'Diploma 2';
     $data = [];
     $currFakultas = '';
