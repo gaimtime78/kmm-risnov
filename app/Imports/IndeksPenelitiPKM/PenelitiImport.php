@@ -78,12 +78,16 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
           'percent19' => round((float) $rows[$i][40], 3) * 100,
           'jumlah20' => $rows[$i][41],
           'percent20' => round((float) $rows[$i][42], 3) * 100,
-          'jumlahtotal' => $rows[$i][43],
-          'percenttotal' => round((float) $rows[$i][44], 3) * 100,
+
+          'jumlah21' => $rows[$i][43],
+          'percent21' => round((float) $rows[$i][44], 3) * 100,
+          'jumlahtotal' => $rows[$i][45],
+          'percenttotal' => round((float) $rows[$i][46], 3) * 100,
           'user_id' => Auth::user()->id
         ]);
       }
     }
+    // dd($data);
     IndeksPenelitiPKM::insert($data);
   }
 }
