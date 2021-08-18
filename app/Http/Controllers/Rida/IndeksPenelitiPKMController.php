@@ -29,8 +29,8 @@ class IndeksPenelitiPKMController extends Controller
         $indekspenelitipkm = IndeksPenelitiPKM::get();
         // dd($data);
         $jmltotalfak    = IndeksPenelitiPKM::select('fakultas')->where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlahtotal');
-        // dd($jmltotal);
         $jml0        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah0');
+        // dd($jmltotalfak);
         $percent0    = round((float)$jml0/$jmltotalfak*100);
         $jml1        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah1');
         $percent1    = round((float)$jml1/$jmltotalfak*100);
@@ -169,5 +169,134 @@ class IndeksPenelitiPKMController extends Controller
         ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
 
         return redirect()->route('admin.indekspenelitipkm.index');
+    }
+
+    public function updateRow(Request $request, $id)
+    {
+        $peneliti = IndeksPenelitiPKM::find($id);
+        $fakultas = $peneliti->fakultas;
+        $periode = $peneliti->periode;
+        $tahun = $peneliti->tahun_input;
+
+        $jml0       = $request->jumlah0;
+        $percent0   = $request->percent0;
+        
+        $jml1       = $request->jumlah1;
+        $percent1   = $request->percent1;
+        
+        $jml2 = $request->jumlah2;
+        $percent2 = $request->percent2;
+        
+        $jml3 = $request->jumlah3;
+        $percent3 = $request->percent3;
+        
+        $jml4 = $request->jumlah4;
+        $percent4 = $request->percent4;
+        
+        $jml5 = $request->jumlah5;
+        $percent5 = $request->percent5;
+        
+        $jml6 = $request->jumlah6;
+        $percent6 = $request->percent6;
+        
+        $jml7 = $request->jumlah7;
+        $percent7 = $request->percent7;
+        
+        $jml8 = $request->jumlah8;
+        $percent8 = $request->percent8;
+        
+        $jml9 = $request->jumlah9;
+        $percent9 = $request->percent9;
+        
+        $jml10 = $request->jumlah10;
+        $percent10 = $request->percent10;
+        
+        $jml11 = $request->jumlah11;
+        $percent11 = $request->percent11;
+
+        $jml12 = $request->jumlah12;
+        $percent12 = $request->percent12;
+        
+        $jml13 = $request->jumlah13;
+        $percent13 = $request->percent13;
+        
+        $jml14 = $request->jumlah14;
+        $percent14 = $request->percent14;
+        
+        $jml15 = $request->jumlah15;
+        $percent15 = $request->percent15;
+        
+        $jml16 = $request->jumlah16;
+        $percent16 = $request->percent16;
+        
+        $jml17 = $request->jumlah17;
+        $percent17 = $request->percent17;
+        
+        $jml18 = $request->jumlah18;
+        $percent18 = $request->percent18;
+        
+        $jml19 = $request->jumlah19;
+        $percent19 = $request->percent19;
+        
+        $jml20 = $request->jumlah20;
+        $percent20 = $request->percent20;
+        
+        $jml21 = $request->jumlah21;
+        $percent21 = $request->percent21;
+        
+        $peneliti->jumlah0 = $jml0;
+        $peneliti->percent0 = $percent0;
+        $peneliti->jumlah1 = $jml1;
+        $peneliti->percent1 = $percent1;
+        $peneliti->jumlah2 = $jml2;
+        $peneliti->percent2 = $percent2;
+        $peneliti->jumlah3 = $jml3;
+        $peneliti->percent3 = $percent3;
+        $peneliti->jumlah4 = $jml4;
+        $peneliti->percent4 = $percent4;
+        $peneliti->jumlah5 = $jml5;
+        $peneliti->percent5 = $percent5;
+        $peneliti->jumlah6 = $jml6;
+        $peneliti->percent6 = $percent6;
+        $peneliti->jumlah7 = $jml7;
+        $peneliti->percent7 = $percent7;
+        $peneliti->jumlah8 = $jml8;
+        $peneliti->percent8 = $percent8;
+
+        $peneliti->jumlah9 = $jml9;
+        $peneliti->percent0 = $percent9;
+        $peneliti->jumlah10 = $jml10;
+        $peneliti->percent10 = $percent10;
+        $peneliti->jumlah11 = $jml11;
+        $peneliti->percent11 = $percent11;
+        $peneliti->jumlah12 = $jml12;
+        $peneliti->percent12 = $percent12;
+        $peneliti->jumlah13 = $jml13;
+        $peneliti->percent13 = $percent13;
+        $peneliti->jumlah14 = $jml14;
+        $peneliti->percent14 = $percent14;
+        $peneliti->jumlah15 = $jml15;
+        $peneliti->percent15 = $percent15;
+        $peneliti->jumlah16 = $jml16;
+        $peneliti->percent16 = $percent16;
+        $peneliti->jumlah17 = $jml17;
+        $peneliti->percent17 = $percent17;
+        $peneliti->jumlah18 = $jml18;
+        $peneliti->percent18 = $percent18;
+
+        $peneliti->jumlah19 = $jml19;
+        $peneliti->percent19 = $percent19;
+        $peneliti->jumlah20 = $jml20;
+        $peneliti->percent20 = $percent20;
+        $peneliti->jumlah21 = $jml21;
+        $peneliti->percent21 = $percent21;
+       
+
+        
+        $peneliti->jumlahtotal = $jml0 + $jml1 + $jml2 + $jml3 + $jml4 + $jml5 + $jml6 + $jml7 + $jml8 + $jml9 + $jml10 + $jml11 +
+                                 $jml12 + $jml13 + $jml14 + $jml15 + $jml16 + $jml17 + $jml18 + $jml19 + $jml20 + $jml21;
+        $peneliti->save();
+
+        return redirect(route('admin.indekspenelitipkm.details', [$fakultas, $periode, $tahun]));
     }
 }

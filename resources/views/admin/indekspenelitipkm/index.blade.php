@@ -54,15 +54,15 @@
                         @endif
 
                         <div id="table-datatables">
-                            <h4 class="header left">Tabel 18 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT
+                            <h4 class="header left">Tabel 17 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT
                             </h4>
                             <!-- <a href="{{ route('admin.agenda.create') }}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <a href="#import" class="waves-effect waves-light btn right modal-trigger"
                                         role="button">Upload Excel</a>
-                                    <a href="{{ route('admin.indekspenelitipkm.export') }}"
-                                        class="waves-effect waves-light btn right" role="button">Export Excel</a>
+                                    <!-- <a href="{{ route('admin.indekspenelitipkm.export') }}"
+                                        class="waves-effect waves-light btn right" role="button">Export Excel</a> -->
 
                                     {{-- Modal import --}}
                                     <div id="import" class="modal">
@@ -70,10 +70,10 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-content">
-                                                <p>Import Excel Table 7 H-Indeks Penelitian PKM</p>
+                                                <p>Import Excel Table 17 H-Indeks Penelitian PKM</p>
                                                 <p>Untuk import agenda melalui excel, silahkan download template excel dan
                                                     sesuaikan masukan</p>
-                                                <!-- <a href="{{ asset('template\template_agenda.xlsx') }}">Download template</a> -->
+                                                <a href="{{ asset('template\rida\table_17_indeks_pkm.xlsx') }}">Download template</a>
                                                 <h5><label for="indekspenelitipkm" class="form-label">Upload file
                                                         excel</label></h5>
                                                 <input type="file" name="indekspenelitipkm">

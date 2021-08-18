@@ -166,9 +166,9 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\ProfesiController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\ProfesiController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'updateRow'])->name('updaterow');
-
+            
         });
-
+        
         Route::group(['as' => 'indekspenelitipkm.', 'prefix' => '/indekspenelitipkm'], function () {
             Route::get('/', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'index'])->name('index');
             Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'details'])->name('details');
@@ -179,6 +179,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'updateRow'])->name('updaterow');
         });
 
         Route::group(['as' => 'penelitipengabdikependidikanmagister.', 'prefix' => '/penelitipengabdikependidikanmagister'], function () {

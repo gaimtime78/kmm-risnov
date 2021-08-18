@@ -51,9 +51,9 @@
           </div>
           @endif
 
-          <div id="table-datatables">\
+          <div id="table-datatables">
           
-            <h4 class="header left">Tabel 18 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
+            <h4 class="header left">Tabel 17 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
@@ -197,35 +197,414 @@
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent21}}%</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlahtotal}}</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percenttotal}}%</td>
-                          <td><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a> </td>
+                          <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}" class="btn modal-trigger" style="background-color: orange;">Edit</a></td>
                           <!-- Modal Edit -->
-                          <div id="#" class="modal modal-fixed-footer">
-                            <form action="#" method="post">
+                          <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
+                            <form
+                                action="{{ route('admin.indekspenelitipkm.updaterow', $row->id) }}"
+                                method="post">
                               @csrf
                               <div class="modal-content">
-                                <h4>Edit Data</h4>
-                                <hr>
-                                <div class="row">
-                                  <div class="input-field col s12">
-                                    <input value="{{$row->title}}" id="title" name="title"  type="text" class="validate" required>
-                                    <label for="title">RIDA title</label>
-                                  </div>
-                                </div>
+                                <h4>Edit Data Row {{ $row->status }}
+                                    {{ $row->jenjang }} {{ $row->fakultas }}
+                                    {{ $row->periode }} {{ $row->tahun_input }}</h4>
+                                    <div class="divider"></div>
+                                    <p>Indeks 0</p>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->jumlah0 }}"
+                                        id="jumlah0" name="jumlah0"
+                                        type="text" class="validate" required>
+                                        <label for="jumlah0">0</label>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->percent0 }}"
+                                        id="percent0" name="percent0"
+                                        type="text" class="validate" required>
+                                        <label for="percent0">%</label>
+                                      </div>
+                                    </div>
+                                    
+                                    <p>Indeks 1</p>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->jumlah1 }}"
+                                        id="jumlah1" name="jumlah1"
+                                        type="text" class="validate" required>
+                                        <label for="jumlah1">1</label>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->percent1 }} %"
+                                        id="percent1" name="percent1"
+                                        type="text" class="validate" required>
+                                        <label for="percent1">%</label>
+                                      </div>
+                                    </div>
 
-                                <div class="row">
-                                  <div class="mb-3" style="margin-left:8px">
-                                    <label for="date">Rida date</label>
-                                    <input value="{{$row->date}}" id="date"  name="date"  type="date" class="validate" required>
-                                  </div>
-                                </div>
+                                    <p>Indeks 2</p>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->jumlah2 }}"
+                                        id="jumlah2" name="jumlah2"
+                                        type="text" class="validate" required>
+                                        <label for="jumlah2">2</label>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->percent2 }} %"
+                                        id="percent2" name="percent2"
+                                        type="text" class="validate" required>
+                                        <label for="percent2">%</label>
+                                      </div>
+                                    </div>
+                                    
+                                    <p>Indeks 3</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah3 }}"
+                                                id="jumlah3" name="jumlah3"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah3">3</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent3 }} %"
+                                                id="percent3" name="percent3"
+                                                type="text" class="validate" required>
+                                            <label for="percent3">%</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <p>Indeks 4</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah4 }}"
+                                                id="jumlah4" name="jumlah4"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah4">4</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent4 }} %"
+                                                id="percent4" name="percent4"
+                                                type="text" class="validate" required>
+                                            <label for="percent4">%</label>
+                                        </div>
+                                    </div>
 
-                                <div class="row">
-                                  <div class="mb-3" style="margin-left:8px">
-                                    <label for="time">Rida time</label>
-                                    <input value="{{$row->time}}" id="time"  name="time"  type="time" class="validate" required>
-                                  </div>
-                                </div>
+                                    <p>Indeks 5</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah5 }}"
+                                                id="jumlah5" name="jumlah5"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah5">5</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent5 }} %"
+                                                id="percent5" name="percent5"
+                                                type="text" class="validate" required>
+                                            <label for="percent5">%</label>
+                                        </div>
+                                    </div>
 
+                                    <p>Indeks 6</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah6 }}"
+                                                id="jumlah6" name="jumlah6"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah6">6</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent6 }} %"
+                                                id="percent6" name="percent6"
+                                                type="text" class="validate" required>
+                                            <label for="percent6">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 7</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah7 }}"
+                                                id="jumlah7" name="jumlah7"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah7">7</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent7 }} %"
+                                                id="percent7" name="percent7"
+                                                type="text" class="validate" required>
+                                            <label for="percent7">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 8</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah8 }}"
+                                                id="jumlah8" name="jumlah8"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah8">8</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent8 }} %"
+                                                id="percent8" name="percent8"
+                                                type="text" class="validate" required>
+                                            <label for="percent8">%</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <p>Indeks 9</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah9 }}"
+                                                id="jumlah9" name="jumlah9"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah9">9</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent9 }} %"
+                                                id="percent9" name="percent9"
+                                                type="text" class="validate" required>
+                                            <label for="percent9">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 10</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah10 }}"
+                                                id="jumlah10" name="jumlah10"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah10">10</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent10 }} %"
+                                                id="percent10" name="percent10"
+                                                type="text" class="validate" required>
+                                            <label for="percent10">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 11</p>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->jumlah11 }}"
+                                        id="jumlah11" name="jumlah0"
+                                        type="text" class="validate" required>
+                                        <label for="jumlah11">11</label>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->percent11 }} %"
+                                        id="percent11" name="percent11"
+                                        type="text" class="validate" required>
+                                        <label for="percent11">%</label>
+                                      </div>
+                                    </div>
+                                    
+                                    <p>Indeks 12</p>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->jumlah12 }}"
+                                        id="jumlah12" name="jumlah12"
+                                        type="text" class="validate" required>
+                                        <label for="jumlah12">12</label>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->percent12 }} %"
+                                        id="percent12" name="percent12"
+                                        type="text" class="validate" required>
+                                        <label for="percent12">%</label>
+                                      </div>
+                                    </div>
+
+                                    <p>Indeks 13</p>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->jumlah13 }}"
+                                        id="jumlah13" name="jumlah13"
+                                        type="text" class="validate" required>
+                                        <label for="jumlah13">13</label>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="input-field col s12">
+                                        <input value="{{ $row->percent13 }} %"
+                                        id="percent13" name="percent13"
+                                        type="text" class="validate" required>
+                                        <label for="percent13">%</label>
+                                      </div>
+                                    </div>
+                                    
+                                    <p>Indeks 14</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah14 }}"
+                                                id="jumlah14" name="jumlah14"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah14">14</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent14 }} %"
+                                                id="percent14" name="percent14"
+                                                type="text" class="validate" required>
+                                            <label for="percent14">%</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <p>Indeks 15</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah15 }}"
+                                                id="jumlah15" name="jumlah15"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah15">15</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent15 }} %"
+                                                id="percent15" name="percent15"
+                                                type="text" class="validate" required>
+                                            <label for="percent15">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 16</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah16 }}"
+                                                id="jumlah16" name="jumlah16"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah16">16</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent16 }} %"
+                                                id="percent16" name="percent16"
+                                                type="text" class="validate" required>
+                                            <label for="percent16">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 17</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah17 }}"
+                                                id="jumlah17" name="jumlah17"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah17">17</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent17 }} %"
+                                                id="percent17" name="percent17"
+                                                type="text" class="validate" required>
+                                            <label for="percent17">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 18</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah18 }}"
+                                                id="jumlah18" name="jumlah18"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah18">18</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent18 }} %"
+                                                id="percent18" name="percent18"
+                                                type="text" class="validate" required>
+                                            <label for="percent18">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 19</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah19 }}"
+                                                id="jumlah19" name="jumlah19"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah19">19</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent19 }} %"
+                                                id="percent19" name="percent19"
+                                                type="text" class="validate" required>
+                                            <label for="percent19">%</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <p>Indeks 20</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah20 }}"
+                                                id="jumlah20" name="jumlah20"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah20">20</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent20 }} %"
+                                                id="percent20" name="percent20"
+                                                type="text" class="validate" required>
+                                            <label for="percent20">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 21</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah21 }}"
+                                                id="jumlah21" name="jumlah21"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah21">21</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent21 }} %"
+                                                id="percent21" name="percent21"
+                                                type="text" class="validate" required>
+                                            <label for="percent21">%</label>
+                                        </div>
+                                    </div>
+                                
                                 
                                 
                               </div>
