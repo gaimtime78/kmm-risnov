@@ -38,9 +38,16 @@ class ResearchController extends Controller
     }
     public function details(Request $request)
     {
-        $tahun_input = ResearchGroup::select('tahun_input')->distinct()->get('tahun_input');
-        $research = ResearchGroup::select('fakultas','tahun1')->distinct()->groupBy()->get('fakultas','tahun1');
-// dd($research);
+                
+        $tahun_input = ResearchGroup::select('tahun_input')->distinct()->get()->pluck('tahun_input');
+        $researchData = ResearchGroup::select('fakultas','tahun_input','tahun1')->get();
+        $research = [];
+        foreach($researchData as $item){
+            if(empty($research[$item->fakultas])){
+                $research[$item->fakultas]['fakultas'] = $item->fakultas;
+            }
+            $research[$item->fakultas]['data'][$item->tahun_input] = $item->tahun1;
+        }
         return view('admin.researchgroup.details', ['research' => $research, 'tahun_input' => $tahun_input]);    
     }
 }

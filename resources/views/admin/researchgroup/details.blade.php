@@ -58,69 +58,61 @@
             <div class="row">
               <div class="col s12 m12 l12">
               
-                <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
-                  <thead>
-                      <tr style="border: 1px solid black !important;">
-                          <th  rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
-                          <th  rowspan="3" style="text-align:justify !important;">Fakultas</th>
-                          <th  colspan="5" style="border: 1px solid black !important; text-align:center !important;">Tahun</th>
-                          
-                        </tr>
-                        <tr style="border: 1px solid black !important;">
-                          @foreach($tahun_input->chunk(6) as $tahun_in)
-                              @foreach ($tahun_in as $row)
-                                <th style="border: 1px solid black !important; text-align:center !important;">{{ $row->tahun_input }}</th>
-                              @endforeach
-                          @endforeach
-                                <th  rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
-                        </tr>
-                  </thead>
-                  
-                  <tbody>
-                  @php
-                      $i = 1;
-                    @endphp
-                      @foreach ($research as $row)
-                      <tr style="border: 1px solid black !important;">
-                        <td style="border: 1px solid black !important;text-align:center !important;">{{$i}}</td>
-                        <td style="border: 1px solid black !important;text-align:center !important;">{{$row->fakultas}}</td>
-                        <td style="border: 1px solid black !important;text-align:center !important;">{{$row->tahun1}}</td>
-                        <!-- @foreach($research->chunk(1) as $research_in)
-                        @foreach ($research_in as $row)
-                          @endforeach
-                        @endforeach -->
-                        
-                          <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a></td>
-                          <!-- Modal Edit -->
-                          
-                          <!-- Modal Hapus -->
-                          <div id="hapus" class="modal">
-                            <form action="#" method="get">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Delete Agenda</h4>
-                                <hr>
-                                <p>Anda yakin ingin menghapus agenda {{$row->title}}?</p>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
-                              </div>
-                            </form>
-                          </div>
-                      </tr>
-                      @php
-                        $i++;
-                      @endphp
-                      @endforeach
-                      
-                  </tbody>
-                  <thead>
+                                
+                <div class="container py-4">
+                    <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
+                        <thead>
+                            <tr style="border: 1px solid black !important;">
+                                <th rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
+                                <th rowspan="3" style="text-align:justify !important;">Fakultas</th>
+                                <th colspan="5" style="border: 1px solid black !important; text-align:center !important;">Tahun</th>
+                            </tr>
+                            <tr style="border: 1px solid black !important;">
+                                @foreach($tahun_input as $tahun)
+                                    <th style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
+                                @endforeach
+                                <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach ($research as $row)
+                            <tr style="border: 1px solid black !important;">
+                                <td style="border: 1px solid black !important;text-align:center !important;">{{$loop->iteration}}</td>
+                                <td style="border: 1px solid black !important;text-align:left !important;">{{$row['fakultas']}}</td>
+                                @foreach($row['data'] as $data)
+                                    <td style="border: 1px solid black !important;text-align:center !important;">{{$data}}</td>
+                                @endforeach
+
+                                <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger"
+                                        style="background-color: orange;">Edit</a></td>
+                                <!-- Modal Edit -->
+
+                                <!-- Modal Hapus -->
+                                <div id="hapus" class="modal">
+                                    <form action="#" method="get">
+                                        @csrf
+                                        <div class="modal-content">
+                                            <h4>Delete Agenda</h4>
+                                            <hr>
+                                            {{-- <p>Anda yakin ingin menghapus agenda {{$row->title}}?</p> --}}
+                                            <div class="modal-footer">
+                                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
+                                            </div>
+                                    </form>
+                                </div>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    <thead>
                       <tr>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                        <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
                       </tr>
                       
-                  </thead>
-                </table>
+                    </thead>
+                  </table>
+                </div>
               </div>
             </div>
           </div> 
