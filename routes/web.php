@@ -175,7 +175,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'edit'])->name('edit');
-            Route::post('/edit/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'update'])->name('update');
+            Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'update'])->name('update');
             Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'import'])->name('import');
@@ -278,6 +278,21 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'updateRow'])->name('updaterow');
+        });
+
+        
+        Route::group(['as' => 'researchgroup.', 'prefix' => '/researchgroup'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\ResearchController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\ResearchController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details', [App\Http\Controllers\Rida\ResearchController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\ResearchController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\ResearchController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\ResearchController::class, 'edit'])->name('edit');
+            Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\ResearchController::class, 'update'])->name('update');
+            Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ResearchController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\ResearchController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\ResearchController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\ResearchController::class, 'updateRow'])->name('updaterow');
         });
 
         Route::group(['prefix' => '/category'], function () {

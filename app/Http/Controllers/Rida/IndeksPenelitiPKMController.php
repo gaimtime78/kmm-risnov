@@ -16,7 +16,7 @@ class IndeksPenelitiPKMController extends Controller
 {
     public function index()
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::select('periode', 'tahun_input')->distinct()->get('periode', 'id');
+        $indekspenelitipkm = IndeksPenelitiPKM::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode', 'id','sumber_data');
         
         return view('admin.indekspenelitipkm.index', ['indekspenelitipkm' => $indekspenelitipkm]);
     }
@@ -127,13 +127,14 @@ class IndeksPenelitiPKMController extends Controller
         return view('admin/indekspenelitipkm/edit', compact('indekspenelitipkm'));
     }
 
-    public function update(Request $request, $periode, $tahun_input)
+    public function update(Request $request, $periode, $tahun_input, $sumber_data)
     {
         $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
         // dd($indekspenelitipkm);
         foreach ($indekspenelitipkm as $peneliti) {
             $peneliti->periode = $request->periode;
             $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->sumber_data = $request->sumber_data;
             $peneliti->save();
         }
 
