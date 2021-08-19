@@ -66,56 +66,33 @@
                           <th  colspan="5" style="border: 1px solid black !important; text-align:center !important;">Tahun</th>
                           
                         </tr>
-                        @php
-                        $i = 1;
-                        @endphp
-                        @foreach ($tahun_input as $row)
-                                <tr style="border: 1px solid black !important;">
-                                    <th style="border: 1px solid black !important; text-align:center !important;">{{ $row->tahun_input }}</th>
-                                    <th  rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
-                                </tr>
-                                @endforeach
+                        <tr style="border: 1px solid black !important;">
+                          @foreach($tahun_input->chunk(6) as $tahun_in)
+                              @foreach ($tahun_in as $row)
+                                <th style="border: 1px solid black !important; text-align:center !important;">{{ $row->tahun_input }}</th>
+                              @endforeach
+                          @endforeach
+                                <th  rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
+                        </tr>
                   </thead>
+                  
                   <tbody>
                   @php
                       $i = 1;
                     @endphp
                       @foreach ($research as $row)
                       <tr style="border: 1px solid black !important;">
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$i}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->fakultas}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->tahun1}}</td>
-                          <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}" class="btn modal-trigger" style="background-color: orange;">Edit</a></td>
+                        <td style="border: 1px solid black !important;text-align:center !important;">{{$i}}</td>
+                        <td style="border: 1px solid black !important;text-align:center !important;">{{$row->fakultas}}</td>
+                        <td style="border: 1px solid black !important;text-align:center !important;">{{$row->tahun1}}</td>
+                        <!-- @foreach($research->chunk(1) as $research_in)
+                        @foreach ($research_in as $row)
+                          @endforeach
+                        @endforeach -->
+                        
+                          <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger" style="background-color: orange;">Edit</a></td>
                           <!-- Modal Edit -->
-                          <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
-                            <form
-                                action="{{ route('admin.indekspenelitipkm.updaterow', $row->id) }}"
-                                method="post">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Edit Data Row {{ $row->status }}
-                                    {{ $row->jenjang }} {{ $row->fakultas }}
-                                    {{ $row->periode }} {{ $row->tahun_input }}</h4>
-                                    <div class="divider"></div>
-                                    <p>Indeks 0</p>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->jumlah0 }}"
-                                        id="jumlah0" name="jumlah0"
-                                        type="text" class="validate" required>
-                                        <label for="jumlah0">0</label>
-                                      </div>
-                                    </div>
-                                   
-                                
-                                
-                              </div>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
-                              </div>
-                            </form>
-                          </div>
+                          
                           <!-- Modal Hapus -->
                           <div id="hapus" class="modal">
                             <form action="#" method="get">

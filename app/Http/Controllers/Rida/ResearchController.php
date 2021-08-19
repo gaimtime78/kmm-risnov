@@ -39,8 +39,8 @@ class ResearchController extends Controller
     public function details(Request $request)
     {
         $tahun_input = ResearchGroup::select('tahun_input')->distinct()->get('tahun_input');
-        $research = ResearchGroup::get();
-// dd($tahun_research);
+        $research = ResearchGroup::select('fakultas','tahun1')->distinct()->groupBy()->get('fakultas','tahun1');
+// dd($research);
         return view('admin.researchgroup.details', ['research' => $research, 'tahun_input' => $tahun_input]);    
     }
 }
