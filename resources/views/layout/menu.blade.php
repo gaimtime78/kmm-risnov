@@ -1,149 +1,188 @@
     <!-- START LEFT SIDEBAR NAV-->
-  <aside id="left-sidebar-nav">
-        <ul id="slide-out" class="side-nav fixed leftside-navigation" >
-        <li class="user-details cyan darken-2">
-        <div class="row">
-            <div class="col col s4 m4 l4">
-                <img src="images\avatar.jpg" alt="" class="circle responsive-img valign profile-image">
-            </div>
-            <div class="col col s8 m8 l8">
-                <ul id="profile-dropdown" class="dropdown-content">
-                    
-                    <li><a href="{{ route('logout') }}"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+    <aside id="left-sidebar-nav">
+        <ul id="slide-out" class="side-nav fixed leftside-navigation">
+            <li class="user-details cyan darken-2">
+                <div class="row">
+                    <div class="col col s4 m4 l4">
+                        <img src="images\avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                    </div>
+                    <div class="col col s8 m8 l8">
+                        <ul id="profile-dropdown" class="dropdown-content">
+
+                            <li><a href="{{ route('logout') }}"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                            </li>
+                        </ul>
+                        <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#"
+                            data-activates="profile-dropdown">{{ $userName }}<i
+                                class="mdi-navigation-arrow-drop-down right"></i></a>
+                        <p class="user-roal">Administrator</p>
+                    </div>
+                </div>
+            </li>
+            <li class="bold active"><a href="{{ route('admin.dashboard') }}" class="waves-effect waves-cyan"><i
+                        class="mdi-action-dashboard"></i> Dashboard</a>
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
+                                class="mdi-image-palette"></i>Content Management</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                @if (in_array('admin.category.index', $permissionUser))
+                                    <li><a href="{{ route('admin.category.index') }}">Category</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.post.index', $permissionUser))
+                                    <li><a href="{{ route('admin.post.index') }}">Post</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.page.index', $permissionUser))
+                                    <li><a href="{{ route('admin.page.index') }}">Page</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.menu.index', $permissionUser))
+                                    <li><a href="{{ route('admin.menu.index') }}">Menu</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.koran.index', $permissionUser))
+                                    <li><a href="{{ route('admin.koran.index') }}">Koran Online</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.agenda.index', $permissionUser))
+                                    <li><a href="{{ route('admin.agenda.index') }}">Agenda</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.user.index', $permissionUser))
+                                    <li><a href="{{ route('admin.user.index') }}">User</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.permission.index') }}">Permission</a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </div>
                     </li>
+                    <li class="li-hover">
+                        <p class="ultra-small margin more-text">Upload RIDA</p>
+                    </li>
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.capaian_iku.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Perkembangan
+                                Capaian IKU</a></li>
+                    @endif
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
+                                class="mdi-image-palette"></i>Upload Tenaga Pendidik</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdi.index') }}">Input Peneliti Pengabdi
+                                            Doktoral</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdimagister.index') }}">Input Peneliti
+                                            Pengabdi Magister</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdispesialis.index') }}">Input Peneliti
+                                            Pengabdi Sp-2</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdispesialiskonsultan.index') }}">Input
+                                            Peneliti Pengabdi Sp-1 (k) </a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdispesialis1.index') }}">Input
+                                            Peneliti Pengabdi SP-1 </a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdiprofesi.index') }}">Input Peneliti
+                                            Pengabdi Profesi </a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
+                                class="mdi-image-palette"></i>Upload Tenaga Kependidikan</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikanmagister.index') }}">Input
+                                            Peneliti Pengabdi Magister</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikanprofesi.index') }}">Input
+                                            Peneliti Pengabdi Profesi</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma4.index') }}">Input
+                                            Peneliti Pengabdi Diploma 4</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma3.index') }}">Input
+                                            Peneliti Pengabdi Diploma 3</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma2.index') }}">Input
+                                            Peneliti Pengabdi Diploma 2</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma1.index') }}">Input
+                                            Peneliti Pengabdi Diploma 1</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikanslta.index') }}">Input
+                                            Peneliti Pengabdi Slta</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikansltp.index') }}">Input
+                                            Peneliti Pengabdi Sltp</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikansd.index') }}">Input
+                                            Peneliti Pengabdi Sd</a>
+                                    </li>
+                                @endif
+
+                            </ul>
+                        </div>
+                    </li>
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks
+                                Penelitian PKM </a></li>
+                    @endif
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.researchgroup.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input Research
+                                Group Aktif </a></li>
+                    @endif
+
                 </ul>
-                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{$userName}}<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                <p class="user-roal">Administrator</p>
-            </div>
-        </div>
-        </li>
-        <li class="bold active"><a href="{{ route('admin.dashboard') }}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
-        </li>
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Content Management</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            @if(in_array("admin.category.index", $permissionUser))
-                            <li><a href="{{ route('admin.category.index') }}">Category</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.post.index", $permissionUser))
-                            <li><a href="{{ route('admin.post.index') }}">Post</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.page.index", $permissionUser))
-                            <li><a href="{{ route('admin.page.index') }}">Page</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.menu.index", $permissionUser))
-                            <li><a href="{{ route('admin.menu.index') }}">Menu</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.koran.index", $permissionUser))
-                            <li><a href="{{ route('admin.koran.index') }}">Koran Online</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.agenda.index", $permissionUser))
-                            <li><a href="{{ route('admin.agenda.index') }}">Agenda</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.user.index", $permissionUser))
-                            <li><a href="{{ route('admin.user.index') }}">User</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.permission.index') }}">Permission</a>
-                            </li>
-                            @endif
-                        </ul>
-                    </div>
-                </li>
-                <li class="li-hover"><p class="ultra-small margin more-text">Upload RIDA</p></li>
-                @if(in_array("admin.permission.index", $permissionUser))
-                    <li class="bold"><a href="{{ route('admin.capaian_iku.index')  }}" class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Perkembangan Capaian IKU</a></li>
-                @endif
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Upload Tenaga Pendidik</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdi.index') }}">Input Peneliti Pengabdi Doktoral</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdimagister.index') }}">Input Peneliti Pengabdi Magister</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdispesialis.index') }}">Input Peneliti Pengabdi Sp-2</a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdispesialiskonsultan.index') }}">Input Peneliti Pengabdi Sp-1 (k) </a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdispesialis1.index') }}">Input Peneliti Pengabdi SP-1 </a>
-                            </li>
-                            @endif
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdiprofesi.index') }}">Input Peneliti Pengabdi Profesi </a>
-                            </li>
-                            @endif
-                        </ul>
-                    </div>
-                </li>
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i>Upload Tenaga Kependidikan</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdikependidikanmagister.index') }}">Input Peneliti Pengabdi Magister</a>
-                            </li>
-                            @endif
-
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdikependidikanprofesi.index') }}">Input Peneliti Pengabdi Profesi</a>
-                            </li>
-                            @endif
-
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma4.index') }}">Input Peneliti Pengabdi Diploma 4</a>
-                            </li>
-                            @endif
-
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma3.index') }}">Input Peneliti Pengabdi Diploma 3</a>
-                            </li>
-                            @endif
-
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma2.index') }}">Input Peneliti Pengabdi Diploma 2</a>
-                            </li>
-                            @endif
-
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdikependidikandiploma1.index') }}">Input Peneliti Pengabdi Diploma 1</a>
-                            </li>
-                            @endif
-
-                            @if(in_array("admin.permission.index", $permissionUser))
-                            <li><a href="{{ route('admin.penelitipengabdikependidikanslta.index') }}">Input Peneliti Pengabdi Slta</a>
-                            </li>
-                            @endif
-                          
-                        </ul>
-                    </div>
-                </li>
-                @if(in_array("admin.permission.index", $permissionUser))
-                    <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index')  }}" class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks Penelitian PKM </a></li>
-                @endif
-                @if(in_array("admin.permission.index", $permissionUser))
-                    <li class="bold"><a href="{{ route('admin.researchgroup.index')  }}" class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input Research Group Aktif  </a></li>
-                @endif
-
-            </ul>
-        </li>
-        <!-- <li class="no-padding">
+            </li>
+            <!-- <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i> Website</a>
                     <div class="collapsible-body">
@@ -375,9 +414,9 @@
                 </div>
             </div>
         </li> -->
-    </ul>
-        <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
+        </ul>
+        <a href="#" data-activates="slide-out"
+            class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i
+                class="mdi-navigation-menu"></i></a>
     </aside>
     <!-- END LEFT SIDEBAR NAV-->
-
-    
