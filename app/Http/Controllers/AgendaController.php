@@ -63,14 +63,9 @@ class AgendaController extends Controller
     public function update(Request $request, $id)
     {
         $agenda = Agenda::find($id);
-        $time = now();
-        $customizedTitle = date("YmdHis") . '-' . str_replace(' ', '-', $request->title);
-        $url = url('agenda/' . $customizedTitle);
         $dataUpdate = [
             'date' => $request->date,
             'time' => $request->time,
-            'title' => $request->title,
-            'url' => $url,
             'description' => $request->description,
             'show_thumbnail' => $request->show_thumbnail === 'on' ? true : false,
         ];
