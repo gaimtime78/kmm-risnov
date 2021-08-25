@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PenelitiPengabdiKependidikanSltp extends Migration
+class CreateUsiaProduktifDoktoral extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class PenelitiPengabdiKependidikanSltp extends Migration
      */
     public function up()
     {
-        Schema::create('peneliti_pengabdi_kependidikan_sltp', function (Blueprint $table) {
+        Schema::create('usia_produktif_doktoral', function (Blueprint $table) {
             $table->id();
             $table->string('fakultas');
             $table->string('status');
@@ -21,31 +21,24 @@ class PenelitiPengabdiKependidikanSltp extends Migration
             $table->string('periode');
             $table->string('tahun_input');
             $table->string('sumber_data');
-
-            $table->string('usia25_L');
-            $table->string('usia25_P');
-            $table->string('usia25_jumlah');
-            
             $table->string('usia25sd35_L');
             $table->string('usia25sd35_P');
             $table->string('usia25sd35_jumlah');
-            
             $table->string('usia36sd45_L');
             $table->string('usia36sd45_P');
             $table->string('usia36sd45_jumlah');
-            
             $table->string('usia46sd55_L');
             $table->string('usia46sd55_P');
             $table->string('usia46sd55_jumlah');
-            
-            $table->string('usia56sd60_L');
-            $table->string('usia56sd60_P')->nullable();
-            $table->string('usia56sd60_jumlah');
-
-            $table->string('usia60_L');
-            $table->string('usia60_P');
-            $table->string('usia60_jumlah');
-            
+            $table->string('usia56sd65_L');
+            $table->string('usia56sd65_P');
+            $table->string('usia56sd65_jumlah');
+            $table->string('usia66sd75_L');
+            $table->string('usia66sd75_P');
+            $table->string('usia66sd75_jumlah');
+            $table->string('usia75_L');
+            $table->string('usia75_P');
+            $table->string('usia75_jumlah');
             $table->string('total');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
@@ -59,6 +52,6 @@ class PenelitiPengabdiKependidikanSltp extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('usia_produktif_doktoral');
     }
 }

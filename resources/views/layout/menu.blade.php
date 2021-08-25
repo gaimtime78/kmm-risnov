@@ -66,11 +66,7 @@
                     <li class="li-hover">
                         <p class="ultra-small margin more-text">Upload RIDA</p>
                     </li>
-                    @if (in_array('admin.permission.index', $permissionUser))
-                        <li class="bold"><a href="{{ route('admin.capaian_iku.index') }}"
-                                class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Perkembangan
-                                Capaian IKU</a></li>
-                    @endif
+                    
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
                                 class="mdi-image-palette"></i>Upload Tenaga Pendidik</a>
                         <div class="collapsible-body">
@@ -125,6 +121,12 @@
                                 @endif
 
                                 @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikansarjana.index') }}">Input
+                                            Peneliti Pengabdi Sarjana</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
                                     <li><a href="{{ route('admin.penelitipengabdikependidikandiploma4.index') }}">Input
                                             Peneliti Pengabdi Diploma 4</a>
                                     </li>
@@ -169,6 +171,28 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
+                                class="mdi-image-palette"></i>Upload Usia Produktif Pendidik</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifdoktoral.index') }}">Input
+                                            Usia Produktif Doktoral</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifmagister.index') }}">Input
+                                            Usia Produktif Magister</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifsp_2.index') }}">Input
+                                            Usia Produktif SP-2</a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </div>
+                    </li>
                     @if (in_array('admin.permission.index', $permissionUser))
                         <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks
@@ -178,6 +202,11 @@
                         <li class="bold"><a href="{{ route('admin.researchgroup.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input Research
                                 Group Aktif </a></li>
+                    @endif
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.capaian_iku.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Perkembangan
+                                Capaian IKU</a></li>
                     @endif
 
                 </ul>

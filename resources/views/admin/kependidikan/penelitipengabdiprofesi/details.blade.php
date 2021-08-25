@@ -55,7 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">Tabel 9 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA KEPENDIDIKAN  JENJANG PROFESI																		
+                            <h4 class="header left">Tabel 8 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA KEPENDIDIKAN  JENJANG PROFESI																		
                                 {{ $fakultas }}</h4>
                             <!-- <a href="{{ route('admin.agenda.create') }}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
                             <div class="row">

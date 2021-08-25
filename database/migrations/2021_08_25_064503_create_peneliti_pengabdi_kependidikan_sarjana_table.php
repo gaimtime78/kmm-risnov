@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PenelitiPengabdiKependidikanSd extends Migration
+class CreatePenelitiPengabdiKependidikanSarjanaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class PenelitiPengabdiKependidikanSd extends Migration
      */
     public function up()
     {
-        Schema::create('peneliti_pengabdi_kependidikan_sd', function (Blueprint $table) {
+        Schema::create('peneliti_pengabdi_kependidikan_sarjana', function (Blueprint $table) {
             $table->id();
             $table->string('fakultas');
             $table->string('status');
@@ -39,12 +39,8 @@ class PenelitiPengabdiKependidikanSd extends Migration
             $table->string('usia46sd55_jumlah');
             
             $table->string('usia56sd60_L');
-            $table->string('usia56sd60_P')->nullable();
+            $table->string('usia56sd60_P');
             $table->string('usia56sd60_jumlah');
-
-            $table->string('usia60_L');
-            $table->string('usia60_P');
-            $table->string('usia60_jumlah');
             
             $table->string('total');
             $table->unsignedBigInteger('user_id')->nullable();
@@ -59,6 +55,6 @@ class PenelitiPengabdiKependidikanSd extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('peneliti_pengabdi_kependidikan_sarjana');
     }
 }

@@ -52,7 +52,7 @@
           @endif
 
           <div id="table-datatables">
-            <h4 class="header left">Tabel 6 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1 </h4>
+            <h4 class="header left">Tabel 5 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-1 </h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
