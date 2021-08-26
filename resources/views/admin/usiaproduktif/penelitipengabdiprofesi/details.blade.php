@@ -55,8 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">TABEL RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG SPESIALIS -2 (SP-2)
-                                {{ $fakultas }}</h4>
+                            <h4 class="header left">RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG PROFESI {{ $fakultas }}</h4>
                             <!-- <a href="{{ route('admin.agenda.create') }}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
                             <div class="row">
                                 <div class="col s12 m12 l12">
@@ -166,7 +165,7 @@
                                                 $i = 1;
                                                 $x = 0;
                                             @endphp
-                                            @foreach ($usiaproduktifsp_2 as $row)
+                                            @foreach ($usiaproduktifprofesi as $row)
                                                 <tr>
                                                     <td
                                                         style="border: 1px solid black !important; text-align:center !important;">
@@ -235,7 +234,7 @@
                                                         style="border: 1px solid black !important; text-align:center !important;">
                                                         {{ $row->total }}</td>
                                                     @if ($x++ == 0)
-                                                        <td rowspan="{{ count($usiaproduktifsp_2) }}"
+                                                        <td rowspan="{{ count($usiaproduktifprofesi) }}"
                                                             style="border: 1px solid black !important; text-align:center !important;">
                                                             {{ number_format((float) $totalpercent, 2, '.', '') }} %</td>
                                                     @endif
@@ -247,7 +246,7 @@
                                                     <!-- Modal Edit -->
                                                     <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
                                                         <form
-                                                            action="{{ route('admin.usiaproduktifsp_2.updaterow', $row->id) }}"
+                                                            action="{{ route('admin.usiaproduktifprofesi.updaterow', $row->id) }}"
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-content">

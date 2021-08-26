@@ -53,7 +53,7 @@
 
           <div id="table-datatables">
            
-              <h4 class="header left">Tabel 1 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $nama_fakultas}} </h4>
+              <h4 class="header left">TABEL RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG DOKTOR {{ $nama_fakultas}} </h4>
 
             <div class="row">
               <div class="col s12 m12 l12">

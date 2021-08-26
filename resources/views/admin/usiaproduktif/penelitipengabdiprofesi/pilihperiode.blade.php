@@ -53,7 +53,7 @@
 
           <div id="table-datatables">
            
-              <h4 class="header left">Tabel 17 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG DOKTOR {{ $nama_fakultas}} </h4>
+              <h4 class="header left">RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG PROFESI {{ $nama_fakultas}} </h4>
 
             <div class="row">
               <div class="col s12 m12 l12">
@@ -79,13 +79,13 @@
                           <td style="text-align:center !important;">{{$row->tahun_input}}</td>
                           <td style="text-align:center !important;">{{$row->sumber_data}}</td>
                           <td>
-                            <a href="{{route('admin.penelitipengabdi.details', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" class="btn" style="background-color: grey;">Detail</a>
+                            <a href="{{route('admin.usiaproduktifprofesi.details', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" class="btn" style="background-color: grey;">Detail</a>
                             <a href="#edit{{$row->id}}" class="btn modal-trigger" style="background-color: green;">Edit</a>
                             <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a>
                           </td>
                           <!-- Modal Edit -->
                           <div id="edit{{$row->id}}" class="modal modal-fixed-footer">
-                            <form action="{{route('admin.penelitipengabdi.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]  )}}" method="post">
+                            <form action="{{route('admin.usiaproduktifprofesi.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]  )}}" method="post">
                               @csrf
                               <div class="modal-content">
                                 <h4>Edit Data</h4>
@@ -119,7 +119,7 @@
                           </div>
                           <!-- Modal Hapus -->
                           <div id="hapus{{$row->id}}" class="modal">
-                            <form action="{{route('admin.penelitipengabdi.delete', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" method="get">
+                            <form action="{{route('admin.usiaproduktifprofesi.delete', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" method="get">
                               @csrf
                               <div class="modal-content">
                                 <h4>Hapus Tabel</h4>

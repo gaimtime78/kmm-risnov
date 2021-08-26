@@ -67,7 +67,7 @@
                     <div class="modal-content">
                       <h4>Import Data</h4>
                       <p>Untuk import data melalui excel, silahkan download template excel dan sesuaikan masukan</p>
-                      <a href="{{asset('template\rida\table_8_peneliti_pengabdian_kependidikan_slta.xlsx')}}">Download template</a>
+                      <a href="{{asset('template\rida\table_14_peneliti_pengabdian_kependidikan_slta.xlsx')}}">Download template</a>
                         <h5><label for="agendas" class="form-label">Upload file excel</label></h5>
                         <input type="file" name="penelitipengabdislta">
 

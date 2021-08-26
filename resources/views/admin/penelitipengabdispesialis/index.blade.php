@@ -52,7 +52,7 @@
           @endif
 
           <div id="table-datatables">
-            <h4 class="header left">Tabel 3 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-2
+            <h4 class="header left">Tabel 19 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI JENJANG SPESIALIS-2
 </h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
@@ -66,7 +66,7 @@
                     <div class="modal-content">
                       <h4>Import Data</h4>
                       <p>Untuk import data melalui excel, silahkan download template excel dan sesuaikan masukan</p>
-                      <a href="{{asset('template\rida\table_4_spesialis-2.xlsx')}}">Download template</a>
+                      <a href="{{asset('template\rida\table_19_spesialis-2.xlsx')}}">Download template</a>
                         <h5><label for="penelitipengabdispesialis" class="form-label">Upload file excel</label></h5>
                         <input type="file" name="penelitipengabdispesialis">
 

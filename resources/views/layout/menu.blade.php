@@ -1,6 +1,6 @@
     <!-- START LEFT SIDEBAR NAV-->
     <aside id="left-sidebar-nav">
-        <ul id="slide-out" class="side-nav fixed leftside-navigation">
+        <ul id="slide-out" class="side-nav fixed leftside-navigation" style="width: 260px !important;" >
             <li class="user-details cyan darken-2">
                 <div class="row">
                     <div class="col col s4 m4 l4">
@@ -66,9 +66,112 @@
                     <li class="li-hover">
                         <p class="ultra-small margin more-text">Upload RIDA</p>
                     </li>
-                    
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
-                                class="mdi-image-palette"></i>Upload Tenaga Pendidik</a>
+                                class="mdi-image-palette"></i>USIA PRODUKTIF TENAGA PENDIDIK</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifdoktoral.index') }}">Input
+                                            Usia Produktif Doktoral</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifmagister.index') }}">Input
+                                            Usia Produktif Magister</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifsp_2.index') }}">Input
+                                            Usia Produktif SP-2</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifsp_1k.index') }}">Input
+                                            Usia Produktif SP-1 K</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifsp_1.index') }}">Input
+                                            Usia Produktif SP-1</a>
+                                    </li>
+                                @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifprofesi.index') }}">Input
+                                            Usia Produktif Profesi</a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
+                                class="mdi-image-palette"></i>USIA PRODUKTIF TENAGA KEPENDIDIKAN</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikanmagister.index') }}">Input
+                                            Usia Produktif Magister</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikanprofesi.index') }}">Input
+                                    Usia Produktif Profesi</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikansarjana.index') }}">Input
+                                    Usia Produktif Sarjana</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma4.index') }}">Input
+                                    Usia Produktif Diploma 4</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma3.index') }}">Input
+                                    Usia Produktif Diploma 3</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma2.index') }}">Input
+                                    Usia Produktif Diploma 2</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma1.index') }}">Input
+                                    Usia Produktif Diploma 1</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikanslta.index') }}">Input
+                                    Usia Produktif SLTA</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikansltp.index') }}">Input
+                                    Usia Produktif SLTP</a>
+                                    </li>
+                                @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikansd.index') }}">Input
+                                    Usia Produktif SD</a>
+                                    </li>
+                                @endif
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
+                                class="mdi-image-palette"></i>USIA PRODUKTIF PENELITI & PENGABDI</a>
                         <div class="collapsible-body">
                             <ul>
                                 @if (in_array('admin.permission.index', $permissionUser))
@@ -104,105 +207,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
-                                class="mdi-image-palette"></i>Upload Tenaga Kependidikan</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikanmagister.index') }}">Input
-                                            Peneliti Pengabdi Magister</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikanprofesi.index') }}">Input
-                                            Peneliti Pengabdi Profesi</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikansarjana.index') }}">Input
-                                            Peneliti Pengabdi Sarjana</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma4.index') }}">Input
-                                            Peneliti Pengabdi Diploma 4</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma3.index') }}">Input
-                                            Peneliti Pengabdi Diploma 3</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma2.index') }}">Input
-                                            Peneliti Pengabdi Diploma 2</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikandiploma1.index') }}">Input
-                                            Peneliti Pengabdi Diploma 1</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikanslta.index') }}">Input
-                                            Peneliti Pengabdi Slta</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikansltp.index') }}">Input
-                                            Peneliti Pengabdi Sltp</a>
-                                    </li>
-                                @endif
-
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.penelitipengabdikependidikansd.index') }}">Input
-                                            Peneliti Pengabdi Sd</a>
-                                    </li>
-                                @endif
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
-                                class="mdi-image-palette"></i>Upload Usia Produktif Pendidik</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.usiaproduktifdoktoral.index') }}">Input
-                                            Usia Produktif Doktoral</a>
-                                    </li>
-                                @endif
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.usiaproduktifmagister.index') }}">Input
-                                            Usia Produktif Magister</a>
-                                    </li>
-                                @endif
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.usiaproduktifsp_2.index') }}">Input
-                                            Usia Produktif SP-2</a>
-                                    </li>
-                                @endif
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.usiaproduktifsp_1k.index') }}">Input
-                                            Usia Produktif SP-1 K</a>
-                                    </li>
-                                @endif
-                                @if (in_array('admin.permission.index', $permissionUser))
-                                    <li><a href="{{ route('admin.usiaproduktifsp_1.index') }}">Input
-                                            Usia Produktif SP-1</a>
-                                    </li>
-                                @endif
-                            </ul>
-                        </div>
-                    </li>
+                    
+                    
                     @if (in_array('admin.permission.index', $permissionUser))
                         <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks

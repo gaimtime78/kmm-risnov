@@ -392,6 +392,21 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'updateRow'])->name('updaterow');
         });
 
+        Route::group(['as' => 'usiaproduktifprofesi.', 'prefix' => '/usiaproduktifprofesi'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'updateRow'])->name('updaterow');
+        });
+
+
         
         Route::group(['as' => 'researchgroup.', 'prefix' => '/researchgroup'], function () {
             Route::get('/', [App\Http\Controllers\Rida\ResearchController::class, 'index'])->name('index');
