@@ -195,6 +195,11 @@
                                             Usia Produktif SP-1 K</a>
                                     </li>
                                 @endif
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.usiaproduktifsp_1.index') }}">Input
+                                            Usia Produktif SP-1</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </li>
