@@ -53,7 +53,7 @@
 
           <div id="table-datatables">
           
-            <h4 class="header left">Tabel 17 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
+            <h4 class="header left">Tabel 23 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
