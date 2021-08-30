@@ -15,19 +15,23 @@
                 </div><!-- end row -->
             </div><!-- end container -->
         </section><!-- end section -->
+        @if(count($list_tahun) <= 0)
+        <h2>Data tidak ditemukan</h2>
+        @else
         <section class="section db p120">
             <div class="container">
                 <div class="boxed boxedp4">
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h3>Doktoral - {{$fakultas}} - {{$tahun}}</h3>
+                                <h3>{{ucwords($name)}} - {{$fakultas}} - {{$tahun}}</h3>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                             </div>
-                            <form action="{{ route('rida-doktoral') }}" method="get" enctype="multipart/form-data">
+                            <?php $route = route('rida-'.$name)?>
+                            <form action="{{ $route }}" method="get" enctype="multipart/form-data">
                                 <div style="display:grid;grid-template-columns:1fr 5fr;grid-gap:1em">
                                     <div>
                                         <div style="display:flex;width:30%;flex-wrap:wrap;">
@@ -76,6 +80,7 @@
                 </div>
             </div><!-- end container -->
         </section><!-- end section -->
+        @endif
 @endsection
 
 @section('js')

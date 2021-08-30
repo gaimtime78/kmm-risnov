@@ -523,6 +523,11 @@ Route::get('/koran_search', [App\Http\Controllers\KoranController::class, 'searc
 Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 'searchKategory'])->name('category');
 Route::get('/dokumentasi-rida', [App\Http\Controllers\User\RidaController::class, 'index'])->name('dokumentasi-rida');
 Route::get('/dokumentasi-rida/doktoral', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-doktoral');
+Route::get('/dokumentasi-rida/magister', [App\Http\Controllers\User\RidaController::class, 'magister'])->name('rida-magister');
+Route::get('/dokumentasi-rida/spesialis-2', [App\Http\Controllers\User\RidaController::class, 'spesialis2'])->name('rida-spesialis-2');
+Route::get('/dokumentasi-rida/profesi', [App\Http\Controllers\User\RidaController::class, 'profesi'])->name('rida-profesi');
+Route::get('/dokumentasi-rida/spesialis-1', [App\Http\Controllers\User\RidaController::class, 'spesialis1'])->name('rida-spesialis-1');
+Route::get('/dokumentasi-rida/spesialis-konsultan', [App\Http\Controllers\User\RidaController::class, 'spesialisKonsultan'])->name('rida-spesialis-konsultan');
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
 // });
