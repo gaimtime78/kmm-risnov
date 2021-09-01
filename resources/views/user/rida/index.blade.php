@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                        <h3 style="color: #000000;">Dokumentasi RIDA</h3>
+                             <h3 style="color: #000000;">Dokumentasi RIDA</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -69,8 +69,37 @@
                     </div><!-- end col -->
                   
               </div><!-- end row -->
-              <div class="row">
+
+            
               
+                <hr class="invis">
+                <div class="tagline-message text-center">
+                    <h3 style="color: #000000;">Dokumentasi RIDA</h3>
+                </div>
+                <hr class="invis">
+            
+              <div class="row">
+                    <div class="col-md-4">
+                        <div class="box m30">
+                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG MAGISTER</h4>
+                            <a href="{{route('rida-tanaga-kependidikan-magister')}}" class="readmore">Selengkapnya</a>
+                        </div>
+                    </div><!-- end col -->
+                    <div class="col-md-4">
+                        <div class="box m30">
+                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG PROFESI</h4>
+                            <a href="{{route('rida-tanaga-kependidikan-profesi')}}" class="readmore">Selengkapnya</a>
+                        </div>
+                    </div><!-- end col -->
+                    <div class="col-md-4">
+                        <div class="box m30">
+                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG SARJANA</h4>
+                            <a href="{{route('rida-tanaga-kependidikan-sarjana')}}" class="readmore">Selengkapnya</a>
+                        </div>
+                    </div><!-- end col -->
               </div>
           </div><!-- end container -->
         </section>  

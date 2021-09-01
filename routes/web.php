@@ -528,6 +528,10 @@ Route::get('/dokumentasi-rida/spesialis-2', [App\Http\Controllers\User\RidaContr
 Route::get('/dokumentasi-rida/profesi', [App\Http\Controllers\User\RidaController::class, 'profesi'])->name('rida-profesi');
 Route::get('/dokumentasi-rida/spesialis-1', [App\Http\Controllers\User\RidaController::class, 'spesialis1'])->name('rida-spesialis-1');
 Route::get('/dokumentasi-rida/spesialis-konsultan', [App\Http\Controllers\User\RidaController::class, 'spesialisKonsultan'])->name('rida-spesialis-konsultan');
+
+Route::get('/dokumentasi-rida/tenaga-pendidik/magister', [App\Http\Controllers\User\TenagaKependidikanController::class, 'magister'])->name('rida-tanaga-kependidikan-magister');
+Route::get('/dokumentasi-rida/tenaga-pendidik/profesi', [App\Http\Controllers\User\TenagaKependidikanController::class, 'profesi'])->name('rida-tanaga-kependidikan-profesi');
+Route::get('/dokumentasi-rida/tenaga-pendidik/sarjana', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sarjana'])->name('rida-tanaga-kependidikan-sarjana');
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
 // });
