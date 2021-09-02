@@ -9,14 +9,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="tagline-message page-title text-center">
-                            <h3>Dokumentasi RIDA</h3>
+                            <h3  style="color: #000000;">Dokumentasi Riset Inovasi Dalam Angka</h3>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
         </section><!-- end section -->
         @if(count($list_tahun) <= 0)
-        <h2>Data tidak ditemukan</h2>
+        <h2 class="text-center">Data tidak ditemukan</h2>
         @else
         <section class="section db p120">
             <div class="container">
@@ -28,7 +28,9 @@
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
-                                <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
+                                <a href="{{route( 'rida-periode-'.$name , [$fakultas, $tahun]) }}">
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
+                                </a>
                             </div>
                             <?php $route = route('rida-'.$name)?>
                             <form action="{{ $route }}" method="get" enctype="multipart/form-data">

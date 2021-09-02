@@ -549,6 +549,12 @@ Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-1', [App\Http\Controller
 Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-konsultan', [App\Http\Controllers\User\TenagaPendidikController::class, 'spesialisKonsultan'])->name('rida-tenaga-pendidik-spesialis-konsultan');
 Route::get('/dokumentasi-rida/tenaga-pendidik/profesi', [App\Http\Controllers\User\TenagaPendidikController::class, 'profesi'])->name('rida-tanaga-pendidik-profesi');
 
+/*detail grafik*/
+Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_doktor'])->name('rida-periode-tenaga-pendidik-doktor');
+Route::get('/dokumentasi-rida/detail/tenaga-pendidik/doktor/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_doktor'])->name('rida-detail-tenaga-pendidik-doktor');
+Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_magister'])->name('rida-periode-magister');
+Route::get('/dokumentasi-rida/detail/tenaga-pendidik/magister/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_magister'])->name('rida-detail-tenaga-pendidik-magister');
+
 
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
