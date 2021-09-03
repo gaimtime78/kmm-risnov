@@ -14,9 +14,6 @@ use App\Models\Kependidikan\PenelitiPengabdiDiploma1;
 use App\Models\Kependidikan\PenelitiPengabdiSLTA;
 use App\Models\Kependidikan\PenelitiPengabdiSltp;
 use App\Models\Kependidikan\PenelitiPengabdiSd;
-use App\Models\PenelitiPengabdiSpesialis;
-use App\Models\PenelitiPengabdiSpesialis1;
-use App\Models\PenelitiPengabdiSpesialisKonsultan;
 
 class TenagaKependidikanController extends Controller
 {
@@ -105,13 +102,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiSarjana::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "sarjana",
+          "name"=> "tanaga-kependidikan-sarjana",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "sarjana",
+        "name"=> "tanaga-kependidikan-sarjana",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -142,7 +139,7 @@ class TenagaKependidikanController extends Controller
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "D4",
+        "name"=> "tanaga-kependidikan-D4",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -317,7 +314,7 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiSd::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-sd",
+          "name"=> "tanaga-kependidikan-SD",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
@@ -327,6 +324,499 @@ class TenagaKependidikanController extends Controller
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
+      
+    }
+
+    public function pilih_periode_magister($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "tenaga-kependidikan-magister", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_profesi($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "tenaga-kependidikan-profesi", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_sarjana($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiSarjana::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "tanaga-kependidikan-sarjana", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_d4($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiDiploma4::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D4", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_d3($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiDiploma3::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D3", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_d2($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiDiploma2::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D2", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_d1($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiDiploma1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D1", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_slta($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiSlta::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan SLTA", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_sltp($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiSltp::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan SLTP", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+    public function pilih_periode_sd($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiSd::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan SD", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      
+    }
+
+    public function detail_magister($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah           = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah       = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total                  = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua             = PenelitiPengabdiMagister::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent               = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'tenaga-pendidik-magister', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_profesi($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiProfesi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'tenaga-pendidik-profesi', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+
+    public function detail_sarjana($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiSarjana::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'tanaga-pendidik-sarjana', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_d4($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiDiploma4::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiDiploma4::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'Tenaga Kependidikan D4', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_d3($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiDiploma3::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiDiploma3::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'Tenaga Kependidikan D3', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_d2($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiDiploma2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiDiploma2::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'Tenaga Kependidikan D3', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_d1($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiDiploma1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiDiploma1::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'Tenaga Kependidikan D1', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_slta($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiSlta::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'Tenaga Kependidikan SLTA', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_sltp($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiSltp::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'Tenaga Kependidikan SLTP', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+    public function detail_sd($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25_L           = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_L');
+      $sum25_P           = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_P');
+      $sum25_jumlah      = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25_jumlah');
+
+      $sum25sd35_L       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+      $sum25sd35_P       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+      $sum25sd35_jumlah  = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+
+      $sum36sd45_L       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+      $sum36sd45_P       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+      $sum36sd45_jumlah  = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+
+      $sum46sd55_L       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+      $sum46sd55_P       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+      $sum46sd55_jumlah  = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+
+      $sum56sd60_L       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_L');
+      $sum56sd60_P       = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
+      $sum56sd60_jumlah  = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
+
+      $total             = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      $totalsemua        = PenelitiPengabdiSd::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent      = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-kependidikan',[
+            'name' => 'Tenaga Kependidikan SD', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
+            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
       
     }
 }

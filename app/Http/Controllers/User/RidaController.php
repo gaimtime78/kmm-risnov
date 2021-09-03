@@ -35,18 +35,58 @@ class RidaController extends Controller
         $list_sumber = PenelitiPengabdi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "doktoral",
+          "name"=> "Usia-Produktif-Doktor",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "doktoral",
+        "name"=> "Usia-Produktif-Doktor",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
     }
+
+    public function pilih_periode_doktor($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Doktor", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+    }
+
+    public function detail_doktor($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25sd35_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+      $sum36sd45_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+      $sum46sd55_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+      $sum56sd65_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
+      $sum66sd75_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
+      $sum75_jumlah           = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
+
+      $total               = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+
+      $totalsemua          = PenelitiPengabdi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent               = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-tenaga-pendidik',[
+            'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Doktor', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd65_jumlah' => $sum56sd65_jumlah,
+            'sum66sd75_jumlah' => $sum66sd75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+
     public function magister(Request $request){
       $list_tahun = PenelitiPengabdiMagister::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
@@ -65,18 +105,60 @@ class RidaController extends Controller
         $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "magister",
+          "name"=> "Usia-Produktif-Magister",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "magister",
+        "name"=> "Usia-Produktif-Magister",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
     }
+
+    public function pilih_periode_magister($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+
+       return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Magister", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+    }
+
+    public function detail_magister($fakultas, $tahun, $periode){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+
+      $data = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+
+      $sum25sd35_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+      $sum36sd45_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+      $sum46sd55_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+      $sum56sd65_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
+      $sum66sd75_jumlah       = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
+      $sum75_jumlah           = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
+
+      $total               = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+
+      $totalsemua          = PenelitiPengabdi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent               = $total / $totalsemua * 100;
+
+       return view('user.rida.detail-tenaga-pendidik',[
+            'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Magister', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd65_jumlah' => $sum56sd65_jumlah,
+            'sum66sd75_jumlah' => $sum66sd75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+       ]);
+      
+    }
+
+
+
 
     public function spesialis2(Request $request){
       $list_tahun = PenelitiPengabdiSpesialis::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();

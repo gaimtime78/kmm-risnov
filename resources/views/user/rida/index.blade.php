@@ -167,14 +167,14 @@
                         <div class="box m30">
                             <i class="flaticon-monitor-tablet-and-smartohone"></i>
                             <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG DOKTOR</h4>
-                            <a href="{{route('rida-doktoral')}}" class="readmore">Selengkapnya</a>
+                            <a href="{{route('rida-Usia-Produktif-Doktor')}}" class="readmore">Selengkapnya</a>
                         </div>
                     </div><!-- end col -->
                     <div class="col-md-4">
                         <div class="box m30">
                             <i class="flaticon-monitor-tablet-and-smartohone"></i>
                             <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG MAGISTER</h4>
-                            <a href="{{route('rida-magister')}}" class="readmore">Selengkapnya</a>
+                            <a href="{{route('rida-Usia-Produktif-Magister')}}" class="readmore">Selengkapnya</a>
                         </div>
                     </div><!-- end col -->
                     <div class="col-md-4">
