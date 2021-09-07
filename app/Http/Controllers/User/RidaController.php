@@ -51,7 +51,7 @@ class RidaController extends Controller
     public function pilih_periode_doktor($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Doktor", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
     }
@@ -121,7 +121,7 @@ class RidaController extends Controller
     public function pilih_periode_magister($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Magister", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
     }
@@ -190,7 +190,7 @@ class RidaController extends Controller
     public function pilih_periode_sp2($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSpesialis::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSpesialis::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-2", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
     }
@@ -258,7 +258,7 @@ class RidaController extends Controller
     public function pilih_periode_profesi($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Profesi", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
     }
@@ -327,7 +327,7 @@ class RidaController extends Controller
     public function pilih_periode_sp1($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSpesialis1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSpesialis1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
     }
@@ -398,7 +398,7 @@ class RidaController extends Controller
     public function pilih_periode_sp1k($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSpesialisKonsultan::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSpesialisKonsultan::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1(K)", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
     }
