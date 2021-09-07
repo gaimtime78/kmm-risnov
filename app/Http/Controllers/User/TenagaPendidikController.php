@@ -208,7 +208,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_doktor($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifDoktoral::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifDoktoral::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "tenaga-pendidik-doktor", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -216,7 +216,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_magister($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "tenaga-pendidik-magister", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -224,7 +224,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_sp_2($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifSP_2::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifSP_2::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "tenaga-pendidik-spesialis-2", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -232,7 +232,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_konsultan($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifSP_1k::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifSP_1k::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "tenaga-pendidik-spesialis-konsultan", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -240,7 +240,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_sp_1($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifSP_1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifSP_1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "tenaga-pendidik-spesialis-1", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -249,7 +249,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_profesi($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "tenaga-pendidik-profesi", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
