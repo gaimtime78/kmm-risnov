@@ -74,7 +74,9 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <div style="grid-column:2" id="container-chart"></div>
+                                    <div style="grid-column:2" id="container-chart">
+                                        <div ><canvas id="chart-id"></canvas></div>
+                                    </div>
                                 </div>
                             </form>
                         </div><!-- end col -->
@@ -94,88 +96,58 @@
 <script type="text/javascript" src="{{ asset('design\js\lodash.min.js') }}"></script>
 <script>
 const data = {!! json_encode($data) !!}
+const tahun = {!! json_encode($tahun) !!}
 const colorList = ["#e8dc2e", "#2ee878", "#2e53e8"]
-const usiaList = ["Usulan Lanjutan", "Usulan Baru", "Diterima"]
-const mapUsiaVar = ["usulan_lanjutan", "usulan_baru", "diterima"]
+const usulanList = ["Usulan Lanjutan", "Usulan Baru", "Diterima"]
+const mapUsulanVar = ["usulan_lanjutan", "usulan_baru", "diterima"]
 const labels = []
-const listStatus = ["PNS", "CPNS", "NON PNS", "CALON NON PNS", "PURNA", "KP", "PNS DPK"]
-let listStatusData = []
 //generate list label
 _.map(data, v =>{
     if(!labels.includes(v.periode)) labels.push(v.periode)
 })
+console.log(data, labels)
 //build hirarki data
-_.map(data, v =>{
-    let isIncludeStatus = _.filter(listStatusData, o => o.status === v.status).length > 0
-    if(!isIncludeStatus){
-        listStatusData.push({
-            status:v.status,
-            list_25sd35: new Array(labels.length).fill(0),
-            list_36sd45: new Array(labels.length).fill(0),
-            list_46sd55: new Array(labels.length).fill(0),
-            list_56sd65: new Array(labels.length).fill(0),
-            list_66sd75: new Array(labels.length).fill(0),
-            list_75: new Array(labels.length).fill(0),
-        })
-    }
-    let indexStatus = _.findIndex(listStatusData, {status:v.status})
-    let statusData = listStatusData[indexStatus]
-    let indexPeriode = _.indexOf(labels, v.periode)
-    statusData.list_25sd35[indexPeriode] = v.usia25sd35_jumlah
-    statusData.list_36sd45[indexPeriode] = v.usia36sd45_jumlah
-    statusData.list_46sd55[indexPeriode] = v.usia46sd55_jumlah
-    statusData.list_56sd65[indexPeriode] = v.usia56sd65_jumlah
-    statusData.list_66sd75[indexPeriode] = v.usia66sd75_jumlah
-    statusData.list_75[indexPeriode] = v.usia75_jumlah
-
-})
-listStatusData = _.orderBy(listStatusData, ['status'], ['asc']);
-let container = document.getElementById('container-chart')
 //generate canvas
-_.map(listStatusData, (v,i) =>{
-    container.innerHTML = container.innerHTML + `<div ><canvas id="chart-${i}"></canvas></div>`
-})
 //generate datasets and chart
-_.map(listStatusData, (v,i) =>{
-    let datasets = []
-    _.map(usiaList, (o,p) =>{
-        datasets.push({
-            label:o,
-            data:_.get(v, mapUsiaVar[p], -999),
-            backgroundColor:colorList[p],
-            borderColor:colorList[p],
-            yAxisID:'jumlah'
-        })
+let datasets = []
+_.map(usulanList, (o,p) =>{
+    datasets.push({
+        label:o,
+        data:_.get(data[0], mapUsulanVar[p], -999),
+        backgroundColor:colorList[p],
+        borderColor:colorList[p],
+        yAxisID:'jumlah'
     })
-    const myChart =new Chart(document.getElementById(`chart-${i}`).getContext('2d'), {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: datasets,
-        },
-        options: {
-            responsive: true,
-            interaction: {
-            mode: 'index',
-            intersect: false,
-            },
-            stacked: false,
-            plugins: {
-            title: {
-                display: true,
-                text: v.status
-            }
-            },
-            scales: {
-            jumlah: {
-                type: 'linear',
-                display: true,
-                position: 'left',
-            },
-            }
-        },
-    });
 })
+console.log(datasets)
+const myChart =new Chart(document.getElementById(`chart-id`).getContext('2d'), {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: datasets,
+    },
+    options: {
+        responsive: true,
+        interaction: {
+        mode: 'index',
+        intersect: false,
+        },
+        stacked: false,
+        plugins: {
+        title: {
+            display: true,
+            text: tahun
+        }
+        },
+        scales: {
+        jumlah: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+        },
+        }
+    },
+});
     
 </script>
 @endsection
