@@ -213,6 +213,22 @@
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
+
+                <hr class="invis">
+                <div class="tagline-message text-center">
+                    <h3 style="color: #000000;">Table 23-XX</h3>
+                </div>
+                <hr class="invis">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box m30">
+                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                            <h4>HIBAH PROPOSAL PENELITIAN DAN PENGABDIAN PNBP</h4>
+                            <a href="{{route('rida-hibah-pnbp')}}" class="readmore">Selengkapnya</a>
+                        </div>
+                    </div><!-- end col -->
+                    
+                </div>
           </div><!-- end container -->
         </section>  
 @endsection

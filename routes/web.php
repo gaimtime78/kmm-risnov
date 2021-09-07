@@ -562,6 +562,9 @@ Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-1', [App\Http\Controller
 Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-konsultan', [App\Http\Controllers\User\TenagaPendidikController::class, 'spesialisKonsultan'])->name('rida-tenaga-pendidik-spesialis-konsultan');
 Route::get('/dokumentasi-rida/tenaga-pendidik/profesi', [App\Http\Controllers\User\TenagaPendidikController::class, 'profesi'])->name('rida-tanaga-pendidik-profesi');
 
+Route::get('/dokumentasi-rida/hibah-pnbp', [App\Http\Controllers\User\HibahPNBPController::class, 'index'])->name('rida-hibah-pnbp');
+
+
 /*detail grafik 1-6*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_doktor'])->name('rida-periode-tenaga-pendidik-doktor');
 Route::get('/dokumentasi-rida/detail/tenaga-pendidik/doktor/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_doktor'])->name('rida-detail-tenaga-pendidik-doktor');
@@ -632,6 +635,9 @@ Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1/{faku
 
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_sp1k'])->name('rida-periode-Usia Produktif SP-1(K)');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_sp1k'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1(K)');
+
+
+Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
 
 
 // Route::get('/njajal', function () {
