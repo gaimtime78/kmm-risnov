@@ -422,6 +422,34 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\ResearchController::class, 'updateRow'])->name('updaterow');
         });
 
+        Route::group(['as' => 'kerjasamapenelitian.', 'prefix' => '/kerjasamapenelitian'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'create'])->name('create');
+            Route::get('/edit', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'edit'])->name('edit');
+            Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'update'])->name('update');
+            Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'updateRow'])->name('updaterow');
+        });
+
+        Route::group(['as' => 'hibahmandiri.', 'prefix' => '/hibahmandiri'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\HibahMandiriController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details', [App\Http\Controllers\Rida\HibahMandiriController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\HibahMandiriController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\HibahMandiriController::class, 'create'])->name('create');
+            Route::get('/edit', [App\Http\Controllers\Rida\HibahMandiriController::class, 'edit'])->name('edit');
+            Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'update'])->name('update');
+            Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\HibahMandiriController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\HibahMandiriController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'updateRow'])->name('updaterow');
+        });
+
         Route::group(['prefix' => '/category'], function () {
             Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
             Route::get('/create', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');

@@ -220,6 +220,14 @@
                                 Group Aktif </a></li>
                     @endif
                     @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.kerjasamapenelitian.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input Kerjasama Penelitian</a></li>
+                    @endif
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.hibahmandiri.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input Hibah Mandiri</a></li>
+                    @endif
+                    @if (in_array('admin.permission.index', $permissionUser))
                         <li class="bold"><a href="{{ route('admin.capaian_iku.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Perkembangan
                                 Capaian IKU</a></li>
