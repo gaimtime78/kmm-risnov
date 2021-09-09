@@ -228,6 +228,10 @@
                         <li class="bold"><a href="{{ route('admin.hibahpnbp.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input PNBP</a></li>
                     @endif
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.skemapnbp.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Skema PNBP</a></li>
+                    @endif
 
                 </ul>
             </li>

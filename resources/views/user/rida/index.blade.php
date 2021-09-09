@@ -227,6 +227,13 @@
                             <a href="{{route('rida-hibah-pnbp')}}" class="readmore">Selengkapnya</a>
                         </div>
                     </div><!-- end col -->
+                    <div class="col-md-4">
+                        <div class="box m30">
+                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                            <h4>SKEMA PROPOSAL PENELITIAN DAN PENGABDIAN PNBP</h4>
+                            <a href="{{route('rida-skema-pnbp')}}" class="readmore">Selengkapnya</a>
+                        </div>
+                    </div><!-- end col -->
                     
                 </div>
           </div><!-- end container -->

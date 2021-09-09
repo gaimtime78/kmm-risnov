@@ -93,6 +93,19 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/import', [App\Http\Controllers\Rida\HibahPNBPController::class, 'import'])->name('import');
         });
 
+        Route::group(['as' => 'skemapnbp.', 'prefix' => '/skemapnbp'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{target_capaian}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'edit'])->name('edit');
+            Route::post('/edit/{target}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'import'])->name('import');
+        });
+
         Route::group(['as' => 'penelitipengabdi.', 'prefix' => '/penelitipengabdi'], function () {
             Route::get('/', [App\Http\Controllers\Rida\RidaController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\RidaController::class, 'pilihperiode'])->name('pilihperiode');
@@ -563,7 +576,7 @@ Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-konsultan', [App\Http\Co
 Route::get('/dokumentasi-rida/tenaga-pendidik/profesi', [App\Http\Controllers\User\TenagaPendidikController::class, 'profesi'])->name('rida-tanaga-pendidik-profesi');
 
 Route::get('/dokumentasi-rida/hibah-pnbp', [App\Http\Controllers\User\HibahPNBPController::class, 'index'])->name('rida-hibah-pnbp');
-
+Route::get('/dokumentasi-rida/skema-pnbp', [App\Http\Controllers\User\SkemaPNBPController::class, 'index'])->name('rida-skema-pnbp');
 
 /*detail grafik 1-6*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_doktor'])->name('rida-periode-tenaga-pendidik-doktor');
