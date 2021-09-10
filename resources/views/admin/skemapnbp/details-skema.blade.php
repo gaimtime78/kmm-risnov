@@ -55,7 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">Tabel 26 SKEMA PROPOSAL PENELITIAN DAN PENGABDIAN PNBP {{$periode}} - {{$tahun}}</h4>
+                            <h4 class="header left">Tabel 26 SKEMA PROPOSAL PENELITIAN DAN PENGABDIAN PNBP {{$periode}} - {{$tahun}} - {{$fakultas}}</h4>
                             <div class="row">
                                 <div class="col s12 m12 l12">
 
@@ -67,7 +67,12 @@
                                                     <th rowspan="3"
                                                         style="border: 1px solid black !important; text-align:center !important;">
                                                         No</th>
-                                                    <th rowspan="3" style="text-align:center !important;">Fakultas</th>
+                                                    <th
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        Skema</th>
+                                                    <th rowspan="3"
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $tahun }}</th>
                                                     <th rowspan="3"
                                                         style="border: 1px solid black !important;text-align:justify !important;">
                                                         Action</th>
@@ -75,17 +80,23 @@
                                             </thead>
 
                                             <tbody>
-                                                @foreach ($data as $row)
+                                                @foreach ($skemapnbp as $row)
                                                     <tr style="border: 1px solid black !important;">
                                                         <td
                                                             style="border: 1px solid black !important;text-align:center !important;">
                                                             {{ $loop->iteration }}</td>
                                                         <td
-                                                            style="border: 1px solid black !important;text-align:left !important;">
-                                                            {{ $row->fakultas }}</td>
-                                                        <td style="border: 1px solid black !important;"><a href="{{ route('admin.skemapnbp.details-skema', ['fakultas' => $row->fakultas, 'periode' => $periode, 'tahun_input' => $tahun]) }}"
+                                                            style="border: 1px solid black !important;text-align:center !important;">
+                                                            {{ $row->skema }}</td>
+
+                                                        <td
+                                                            style="border: 1px solid black !important;text-align:center !important;">
+                                                            {{ $row->jumlah }}</td>
+
+
+                                                        <td style="border: 1px solid black !important;"><a href="#"
                                                                 class="btn modal-trigger"
-                                                                style="background-color: orange;">Details</a></td>
+                                                                style="background-color: orange;">Edit</a></td>
                                                         <!-- Modal Edit -->
 
                                                         <!-- Modal Hapus -->
@@ -107,6 +118,17 @@
                                                     </tr>
                                                 @endforeach
                                             </tbody>
+                                            <!-- <thead>
+                                                <tr>
+                                                    <th colspan="2"
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        Jumlah Universitas Sebelas Maret</th>
+                                                    <th
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $total['jumlah'] }}</th>
+                                                </tr>
+
+                                            </thead> -->
                                         </table>
                                     </div>
                                 </div>

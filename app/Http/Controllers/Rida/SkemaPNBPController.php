@@ -61,12 +61,28 @@ class SkemaPNBPController extends Controller
      */
     public function details($periode, $tahun_input)
     {
-        $skemapnbp = SkemaPNBP::where('periode', $periode)->where('tahun_input', $tahun_input)->get();
+        $skemapnbp = SkemaPNBP::select('fakultas')->distinct()->where('periode', $periode)->where('tahun_input', $tahun_input)->get();
         $total = [
             'jumlah' => $skemapnbp->sum('jumlah'),
         ];
         $tahun = $tahun_input;
-        return view('admin.skemapnbp.details', compact('skemapnbp', 'tahun', 'total'));
+        return view('admin.skemapnbp.details', ["data"=>$skemapnbp, "periode"=>$periode, "tahun"=>$tahun_input]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\HibahPNBP  $hibahPNBP
+     * @return \Illuminate\Http\Response
+     */
+    public function detailsSkema($fakultas, $periode, $tahun_input)
+    {
+        $skemapnbp = SkemaPNBP::where('periode', $periode)->where('tahun_input', $tahun_input)->where('fakultas', $fakultas)->get();
+        $total = [
+            'jumlah' => $skemapnbp->sum('jumlah'),
+        ];
+        $tahun = $tahun_input;
+        return view('admin.skemapnbp.details-skema', compact('skemapnbp', 'tahun', 'periode', 'fakultas', 'total'));
     }
 
     /**
