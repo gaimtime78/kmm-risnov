@@ -16,7 +16,7 @@ class ProfesiController extends Controller
 {
     public function index()
     {
-        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::distinct()->get('fakultas', 'id');
+        $penelitipengabdiprofesi = PenelitiPengabdiProfesi::where('fakultas', 'Fakultas Kedokteran')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
 
         return view('admin.penelitipengabdiprofesi.index', ['penelitipengabdiprofesi' => $penelitipengabdiprofesi]);
     }

@@ -40,13 +40,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "magister",
+          "name"=> "Tenaga Kependidikan Magister",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "magister",
+        "name"=> "Tenaga Kependidikan Magister",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -71,13 +71,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "profesi",
+          "name"=> "Tenaga Kependidikan Profesi",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "profesi",
+        "name"=> "Tenaga Kependidikan Profesi",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -102,13 +102,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiSarjana::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-sarjana",
+          "name"=> "Tenaga Kependidikan Sarjana",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "tanaga-kependidikan-sarjana",
+        "name"=> "Tenaga Kependidikan Sarjana",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -133,13 +133,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiDiploma4::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-D4",
+          "name"=> "Tenaga Kependidikan D4",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "tanaga-kependidikan-D4",
+        "name"=> "Tenaga Kependidikan D4",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -164,13 +164,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiDiploma3::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-D3",
+          "name"=> "Tenaga Kependidikan D3",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "D3",
+        "name"=> "Tenaga Kependidikan D3",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -194,13 +194,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiDiploma2::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-D2",
+          "name"=> "Tenaga Kependidikan D2",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "D2",
+        "name"=> "Tenaga Kependidikan D2",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -224,13 +224,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiDiploma1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-D1",
+          "name"=> "Tenaga Kependidikan D1",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "D1",
+        "name"=> "Tenaga Kependidikan D1",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -254,13 +254,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiSlta::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-slta",
+          "name"=> "Tenaga Kependidikan SLTA",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "SLTA",
+        "name"=> "Tenaga Kependidikan SLTA",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -284,13 +284,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiSltp::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-sltp",
+          "name"=> "Tenaga Kependidikan SLTP",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "SLTP",
+        "name"=> "Tenaga Kependidikan SLTP",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -314,13 +314,13 @@ class TenagaKependidikanController extends Controller
         $list_sumber = PenelitiPengabdiSd::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "tanaga-kependidikan-SD",
+          "name"=> "Tenaga Kependidikan SD",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "SD",
+        "name"=> "Tenaga Kependidikan SD",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -330,31 +330,31 @@ class TenagaKependidikanController extends Controller
     public function pilih_periode_magister($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
-       return view('user.rida.pilih_periode',[ "name" => "tenaga-kependidikan-magister", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan Magister", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function pilih_periode_profesi($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
-       return view('user.rida.pilih_periode',[ "name" => "tenaga-kependidikan-profesi", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan Profesi", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function pilih_periode_sarjana($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSarjana::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSarjana::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
-       return view('user.rida.pilih_periode',[ "name" => "tanaga-kependidikan-sarjana", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan Sarjana", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function pilih_periode_d4($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiDiploma4::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiDiploma4::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D4", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -362,7 +362,7 @@ class TenagaKependidikanController extends Controller
     public function pilih_periode_d3($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiDiploma3::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiDiploma3::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D3", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -370,7 +370,7 @@ class TenagaKependidikanController extends Controller
     public function pilih_periode_d2($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiDiploma2::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiDiploma2::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D2", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -378,7 +378,7 @@ class TenagaKependidikanController extends Controller
     public function pilih_periode_d1($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiDiploma1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiDiploma1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan D1", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -386,7 +386,7 @@ class TenagaKependidikanController extends Controller
     public function pilih_periode_slta($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSlta::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSlta::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan SLTA", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -394,7 +394,7 @@ class TenagaKependidikanController extends Controller
     public function pilih_periode_sltp($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSltp::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSltp::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan SLTP", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -402,7 +402,7 @@ class TenagaKependidikanController extends Controller
     public function pilih_periode_sd($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSd::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSd::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Kependidikan SD", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -439,7 +439,7 @@ class TenagaKependidikanController extends Controller
       $totalpercent               = $total / $totalsemua * 100;
 
        return view('user.rida.detail-kependidikan',[
-            'name' => 'tenaga-pendidik-magister', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'name' => 'Tenaga Kependidikan Magister', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -480,7 +480,7 @@ class TenagaKependidikanController extends Controller
       $totalpercent      = $total / $totalsemua * 100;
 
        return view('user.rida.detail-kependidikan',[
-            'name' => 'tenaga-pendidik-profesi', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'name' => 'Tenaga Kependidikan Profesi', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -522,7 +522,7 @@ class TenagaKependidikanController extends Controller
       $totalpercent      = $total / $totalsemua * 100;
 
        return view('user.rida.detail-kependidikan',[
-            'name' => 'tanaga-pendidik-sarjana', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'name' => 'Tenaga Kependidikan Sarjana', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -645,7 +645,7 @@ class TenagaKependidikanController extends Controller
       $totalpercent      = $total / $totalsemua * 100;
 
        return view('user.rida.detail-kependidikan',[
-            'name' => 'Tenaga Kependidikan D3', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'name' => 'Tenaga Kependidikan D2', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
