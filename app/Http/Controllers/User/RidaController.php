@@ -35,13 +35,13 @@ class RidaController extends Controller
         $list_sumber = PenelitiPengabdi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "Usia-Produktif-Doktor",
+          "name"=> "Usia Produktif Doktor",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "Usia-Produktif-Doktor",
+        "name"=> "Usia Produktif Doktor",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -105,13 +105,13 @@ class RidaController extends Controller
         $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "Usia-Produktif-Magister",
+          "name"=> "Usia Produktif Magister",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "Usia-Produktif-Magister",
+        "name"=> "Usia Produktif Magister",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -174,13 +174,13 @@ class RidaController extends Controller
         $list_sumber = PenelitiPengabdiSpesialis::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "Usia-Produktif-SP2",
+          "name"=> "Usia Produktif SP2",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "Usia-Produktif-SP2",
+        "name"=> "Usia Produktif SP2",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -242,13 +242,13 @@ class RidaController extends Controller
         $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "Usia-Produktif-Profesi",
+          "name"=> "Usia Produktif Profesi",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "Usia-Produktif-Profesi",
+        "name"=> "Usia Produktif Profesi",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
@@ -310,13 +310,13 @@ class RidaController extends Controller
         $list_sumber = PenelitiPengabdiSpesialis1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
-          "name"=> "Usia-Produktif-SP1",
+          "name"=> "Usia Produktif SP1",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
-        "name"=> "Usia-Produktif-SP1",
+        "name"=> "Usia Produktif SP1",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);

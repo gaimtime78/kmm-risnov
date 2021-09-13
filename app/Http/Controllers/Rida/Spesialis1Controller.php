@@ -17,7 +17,7 @@ class Spesialis1Controller extends Controller
     public function index()
     {
         // $penelitipengabdispesialis1 = PenelitiPengabdiSpesialis1::distinct()->get('fakultas', 'id');
-        $penelitipengabdispesialis1 = PenelitiPengabdiSpesialis1::where('fakultas', 'Fakultas Kedokteran')->orWhere('fakultas', 'Fakultas Ilmu Sosial dan Politik')->distinct()->get('fakultas', 'id');
+        $penelitipengabdispesialis1 = PenelitiPengabdiSpesialis1::where('fakultas', 'Fakultas Kedokteran')->orWhere('fakultas', 'Fakultas Ilmu Sosial dan Politik')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
 
         return view('admin.penelitipengabdispesialis1.index', ['penelitipengabdispesialis1' => $penelitipengabdispesialis1]);
     }

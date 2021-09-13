@@ -16,7 +16,7 @@ class SP_1KController extends Controller
 {
     public function index()
     {
-        $usiaproduktifsp_1k = UsiaProduktifSP_1K::where('fakultas', 'Fakultas Kedokteran')->distinct()->get('fakultas', 'id');
+        $usiaproduktifsp_1k = UsiaProduktifSP_1K::where('fakultas','Fakultas Kedokteran')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
 
         return view('admin.usiaproduktif.penelitipengabdisp_1k.index', ['usiaproduktifsp_1k' => $usiaproduktifsp_1k]);
     }
