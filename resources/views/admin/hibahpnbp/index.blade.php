@@ -171,13 +171,13 @@
                                                     <!-- Modal Hapus -->
                                                     <div id="hapus{{ $row->id }}" class="modal">
                                                         <form
-                                                            action="#"
+                                                            action="{{ route('admin.hibahpnbp.delete', ['periode' => $row->periode, 'tahun_input' => $row->tahun_input]) }}"
                                                             method="get">
                                                             @csrf
                                                             <div class="modal-content">
                                                                 <h4>Delete Data</h4>
                                                                 <hr>
-                                                                <p>Anda yakin ingin menghapus data {{ $row->fakultas }}?
+                                                                <p>Anda yakin ingin menghapus data periode {{ $row->periode }} tahun {{ $row->tahun_input }}?
                                                                 </p>
                                                                 <div class="modal-footer">
                                                                     <a href="#!"

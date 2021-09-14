@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\HibahPNBPExport;
 use App\Http\Controllers\Controller;
 use App\Models\HibahPNBP;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HibahPNBPController extends Controller
 {
@@ -45,8 +47,8 @@ class HibahPNBPController extends Controller
         ]);
     }
 
-    public function periode($fakultas, $tahun)
+    public function export($fakultas, $tahun)
     {
-
+        return Excel::download(new HibahPNBPExport($fakultas, $tahun), 'HibahPNBP.xlsx');
     }
 }

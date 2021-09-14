@@ -100,8 +100,9 @@ class HibahPNBPController extends Controller
      * @param  \App\Models\HibahPNBP  $hibahPNBP
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HibahPNBP $hibahPNBP)
+    public function delete($periode, $tahun_input)
     {
-        //
+        HibahPNBP::where('periode', $periode)->where('tahun_input', $tahun_input)->delete();
+        return redirect()->route('admin.hibahpnbp.index');
     }
 }

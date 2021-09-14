@@ -88,7 +88,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/create', [App\Http\Controllers\Rida\HibahPNBPController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'edit'])->name('edit');
             Route::post('/edit/{target}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'update'])->name('update');
-            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'delete'])->name('delete');
+            Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\HibahPNBPController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\HibahPNBPController::class, 'import'])->name('import');
         });
@@ -685,6 +685,7 @@ Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1(K)/{f
 
 
 Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
+Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'export'])->name('rida-export-hibah-pnbp');
 
 
 // Route::get('/njajal', function () {

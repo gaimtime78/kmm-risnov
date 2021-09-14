@@ -27,7 +27,10 @@
                                 <h3>{{ucwords($name)}} - {{$fakultas}} - {{$tahun}}</h3>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
-                                <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
+                                <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
+                                </a>
+                                
                                 <a href="#">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                                 </a>
@@ -81,9 +84,14 @@
                             </form>
                         </div><!-- end col -->
                     </div><!-- end row -->
+                    <br>
                     <div class="row">
                         <div class="col-md-3"></div>
-                        <div class="col-md-9">halo</div>
+                        <div class="col-md-9">
+                            <table class="table">
+
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div><!-- end container -->
@@ -120,7 +128,7 @@ _.map(usulanList, (o,p) =>{
     })
 })
 console.log(datasets)
-const myChart =new Chart(document.getElementById(`chart-id`).getContext('2d'), {
+const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), {
     type: 'line',
     data: {
         labels: labels,
@@ -148,6 +156,40 @@ const myChart =new Chart(document.getElementById(`chart-id`).getContext('2d'), {
         }
     },
 });
-    
+
+const keyToKeep = ['periode', 'tahun_input', 'usulan_lanjutan', 'usulan_baru', 'diterima'];
+
+const redux = array => array.map(o => keyToKeep.reduce((acc, curr) => {
+  acc[curr] = o[curr];
+  return acc;
+}, {}));
+
+function generateTableHead(table, data) {
+  let thead = table.createTHead();
+  let row = thead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
+}
+
+function generateTable(table, data) {
+  for (let element of data) {
+    let row = table.insertRow();
+    for (key in element) {
+      let cell = row.insertCell();
+      let text = document.createTextNode(element[key]);
+      cell.appendChild(text);
+    }
+  }
+}
+
+let table = document.querySelector("table");
+let header = ["Periode", "Tahun", "Usulan Lanjutan", "Usulan Baru", "Diterima"];
+let dataChosen = redux(data);
+generateTableHead(table, header);
+generateTable(table, dataChosen);
 </script>
 @endsection
