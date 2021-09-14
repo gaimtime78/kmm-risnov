@@ -86,18 +86,30 @@ class SkemaPNBPController extends Controller
         }
         $tahun_input = SkemaPNBP::select('tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->get()->pluck('tahun_input');
 
-        $periode = SkemaPNBP::select('periode')->distinct()->where('tahun_input', '>=', $start_tahun)->get()->pluck('periode');
+        $periode = SkemaPNBP::select('periode', 'tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->get();
         // dd($periode);
         $jenisPnbp = SkemaPNBP::select('fakultas','tahun_input','jumlah','periode')->where('tahun_input', '>=', $start_tahun)->where('skema', $skema)->get();
         $research = [];
+        $spanArr = [];
+        $researchHeader = [];
+        foreach($tahun_input as $item){
+            $listPeriode = SkemaPNBP::select('periode')->distinct()->where('tahun_input', '>=', $item)->get();
+            $jumlahPeriode = count($listPeriode);
+            array_push($spanArr, $jumlahPeriode);
+        }
+        // dd($jenisPnbp);
         foreach($jenisPnbp as $item){
             if(empty($research[$item->fakultas])){
                 $research[$item->fakultas]['fakultas'] = $item->fakultas;
             }
-            $research[$item->fakultas]['data'][$item->periode] = $item->jumlah;
+            if(empty($research[$item->fakultas]['data'])){
+                $research[$item->fakultas]['data'] = [$item->jumlah];
+            }else{
+                array_push($research[$item->fakultas]['data'], $item->jumlah);
+            }        
         }
-        // dd($research);
-        return view('admin.skemapnbp.detailsSkemaFakultas-5tahun', ['research' => $research, 'tahun_input' => $tahun_input, 'periode_input'=>$periode]);
+        // dd($research, $periode, $tahun_input, $spanArr);
+        return view('admin.skemapnbp.detailsSkemaFakultas-5tahun', ['research' => $research, 'spanArr' => $spanArr, 'tahun_input' => $tahun_input, 'periode_input'=>$periode]);
     }
 
     /**

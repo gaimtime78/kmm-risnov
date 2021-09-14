@@ -70,13 +70,13 @@
                                                 </tr>
                                                 <tr style="border: 1px solid black !important;">
                                                     @foreach($tahun_input as $tahun)
-                                                        <th colspan="2" style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
+                                                        <th colspan="{{$spanArr[$loop->index]}}" style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
                                                     @endforeach
                                                     <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
                                                 </tr>
                                                 <tr>
                                                 @foreach($periode_input as $periode)
-                                                        <th  style="border: 1px solid black !important; text-align:center !important;">{{ $periode }}</th>
+                                                        <th  style="border: 1px solid black !important; text-align:center !important;">{{ $periode->periode }}</th>
                                                 @endforeach
                                                 </tr>
                                             </thead>
