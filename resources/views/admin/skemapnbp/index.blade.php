@@ -92,8 +92,13 @@
                                         </form>
                                     </div>
                                     {{-- End of modal import --}}
+                                    <div class="col s4 m4 l4">
+                                        <a href="{{route ('admin.skemapnbp.details-5tahun') }}" class="waves-effect waves-light btn right modal-trigger"
+                                            role="button">Lihat Perolehan 5 Periode Terakhir</a>
+                                    </div>
 
                                     <table id="data-menu" class="table display" cellspacing="0">
+                                        
                                         <thead>
                                             <tr>
                                                 <th>#</th>
