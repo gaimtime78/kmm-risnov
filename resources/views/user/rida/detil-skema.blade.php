@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
-                    <h3 style="color:black">Skema PNBP - {{$fakultas}} - {{$tahun}}</h3>
+                    <h3 style="color:black">Skema PNBP - {{$skema}} - {{$tahun}}</h3>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -31,7 +31,7 @@
                     <thead>
                         <tr>
                             <th style="text-align:justify !important;">#</th>
-                            <th style="text-align:center !important;">Skema</th>
+                            <th style="text-align:center !important;">Fakultas</th>
                             <th style="text-align:center !important;">Jumlah</th>
                         </tr>
                     </thead>
@@ -42,7 +42,7 @@
                         @foreach ($row["data"] as $v)
                           <tr>
                               <td style="text-align:center !important;">{{$i}}</td>
-                              <td style="text-align:center !important;">{{$v->skema}}</td>
+                              <td style="text-align:center !important;">{{$v->fakultas}}</td>
                               <td style="text-align:center !important;">{{$v->jumlah}}</td>
                               <!-- Modal Edit -->
                           </tr>

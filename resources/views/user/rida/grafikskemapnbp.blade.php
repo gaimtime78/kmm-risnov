@@ -24,11 +24,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h3>{{ucwords($name)}} - {{$fakultas}} - {{$tahun}}</h3>
+                                <h3>{{ucwords($name)}} - {{$skema}} - {{$tahun}}</h3>
                             </div>
-                            <div style="width:100%; display:flex; justify-content:flex-end">
+                            <div style="width:100%; display:flex; justify-content:flex-end;margin-bottom:1em;">
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
-                                <a href="{{ route('skemapnbp-details-front', ['fakultas' => $fakultas,'tahun' => $tahun]) }}">
+                                <a href="{{ route('skemapnbp-details-front', ['skema' => $skema,'tahun' => $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                                 </a>
                             </div>
@@ -38,14 +38,14 @@
                                     <div>
                                         <div style="display:flex;width:30%;flex-wrap:wrap;">
                                             <div class="mb-3" style="width:100%;">
-                                                <h5><label for="title" class="form-label">Fakultas</label></h5>
+                                                <h5><label for="title" class="form-label">Skema</label></h5>
                                                 <div style="width:200px">
-                                                    <select style="width:100%" id="fakultas" name="fakultas">
-                                                        @foreach($list_fakultas as $f)
-                                                            @if($f->fakultas === $fakultas)
-                                                                <option selected value="{{$f->fakultas}}">{{$f->fakultas}}</option>
+                                                    <select style="width:100%" id="skema" name="skema">
+                                                        @foreach($list_skema as $s)
+                                                            @if($s->skema === $skema)
+                                                                <option selected value="{{$s->skema}}">{{$s->skema}}</option>
                                                             @else
-                                                                <option value="{{$f->fakultas}}">{{$f->fakultas}}</option>
+                                                                <option value="{{$s->skema}}">{{$s->skema}}</option>
                                                             @endif
                                                         @endforeach
                                                     </select>    
@@ -98,7 +98,7 @@ console.log(data)
 const colorList = ["#e8dc2e", "#2ee878", "#2e53e8"]
 const lineList = ["Jumlah"]
 const mapLineVar = ["jumlah"]
-let listSkemaData = []
+let listFakultasData = []
 const labels = []
 //generate list label
 _.map(data, v =>{
@@ -107,28 +107,35 @@ _.map(data, v =>{
 console.log(data, labels)
 //build hirarki data
 _.map(data, v =>{
-    let isIncludeSkema = _.filter(listSkemaData, o => o.skema === v.skema).length > 0
-    if(!isIncludeSkema){
-        listSkemaData.push({
-            skema:v.skema,
+    let isIncludeFakultas = _.filter(listFakultasData, o => o.fakultas === v.fakultas).length > 0
+    if(!isIncludeFakultas){
+        listFakultasData.push({
+            fakultas:v.fakultas,
             jumlah: new Array(labels.length).fill(0),
         })
     }
-    let indexStatus = _.findIndex(listSkemaData, {skema:v.skema})
-    let statusData = listSkemaData[indexStatus]
+    let indexStatus = _.findIndex(listFakultasData, {fakultas:v.fakultas})
+    let statusData = listFakultasData[indexStatus]
     let indexPeriode = _.indexOf(labels, v.periode)
     statusData.jumlah[indexPeriode] = v.jumlah
 })
-listSkemaData = _.orderBy(listSkemaData, ['skema'], ['asc']);
+listFakultasData = _.orderBy(listFakultasData, ['fakultas'], ['asc']);
 let container = document.getElementById('container-chart')
 //generate canvas
-_.map(listSkemaData, (v,i) =>{
-    container.innerHTML = container.innerHTML + `<div ><canvas id="chart-${i}"></canvas></div>`
+_.map(listFakultasData, (v,i) =>{
+    container.innerHTML = container.innerHTML + `
+        <a style="width:100%" class="btn btn-primary" data-toggle="collapse" href="#coll-${i}" role="button" aria-expanded="false" aria-controls="collapseExample">
+            ${v.fakultas}
+        </a>
+        <div class="collapse" id="coll-${i}">
+            <div ><canvas id="chart-${i}"></canvas></div>
+        </div>
+    `
 })
-console.log(listSkemaData, "ANU")
+console.log(listFakultasData, "ANU")
 //generate canvas
 //generate datasets and chart
-_.map(listSkemaData, (v,i) =>{
+_.map(listFakultasData, (v,i) =>{
     let datasets = []
     _.map(lineList, (o,p) =>{
         datasets.push({
@@ -156,7 +163,7 @@ _.map(listSkemaData, (v,i) =>{
             plugins: {
             title: {
                 display: true,
-                text: v.skema
+                text: v.fakultas
             }
             },
             scales: {

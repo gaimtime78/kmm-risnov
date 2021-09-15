@@ -177,9 +177,11 @@ class SkemaPNBPController extends Controller
 		];
 		if($skema->update($dataUpdate)){
             $message = "Skema PNBP berhasil diupdate";
-            return redirect()->route('admin.skemapnbp.index');
+            // $skemapnbp = SkemaPNBP::where('periode', $skema->periode)->where('tahun_input', $skema->tahun_input)->where('skema', $skema->skema)->get();
+            return redirect()->route('admin.skemapnbp.details-skema', ['skema' => $skema->skema, 'periode' => $skema->periode, 'tahun_input' => $skema->tahun_input]);
+            // return redirect()->route('admin.skemapnbp.details-skema');
         }else{
-            return redirect()->route('admin.skemapnbp.index')->with('message', 'error');
+            return redirect()->route('admin.skemapnbp.details-skema', ['skema' => $skema->skema, 'periode' => $skema->periode, 'tahun_input' => $skema->tahun_input]);
         }
     }
 
