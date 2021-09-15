@@ -55,7 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">Tabel 26 SKEMA PROPOSAL PENELITIAN DAN PENGABDIAN PNBP {{$periode}} - {{$tahun}} - {{$fakultas}}</h4>
+                            <h4 class="header left">Tabel 26 SKEMA PROPOSAL PENELITIAN DAN PENGABDIAN PNBP {{$periode}} - {{$tahun}} - {{$skema}}</h4>
                             <div class="row">
                                 <div class="col s12 m12 l12">
 
@@ -87,7 +87,7 @@
                                                             {{ $loop->iteration }}</td>
                                                         <td
                                                             style="border: 1px solid black !important;text-align:center !important;">
-                                                            {{ $row->skema }}</td>
+                                                            {{ $row->fakultas }}</td>
 
                                                         <td
                                                             style="border: 1px solid black !important;text-align:center !important;">

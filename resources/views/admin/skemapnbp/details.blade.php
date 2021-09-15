@@ -67,7 +67,7 @@
                                                     <th rowspan="3"
                                                         style="border: 1px solid black !important; text-align:center !important;">
                                                         No</th>
-                                                    <th rowspan="3" style="text-align:center !important;">Fakultas</th>
+                                                    <th rowspan="3" style="text-align:center !important;">Skema</th>
                                                     <th rowspan="3"
                                                         style="border: 1px solid black !important;text-align:justify !important;">
                                                         Action</th>
@@ -82,8 +82,8 @@
                                                             {{ $loop->iteration }}</td>
                                                         <td
                                                             style="border: 1px solid black !important;text-align:left !important;">
-                                                            {{ $row->fakultas }}</td>
-                                                        <td style="border: 1px solid black !important;"><a href="{{ route('admin.skemapnbp.details-skema', ['fakultas' => $row->fakultas, 'periode' => $periode, 'tahun_input' => $tahun]) }}"
+                                                            {{ $row->skema }}</td>
+                                                        <td style="border: 1px solid black !important;"><a href="{{ route('admin.skemapnbp.details-skema', ['skema' => $row->skema, 'periode' => $periode, 'tahun_input' => $tahun]) }}"
                                                                 class="btn modal-trigger"
                                                                 style="background-color: orange;">Details</a></td>
                                                         <!-- Modal Edit -->

@@ -98,7 +98,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
 
             Route::get('/pilihperiode/{target_capaian}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'pilihperiode'])->name('pilihperiode');
             Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'details'])->name('details');
-            Route::get('/details/{fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkema'])->name('details-skema');
+            Route::get('/details/{skema}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkema'])->name('details-skema');
             Route::get('/details-5tahun/', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
             Route::get('/details-5tahun/jenisSkema/{skema}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
             Route::get('/details-5tahun/jenisSkema/{skema}/', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
