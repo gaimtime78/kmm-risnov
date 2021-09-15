@@ -110,6 +110,9 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'import'])->name('import');
+            Route::post('/editPeriode', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'editPeriode'])->name('edit-periode');
+            Route::post('/editJumlah', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'editJumlah'])->name('edit-jumlah');
+            Route::post('/deletePeriode', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'deletePeriode'])->name('delete-periode');
         });
 
         Route::group(['as' => 'penelitipengabdi.', 'prefix' => '/penelitipengabdi'], function () {

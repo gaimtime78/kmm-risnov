@@ -131,9 +131,12 @@
                                                     <!-- Modal Edit -->
                                                     <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
                                                         <form
-                                                            action="#"
+                                                            action="{{route('admin.skemapnbp.edit-periode')}}"
                                                             method="post">
                                                             @csrf
+                                                            <input type="hidden" value="{{$row->periode}}" name="dbPeriode">
+                                                            <input type="hidden" value="{{$row->tahun_input}}" name="dbtahun_input">
+                                                            <input type="hidden" value="{{$row->sumber_data}}" name="dbsumber_data">
                                                             <div class="modal-content">
                                                                 <h4>Edit Data</h4>
                                                                 <hr>
@@ -176,14 +179,15 @@
                                                     <!-- Modal Hapus -->
                                                     <div id="hapus{{ $row->id }}" class="modal">
                                                         <form
-                                                            action="#"
-                                                            method="get">
+                                                            action="{{route('admin.skemapnbp.delete-periode')}}"
+                                                            method="post">
                                                             @csrf
+                                                            <input type="hidden" value="{{$row->periode}}" name="dbPeriode">
+                                                            <input type="hidden" value="{{$row->tahun_input}}" name="dbtahun_input">
                                                             <div class="modal-content">
                                                                 <h4>Delete Data</h4>
                                                                 <hr>
-                                                                <p>Anda yakin ingin menghapus data {{ $row->fakultas }}?
-                                                                </p>
+                                                                <p>Anda yakin ingin menghapus data {{$row->tahun_input}} - {{ $row->periode }}?</p>
                                                                 <div class="modal-footer">
                                                                     <a href="#!"
                                                                         class="modal-close waves-effect waves-green btn-flat">Close</a>

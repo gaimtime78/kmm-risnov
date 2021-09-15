@@ -10,7 +10,7 @@ class SkemaPNBP extends Model
     use HasFactory;
     protected $table = 'skema_pnbp';
     protected $fillable = [
-        
+        'fakultas', 'jumlah'
     ];
 
     public function user(){

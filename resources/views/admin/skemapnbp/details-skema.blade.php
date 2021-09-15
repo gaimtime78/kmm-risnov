@@ -69,7 +69,7 @@
                                                         No</th>
                                                     <th
                                                         style="border: 1px solid black !important; text-align:center !important;">
-                                                        Skema</th>
+                                                        Fakultas</th>
                                                     <th rowspan="3"
                                                         style="border: 1px solid black !important; text-align:center !important;">
                                                         {{ $tahun }}</th>
@@ -94,10 +94,46 @@
                                                             {{ $row->jumlah }}</td>
 
 
-                                                        <td style="border: 1px solid black !important;"><a href="#"
+                                                        <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}"
                                                                 class="btn modal-trigger"
                                                                 style="background-color: orange;">Edit</a></td>
                                                         <!-- Modal Edit -->
+                                                        <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
+                                                            <form
+                                                                action="{{route('admin.skemapnbp.edit-jumlah')}}"
+                                                                method="post">
+                                                                @csrf
+                                                                <input type="hidden" value="{{$row->id}}" name="id">
+                                                                <div class="modal-content">
+                                                                    <h4>Edit Data</h4>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                            <input value="{{ $row->fakultas }}" id="periode"
+                                                                                name="fakultas" type="text"
+                                                                                class="validate" required>
+                                                                            <label for="periode">Fakultas</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                            <input value="{{ $row->jumlah }}" id="periode"
+                                                                                name="jumlah" type="text"
+                                                                                class="validate" required>
+                                                                            <label for="periode">Jumlah</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <a href="#!"
+                                                                        class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                                                    <button type="submit"
+                                                                        class="modal-close waves-effect waves-green btn-flat">Update</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
 
                                                         <!-- Modal Hapus -->
                                                         <div id="hapus" class="modal">

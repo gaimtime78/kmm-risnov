@@ -139,6 +139,51 @@ class SkemaPNBPController extends Controller
         //
     }
 
+    public function editPeriode(Request $request)
+    {
+        // dd($request->all());
+        $skema = SkemaPNBP::where('periode', $request->dbPeriode)->where('tahun_input', $request->dbtahun_input)->where('sumber_data', $request->dbsumber_data);
+		$dataUpdate = [
+			'periode' => $request->periode,
+			'tahun_input' => $request->tahun_input,
+            'sumber_data' => $request->sumber_data,
+		];
+		if($skema->update($dataUpdate)){
+            $message = "Skema PNBP berhasil diupdate";
+            return redirect()->route('admin.skemapnbp.index');
+        }else{
+            return redirect()->route('admin.skemapnbp.index')->with('message', 'error');
+        }
+    }
+
+    public function deletePeriode(Request $request)
+    {
+        // dd($request->all());
+        $skema = SkemaPNBP::where('periode', $request->dbPeriode)->where('tahun_input', $request->dbtahun_input);
+		if($skema->delete()){
+            $message = "Skema PNBP berhasil dihapus";
+            return redirect()->route('admin.skemapnbp.index');
+        }else{
+            return redirect()->route('admin.skemapnbp.index')->with('message', 'error');
+        }
+    }
+
+    public function editJumlah(Request $request)
+    {
+        $skema = SkemaPNBP::find($request->id);
+		$dataUpdate = [
+			'fakultas' => $request->fakultas,
+			'jumlah' => $request->jumlah,
+		];
+		if($skema->update($dataUpdate)){
+            $message = "Skema PNBP berhasil diupdate";
+            return redirect()->route('admin.skemapnbp.index');
+        }else{
+            return redirect()->route('admin.skemapnbp.index')->with('message', 'error');
+        }
+    }
+
+
     /**
      * Update the specified resource in storage.
      *
