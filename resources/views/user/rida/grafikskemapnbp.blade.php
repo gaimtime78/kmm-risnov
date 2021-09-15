@@ -28,7 +28,7 @@
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
-                                <a href="#">
+                                <a href="{{ route('skemapnbp-details-front', ['fakultas' => $fakultas,'tahun' => $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                                 </a>
                             </div>

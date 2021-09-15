@@ -45,6 +45,34 @@ class SkemaPNBPController extends Controller
         ]);
     }
 
+    public function detailsFront($fakultas, $tahun){
+        $skema = SkemaPNBP::where('fakultas', $fakultas)->where('tahun_input', $tahun)->get();
+        // dd($skema);
+        $data = [];
+        foreach($skema as $item){
+            $isPeriodeExist = array_filter($data, function($v) use ($item){
+                if(isset($v["periode"])){
+                    if($v["periode"] == $item->periode){
+                        return true;
+                    }
+                }
+                return false;
+            });
+            if(!$isPeriodeExist){
+                array_push($data, [
+                    'periode' => $item->periode,
+                    'data' => [$item]
+                ]);
+            }else{
+                $index = array_search($item->periode, array_column($data, 'periode'));
+                array_push($data[$index]['data'], $item);
+            }
+        }
+        return view('user.rida.detil-skema', [
+            "data" => $data, "fakultas" => $fakultas, "tahun" => $tahun
+        ]);
+    }
+
     public function periode($fakultas, $tahun)
     {
 

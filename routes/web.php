@@ -683,6 +683,7 @@ Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1/{faku
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_sp1k'])->name('rida-periode-Usia Produktif SP-1(K)');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_sp1k'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1(K)');
 
+Route::get('/dokumentasi-rida/skema-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\SkemaPNBPController::class, 'detailsFront'])->name('skemapnbp-details-front');
 
 Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
 Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'export'])->name('rida-export-hibah-pnbp');
