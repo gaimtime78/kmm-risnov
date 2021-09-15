@@ -125,7 +125,8 @@ _.map(data, v =>{
     statusData.list_75[indexPeriode] = v.usia75_jumlah
 
 })
-listStatusData = _.orderBy(listStatusData, ['status'], ['asc']);
+// listStatusData = _.orderBy(listStatusData, ['status'], ['asc']);
+listStatusData = _.orderBy(listStatusData);
 let container = document.getElementById('container-chart')
 //generate canvas
 _.map(listStatusData, (v,i) =>{

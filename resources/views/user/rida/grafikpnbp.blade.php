@@ -119,9 +119,10 @@ console.log(data, labels)
 //generate datasets and chart
 let datasets = []
 _.map(usulanList, (o,p) =>{
+    console.log(o,p)
     datasets.push({
         label:o,
-        data:_.get(data[0], mapUsulanVar[p], -999),
+        data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, mapUsulanVar[p], -999)),
         backgroundColor:colorList[p],
         borderColor:colorList[p],
         yAxisID:'jumlah'
