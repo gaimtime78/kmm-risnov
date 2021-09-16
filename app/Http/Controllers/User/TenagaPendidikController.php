@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Exports\Rida\Pendidik\DoktoralExport;
+use App\Exports\Rida\Pendidik\MagisterExport;
+use App\Exports\Rida\Pendidik\ProfesiExport;
+use App\Exports\Rida\Pendidik\Sp1Export;
+use App\Exports\Rida\Pendidik\Sp1kExport;
+use App\Exports\Rida\Pendidik\Sp2Export;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UsiaProduktif\UsiaProduktifDoktoral;
@@ -537,8 +542,26 @@ class TenagaPendidikController extends Controller
     }
 
     public function export_doktor($fakultas, $tahun) {
-      // $data = UsiaProduktifDoktoral::where('fakultas', $fakultas)->get();
-      // dd($data);
       return Excel::download(new DoktoralExport($fakultas, $tahun), 'Usia Produktif Doktoral.xlsx');
+    }
+
+    public function export_magister($fakultas, $tahun) {
+      return Excel::download(new MagisterExport($fakultas, $tahun), 'Usia Produktif Magister.xlsx');
+    }
+
+    public function export_sp2($fakultas, $tahun) {
+      return Excel::download(new Sp2Export($fakultas, $tahun), 'Usia Produktif SP-2.xlsx');
+    }
+
+    public function export_sp1($fakultas, $tahun) {
+      return Excel::download(new Sp1Export($fakultas, $tahun), 'Usia Produktif SP-1.xlsx');
+    }
+
+    public function export_sp1k($fakultas, $tahun) {
+      return Excel::download(new Sp1kExport($fakultas, $tahun), 'Usia Produktif SP-1(K).xlsx');
+    }
+
+    public function export_profesi($fakultas, $tahun) {
+      return Excel::download(new ProfesiExport($fakultas, $tahun), 'Usia Produktif Profesi.xlsx');
     }
 }
