@@ -14,7 +14,7 @@ use App\Models\UsiaProduktif\UsiaProduktifDoktoral;
 use App\Models\UsiaProduktif\UsiaProduktifMagister;
 use App\Models\UsiaProduktif\UsiaProduktifProfesi;
 use App\Models\UsiaProduktif\UsiaProduktifSP_1;
-use App\Models\UsiaProduktif\UsiaProduktifSP_1k;
+use App\Models\UsiaProduktif\UsiaProduktifSP_1K;
 use App\Models\UsiaProduktif\UsiaProduktifSP_2;
 
 use App\Models\Kependidikan\PenelitiPengabdiMagister;
@@ -182,7 +182,7 @@ class TenagaPendidikController extends Controller
     }
 
     public function spesialisKonsultan(Request $request){
-      $list_tahun = UsiaProduktifSP_1k::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
+      $list_tahun = UsiaProduktifSP_1K::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
 
@@ -194,9 +194,9 @@ class TenagaPendidikController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = UsiaProduktifSP_1k::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
-        $list_fakultas = UsiaProduktifSP_1k::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
-        $list_sumber = UsiaProduktifSP_1k::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = UsiaProduktifSP_1K::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $list_fakultas = UsiaProduktifSP_1K::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
+        $list_sumber = UsiaProduktifSP_1K::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
           "name"=> "Tenaga Pendidik Spesialis-1(K)",
@@ -239,7 +239,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_konsultan($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifSP_1k::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifSP_1K::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-1(K)", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -405,34 +405,34 @@ class TenagaPendidikController extends Controller
       $fakultas  = $fakultas;
       $tahun  = $tahun;
 
-      $data = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+      $data = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
 
-        $sum25sd35_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
-        $sum25sd35_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
-        $sum25sd35_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+        $sum25sd35_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+        $sum25sd35_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+        $sum25sd35_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
 
-        $sum36sd45_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
-        $sum36sd45_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
-        $sum36sd45_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+        $sum36sd45_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+        $sum36sd45_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+        $sum36sd45_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
 
-        $sum46sd55_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
-        $sum46sd55_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
-        $sum46sd55_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+        $sum46sd55_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+        $sum46sd55_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+        $sum46sd55_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
 
-        $sum56sd65_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_L');
-        $sum56sd65_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_P');
-        $sum56sd65_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
+        $sum56sd65_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_L');
+        $sum56sd65_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_P');
+        $sum56sd65_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
         
-        $sum66sd75_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_L');
-        $sum66sd75_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_P');
-        $sum66sd75_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
+        $sum66sd75_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_L');
+        $sum66sd75_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_P');
+        $sum66sd75_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
         
-        $sum75_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_L');
-        $sum75_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_P');
-        $sum75_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
+        $sum75_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_L');
+        $sum75_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_P');
+        $sum75_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
 
-        $total                  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-        $totalsemua             = UsiaProduktifSP_1k::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+        $total                  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+        $totalsemua             = UsiaProduktifSP_1K::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
 
        return view('user.rida.detail',[
