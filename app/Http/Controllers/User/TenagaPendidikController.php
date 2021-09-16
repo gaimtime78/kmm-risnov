@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\Rida\Pendidik\DoktoralExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UsiaProduktif\UsiaProduktifDoktoral;
@@ -13,6 +14,7 @@ use App\Models\UsiaProduktif\UsiaProduktifSP_2;
 
 use App\Models\Kependidikan\PenelitiPengabdiMagister;
 use App\Models\Kependidikan\PenelitiPengabdiProfesi;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TenagaPendidikController extends Controller
 {
@@ -531,7 +533,12 @@ class TenagaPendidikController extends Controller
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
-       ]);
-      
+      ]);
+    }
+
+    public function export_doktor($fakultas, $tahun) {
+      // $data = UsiaProduktifDoktoral::where('fakultas', $fakultas)->get();
+      // dd($data);
+      return Excel::download(new DoktoralExport($fakultas, $tahun), 'Usia Produktif Doktoral.xlsx');
     }
 }
