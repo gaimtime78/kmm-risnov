@@ -55,6 +55,7 @@ Route::post('/slider/upload', [App\Http\Controllers\SliderController::class, 'st
 Route::post('/slider/view', [App\Http\Controllers\SliderController::class, 'view']);
 
 Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
+    Route::get('/dokumentasi-rida', [App\Http\Controllers\User\RidaController::class, 'index'])->name('dokumentasi-rida');
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
@@ -196,7 +197,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\ProfesiController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ProfesiController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\ProfesiController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ProfesiController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\ProfesiController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\ProfesiController::class, 'import'])->name('import');
@@ -224,7 +225,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'import'])->name('import');
@@ -238,7 +239,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'import'])->name('import');
@@ -252,7 +253,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'import'])->name('import');
@@ -266,7 +267,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'import'])->name('import');
@@ -280,7 +281,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'import'])->name('import');
@@ -294,7 +295,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'import'])->name('import');
@@ -308,7 +309,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'import'])->name('import');
@@ -322,7 +323,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'import'])->name('import');
@@ -336,7 +337,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'import'])->name('import');
@@ -350,7 +351,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'import'])->name('import');
@@ -364,7 +365,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'import'])->name('import');
@@ -378,7 +379,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'import'])->name('import');
@@ -392,7 +393,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'import'])->name('import');
@@ -406,7 +407,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'import'])->name('import');
@@ -420,7 +421,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'import'])->name('import');
@@ -434,7 +435,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'edit'])->name('edit');
-            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'update'])->name('update');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'update'])->name('update');
             Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'import'])->name('import');
@@ -586,7 +587,8 @@ Route::get('/koran_search', [App\Http\Controllers\KoranController::class, 'searc
 Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 'searchKategory'])->name('category');
 
 
-Route::get('/dokumentasi-rida', [App\Http\Controllers\User\RidaController::class, 'index'])->name('dokumentasi-rida');
+// Route::get('/dokumentasi-rida', [App\Http\Controllers\User\RidaController::class, 'index'])->name('dokumentasi-rida');
+
 Route::get('/dokumentasi-rida/doktor', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-Usia Produktif Doktor');
 Route::get('/dokumentasi-rida/magister', [App\Http\Controllers\User\RidaController::class, 'magister'])->name('rida-Usia Produktif Magister');
 Route::get('/dokumentasi-rida/spesialis-2', [App\Http\Controllers\User\RidaController::class, 'spesialis2'])->name('rida-Usia Produktif SP2');

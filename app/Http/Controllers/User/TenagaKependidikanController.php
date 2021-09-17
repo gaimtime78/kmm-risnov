@@ -11,7 +11,7 @@ use App\Models\Kependidikan\PenelitiPengabdiDiploma4;
 use App\Models\Kependidikan\PenelitiPengabdiDiploma3;
 use App\Models\Kependidikan\PenelitiPengabdiDiploma2;
 use App\Models\Kependidikan\PenelitiPengabdiDiploma1;
-use App\Models\Kependidikan\PenelitiPengabdiSLTA;
+use App\Models\Kependidikan\PenelitiPengabdiSlta;
 use App\Models\Kependidikan\PenelitiPengabdiSltp;
 use App\Models\Kependidikan\PenelitiPengabdiSd;
 

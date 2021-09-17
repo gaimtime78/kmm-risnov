@@ -13,9 +13,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="msapplication-tap-highlight" content="no">
-  <meta name="description" content="IRIS1103 Premiere Suite | Intelligent Research and Innovation Services 1103">
-  <meta name="keywords" content="IRIS1103 Premiere Suite | Intelligent Research and Innovation Services 1103">
-  <title>RISNOV LOGIN</title>
+  <meta name="description" content="Biro RPM | Riset dan Pengabdian Kepada Masyarakat">
+    <meta name="keywords" content="Biro RPM | Riset dan Pengabdian Kepada Masyarakat">
+    <title>Biro RPM |LOGIN</title>
 
   <!-- Favicons-->
   <link rel="icon" href="images\favicon\favicon-32x32.png" sizes="32x32">

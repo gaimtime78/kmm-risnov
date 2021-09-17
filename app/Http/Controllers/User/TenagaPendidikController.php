@@ -8,7 +8,7 @@ use App\Models\UsiaProduktif\UsiaProduktifDoktoral;
 use App\Models\UsiaProduktif\UsiaProduktifMagister;
 use App\Models\UsiaProduktif\UsiaProduktifProfesi;
 use App\Models\UsiaProduktif\UsiaProduktifSP_1;
-use App\Models\UsiaProduktif\UsiaProduktifSP_1k;
+use App\Models\UsiaProduktif\UsiaProduktifSP_1K;
 use App\Models\UsiaProduktif\UsiaProduktifSP_2;
 
 use App\Models\Kependidikan\PenelitiPengabdiMagister;
@@ -175,7 +175,7 @@ class TenagaPendidikController extends Controller
     }
 
     public function spesialisKonsultan(Request $request){
-      $list_tahun = UsiaProduktifSP_1k::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
+      $list_tahun = UsiaProduktifSP_1K::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
 
@@ -187,9 +187,9 @@ class TenagaPendidikController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = UsiaProduktifSP_1k::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
-        $list_fakultas = UsiaProduktifSP_1k::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
-        $list_sumber = UsiaProduktifSP_1k::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = UsiaProduktifSP_1K::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $list_fakultas = UsiaProduktifSP_1K::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
+        $list_sumber = UsiaProduktifSP_1K::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
           "name"=> "Tenaga Pendidik Spesialis-1(K)",
