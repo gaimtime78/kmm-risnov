@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\Rida\Pendidik\DoktoralExport;
+use App\Exports\Rida\Pendidik\MagisterExport;
+use App\Exports\Rida\Pendidik\ProfesiExport;
+use App\Exports\Rida\Pendidik\Sp1Export;
+use App\Exports\Rida\Pendidik\Sp1kExport;
+use App\Exports\Rida\Pendidik\Sp2Export;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UsiaProduktif\UsiaProduktifDoktoral;
@@ -13,6 +19,7 @@ use App\Models\UsiaProduktif\UsiaProduktifSP_2;
 
 use App\Models\Kependidikan\PenelitiPengabdiMagister;
 use App\Models\Kependidikan\PenelitiPengabdiProfesi;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TenagaPendidikController extends Controller
 {
@@ -232,7 +239,7 @@ class TenagaPendidikController extends Controller
     public function pilih_periode_konsultan($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifSP_1k::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = UsiaProduktifSP_1K::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
 
        return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-1(K)", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
@@ -398,34 +405,34 @@ class TenagaPendidikController extends Controller
       $fakultas  = $fakultas;
       $tahun  = $tahun;
 
-      $data = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+      $data = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
 
-        $sum25sd35_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
-        $sum25sd35_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
-        $sum25sd35_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+        $sum25sd35_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
+        $sum25sd35_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
+        $sum25sd35_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
 
-        $sum36sd45_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
-        $sum36sd45_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
-        $sum36sd45_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+        $sum36sd45_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
+        $sum36sd45_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
+        $sum36sd45_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
 
-        $sum46sd55_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
-        $sum46sd55_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
-        $sum46sd55_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+        $sum46sd55_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
+        $sum46sd55_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
+        $sum46sd55_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
 
-        $sum56sd65_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_L');
-        $sum56sd65_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_P');
-        $sum56sd65_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
+        $sum56sd65_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_L');
+        $sum56sd65_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_P');
+        $sum56sd65_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
         
-        $sum66sd75_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_L');
-        $sum66sd75_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_P');
-        $sum66sd75_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
+        $sum66sd75_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_L');
+        $sum66sd75_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_P');
+        $sum66sd75_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
         
-        $sum75_L       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_L');
-        $sum75_P       = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_P');
-        $sum75_jumlah  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
+        $sum75_L       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_L');
+        $sum75_P       = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_P');
+        $sum75_jumlah  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
 
-        $total                  = UsiaProduktifSP_1k::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-        $totalsemua             = UsiaProduktifSP_1k::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+        $total                  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+        $totalsemua             = UsiaProduktifSP_1K::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
 
        return view('user.rida.detail',[
@@ -531,7 +538,30 @@ class TenagaPendidikController extends Controller
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
-       ]);
-      
+      ]);
+    }
+
+    public function export_doktor($fakultas, $tahun) {
+      return Excel::download(new DoktoralExport($fakultas, $tahun), 'Usia Produktif Doktoral.xlsx');
+    }
+
+    public function export_magister($fakultas, $tahun) {
+      return Excel::download(new MagisterExport($fakultas, $tahun), 'Usia Produktif Magister.xlsx');
+    }
+
+    public function export_sp2($fakultas, $tahun) {
+      return Excel::download(new Sp2Export($fakultas, $tahun), 'Usia Produktif SP-2.xlsx');
+    }
+
+    public function export_sp1($fakultas, $tahun) {
+      return Excel::download(new Sp1Export($fakultas, $tahun), 'Usia Produktif SP-1.xlsx');
+    }
+
+    public function export_sp1k($fakultas, $tahun) {
+      return Excel::download(new Sp1kExport($fakultas, $tahun), 'Usia Produktif SP-1(K).xlsx');
+    }
+
+    public function export_profesi($fakultas, $tahun) {
+      return Excel::download(new ProfesiExport($fakultas, $tahun), 'Usia Produktif Profesi.xlsx');
     }
 }

@@ -620,21 +620,27 @@ Route::get('/dokumentasi-rida/skema-pnbp', [App\Http\Controllers\User\SkemaPNBPC
 /*detail grafik 1-6*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_doktor'])->name('rida-periode-Tenaga Pendidik Doktor');
 Route::get('/dokumentasi-rida/detail/tenaga-pendidik/doktor/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_doktor'])->name('rida-detail-Tenaga Pendidik Doktor');
+Route::get('/dokumentasi-rida/export/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_doktor'])->name('rida-export-Tenaga Pendidik Doktor');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_magister'])->name('rida-periode-Tenaga Pendidik Magister');
 Route::get('/dokumentasi-rida/detail/tenaga-pendidik/magister/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_magister'])->name('rida-detail-Tenaga Pendidik Magister');
+Route::get('/dokumentasi-rida/export/tenaga-pendidik/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_magister'])->name('rida-export-Tenaga Pendidik Magister');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/spesialis-2/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_sp_2'])->name('rida-periode-Tenaga Pendidik Spesialis-2');
 Route::get('/dokumentasi-rida/detail/tenaga-pendidik/spesialis-2/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_sp_2'])->name('rida-detail-Tenaga Pendidik Spesialis-2');
+Route::get('/dokumentasi-rida/export/tenaga-pendidik/spesialis-2/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_sp2'])->name('rida-export-Tenaga Pendidik Spesialis-2');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/spesialis-konsultan/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_konsultan'])->name('rida-periode-Tenaga Pendidik Spesialis-1(K)');
 Route::get('/dokumentasi-rida/detail/tenaga-pendidik/spesialis-konsultan/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_konsultan'])->name('rida-detail-Tenaga Pendidik Spesialis-1(K)');
+Route::get('/dokumentasi-rida/export/tenaga-pendidik/spesialis-konsultan/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_sp1k'])->name('rida-export-Tenaga Pendidik Spesialis-1(K)');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/spesialis-1/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_sp_1'])->name('rida-periode-Tenaga Pendidik Spesialis-1');
 Route::get('/dokumentasi-rida/detail/tenaga-pendidik/spesialis-1/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_sp_1'])->name('rida-detail-Tenaga Pendidik Spesialis-1');
+Route::get('/dokumentasi-rida/export/tenaga-pendidik/spesialis-1/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_sp1'])->name('rida-export-Tenaga Pendidik Spesialis-1');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/profesi/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_profesi'])->name('rida-periode-Tenaga Pendidik Profesi');
 Route::get('/dokumentasi-rida/detail/tenaga-pendidik/profesi/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaPendidikController::class, 'detail_profesi'])->name('rida-detail-Tenaga Pendidik Profesi');
+Route::get('/dokumentasi-rida/export/tenaga-pendidik/profesi/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_profesi'])->name('rida-export-Tenaga Pendidik Profesi');
 
 
 /*detail grafik 7-16*/ 

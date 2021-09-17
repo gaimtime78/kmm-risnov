@@ -27,7 +27,9 @@
                                 <h3>{{ucwords($name)}} - {{$fakultas}} - {{$tahun}}</h3>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
-                                <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
+                                <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
+                                </a>
                                 <a href="{{route( 'rida-periode-'.$name , [$fakultas, $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                                 </a>
