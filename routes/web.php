@@ -646,33 +646,43 @@ Route::get('/dokumentasi-rida/export/tenaga-pendidik/profesi/{fakultas}/{tahun}'
 /*detail grafik 7-16*/ 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_magister'])->name('rida-periode-Tenaga Kependidikan Magister');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/magister/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_magister'])->name('rida-detail-Tenaga Kependidikan Magister');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_magister'])->name('rida-export-Tenaga Kependidikan Magister');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/profesi/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_profesi'])->name('rida-periode-Tenaga Kependidikan Profesi');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/profesi/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_profesi'])->name('rida-detail-Tenaga Kependidikan Profesi');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/profesi/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_profesi'])->name('rida-export-Tenaga Kependidikan Profesi');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/sarjana/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_sarjana'])->name('rida-periode-Tenaga Kependidikan Sarjana');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/sarjana/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_sarjana'])->name('rida-detail-Tenaga Kependidikan Sarjana');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/sarjana/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_sarjana'])->name('rida-export-Tenaga Kependidikan Sarjana');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/D4/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_d4'])->name('rida-periode-Tenaga Kependidikan D4');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/D4/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_d4'])->name('rida-detail-Tenaga Kependidikan D4');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/D4/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_d4'])->name('rida-export-Tenaga Kependidikan D4');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/D3/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_d3'])->name('rida-periode-Tenaga Kependidikan D3');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/D3/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_d3'])->name('rida-detail-Tenaga Kependidikan D3');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/D3/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_d3'])->name('rida-export-Tenaga Kependidikan D3');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/D2/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_d2'])->name('rida-periode-Tenaga Kependidikan D2');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/D2/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_d2'])->name('rida-detail-Tenaga Kependidikan D2');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/D2/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_d2'])->name('rida-export-Tenaga Kependidikan D2');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/D1/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_d1'])->name('rida-periode-Tenaga Kependidikan D1');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/D1/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_d1'])->name('rida-detail-Tenaga Kependidikan D1');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/D1/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_d1'])->name('rida-export-Tenaga Kependidikan D1');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/SLTA/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_slta'])->name('rida-periode-Tenaga Kependidikan SLTA');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/SLTA/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_slta'])->name('rida-detail-Tenaga Kependidikan SLTA');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/SLTA/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_slta'])->name('rida-export-Tenaga Kependidikan SLTA');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/SLTP/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_sltp'])->name('rida-periode-Tenaga Kependidikan SLTP');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/SLTP/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_sltp'])->name('rida-detail-Tenaga Kependidikan SLTP');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/SLTP/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_sltp'])->name('rida-export-Tenaga Kependidikan SLTP');
 
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/SD/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_sd'])->name('rida-periode-Tenaga Kependidikan SD');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/SD/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_sd'])->name('rida-detail-Tenaga Kependidikan SD');
+Route::get('/dokumentasi-rida/export/tenaga-kependidikan/SD/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_sd'])->name('rida-export-Tenaga Kependidikan SD');
 
 /*detail grafik 17-22*/ 
 

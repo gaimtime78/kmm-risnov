@@ -2,6 +2,16 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\Rida\Kependidikan\D1Export;
+use App\Exports\Rida\Kependidikan\D2Export;
+use App\Exports\Rida\Kependidikan\D3Export;
+use App\Exports\Rida\Kependidikan\D4Export;
+use App\Exports\Rida\Kependidikan\MagisterExport;
+use App\Exports\Rida\Kependidikan\ProfesiExport;
+use App\Exports\Rida\Kependidikan\SarjanaExport;
+use App\Exports\Rida\Kependidikan\SDExport;
+use App\Exports\Rida\Kependidikan\SLTAExport;
+use App\Exports\Rida\Kependidikan\SLTPExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kependidikan\PenelitiPengabdiMagister;
@@ -14,6 +24,7 @@ use App\Models\Kependidikan\PenelitiPengabdiDiploma1;
 use App\Models\Kependidikan\PenelitiPengabdiSlta;
 use App\Models\Kependidikan\PenelitiPengabdiSltp;
 use App\Models\Kependidikan\PenelitiPengabdiSd;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TenagaKependidikanController extends Controller
 {
@@ -817,6 +828,46 @@ class TenagaKependidikanController extends Controller
             'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
        ]);
-      
+    }
+
+    public function export_d1($fakultas, $tahun) {
+      return Excel::download(new D1Export($fakultas, $tahun), 'Usia Produktif Kependidikan Diploma 1.xlsx');
+    }
+
+    public function export_d2($fakultas, $tahun) {
+      return Excel::download(new D2Export($fakultas, $tahun), 'Usia Produktif Kependidikan Diploma 2.xlsx');
+    }
+
+    public function export_d3($fakultas, $tahun) {
+      return Excel::download(new D3Export($fakultas, $tahun), 'Usia Produktif Kependidikan Diploma 3.xlsx');
+    }
+
+    public function export_d4($fakultas, $tahun) {
+      return Excel::download(new D4Export($fakultas, $tahun), 'Usia Produktif Kependidikan Diploma 4.xlsx');
+    }
+
+    public function export_magister($fakultas, $tahun) {
+      return Excel::download(new MagisterExport($fakultas, $tahun), 'Usia Produktif Kependidikan Magister.xlsx');
+    }
+
+    public function export_profesi($fakultas, $tahun) {
+      return Excel::download(new ProfesiExport($fakultas, $tahun), 'Usia Produktif Kependidikan Profesi.xlsx');
+    }
+
+    public function export_sarjana($fakultas, $tahun) {
+      return Excel::download(new SarjanaExport($fakultas, $tahun), 'Usia Produktif Kependidikan Sarjana.xlsx');
+    }
+
+    public function export_sd($fakultas, $tahun) {
+      return Excel::download(new SDExport($fakultas, $tahun), 'Usia Produktif Kependidikan SD.xlsx');
+    }
+
+    public function export_slta($fakultas, $tahun) {
+      return Excel::download(new SLTAExport($fakultas, $tahun), 'Usia Produktif Kependidikan SLTA.xlsx');
+    }
+
+    public function export_sltp($fakultas, $tahun) {
+      return Excel::download(new SLTPExport($fakultas, $tahun), 'Usia Produktif Kependidikan SLTP.xlsx');
     }
 }
+
