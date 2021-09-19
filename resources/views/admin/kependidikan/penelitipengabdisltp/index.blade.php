@@ -54,16 +54,36 @@
                         @endif
 
                         <div id="table-datatables">
-                            <h4 class="header left">Tabel 15 RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA
-                                KEPENDIDIKAN JENJANG SLTP
-                            </h4>
+                            <h4 class="header left">Tabel 15 @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach</h4>
                             <!-- <a href="{{ route('admin.agenda.create') }}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <a href="#import" class="waves-effect waves-light btn right modal-trigger"
                                         role="button">Upload Excel</a>
-                                    <!-- <a href="{{ route('admin.penelitipengabdikependidikansltp.export') }}" class="waves-effect waves-light btn right" role="button">Export Excel</a> -->
+                                        <a href="#update_nama_table" class="waves-effect waves-light btn right modal-trigger" role="button">Edit Nama Table</a>
 
+                                        {{-- Modal update nama table --}}
+                                        <div id="update_nama_table" class="modal">
+                                        @foreach ($nama_table as $name) 
+                                        <form action="{{route('admin.penelitipengabdikependidikansltp.updateNamaTable', [$name->nama_table] )}}" method="post" enctype="multipart/form-data" >
+                                            @csrf
+                                            <div class="modal-content">
+                                            <h4>Edit Nama table</h4>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                <input value="{{ $name->nama_table }} " id="nama_table" name="nama_table"  type="text" class="validate" required>
+                                                <label for="nama_table">Nama Table</label>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
+                                            </div>
+                                        </form>
+                                        @endforeach 
+                                        </div>
+                                        {{-- End of modal import --}}
                                     {{-- Modal import --}}
                                     <div id="import" class="modal">
                                         <form action="{{ route('admin.penelitipengabdikependidikansltp.import') }}"

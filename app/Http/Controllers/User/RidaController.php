@@ -24,6 +24,9 @@ class RidaController extends Controller
       $dataDiploma3  = DB::table('peneliti_pengabdi_kependidikan_diploma3')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataDiploma2  = DB::table('peneliti_pengabdi_kependidikan_diploma2')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataDiploma1  = DB::table('peneliti_pengabdi_kependidikan_diploma1')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataSlta  = DB::table('peneliti_pengabdi_kependidikan_slta')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataSltp  = DB::table('peneliti_pengabdi_kependidikan_sltp')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataSd  = DB::table('peneliti_pengabdi_kependidikan_sd')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       
       $data  = PenelitiPengabdi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data2  = PenelitiPengabdiMagister::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
@@ -52,6 +55,9 @@ class RidaController extends Controller
                   "dataDiploma3"=>$dataDiploma3,
                   "dataDiploma2"=>$dataDiploma2,
                   "dataDiploma1"=>$dataDiploma1,
+                  "dataSlta"=>$dataSlta,
+                  "dataSltp"=>$dataSltp,
+                  "dataSd"=>$dataSd,
       ]);
     }
     

@@ -13,8 +13,9 @@ class SdController extends Controller
     public function index()
     {
         $penelitipengabdisd = PenelitiPengabdiSd::distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiSd::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.kependidikan.penelitipengabdisd.index', ['penelitipengabdisd' => $penelitipengabdisd]);
+        return view('admin.kependidikan.penelitipengabdisd.index', ['penelitipengabdisd' => $penelitipengabdisd, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -188,5 +189,18 @@ class SdController extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdikependidikansd.details', [$fakultas, $periode, $tahun]));
+    }
+
+    
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiSd::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdikependidikansd.index'));
     }
 }

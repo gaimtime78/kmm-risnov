@@ -17,8 +17,9 @@ class SltaController extends Controller
     public function index()
     {
         $penelitipengabdislta = PenelitiPengabdiSlta::distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiSlta::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.kependidikan.penelitipengabdislta.index', ['penelitipengabdislta' => $penelitipengabdislta]);
+        return view('admin.kependidikan.penelitipengabdislta.index', ['penelitipengabdislta' => $penelitipengabdislta,  'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -185,5 +186,17 @@ class SltaController extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdikependidikanslta.details', [$fakultas, $periode, $tahun]));
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiSlta::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdikependidikanslta.index'));
     }
 }
