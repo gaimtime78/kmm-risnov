@@ -15,6 +15,7 @@ class CreateUsiaProduktifSp1Table extends Migration
     {
         Schema::create('usia_produktif_sp_1', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('fakultas');
             $table->string('status');
             $table->string('jenjang');

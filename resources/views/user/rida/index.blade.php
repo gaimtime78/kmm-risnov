@@ -51,31 +51,104 @@
                                             
                                                 <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Doktor',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
                                                     </td>
                                                 </tr>
                                             @php
                                             $i++;
                                             @endphp
                                             @endforeach
-
+                                            
                                             @foreach ($data2 as $row)
-                                            <tr>
-                                                <td
+                                                <tr>
+                                                    <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
-                                                <td
+                                                    <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                   {{$row->nama_table}}</td>
-                                                <td
+                                                    {{$row->nama_table}}</td>
+                                                    <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
-                                                    </td>
-                                                </tr>
-                                                @php
-                                                $i++;
-                                                @endphp
+                                                    <a href="{{ route ('rida-Magister',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
                                             @endforeach
+
+                                            @foreach ($data3 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-profesi',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            @foreach ($data4 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Sp-2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            @foreach ($data5 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Sp-1',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            @foreach ($data6 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Sp-2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

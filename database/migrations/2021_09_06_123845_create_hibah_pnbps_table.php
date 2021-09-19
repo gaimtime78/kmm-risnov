@@ -15,6 +15,7 @@ class CreateHibahPNBPSTable extends Migration
     {
         Schema::create('hibah_pnbps', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('fakultas');
             $table->string('periode');
             $table->string('tahun_input');

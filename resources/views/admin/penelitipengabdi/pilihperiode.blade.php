@@ -90,6 +90,8 @@
                               <div class="modal-content">
                                 <h4>Edit Data</h4>
                                 <hr>
+                                
+                                
                                 <div class="row">
                                   <div class="input-field col s12">
                                     <input value="{{$row->periode}}" id="periode" name="periode"  type="text" class="validate" required>

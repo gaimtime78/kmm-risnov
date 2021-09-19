@@ -15,6 +15,7 @@ class CreateKerjasamapenelitianTable extends Migration
     {
         Schema::create('kerjasamapenelitian', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('pusat_studi');
             $table->string('periode');
             $table->string('tahun_input');
