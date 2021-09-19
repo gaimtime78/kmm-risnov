@@ -13,11 +13,19 @@ use App\Models\PenelitiPengabdiSpesialisKonsultan;
 
 class RidaController extends Controller
 {
-    public function index(){
+    public function index(){ 
+      $data  = PenelitiPengabdi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $slug  = PenelitiPengabdi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      
+      $data2  = PenelitiPengabdiMagister::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $slug2  = PenelitiPengabdiMagister::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      // dd($data);
 
-      return view('user.rida.index', ['data' => "iki data"]);
+      return view('user.rida.index', ["name"=> $slug, "data" => $data, 
+      "name2"=> $slug2,"data2" => $data2,]);
     }
-    public function doktoral(Request $request){
+
+    public function doktoral(Request $request, $jenjang){
       $list_tahun = PenelitiPengabdi::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
@@ -87,7 +95,7 @@ class RidaController extends Controller
       
     }
 
-    public function magister(Request $request){
+    public function magister(Request $request, $jenjang){
       $list_tahun = PenelitiPengabdiMagister::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;

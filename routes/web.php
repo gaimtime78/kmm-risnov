@@ -588,6 +588,9 @@ Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 
 
 
 // Route::get('/dokumentasi-rida', [App\Http\Controllers\User\RidaController::class, 'index'])->name('dokumentasi-rida');
+Route::get('/dokumentasi-rida/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-');
+Route::get('/dokumentasi-rida/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'magister'])->name('rida-');
+
 
 Route::get('/dokumentasi-rida/doktor', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-Usia Produktif Doktor');
 Route::get('/dokumentasi-rida/magister', [App\Http\Controllers\User\RidaController::class, 'magister'])->name('rida-Usia Produktif Magister');

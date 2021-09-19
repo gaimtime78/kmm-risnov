@@ -50,13 +50,43 @@
 		<script src="js/vendor/respond.min.js"></script>
 	<![endif]-->
     <meta name="google-site-verification" content="e6UXMEpodd4Gkid3WCrUYVJ4zcvxzm7aFsHlokWOgyc">
-    @yield('css')
+    <style>
+        #myBtn {
+            display: fixed;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            color: white;
+            padding: 15px;
+
+            /* background-color: Transparent; */
+            background-repeat: #43cae9;
+            border: 2px;
+            border-radius:8px;
+            cursor:pointer;
+            overflow: hidden;
+            outline:none;
+        }
+
+        #myBtn:hover {
+            background-color: #43cae9;
+        }
+        </style>
+@yield('css')
 </head>
 <body>
     <span itemprop="image" itemscope itemtype="image/jpeg"> 
         <link itemprop="url" href="@yield('meta-image')"> 
       </span>  
-
+      @if (Auth::check())
+        <div class="ui item">
+            <a href="{{route('admin.dashboard')}}">
+                <button  id="myBtn" title="Dashboard">Dashboard</button>
+            </a>
+        </div>
+        @endif
     <!-- LOADER -->
     <!-- <div id="preloader">
         <img class="preloader" src="images/loader.gif" alt="">
@@ -98,6 +128,29 @@
         }
         renderShare()
     </script>
+
+            
+        <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        // function scrollFunction() {
+        // if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        //     mybutton.style.display = "block";
+        // } else {
+        //     mybutton.style.display = "none";
+        // }
+        // }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+        </script>
     @yield('js')
 </body>
 </html>

@@ -28,7 +28,8 @@ class LoginController extends Controller
         if (!Auth::attempt($credentials)) {
             return back()->with($this->status(0,'sukses','Login gagal'));
         }
-        return redirect()->route('admin.dashboard');
+        // return redirect()->route('admin.dashboard');
+        return redirect()->route('dokumentasi-rida');
     }
 
     public function logout(Request $request) {
