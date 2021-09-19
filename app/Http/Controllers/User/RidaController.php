@@ -18,6 +18,11 @@ class RidaController extends Controller
     public function index(){ 
 
       $dataUsiaProduktifDoktor  = DB::table('usia_produktif_doktoral')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataUsiaProduktifMagister  = DB::table('usia_produktif_magister')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataUsiaProduktifSp_2  = DB::table('usia_produktif_sp_2')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataUsiaProduktifSp_1k = DB::table('usia_produktif_sp_1k')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataUsiaProduktifSp_1 = DB::table('usia_produktif_sp_1')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataUsiaProduktifProfesi = DB::table('usia_produktif_profesi')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
 
 
       $dataMagister  = DB::table('peneliti_pengabdi_kependidikan_magister')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
@@ -62,6 +67,11 @@ class RidaController extends Controller
                   "dataSltp"=>$dataSltp,
                   "dataSd"=>$dataSd,
                   "dataUsiaProduktifDoktor"=>$dataUsiaProduktifDoktor,
+                  "dataUsiaProduktifMagister"=>$dataUsiaProduktifMagister,
+                  "dataUsiaProduktifSp_2"=>$dataUsiaProduktifSp_2,
+                  "dataUsiaProduktifSp_1k"=>$dataUsiaProduktifSp_1k,
+                  "dataUsiaProduktifSp_1"=>$dataUsiaProduktifSp_1,
+                  "dataUsiaProduktifProfesi"=>$dataUsiaProduktifProfesi,
       ]);
     }
     

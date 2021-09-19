@@ -17,8 +17,21 @@ class ProfesiController extends Controller
     public function index()
     {
         $usiaproduktifprofesi = UsiaProduktifProfesi::where('fakultas','Fakultas Kedokteran')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
+        $nama_table = UsiaProduktifProfesi::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.usiaproduktif.penelitipengabdiprofesi.index', ['usiaproduktifprofesi' => $usiaproduktifprofesi]);
+        return view('admin.usiaproduktif.penelitipengabdiprofesi.index', ['usiaproduktifprofesi' => $usiaproduktifprofesi, 'nama_table'=> $nama_table]);
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = UsiaProduktifProfesi::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.usiaproduktifsp_1k.index'));
     }
 
     public function pilihperiode($fakultas)

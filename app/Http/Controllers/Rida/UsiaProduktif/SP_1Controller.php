@@ -17,10 +17,22 @@ class SP_1Controller extends Controller
     public function index()
     {
         $usiaproduktifsp_1 = UsiaProduktifSP_1::where('fakultas','Fakultas Kedokteran')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
+        $nama_table = UsiaProduktifSP_1::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.usiaproduktif.penelitipengabdisp_1.index', ['usiaproduktifsp_1' => $usiaproduktifsp_1]);
+        return view('admin.usiaproduktif.penelitipengabdisp_1.index', ['usiaproduktifsp_1' => $usiaproduktifsp_1 , 'nama_table'=> $nama_table]);
     }
 
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = UsiaProduktifSP_1::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.usiaproduktifsp_1.index'));
+    }
     public function pilihperiode($fakultas)
     {
         $nama_fakultas  = $fakultas;

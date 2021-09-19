@@ -58,6 +58,96 @@
                                             $i++;
                                             @endphp
                                             @endforeach
+
+                                            @foreach ( $dataUsiaProduktifMagister as $magister)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $magister->nama_table }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Usia-Produktif-Magister',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+                                            
+                                            @foreach ( $dataUsiaProduktifSp_2 as $magister)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $magister->nama_table }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_2',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+                                           
+                                            @foreach ( $dataUsiaProduktifSp_1k  as $magister)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $magister->nama_table }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_1K',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+                                            
+                                            @foreach ( $dataUsiaProduktifSp_1  as $magister)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $magister->nama_table }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_1',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+                                            
+                                            @foreach ( $dataUsiaProduktifProfesi  as $magister)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $magister->nama_table }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Usia-Produktif-Profesi',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
                                             
                                             @foreach ( $dataMagister as $magister)
                                                 <tr>

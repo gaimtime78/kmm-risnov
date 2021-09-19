@@ -17,8 +17,21 @@ class MagisterController extends Controller
     public function index()
     {
         $usiaproduktifmagister = UsiaProduktifMagister::distinct()->get('fakultas', 'id');
+        $nama_table = UsiaProduktifMagister::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.usiaproduktif.penelitipengabdimagister.index', ['usiaproduktifmagister' => $usiaproduktifmagister]);
+        return view('admin.usiaproduktif.penelitipengabdimagister.index', ['usiaproduktifmagister' => $usiaproduktifmagister, 'nama_table'=> $nama_table]);
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = UsiaProduktifMagister::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.usiaproduktifmagister.index'));
     }
 
     public function pilihperiode($fakultas)

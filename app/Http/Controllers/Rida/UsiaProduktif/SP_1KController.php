@@ -17,8 +17,21 @@ class SP_1KController extends Controller
     public function index()
     {
         $usiaproduktifsp_1k = UsiaProduktifSP_1K::where('fakultas','Fakultas Kedokteran')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
+        $nama_table = UsiaProduktifSP_1K::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.usiaproduktif.penelitipengabdisp_1k.index', ['usiaproduktifsp_1k' => $usiaproduktifsp_1k]);
+        return view('admin.usiaproduktif.penelitipengabdisp_1k.index', ['usiaproduktifsp_1k' => $usiaproduktifsp_1k, 'nama_table'=> $nama_table]);
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = UsiaProduktifSP_1K::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.usiaproduktifsp_1k.index'));
     }
 
     public function pilihperiode($fakultas)
