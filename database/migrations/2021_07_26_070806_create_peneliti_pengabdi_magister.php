@@ -16,6 +16,7 @@ class CreatePenelitiPengabdiMagister extends Migration
         Schema::create('peneliti_pengabdi_magister', function (Blueprint $table) {
             $table->id();
             $table->string('fakultas');
+            $table->string('nama_table');
             $table->string('status');
             $table->string('jenjang');
             $table->string('periode');

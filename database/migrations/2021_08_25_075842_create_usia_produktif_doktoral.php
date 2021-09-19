@@ -15,6 +15,7 @@ class CreateUsiaProduktifDoktoral extends Migration
     {
         Schema::create('usia_produktif_doktoral', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('fakultas');
             $table->string('status');
             $table->string('jenjang');

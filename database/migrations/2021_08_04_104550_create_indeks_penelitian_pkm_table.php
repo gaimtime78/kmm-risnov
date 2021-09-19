@@ -15,6 +15,7 @@ class CreateIndeksPenelitianPkmTable extends Migration
     {
         Schema::create('indeks_penelitian_pkm', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('fakultas');
             $table->string('periode');
             $table->string('tahun_input');

@@ -15,6 +15,7 @@ class CreateResearchgroupTable extends Migration
     {
         Schema::create('researchgroup', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('fakultas');
             $table->string('periode');
             $table->string('tahun_input');

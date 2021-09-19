@@ -15,6 +15,7 @@ class CreatePenelitiPengabdi extends Migration
     {
         Schema::create('peneliti_pengabdi', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('fakultas');
             $table->string('status');
             $table->string('jenjang');

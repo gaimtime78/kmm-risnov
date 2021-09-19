@@ -15,6 +15,7 @@ class CreateCapaianIkuTable extends Migration
     {
         Schema::create('capaian_iku', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_table');
             $table->string('periode');
             $table->string('tahun_input');
             $table->string('sumber_data');
