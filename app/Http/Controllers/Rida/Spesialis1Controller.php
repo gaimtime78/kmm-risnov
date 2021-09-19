@@ -18,8 +18,9 @@ class Spesialis1Controller extends Controller
     {
         // $penelitipengabdispesialis1 = PenelitiPengabdiSpesialis1::distinct()->get('fakultas', 'id');
         $penelitipengabdispesialis1 = PenelitiPengabdiSpesialis1::where('fakultas', 'Fakultas Kedokteran')->orWhere('fakultas', 'Fakultas Ilmu Sosial dan Politik')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiSpesialis1::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.penelitipengabdispesialis1.index', ['penelitipengabdispesialis1' => $penelitipengabdispesialis1]);
+        return view('admin.penelitipengabdispesialis1.index', ['penelitipengabdispesialis1' => $penelitipengabdispesialis1, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -118,7 +119,7 @@ class Spesialis1Controller extends Controller
         }
 
         PenelitiPengabdiSpesialis1::where('periode', 'kosong')
-            ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data]);
+            ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data, 'nama_table' => $request->nama_table]);
 
         return redirect()->route('admin.penelitipengabdispesialis1.index');
     }

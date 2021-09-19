@@ -17,8 +17,9 @@ class Diploma3Controller extends Controller
     public function index()
     {
         $penelitipengabdidiploma3 = PenelitiPengabdiDiploma3::distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiDiploma3::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.kependidikan.penelitipengabdidiploma3.index', ['penelitipengabdidiploma3' => $penelitipengabdidiploma3]);
+        return view('admin.kependidikan.penelitipengabdidiploma3.index', ['penelitipengabdidiploma3' => $penelitipengabdidiploma3, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -185,5 +186,17 @@ class Diploma3Controller extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdikependidikandiploma3.details', [$fakultas, $periode, $tahun]));
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiDiploma3::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdikependidikandiploma3.index'));
     }
 }

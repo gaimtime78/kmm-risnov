@@ -11,29 +11,47 @@ use App\Models\PenelitiPengabdiProfesi;
 use App\Models\PenelitiPengabdiSpesialis1;
 use App\Models\PenelitiPengabdiSpesialisKonsultan;
 
+use Illuminate\Support\Facades\DB;
+
 class RidaController extends Controller
 {
     public function index(){ 
+
+      $dataMagister  = DB::table('peneliti_pengabdi_kependidikan_magister')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataProfesi  = DB::table('peneliti_pengabdi_kependidikan_profesi')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataSarjana  = DB::table('peneliti_pengabdi_kependidikan_sarjana')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataDiploma4  = DB::table('peneliti_pengabdi_kependidikan_diploma4')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataDiploma3  = DB::table('peneliti_pengabdi_kependidikan_diploma3')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataDiploma2  = DB::table('peneliti_pengabdi_kependidikan_diploma2')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $dataDiploma1  = DB::table('peneliti_pengabdi_kependidikan_diploma1')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      
       $data  = PenelitiPengabdi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data2  = PenelitiPengabdiMagister::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data3  = PenelitiPengabdiProfesi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data4  = PenelitiPengabdiSpesialis::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
-      $data5  = PenelitiPengabdiSpesialis1::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
-      $data6  = PenelitiPengabdiSpesialisKonsultan::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $data5  = PenelitiPengabdiSpesialisKonsultan::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $data6  = PenelitiPengabdiSpesialis1::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
 
       $slug   = PenelitiPengabdi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug2  = PenelitiPengabdiMagister::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug3  = PenelitiPengabdiProfesi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug4  = PenelitiPengabdiSpesialis::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
-      $slug5  = PenelitiPengabdiSpesialis1::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
-      $slug6  = PenelitiPengabdiSpesialisKonsultan ::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      $slug5  = PenelitiPengabdiSpesialisKonsultan ::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      $slug6  = PenelitiPengabdiSpesialis1::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       
      return view('user.rida.index', ["name"=> "rida-".$slug, "data" => $data, 
-                  "name"=> $slug2, "data2"=>$data2,
-                  "name"=> $slug3, "data3"=>$data3,
-                  "name"=> $slug4, "data4"=>$data4,
-                  "name"=> $slug5, "data5"=>$data5,
-                  "name"=> $slug6, "data6"=>$data6,
+                  "name"=> "rida-".$slug2, "data2"=>$data2,
+                  "name"=> "rida-".$slug3, "data3"=>$data3,
+                  "name"=> "rida-".$slug4, "data4"=>$data4,
+                  "name"=> "rida-".$slug5, "data5"=>$data5,
+                  "name"=> "rida-".$slug6, "data6"=>$data6,
+                  "dataMagister"=>$dataMagister,
+                  "dataProfesi"=>$dataProfesi,
+                  "dataSarjana"=>$dataSarjana,
+                  "dataDiploma4"=>$dataDiploma4,
+                  "dataDiploma3"=>$dataDiploma3,
+                  "dataDiploma2"=>$dataDiploma2,
+                  "dataDiploma1"=>$dataDiploma1,
       ]);
     }
     
