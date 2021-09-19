@@ -16,227 +16,147 @@
             </div><!-- end container -->
         </section><!-- end section -->
         <section class="section gb nopadtop">
-          <div class="container">
-                <div class="row">
-                    <div class="tagline-message text-center" style="padding:75px !important;">
-                            <h3 style="color: #000000;">Table 1-6</h3>
+            <div class="container">
+                <div class="boxed boxedp4">
+                    <div class="row">
+                        <div id="table-datatables">
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <table id="data-menu" class="table display" cellspacing="0">
+                                        <thead>
+                                            <th
+                                                rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
+                                                No.</th>
+                                            <th
+                                                rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
+                                                Nama Table</th>
+                                            <th
+                                                rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
+                                                Action</th>
+                            
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $i = 1;
+                                                $x = 0;
+                                            @endphp
+                                            @foreach ($data as $row)
+                                            <tr>
+                                                <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                   {{$row->nama_table}}</td>
+                                            
+                                                <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Doktor',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    </td>
+                                                </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+                                            
+                                            @foreach ($data2 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Magister',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            @foreach ($data3 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-profesi',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            @foreach ($data4 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Sp-2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            @foreach ($data5 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Sp-1',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            @foreach ($data6 as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Sp-2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG DOKTOR</h4>
-                            <a href="{{route('rida-Tenaga Pendidik Doktor')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG MAGISTER</h4>
-                            <a href="{{route('rida-Tenaga Pendidik Magister')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG SP-2</h4>
-                            <a href="{{route('rida-Tenaga Pendidik Spesialis-2')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-              </div>
-                <hr class="invis">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG SP-1(K)</h4>
-                            <a href="{{route('rida-Tenaga Pendidik Spesialis-1(K)')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG SP-1</h4>
-                            <a href="{{route('rida-Tenaga Pendidik Spesialis-1')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA PENDIDIK JENJANG PROFESI</h4>
-                            <a href="{{route('rida-Tenaga Pendidik Profesi')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-              </div>
-                <hr class="invis">
-                <div class="tagline-message text-center">
-                    <h3 style="color: #000000;">Table 7-16</h3>
-                </div>
-                <hr class="invis">
-            
-              <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG MAGISTER</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan Magister')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG PROFESI</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan Profesi')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG SARJANA</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan Sarjana')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-              </div>
-              <hr class="invis">
-              <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG Diploma 4</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan D4')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG Diploma 3</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan D3')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG Diploma 2</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan D2')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-              </div>
-              <hr class="invis">
-              <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG Diploma 1</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan D1')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG SLTA</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan SLTA')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG SLTP</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan SLTP')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-              </div>
-              <hr class="invis">
-              <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>TABLE RENTANG USIA PRODUKTIF TENAGA KEPENDIDIKAN  JENJANG SD</h4>
-                            <a href="{{route('rida-Tenaga Kependidikan SD')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-              </div>
-
-                <hr class="invis">
-                <div class="tagline-message text-center">
-                    <h3 style="color: #000000;">Table 17-22</h3>
-                </div>
-                <hr class="invis">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG DOKTOR</h4>
-                            <a href="{{route('rida-Usia Produktif Doktor')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG MAGISTER</h4>
-                            <a href="{{route('rida-Usia Produktif Magister')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG SPESIALIS-2</h4>
-                            <a href="{{route('rida-Usia Produktif SP2')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                </div>
-                
-                <hr class="invis">
-                <hr class="invis">
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG SPESIALIS-1 (K)</h4>
-                            <a href="{{route('rida-Usia Produktif SP-1(K)')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-               
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG SPESIALIS-1</h4>
-                            <a href="{{route('rida-Usia Produktif SP1')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>RENTANG USIA PRODUKTIF PENELITI DAN PENGABDI TENAGA PENDIDIK JENJANG PROFESI</h4>
-                            <a href="{{route('rida-Usia Produktif Profesi')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                </div><!-- end row -->
-
-                <hr class="invis">
-                <div class="tagline-message text-center">
-                    <h3 style="color: #000000;">Table 23-XX</h3>
-                </div>
-                <hr class="invis">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>HIBAH PROPOSAL PENELITIAN DAN PENGABDIAN PNBP</h4>
-                            <a href="{{route('rida-hibah-pnbp')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    <div class="col-md-4">
-                        <div class="box m30">
-                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
-                            <h4>SKEMA PROPOSAL PENELITIAN DAN PENGABDIAN PNBP</h4>
-                            <a href="{{route('rida-skema-pnbp')}}" class="readmore">Selengkapnya</a>
-                        </div>
-                    </div><!-- end col -->
-                    
-                </div>
-          </div><!-- end container -->
+            </div>  <!-- end container -->
         </section>  
 @endsection
 
