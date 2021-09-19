@@ -41,6 +41,24 @@
                                                 $x = 0;
                                             @endphp
 
+                                            @foreach ( $dataUsiaProduktifDoktor as $magister)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $magister->nama_table }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Usia-Produktif-Doktor',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+                                            
                                             @foreach ( $dataMagister as $magister)
                                                 <tr>
                                                     <td

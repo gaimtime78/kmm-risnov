@@ -17,6 +17,9 @@ class RidaController extends Controller
 {
     public function index(){ 
 
+      $dataUsiaProduktifDoktor  = DB::table('usia_produktif_doktoral')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+
+
       $dataMagister  = DB::table('peneliti_pengabdi_kependidikan_magister')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataProfesi  = DB::table('peneliti_pengabdi_kependidikan_profesi')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataSarjana  = DB::table('peneliti_pengabdi_kependidikan_sarjana')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
@@ -58,6 +61,7 @@ class RidaController extends Controller
                   "dataSlta"=>$dataSlta,
                   "dataSltp"=>$dataSltp,
                   "dataSd"=>$dataSd,
+                  "dataUsiaProduktifDoktor"=>$dataUsiaProduktifDoktor,
       ]);
     }
     
