@@ -23,14 +23,14 @@
         <div class="boxed boxedp4">
             <div class="row">
                 <div id="table-datatables">
-                    <div class="row">
+                    <!-- <div class="row"> -->
                         <div class="col s12 m12 l12">
                             <table id="data-menu" class="table display" cellspacing="0">
                                 <thead>
                                 <tr>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
-                                            #</th>
+                                           #</th>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                             Status</th>
@@ -55,7 +55,7 @@
                                             66 s/d 75</th>
                                         <th 
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            < 75</th>
+                                            75 < </th>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                             Total</th>
@@ -68,7 +68,7 @@
                                         
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            25 s/d 35 P</th>
+                                            25 s/d 35 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             25 s/d 35 P</th>
@@ -113,10 +113,10 @@
                                             JML</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            < 75 L</th>
+                                            75 < L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            < 75 P</th>
+                                            75 < P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
@@ -290,10 +290,16 @@
                                 </thead>
                             </table>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
                 <br>
                 <div class="divider"></div>
+                <div style="margin-top:2em">
+                    <h4>Sumber Data :</h4>
+                    @foreach($list_sumber as $s)
+                    <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
+                    @endforeach
+                </div>
                 <!--DataTables example Row grouping-->
             </div>
         </div>        

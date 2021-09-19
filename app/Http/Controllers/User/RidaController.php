@@ -132,6 +132,8 @@ class RidaController extends Controller
       $totalsemua          = PenelitiPengabdi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
 
+      $list_sumber = PenelitiPengabdi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+
        return view('user.rida.detail-tenaga-pendidik',[
             'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Doktor', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25sd35_jumlah' => $sum25sd35_jumlah,
@@ -139,7 +141,7 @@ class RidaController extends Controller
             'sum46sd55_jumlah' => $sum46sd55_jumlah,
             'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_jumlah' => $sum66sd75_jumlah,
-            'sum75_jumlah' => $sum75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah, "list_sumber" => $list_sumber,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
        ]);
       
@@ -200,6 +202,7 @@ class RidaController extends Controller
       $total               = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua          = PenelitiPengabdiMagister::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
+      $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
 
        return view('user.rida.detail-tenaga-pendidik',[
             'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Magister', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
@@ -208,7 +211,7 @@ class RidaController extends Controller
             'sum46sd55_jumlah' => $sum46sd55_jumlah,
             'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_jumlah' => $sum66sd75_jumlah,
-            'sum75_jumlah' => $sum75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah, "list_sumber" => $list_sumber,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
        ]);
       
@@ -268,6 +271,7 @@ class RidaController extends Controller
       $total                  = PenelitiPengabdiSpesialis::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua             = PenelitiPengabdiSpesialis::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
+      $list_sumber = PenelitiPengabdiSpesialis::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
 
        return view('user.rida.detail-tenaga-pendidik',[
             'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-2', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
@@ -276,7 +280,7 @@ class RidaController extends Controller
             'sum46sd55_jumlah' => $sum46sd55_jumlah,
             'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_jumlah' => $sum66sd75_jumlah,
-            'sum75_jumlah' => $sum75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah, "list_tahun" => $list_tahun, 
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
        ]);
       
@@ -336,6 +340,7 @@ class RidaController extends Controller
       $total                  = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua             = PenelitiPengabdiProfesi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
+      $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
 
        return view('user.rida.detail-tenaga-pendidik',[
             'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Profesi', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
@@ -344,7 +349,7 @@ class RidaController extends Controller
             'sum46sd55_jumlah' => $sum46sd55_jumlah,
             'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_jumlah' => $sum66sd75_jumlah,
-            'sum75_jumlah' => $sum75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah,"list_tahun" => $list_tahun, 
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
        ]);
       
@@ -405,6 +410,7 @@ class RidaController extends Controller
       $total                  = PenelitiPengabdiSpesialis1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua             = PenelitiPengabdiSpesialis1::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
+      $list_sumber = PenelitiPengabdiSpesialis1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
 
        return view('user.rida.detail-tenaga-pendidik',[
             'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
@@ -413,7 +419,7 @@ class RidaController extends Controller
             'sum46sd55_jumlah' => $sum46sd55_jumlah,
             'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_jumlah' => $sum66sd75_jumlah,
-            'sum75_jumlah' => $sum75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah, "list_sumber" => $list_sumber,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
        ]);
       
@@ -476,6 +482,7 @@ class RidaController extends Controller
       $total                  = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua             = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
+      $list_sumber = PenelitiPengabdiSpesialisKonsultan::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
 
        return view('user.rida.detail-tenaga-pendidik',[
             'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1(K)', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
@@ -484,7 +491,7 @@ class RidaController extends Controller
             'sum46sd55_jumlah' => $sum46sd55_jumlah,
             'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_jumlah' => $sum66sd75_jumlah,
-            'sum75_jumlah' => $sum75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah, "list_sumber" => $list_sumber,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
        ]);
       
