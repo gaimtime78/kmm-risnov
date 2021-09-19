@@ -691,9 +691,12 @@ Route::get('/dokumentasi-rida/export/tenaga-kependidikan/SD/{fakultas}/{tahun}',
 
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/Doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_doktor'])->name('rida-periode-Usia Produktif Doktor');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/Doktor/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_doktor'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Doktor');
+Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/Doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'export_profesi'])->name('rida-export-Usia Produktif Doktor');
 
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/Magister/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_magister'])->name('rida-periode-Usia Produktif Magister');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/Magister/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_magister'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Magister');
+Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/Magister/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'export_magister'])->name('rida-export-Usia Produktif Magister');
+
 
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/SP-2/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_sp2'])->name('rida-periode-Usia Produktif SP2');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-2/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_sp2'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-2');
