@@ -18,8 +18,9 @@ class SpesialisController extends Controller
     {
         // $penelitipengabdispesialis = PenelitiPengabdiSpesialis::distinct()->get('fakultas', 'id');
         $penelitipengabdispesialis = PenelitiPengabdiSpesialis::where('fakultas', 'Fakultas Kedokteran')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiSpesialis::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.penelitipengabdispesialis.index', ['penelitipengabdispesialis' => $penelitipengabdispesialis]);
+        return view('admin.penelitipengabdispesialis.index', ['penelitipengabdispesialis' => $penelitipengabdispesialis, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -119,7 +120,7 @@ class SpesialisController extends Controller
         }
 
         PenelitiPengabdiSpesialis::where('periode', 'kosong')
-            ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data]);
+            ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data , 'nama_table' => $request->nama_table]);
 
         return redirect()->route('admin.penelitipengabdispesialis.index');
     }
@@ -148,5 +149,16 @@ class SpesialisController extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdispesialis.details', [$fakultas, $periode, $tahun]));
+    }
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiSpesialis::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdispesialis.index'));
     }
 }

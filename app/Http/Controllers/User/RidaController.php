@@ -15,16 +15,28 @@ class RidaController extends Controller
 {
     public function index(){ 
       $data  = PenelitiPengabdi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
-      $slug  = PenelitiPengabdi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
-      
       $data2  = PenelitiPengabdiMagister::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $data3  = PenelitiPengabdiProfesi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $data4  = PenelitiPengabdiSpesialis::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $data5  = PenelitiPengabdiSpesialis1::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $data6  = PenelitiPengabdiSpesialisKonsultan::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+
+      $slug   = PenelitiPengabdi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug2  = PenelitiPengabdiMagister::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
-      // dd($data);
-
-      return view('user.rida.index', ["name"=> $slug, "data" => $data, 
-      "name2"=> $slug2,"data2" => $data2,]);
+      $slug3  = PenelitiPengabdiProfesi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      $slug4  = PenelitiPengabdiSpesialis::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      $slug5  = PenelitiPengabdiSpesialis1::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      $slug6  = PenelitiPengabdiSpesialisKonsultan ::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
+      
+     return view('user.rida.index', ["name"=> "rida-".$slug, "data" => $data, 
+                  "name"=> $slug2, "data2"=>$data2,
+                  "name"=> $slug3, "data3"=>$data3,
+                  "name"=> $slug4, "data4"=>$data4,
+                  "name"=> $slug5, "data5"=>$data5,
+                  "name"=> $slug6, "data6"=>$data6,
+      ]);
     }
-
+    
     public function doktoral(Request $request, $jenjang){
       $list_tahun = PenelitiPengabdi::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){

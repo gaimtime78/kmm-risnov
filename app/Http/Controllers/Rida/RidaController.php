@@ -18,15 +18,16 @@ class RidaController extends Controller
 {
     public function index()
     {
-        $penelitipengabdi = PenelitiPengabdi::distinct()->get('fakultas', 'id');
+        $penelitipengabdi = PenelitiPengabdi::select('fakultas')->distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdi::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.penelitipengabdi.index', ['penelitipengabdi' => $penelitipengabdi]);
+        return view('admin.penelitipengabdi.index', ['penelitipengabdi' => $penelitipengabdi, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
     {
         $nama_fakultas  = $fakultas;
-        $data = PenelitiPengabdi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input', 'sumber_data');
+        $data = PenelitiPengabdi::select('periode', 'tahun_input', 'sumber_data', 'nama_table')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input', 'sumber_data', 'nama_table');
         // dd($data);
         return view('admin.penelitipengabdi.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
     }
@@ -79,9 +80,9 @@ class RidaController extends Controller
         return view('admin/penelitipengabdi/edit', compact('penelitipengabdi'));
     }
 
-    public function update(Request $request, $nama_fakultas, $periode, $tahun_input, $sumber_data)
+    public function update(Request $request, $nama_fakultas, $periode, $tahun_input, $sumber_data, $nama_table)
     {
-        $penelitipengabdi = PenelitiPengabdi::where([['fakultas', $nama_fakultas], ['periode', $periode], ['tahun_input', $tahun_input], ['sumber_data', $sumber_data]])->get();
+        $penelitipengabdi = PenelitiPengabdi::where([['fakultas', $nama_fakultas], ['periode', $periode], ['tahun_input', $tahun_input], ['sumber_data', $sumber_data], ['nama_table', $nama_table]])->get();
 
         foreach ($penelitipengabdi as $peneliti) {
             $peneliti->periode = $request->periode;
@@ -115,13 +116,14 @@ class RidaController extends Controller
         $periode = $request->periode;
         $tahun = $request->tahun;
         $sumber_data = $request->sumber_data;
+        $nama_table = $request->nama_table;
         // dd($periode);
         if ($file !== null) {
             Excel::import(new PenelitiPengabdisImport, $file);
         }
 
         PenelitiPengabdi::where('periode', 'kosong')
-            ->update(['periode' => $periode, 'tahun_input' => $tahun, 'sumber_data' => $sumber_data]);
+            ->update(['nama_table'=>$nama_table, 'periode' => $periode, 'tahun_input' => $tahun, 'sumber_data' => $sumber_data]);
 
         return redirect()->route('admin.penelitipengabdi.index');
     }
@@ -150,5 +152,16 @@ class RidaController extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdi.details', [$fakultas, $periode, $tahun]));
+    }
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdi::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdi.index'));
     }
 }
