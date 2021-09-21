@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h3>@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach - {{$fakultas}} - {{$tahun}}</h3>
+                                <h3>@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach <!--<br> {{$fakultas}} <br> TAHUN {{$tahun}}--></h3>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
                                 <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
@@ -69,12 +69,14 @@
                                             </div>
                                             <button style="margin-top:2em;background-color:blue" type="submit" class="waves-effect waves-light btn primary darken-1">Filter</button>
                                         </div>
-                                        <div style="margin-top:2em">
-                                            <h4>Sumber Data :</h4>
-                                            @foreach($list_sumber as $s)
-                                            <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
-                                            @endforeach
-                                        </div>
+                                        {{--
+                                            <div style="margin-top:2em">
+                                                <h4>Sumber Data :</h4>
+                                                @foreach($list_sumber as $s)
+                                                <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
+                                                @endforeach
+                                            </div>
+                                            --}}
                                     </div>
                                     <div style="grid-column:2" id="container-chart"></div>
                                 </div>
