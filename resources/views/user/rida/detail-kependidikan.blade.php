@@ -12,7 +12,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
+<<<<<<< HEAD
                     <h3 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach  </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
+=======
+                    <h3 style="color: #000000;">{{ucwords($name)}} </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>sdfgsdfg
+>>>>>>> 727b26d358924a7d2477410bfe322a2b3c40f92c
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -260,6 +264,12 @@
 </div>
 <br>
 <div class="divider"></div>
+<div style="margin-top:2em">
+    <h4>Sumber Data :</h4>
+    @foreach($list_sumber as $s)
+    <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
+    @endforeach
+</div>
 <!--DataTables example Row grouping-->
             </div>
         </div>        

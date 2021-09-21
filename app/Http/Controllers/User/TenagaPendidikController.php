@@ -331,7 +331,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,  "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -380,7 +380,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,  "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -429,7 +429,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,   "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -479,7 +479,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,    "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -528,7 +528,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua, "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -578,7 +578,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,"list_sumber" => $list_sumber,
       ]);
     }
 

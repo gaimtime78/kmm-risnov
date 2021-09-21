@@ -55,7 +55,7 @@
                                                     66 s/d 75</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
-                                                    - > 75</th>
+                                                    75 < </th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
                                                     Total</th>
@@ -155,6 +155,12 @@
                         <br>
                         <div class="divider"></div>
                         <!--DataTables example Row grouping-->
+                        <div style="margin-top:2em">
+                            <h4>Sumber Data :</h4>
+                            @foreach($list_sumber as $s)
+                            <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
+                            @endforeach
+                        </div>
             </div>
         </div>        
     </div>        
