@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
-                    <h3 style="color: #000000;">{{ucwords($name)}} </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
+                    <h3 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach  </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->

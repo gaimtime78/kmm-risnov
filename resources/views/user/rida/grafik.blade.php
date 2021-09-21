@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h3>{{ucwords($name)}} - {{$fakultas}} - {{$tahun}}</h3>
+                                <h3>@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach - {{$fakultas}} - {{$tahun}}</h3>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
                                 <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
