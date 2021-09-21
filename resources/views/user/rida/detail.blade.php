@@ -40,19 +40,19 @@
                                         
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            25 s/d 35</th>
+                                            25 s.d 35</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            36 s/d 45</th>
+                                            36 s.d 45</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            46 s/d 55</th>
+                                            46 s.d 55</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            56 s/d 65</th>
+                                            56 s.d 65</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            66 s/d 75</th>
+                                            66 s.d 75</th>
                                         <th 
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
                                             75 < </th>
@@ -68,46 +68,46 @@
                                         
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            25 s/d 35 L</th>
+                                            25 s.d 35 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            25 s/d 35 P</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            JML</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            36 s/d 45 L</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            36 s/d 45 P</th>
+                                            25 s.d 35 P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            46 s/d 55 L</th>
+                                            36 s.d 45 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            46 s/d 55 P</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            JML</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            56 s/d 65 L</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            56 s/d 65 P</th>
+                                            36 s.d 45 P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            66 s/d 75 L</th>
+                                            46 s.d 55 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            66 s/d 75 P</th>
+                                            46 s.d 55 P</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            JML</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            56 s.d 65 L</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            56 s.d 65 P</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            JML</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            66 s.d 75 L</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            66 s.d 75 P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
