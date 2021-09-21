@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
-                    <h3 style="color: #000000;">{{ucwords($name)}} </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
+                    <h3 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -40,22 +40,22 @@
                                                     Jenjang</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
-                                                    25 s/d 35</th>
+                                                    25 s.d 35</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
-                                                    36 s/d 45</th>
+                                                    36 s.d 45</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
-                                                    46 s/d 55</th>
+                                                    46 s.d 55</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
-                                                    56 s/d 65</th>
+                                                    56 s.d 65</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
-                                                    66 s/d 75</th>
+                                                    66 s.d 75</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
-                                                    - > 75</th>
+                                                    75 < </th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
                                                     Total</th>
@@ -155,6 +155,12 @@
                         <br>
                         <div class="divider"></div>
                         <!--DataTables example Row grouping-->
+                        <div style="margin-top:2em">
+                            <h4>Sumber Data :</h4>
+                            @foreach($list_sumber as $s)
+                            <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
+                            @endforeach
+                        </div>
             </div>
         </div>        
     </div>        

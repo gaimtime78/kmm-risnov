@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
-                    <h3 style="color: #000000;">{{ucwords($name)}} </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
+                    <h3 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -23,14 +23,14 @@
         <div class="boxed boxedp4">
             <div class="row">
                 <div id="table-datatables">
-                    <div class="row">
+                    <!-- <div class="row"> -->
                         <div class="col s12 m12 l12">
                             <table id="data-menu" class="table display" cellspacing="0">
                                 <thead>
                                 <tr>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
-                                            #</th>
+                                           #</th>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                             Status</th>
@@ -40,22 +40,22 @@
                                         
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            25 s/d 35</th>
+                                            25 s.d 35</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            36 s/d 45</th>
+                                            36 s.d 45</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            46 s/d 55</th>
+                                            46 s.d 55</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            56 s/d 65</th>
+                                            56 s.d 65</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            66 s/d 75</th>
+                                            66 s.d 75</th>
                                         <th 
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            < 75</th>
+                                            75 < </th>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                             Total</th>
@@ -68,55 +68,55 @@
                                         
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            25 s/d 35 P</th>
+                                            25 s.d 35 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            25 s/d 35 P</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            JML</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            36 s/d 45 L</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            36 s/d 45 P</th>
+                                            25 s.d 35 P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            46 s/d 55 L</th>
+                                            36 s.d 45 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            46 s/d 55 P</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            JML</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            56 s/d 65 L</th>
-                                        <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            56 s/d 65 P</th>
+                                            36 s.d 45 P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            66 s/d 75 L</th>
+                                            46 s.d 55 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            66 s/d 75 P</th>
+                                            46 s.d 55 P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            < 75 L</th>
+                                            56 s.d 65 L</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
-                                            < 75 P</th>
+                                            56 s.d 65 P</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            JML</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            66 s.d 75 L</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            66 s.d 75 P</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            JML</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            75 < L</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            75 < P</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:justify !important;">
                                             JML</th>
@@ -290,10 +290,16 @@
                                 </thead>
                             </table>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
                 <br>
                 <div class="divider"></div>
+                <div style="margin-top:2em">
+                    <h4>Sumber Data :</h4>
+                    @foreach($list_sumber as $s)
+                    <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
+                    @endforeach
+                </div>
                 <!--DataTables example Row grouping-->
             </div>
         </div>        

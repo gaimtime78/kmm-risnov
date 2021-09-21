@@ -24,12 +24,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h3>{{ucwords($name)}} - {{$fakultas}} - {{$tahun}}</h3>
+                                <h3>@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach  - {{$fakultas}} - {{$tahun}}</h3>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
-                                <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
-                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
-                                </a>
+                                <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
                                 <a href="{{route( 'rida-periode-'.$name , [$fakultas, $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                                 </a>
@@ -127,6 +125,7 @@ _.map(data, v =>{
     statusData.list_75[indexPeriode] = v.usia75_jumlah
 
 })
+
 // listStatusData = _.orderBy(listStatusData, ['status'], ['asc']);
 listStatusData = _.orderBy(listStatusData);
 let container = document.getElementById('container-chart')
