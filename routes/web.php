@@ -221,6 +221,8 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'updateNamaTable'])->name('updateNamaTable');
+
         });
 
         Route::group(['as' => 'penelitipengabdikependidikanmagister.', 'prefix' => '/penelitipengabdikependidikanmagister'], function () {
@@ -632,6 +634,7 @@ Route::get('/dokumentasi-rida/tendik-diploma1/{jenjang}', [App\Http\Controllers\
 Route::get('/dokumentasi-rida/tendik-slta/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'slta'])->name('rida-Tendik-Slta');
 Route::get('/dokumentasi-rida/tendik-sltp/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sltp'])->name('rida-Tendik-Sltp');
 Route::get('/dokumentasi-rida/tendik-sd/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sd'])->name('rida-Tendik-Sd');
+Route::get('/dokumentasi-rida/H-indeks-pkm', [App\Http\Controllers\User\IndeksPenelitiPKM::class, 'index'])->name('rida-H-indeks-pkm');
 
 
 Route::get('/dokumentasi-rida/doktor/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-Doktor');
