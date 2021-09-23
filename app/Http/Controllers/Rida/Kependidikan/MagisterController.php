@@ -17,8 +17,9 @@ class MagisterController extends Controller
     public function index()
     {
         $penelitipengabdimagister = PenelitiPengabdiMagister::distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiMagister::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.kependidikan.penelitipengabdimagister.index', ['penelitipengabdimagister' => $penelitipengabdimagister]);
+        return view('admin.kependidikan.penelitipengabdimagister.index', ['penelitipengabdimagister' => $penelitipengabdimagister, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -185,5 +186,17 @@ class MagisterController extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdikependidikanmagister.details', [$fakultas, $periode, $tahun]));
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiMagister::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdikependidikanmagister.index'));
     }
 }

@@ -27,12 +27,14 @@
                                 <h4>@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach <br> {{$fakultas}} <!--<br>  <br> TAHUN {{$tahun}}--></h4>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
-                                <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
+                                <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
+                                </a>
                                 <a href="{{route( 'rida-periode-'.$name , [$fakultas, $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                                 </a>
                             </div>
-                            <?php $route = route('rida-'.$name)?>
+                            <?php $route = route('rida-H-indeksPenelitiPKM')?>
                             <form action="{{ $route }}" method="get" enctype="multipart/form-data">
                                 <div style="display:grid;grid-template-columns:1fr 5fr;grid-gap:1em">
                                     <div>
@@ -92,64 +94,49 @@
 <script type="text/javascript" src="{{ asset('design\js\lodash.min.js') }}"></script>
 <script>
 const data = {!! json_encode($data) !!}
-const colorList = ["#e8dc2e", "#2ee878", "#2e53e8", "#722ee8", "#e82ed2", "#ed1a59"]
-const usiaList = ["25 sd 35", "36 sd 45", "46 sd 55", "56 sd 65", "66 sd 75", "> 75"]
-const mapUsiaVar = ["list_25sd35", "list_36sd45", "list_46sd55", "list_56sd65", "list_66sd75", "list_75"]
-const labels = []
-const listStatus = ["PNS", "CPNS", "NON PNS", "CALON NON PNS", "PURNA", "KP", "PNS DPK"]
-let listStatusData = []
-//generate list label
-_.map(data, v =>{
-    if(!labels.includes(v.periode)) labels.push(v.periode)
-})
-//build hirarki data
-_.map(data, v =>{
-    let isIncludeStatus = _.filter(listStatusData, o => o.status === v.status).length > 0
-    if(!isIncludeStatus){
-        listStatusData.push({
-            status:v.status,
-            list_25sd35: new Array(labels.length).fill(0),
-            list_36sd45: new Array(labels.length).fill(0),
-            list_46sd55: new Array(labels.length).fill(0),
-            list_56sd65: new Array(labels.length).fill(0),
-            list_66sd75: new Array(labels.length).fill(0),
-            list_75: new Array(labels.length).fill(0),
-        })
-    }
-    let indexStatus = _.findIndex(listStatusData, {status:v.status})
-    let statusData = listStatusData[indexStatus]
-    let indexPeriode = _.indexOf(labels, v.periode)
-    statusData.list_25sd35[indexPeriode] = v.usia25sd35_jumlah
-    statusData.list_36sd45[indexPeriode] = v.usia36sd45_jumlah
-    statusData.list_46sd55[indexPeriode] = v.usia46sd55_jumlah
-    statusData.list_56sd65[indexPeriode] = v.usia56sd65_jumlah
-    statusData.list_66sd75[indexPeriode] = v.usia66sd75_jumlah
-    statusData.list_75[indexPeriode] = v.usia75_jumlah
+const colorList = ["#e8dc2e", "#2ee878", "#2e53e8", "#722ee8", "#e82ed2", "#ed1a59", "#e8dc2e", "#2ee878", "#2e53e8", "#722ee8", "#e82ed2", "#ed1a59", "#ed1a59" ]
+const labels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", 
+                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
 
-})
-
-// listStatusData = _.orderBy(listStatusData, ['status'], ['asc']);
-listStatusData = _.orderBy(listStatusData);
 let container = document.getElementById('container-chart')
 //generate canvas
-_.map(listStatusData, (v,i) =>{
+_.map(data, (v,i) =>{
     container.innerHTML = container.innerHTML + `<div ><canvas id="chart-${i}"></canvas></div>`
 })
 //generate datasets and chart
-_.map(listStatusData, (v,i) =>{
+_.map(data, (v,i) =>{
     let datasets = []
-    _.map(usiaList, (o,p) =>{
-        datasets.push({
-            label:o,
-            data:_.get(v, mapUsiaVar[p], -999),
-            backgroundColor:colorList[p],
-            borderColor:colorList[p],
-            yAxisID:'jumlah'
-        })
+    datasets.push({
+        label:v.periode,
+        backgroundColor: colorList[1],
+        borderColor: colorList[1],
+        data :[
+            v.jumlah0,
+            v.jumlah1,
+            v.jumlah2,
+            v.jumlah3,
+            v.jumlah4,
+            v.jumlah5,
+            v.jumlah6,
+            v.jumlah7,
+            v.jumlah8,
+            v.jumlah9,
+            v.jumlah10,
+            v.jumlah11,
+            v.jumlah12,
+            v.jumlah13,
+            v.jumlah14,
+            v.jumlah15,
+            v.jumlah16,
+            v.jumlah17,
+            v.jumlah18,
+            v.jumlah19,
+            v.jumlah20,
+            v.jumlah21,
+        ]
     })
-    console.log(datasets, labels)
     const myChart =new Chart(document.getElementById(`chart-${i}`).getContext('2d'), {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: datasets,
@@ -164,7 +151,7 @@ _.map(listStatusData, (v,i) =>{
             plugins: {
             title: {
                 display: true,
-                text: v.status
+                text: v.periode
             }
             },
             scales: {

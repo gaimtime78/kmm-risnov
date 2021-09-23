@@ -17,8 +17,21 @@ class IndeksPenelitiPKMController extends Controller
     public function index()
     {
         $indekspenelitipkm = IndeksPenelitiPKM::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode', 'id','sumber_data');
+        $nama_table = IndeksPenelitiPKM::select('nama_table')->distinct()->get('nama_table', 'id');
+
+        return view('admin.indekspenelitipkm.index', ['indekspenelitipkm' => $indekspenelitipkm, 'nama_table'=> $nama_table]);
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = IndeksPenelitiPKM::where([['nama_table', $nama_table]])->get();
         
-        return view('admin.indekspenelitipkm.index', ['indekspenelitipkm' => $indekspenelitipkm]);
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.indekspenelitipkm.index'));
     }
 
     

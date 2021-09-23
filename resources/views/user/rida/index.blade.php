@@ -29,7 +29,7 @@
                                                 No.</th>
                                             <th
                                                 rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
-                                                Nama Table</th>
+                                                Dokumentasi</th>
                                             <th
                                                 rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                                 Action</th>
@@ -47,11 +47,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $magister->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Usia-Produktif-Doktor',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Usia-Produktif-Doktor',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -65,11 +65,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $magister->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Usia-Produktif-Magister',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Usia-Produktif-Magister',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -83,11 +83,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $magister->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_2',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_2',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -101,11 +101,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $magister->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_1K',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_1K',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -119,11 +119,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $magister->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_1',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Usia-Produktif-Sp_1',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -137,11 +137,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $magister->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Usia-Produktif-Profesi',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Usia-Produktif-Profesi',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -155,11 +155,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $magister->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Magister',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $magister->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Magister',['jenjang'=> $magister->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -173,11 +173,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Profesi',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Profesi',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -191,11 +191,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Sarjana',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Sarjana',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -209,11 +209,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Diploma4',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Diploma4',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -227,11 +227,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Diploma3',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Diploma3',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -246,11 +246,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Diploma2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Diploma2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -264,11 +264,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Diploma1',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Diploma1',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -282,11 +282,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Slta',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                   <a href="{{ route ('rida-Tendik-Slta',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -300,11 +300,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Sltp',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Sltp',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -318,11 +318,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{ $row->nama_table }}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Tendik-Sd',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail Tenaga Kependidikan {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Tendik-Sd',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -336,12 +336,12 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                 <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                    {{$row->nama_table}}</td>
                                             
                                                 <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Doktor',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Doktor',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                     </td>
                                                 </tr>
                                             @php
@@ -355,11 +355,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{$row->nama_table}}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Magister',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Magister',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -373,11 +373,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{$row->nama_table}}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-profesi',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-profesi',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -391,11 +391,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{$row->nama_table}}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Sp-2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Sp-2',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -409,11 +409,11 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{$row->nama_table}}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Sp-1k',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Sp-1k',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php
@@ -427,11 +427,30 @@
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     {{ $i }}</td>
                                                     <td
-                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    style="border: 1px solid black !important; text-align:left !important;">
                                                     {{$row->nama_table}}</td>
                                                     <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    <a href="{{ route ('rida-Sp-1',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail {{ $row->jenjang}}</a>
+                                                    <a href="{{ route ('rida-Sp-1',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
+                                            
+                                            @foreach ($dataindeksPenelitiPKM as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:left !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-H-indeksPenelitiPKM') }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                                                 </td>
                                             </tr>
                                             @php

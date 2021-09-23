@@ -43,8 +43,10 @@ class TenagaPendidikController extends Controller
         $data = UsiaProduktifDoktoral::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $list_fakultas = UsiaProduktifDoktoral::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = UsiaProduktifDoktoral::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $nama_table = UsiaProduktifDoktoral::select("nama_table")->distinct()->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
+          'nama_table'=> $nama_table,
           "name"=> "Tenaga Pendidik Doktor",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
@@ -52,7 +54,7 @@ class TenagaPendidikController extends Controller
       }
       return view('user.rida.grafik', [
         "name"=> "Tenaga Pendidik Doktor",
-        "data" => [], "list_sumber" => [], "list_tahun" => [], 
+        "data" => [], "list_sumber" => [], "list_tahun" => [], 'nama_table'=> $nama_table,
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
@@ -61,7 +63,7 @@ class TenagaPendidikController extends Controller
       $list_tahun = UsiaProduktifMagister::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
-
+        
         $fakultas = "Universitas Sebelas Maret";
         $tahun = $latest_tahun;
         if($request->has("fakultas")){
@@ -73,8 +75,10 @@ class TenagaPendidikController extends Controller
         $data = UsiaProduktifMagister::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $list_fakultas = UsiaProduktifMagister::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = UsiaProduktifMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $nama_table = UsiaProduktifMagister::select("nama_table")->distinct()->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
+          'nama_table'=> $nama_table,
           "name"=> "Tenaga Pendidik Magister",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
@@ -82,17 +86,17 @@ class TenagaPendidikController extends Controller
       }
       return view('user.rida.grafik', [
         "name"=> "Tenaga Pendidik Magister",
-        "data" => [], "list_sumber" => [], "list_tahun" => [], 
+        "data" => [], "list_sumber" => [], "list_tahun" => [], 'nama_table'=> $nama_table,
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
     }
-
+    
     public function spesialis2(Request $request){
       $list_tahun = UsiaProduktifSP_2::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
-
+        
         $fakultas = "Universitas Sebelas Maret";
         $tahun = $latest_tahun;
         if($request->has("fakultas")){
@@ -104,26 +108,29 @@ class TenagaPendidikController extends Controller
         $data = UsiaProduktifSP_2::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $list_fakultas = UsiaProduktifSP_2::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = UsiaProduktifSP_2::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $nama_table = UsiaProduktifSP_2::select("nama_table")->distinct()->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
+          'nama_table'=> $nama_table,
           "name"=> "Tenaga Pendidik Spesialis-2",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
+        'nama_table'=> $nama_table,
         "name"=> "Tenaga Pendidik Spesialis-2",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
     }
-
+    
     public function profesi(Request $request){
       $list_tahun = UsiaProduktifProfesi::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
-
+        
         $fakultas = "Universitas Sebelas Maret";
         $tahun = $latest_tahun;
         if($request->has("fakultas")){
@@ -135,26 +142,29 @@ class TenagaPendidikController extends Controller
         $data = UsiaProduktifProfesi::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $list_fakultas = UsiaProduktifProfesi::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = UsiaProduktifProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $nama_table = UsiaProduktifProfesi::select("nama_table")->distinct()->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
+          'nama_table'=> $nama_table,
           "name"=> "Tenaga Pendidik Profesi",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
+        'nama_table'=> $nama_table,
         "name"=> "Tenaga Pendidik Profesi",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
     }
-
+    
     public function spesialis1(Request $request){
       $list_tahun = UsiaProduktifSP_1::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
-
+        
         $fakultas = "Universitas Sebelas Maret";
         $tahun = $latest_tahun;
         if($request->has("fakultas")){
@@ -166,26 +176,29 @@ class TenagaPendidikController extends Controller
         $data = UsiaProduktifSP_1::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $list_fakultas = UsiaProduktifSP_1::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = UsiaProduktifSP_1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $nama_table = UsiaProduktifSP_1::select("nama_table")->distinct()->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
+          'nama_table'=> $nama_table,
           "name"=> "Tenaga Pendidik Spesialis-1",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
+        'nama_table'=> $nama_table,
         "name"=> "Tenaga Pendidik Spesialis-1",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
     }
-
+    
     public function spesialisKonsultan(Request $request){
       $list_tahun = UsiaProduktifSP_1K::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
         $latest_tahun = $list_tahun[0]->tahun_input;
-
+        
         $fakultas = "Universitas Sebelas Maret";
         $tahun = $latest_tahun;
         if($request->has("fakultas")){
@@ -197,68 +210,80 @@ class TenagaPendidikController extends Controller
         $data = UsiaProduktifSP_1K::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $list_fakultas = UsiaProduktifSP_1K::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = UsiaProduktifSP_1K::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $nama_table = UsiaProduktifSP_1K::select("nama_table")->distinct()->get();
         // dd($list_sumber);
         return view('user.rida.grafik', [
+          'nama_table'=> $nama_table,
           "name"=> "Tenaga Pendidik Spesialis-1(K)",
           "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
           "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
         ]);
       }
       return view('user.rida.grafik', [
+        'nama_table'=> $nama_table,
         "name"=> "Tenaga Pendidik Spesialis-1(K)",
         "data" => [], "list_sumber" => [], "list_tahun" => [], 
         "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
       ]);
       
     }
-//detail rida grafik 1-6
+    //detail rida grafik 1-6
     public function pilih_periode_doktor($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
       $data = UsiaProduktifDoktoral::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
-
-       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Doktor", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      $nama_table = UsiaProduktifDoktoral::select("nama_table")->distinct()->get();
+      
+      
+      return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Doktor", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function pilih_periode_magister($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
       $data = UsiaProduktifMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
-
-       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Magister", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      $nama_table = UsiaProduktifMagister::select("nama_table")->distinct()->get();
+      
+      
+      return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Magister", 'nama_table'=> $nama_table,'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function pilih_periode_sp_2($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
       $data = UsiaProduktifSP_2::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
-
-       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-2", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      $nama_table = UsiaProduktifSP_2::select("nama_table")->distinct()->get();
+      
+      return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-2", 'nama_table'=> $nama_table,'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function pilih_periode_konsultan($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
       $data = UsiaProduktifSP_1K::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
-
-       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-1(K)", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      $nama_table = UsiaProduktifSP_1K::select("nama_table")->distinct()->get();
+      
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-1(K)",'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function pilih_periode_sp_1($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
       $data = UsiaProduktifSP_1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
-
-       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-1", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      $nama_table = UsiaProduktifSP_1::select("nama_table")->distinct()->get();
+      
+      
+      return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Spesialis-1", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
-
+    
     public function pilih_periode_profesi($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
       $data = UsiaProduktifProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
-
-       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Profesi", 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      $nama_table = UsiaProduktifProfesi::select("nama_table")->distinct()->get();
+      
+       return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Profesi",  'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
     public function detail_doktor($fakultas, $tahun, $periode){
@@ -294,16 +319,33 @@ class TenagaPendidikController extends Controller
         $total                  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
         $totalsemua             = UsiaProduktifDoktoral::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
+        $total25_35percent               = $sum25sd35_jumlah / $totalsemua * 100;
+        $total36_45percent               = $sum36sd45_jumlah / $totalsemua * 100;
+        $total46_55percent               = $sum46sd55_jumlah / $totalsemua * 100;
+        $total56_65percent               = $sum56sd65_jumlah / $totalsemua * 100;
+        $total66_75percent               = $sum66sd75_jumlah / $totalsemua * 100;
+        $total75percent               = $sum75_jumlah / $totalsemua * 100;
+        $nama_table = UsiaProduktifDoktoral::select("nama_table")->distinct()->get();
 
-       return view('user.rida.detail',[
-            'name' => 'Tenaga Pendidik Doktor', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+        $list_sumber = UsiaProduktifDoktoral::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      
+      
+      return view('user.rida.detail',[
+        'nama_table'=> $nama_table,
+        'name' => 'Tenaga Pendidik Doktor', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
             'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,  "list_sumber" => $list_sumber,
+            'total25_35percent' => $total25_35percent,
+            'total36_45percent' => $total36_45percent,
+            'total46_55percent' => $total46_55percent,
+            'total56_65percent' => $total56_65percent,
+            'total66_75percent' => $total66_75percent,
+            'total75percent' => $total75percent,
        ]);
       
     }
@@ -341,7 +383,12 @@ class TenagaPendidikController extends Controller
         $totalsemua             = UsiaProduktifMagister::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
 
-       return view('user.rida.detail',[
+        $list_sumber = UsiaProduktifMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      
+        $nama_table = UsiaProduktifMagister::select("nama_table")->distinct()->get();
+        
+        return view('user.rida.detail',[
+         'nama_table'=> $nama_table,
             'name' => 'Tenaga Pendidik Magister', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -349,7 +396,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,  "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -387,8 +434,13 @@ class TenagaPendidikController extends Controller
         $total                  = UsiaProduktifSP_2::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
         $totalsemua             = UsiaProduktifSP_2::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
-
-       return view('user.rida.detail',[
+        $nama_table = UsiaProduktifSP_2::select("nama_table")->distinct()->get();
+        $list_sumber = UsiaProduktifSP_2::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      
+        
+        
+        return view('user.rida.detail',[
+         'nama_table'=> $nama_table,
             'name' => 'Tenaga Pendidik Spesialis-2', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -396,7 +448,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,   "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -434,8 +486,13 @@ class TenagaPendidikController extends Controller
         $total                  = UsiaProduktifSP_1K::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
         $totalsemua             = UsiaProduktifSP_1K::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
-
-       return view('user.rida.detail',[
+        
+        $nama_table = UsiaProduktifSP_1K::select("nama_table")->distinct()->get();
+        $list_sumber = UsiaProduktifSP_1K::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      
+        
+        return view('user.rida.detail',[
+         'nama_table'=> $nama_table,
             'name' => 'Tenaga Pendidik Spesialis-1(K)', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -443,7 +500,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,    "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -481,8 +538,12 @@ class TenagaPendidikController extends Controller
         $total                  = UsiaProduktifSP_1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
         $totalsemua             = UsiaProduktifSP_1::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
-
-       return view('user.rida.detail',[
+        $nama_table = UsiaProduktifSP_1::select("nama_table")->distinct()->get();
+        $list_sumber = UsiaProduktifSP_1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      
+        
+        return view('user.rida.detail',[
+         'nama_table'=> $nama_table,
             'name' => 'Tenaga Pendidik Spesialis-1', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -490,7 +551,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua, "list_sumber" => $list_sumber,
        ]);
       
     }
@@ -529,7 +590,13 @@ class TenagaPendidikController extends Controller
         $totalsemua             = UsiaProduktifProfesi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
 
-       return view('user.rida.detail',[
+        $nama_table = UsiaProduktifProfesi::select("nama_table")->distinct()->get();
+
+        $list_sumber = UsiaProduktifProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      
+        
+        return view('user.rida.detail',[
+         'nama_table'=> $nama_table,
             'name' => 'Tenaga Pendidik Profesi', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
             'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
             'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
@@ -537,7 +604,7 @@ class TenagaPendidikController extends Controller
             'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
+            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,"list_sumber" => $list_sumber,
       ]);
     }
 

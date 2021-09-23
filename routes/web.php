@@ -221,6 +221,8 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'updateNamaTable'])->name('updateNamaTable');
+
         });
 
         Route::group(['as' => 'penelitipengabdikependidikanmagister.', 'prefix' => '/penelitipengabdikependidikanmagister'], function () {
@@ -235,6 +237,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'penelitipengabdikependidikanprofesi.', 'prefix' => '/penelitipengabdikependidikanprofesi'], function () {
@@ -249,8 +252,9 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-
+        
         Route::group(['as' => 'penelitipengabdikependidikansarjana.', 'prefix' => '/penelitipengabdikependidikansarjana'], function () {
             Route::get('/', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'pilihperiode'])->name('pilihperiode');
@@ -263,8 +267,9 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-
+        
         Route::group(['as' => 'penelitipengabdikependidikandiploma4.', 'prefix' => '/penelitipengabdikependidikandiploma4'], function () {
             Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'pilihperiode'])->name('pilihperiode');
@@ -277,8 +282,9 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-
+        
         Route::group(['as' => 'penelitipengabdikependidikandiploma3.', 'prefix' => '/penelitipengabdikependidikandiploma3'], function () {
             Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'pilihperiode'])->name('pilihperiode');
@@ -291,6 +297,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'penelitipengabdikependidikandiploma2.', 'prefix' => '/penelitipengabdikependidikandiploma2'], function () {
@@ -305,6 +312,8 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'updateNamaTable'])->name('updateNamaTable');
+            
         });
 
         Route::group(['as' => 'penelitipengabdikependidikandiploma1.', 'prefix' => '/penelitipengabdikependidikandiploma1'], function () {
@@ -319,6 +328,9 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'updateNamaTable'])->name('updateNamaTable');
+            
+            
         });
 
         Route::group(['as' => 'penelitipengabdikependidikanslta.', 'prefix' => '/penelitipengabdikependidikanslta'], function () {
@@ -333,6 +345,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\SltaController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'penelitipengabdikependidikansltp.', 'prefix' => '/penelitipengabdikependidikansltp'], function () {
@@ -347,6 +360,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\SltpController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'penelitipengabdikependidikansd.', 'prefix' => '/penelitipengabdikependidikansd'], function () {
@@ -361,6 +375,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\SdController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'usiaproduktifdoktoral.', 'prefix' => '/usiaproduktifdoktoral'], function () {
@@ -375,6 +390,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\UsiaProduktif\DoktoralController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'usiaproduktifmagister.', 'prefix' => '/usiaproduktifmagister'], function () {
@@ -389,6 +405,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\UsiaProduktif\MagisterController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'usiaproduktifsp_2.', 'prefix' => '/usiaproduktifsp_2'], function () {
@@ -403,6 +420,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\UsiaProduktif\SP_2Controller::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'usiaproduktifsp_1k.', 'prefix' => '/usiaproduktifsp_1k'], function () {
@@ -417,6 +435,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1KController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'usiaproduktifsp_1.', 'prefix' => '/usiaproduktifsp_1'], function () {
@@ -431,6 +450,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\UsiaProduktif\SP_1Controller::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'usiaproduktifprofesi.', 'prefix' => '/usiaproduktifprofesi'], function () {
@@ -445,6 +465,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\UsiaProduktif\ProfesiController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
 
@@ -461,6 +482,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\ResearchController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\ResearchController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\ResearchController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\ResearchController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'kerjasamapenelitian.', 'prefix' => '/kerjasamapenelitian'], function () {
@@ -475,6 +497,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'hibahmandiri.', 'prefix' => '/hibahmandiri'], function () {
@@ -489,6 +512,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\Rida\HibahMandiriController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\HibahMandiriController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['prefix' => '/category'], function () {
@@ -593,12 +617,32 @@ Route::get('/category/{category}', [App\Http\Controllers\PostController::class, 
 
 
 // Route::get('/dokumentasi-rida', [App\Http\Controllers\User\RidaController::class, 'index'])->name('dokumentasi-rida');
+Route::get('/dokumentasi-rida/usia-produktif-doktor/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'doktor'])->name('rida-Usia-Produktif-Doktor');
+Route::get('/dokumentasi-rida/usia-produktif-magister/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'magister'])->name('rida-Usia-Produktif-Magister');
+Route::get('/dokumentasi-rida/usia-produktif-sp_2/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'spesialis2'])->name('rida-Usia-Produktif-Sp_2');
+Route::get('/dokumentasi-rida/usia-produktif-sp_1k/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'spesialisKonsultan'])->name('rida-Usia-Produktif-Sp_1K');
+Route::get('/dokumentasi-rida/usia-produktif-sp_1/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'spesialis1'])->name('rida-Usia-Produktif-Sp_1');
+Route::get('/dokumentasi-rida/usia-produktif-profesi/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'profesi'])->name('rida-Usia-Produktif-Profesi');
+
+Route::get('/dokumentasi-rida/tendik-magister/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'magister'])->name('rida-Tendik-Magister');
+Route::get('/dokumentasi-rida/tendik-profesi/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'profesi'])->name('rida-Tendik-Profesi');
+Route::get('/dokumentasi-rida/tendik-sarjana/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sarjana'])->name('rida-Tendik-Sarjana');
+Route::get('/dokumentasi-rida/tendik-diploma4/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'diploma4'])->name('rida-Tendik-Diploma4');
+Route::get('/dokumentasi-rida/tendik-diploma3/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'diploma3'])->name('rida-Tendik-Diploma3');
+Route::get('/dokumentasi-rida/tendik-diploma2/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'diploma2'])->name('rida-Tendik-Diploma2');
+Route::get('/dokumentasi-rida/tendik-diploma1/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'diploma1'])->name('rida-Tendik-Diploma1');
+Route::get('/dokumentasi-rida/tendik-slta/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'slta'])->name('rida-Tendik-Slta');
+Route::get('/dokumentasi-rida/tendik-sltp/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sltp'])->name('rida-Tendik-Sltp');
+Route::get('/dokumentasi-rida/tendik-sd/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sd'])->name('rida-Tendik-Sd');
+Route::get('/dokumentasi-rida/H-indeks-pkm', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'indeksPKM'])->name('rida-H-indeksPenelitiPKM');
+
+
 Route::get('/dokumentasi-rida/doktor/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-Doktor');
 Route::get('/dokumentasi-rida/magister/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'magister'])->name('rida-Magister');
 Route::get('/dokumentasi-rida/profesi/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'profesi'])->name('rida-profesi');
 Route::get('/dokumentasi-rida/sp-2/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'spesialis2'])->name('rida-Sp-2');
+Route::get('/dokumentasi-rida/sp-1(k)/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'spesialisKonsultan'])->name('rida-Sp-1k');
 Route::get('/dokumentasi-rida/sp-1/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'spesialis1'])->name('rida-Sp-1');
-Route::get('/dokumentasi-rida/sp-1(k)/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'spesialisKonsultan'])->name('rida-Sp-1(K)');
 
 
 Route::get('/dokumentasi-rida/doktor', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-Usia Produktif Doktor');
@@ -717,9 +761,11 @@ Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/Profesi/{f
 
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/SP-1/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_sp1'])->name('rida-periode-Usia Produktif SP1');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_sp1'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1');
+Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/SP-1/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'export_sp1'])->name('rida-export-Usia Produktif SP1');
 
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_sp1k'])->name('rida-periode-Usia Produktif SP-1(K)');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_sp1k'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1(K)');
+Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'export_sp1k'])->name('rida-export-Usia Produktif SP-1(K)');
 
 Route::get('/dokumentasi-rida/skema-pnbp/{skema}/{tahun}', [App\Http\Controllers\User\SkemaPNBPController::class, 'detailsFront'])->name('skemapnbp-details-front');
 

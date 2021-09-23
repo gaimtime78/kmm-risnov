@@ -18,8 +18,9 @@ class SpesialisKonsultanController extends Controller
     {
         // $penelitipengabdispesialiskonsultan = PenelitiPengabdiSpesialisKonsultan::distinct()->get('fakultas', 'id');
         $penelitipengabdispesialiskonsultan = PenelitiPengabdiSpesialisKonsultan::where('fakultas', 'Fakultas Kedokteran')->orWhere('fakultas','Universitas Sebelas Maret')->distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiSpesialisKonsultan::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.penelitipengabdispesialiskonsultan.index', ['penelitipengabdispesialiskonsultan' => $penelitipengabdispesialiskonsultan]);
+        return view('admin.penelitipengabdispesialiskonsultan.index', ['penelitipengabdispesialiskonsultan' => $penelitipengabdispesialiskonsultan, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -117,7 +118,7 @@ class SpesialisKonsultanController extends Controller
         }
 
         PenelitiPengabdiSpesialisKonsultan::where('periode', 'kosong')
-            ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data]);
+            ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $request->sumber_data, 'nama_table' => $request->nama_table]);
 
         return redirect()->route('admin.penelitipengabdispesialiskonsultan.index');
     }
@@ -146,5 +147,17 @@ class SpesialisKonsultanController extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdispesialiskonsultan.details', [$fakultas, $periode, $tahun]));
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiSpesialisKonsultan::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdispesialiskonsultan.index'));
     }
 }

@@ -12,16 +12,17 @@ use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 class PenelitiImport implements ToArray, WithCalculatedFormulas
 {
 
-  public function  __construct($periode, $tahun, $sumber_data){
+  public function  __construct($periode, $tahun, $sumber_data, $nama_table){
     $this->periode = $periode;
     $this->tahun_input = $tahun;
     $this->sumber_data = $sumber_data;
+    $this->nama_table = $nama_table;
   }
 
   public function array(array $rows){
     $tabel = $rows[0][0];
     $tabelIndex = explode(" ", $tabel)[1]*1;
-    $jenjang = 'Doktoral
+    $jenjang = 'Sp-1(K)
     ';
     $data = [];
     $currFakultas = '';
@@ -42,6 +43,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
           'periode' => $this->periode,
           'sumber_data' => $this->sumber_data,
           'tahun_input' => $this->tahun_input,
+          'nama_table' => $this->nama_table,
 
           'usia25sd35_L' => $rows[$i][2],
           'usia25sd35_P' => $rows[$i][3],

@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
-                    <h3 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach </br> {{$fakultas}} {{$periode}} Tahun {{$tahun}}</h3>
+                    <h4 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach </br> {{$fakultas}} </br> </h4>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -28,16 +28,35 @@
                             <table id="data-menu" class="table display" cellspacing="0">
                                 <thead>
                                 <tr>
-                                        <th
+                                    <th
+                                    rowspan="4"style="border: 1px solid black !important; text-align:center !important;">
+                                        No</th>
+                                    <th
+                                    rowspan="4" style="border: 1px solid black !important; text-align:center !important;">
+                                        Status</th>
+                                    <th
+                                    rowspan="4" style="border: 1px solid black !important; text-align:center !important;">
+                                        Jenjang</th>
+                                    <th
+                                        colspan="18"style="border: 1px solid black !important; text-align:center !important;">
+                                        Rentang Usia</th>
+                                    <th
+                                    rowspan="4" style="border: 1px solid black !important; text-align:center !important;">
+                                        Total</th>
+                                        
+                                    </tr>
+                                <tr>
+                                <tr>
+                                        <!-- <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
-                                           #</th>
+                                           No</th>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                             Status</th>
                                         <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                             Jenjang</th>
-                                        
+                                         -->
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
                                             25 s.d 35</th>
@@ -55,70 +74,67 @@
                                             66 s.d 75</th>
                                         <th 
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            75 < </th>
-                                        <th
+                                            > 75</th>
+                                        <!-- <th
                                             rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
-                                            Total</th>
-                                        <th
-                                            rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
-                                            %</th>
+                                            Total</th> -->
                                         
                                     </tr>
                                     <tr>
                                         
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            25 s.d 35 L</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            L</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            25 s.d 35 P</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            P</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             JML</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            36 s.d 45 L</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            L</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            36 s.d 45 P</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            P</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             JML</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            46 s.d 55 L</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            L</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            46 s.d 55 P</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            P</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             JML</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            56 s.d 65 L</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            L</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            56 s.d 65 P</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            P</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             JML</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            66 s.d 75 L</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            L</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            66 s.d 75 P</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            P</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             JML</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            75 < L</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            L</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            75 < P</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            P</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             JML</th>
                                         
                                     </tr>
@@ -134,7 +150,7 @@
                                                 style="border: 1px solid black !important; text-align:center !important;">
                                                 {{ $i }}</td>
                                             <td
-                                                style="border: 1px solid black !important; text-align:center !important;">
+                                                style="border: 1px solid black !important; text-align:left !important;">
                                                 {{ $row->status }}</td>
                                             <td
                                                 style="border: 1px solid black !important; text-align:center !important;">
@@ -201,11 +217,7 @@
                                             <td
                                                 style="border: 1px solid black !important; text-align:center !important;">
                                                 {{ $row->total }}</td>
-                                            @if ($x++ == 0)
-                                                <td rowspan="{{ count($data) }}"
-                                                    style="border: 1px solid black !important; text-align:center !important;">
-                                                    {{ number_format((float) $totalpercent, 2, '.', '') }} %</td>
-                                            @endif
+                                           
                                         </tr>
                                         @php
                                             $i++;
@@ -222,69 +234,145 @@
                                     
 
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
-                                            {{ $sum25sd35_L }}</th>
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ $sum25sd35_L }} </th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum25sd35_P }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum25sd35_jumlah }}</th>
 
 
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum36sd45_L }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum36sd45_P }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum36sd45_jumlah }}</th>
 
 
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum46sd55_L }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum46sd55_P }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum46sd55_jumlah }}</th>
                                         
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum56sd65_L }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum56sd65_P }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum56sd65_jumlah }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum66sd75_L }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum66sd75_P }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum66sd75_jumlah }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum75_L }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum75_P }}</th>
                                         <th
-                                            style="border: 1px solid black !important; text-align:justify !important;">
+                                            style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $sum75_jumlah }}</th>
                                         
                                         <th
-                                            colspan="2" style="border: 1px solid black !important; text-align:justify !important;">
+                                             style="border: 1px solid black !important; text-align:center !important;">
                                             {{ $total }}</th>
+
+                                       {{--
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float) $totalpercent, 2, '.', '') }}
+                                            </th>
+                                    --}} 
                                         
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3"
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            Persen (%)</th>
+
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum25sd35_L / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum25sd35_P / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum25sd35_jumlah / $totalsemua *100, 2, '.', '') }} </th>
+
+
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum36sd45_L / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum36sd45_P / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum36sd45_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+
+
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum46sd55_L / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum46sd55_P / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum46sd55_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+                                        
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum56sd65_L / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum56sd65_P / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum56sd65_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum66sd75_L / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum66sd75_P / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum66sd75_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum75_L / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum75_P / $totalsemua *100, 2, '.', '') }}</th>
+                                        <th
+                                            style="border: 1px solid black !important; text-align:center !important;">
+                                            {{ number_format((float)  $sum75_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+                                        
+                                        <th
+                                             style="border: 1px solid black !important; text-align:center !important;">
+                                             {{ number_format((float)  $total/$total *100, 2, '.', '') }}</th>
                                     </tr>
 
                                 </thead>
@@ -295,12 +383,12 @@
                 <br>
                 <div class="divider"></div>
                 <div style="margin-top:2em">
-                    <h4>Sumber Data :</h4>
-                    @foreach($list_sumber as $s)
-                    <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
-                    @endforeach
-                </div>
-                <!--DataTables example Row grouping-->
+                            
+                            @foreach($list_sumber as $s)
+                            <div><b>RIDA {{$s->periode}}  Tahun {{$tahun}}  </b> <br>{{$s->sumber_data}} </b></div>
+                            @endforeach
+                        </div>
+                                <!--DataTables example Row grouping-->
             </div>
         </div>        
     </div>        

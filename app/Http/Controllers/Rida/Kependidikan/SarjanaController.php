@@ -17,8 +17,10 @@ class SarjanaController extends Controller
     public function index()
     {
         $penelitipengabdisarjana = PenelitiPengabdiSarjana::distinct()->get('fakultas', 'id');
+        $nama_table = PenelitiPengabdiSarjana::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.kependidikan.penelitipengabdisarjana.index', ['penelitipengabdisarjana' => $penelitipengabdisarjana]);
+
+        return view('admin.kependidikan.penelitipengabdisarjana.index', ['penelitipengabdisarjana' => $penelitipengabdisarjana, 'nama_table'=> $nama_table]);
     }
 
     public function pilihperiode($fakultas)
@@ -185,5 +187,16 @@ class SarjanaController extends Controller
         $peneliti->save();
 
         return redirect(route('admin.penelitipengabdikependidikansarjana.details', [$fakultas, $periode, $tahun]));
+    }
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiSarjana::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdikependidikansarjana.index'));
     }
 }

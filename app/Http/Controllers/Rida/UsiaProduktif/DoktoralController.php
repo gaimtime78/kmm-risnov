@@ -17,8 +17,21 @@ class DoktoralController extends Controller
     public function index()
     {
         $usiaproduktifdoktoral = UsiaProduktifDoktoral::distinct()->get('fakultas', 'id');
+        $nama_table = UsiaProduktifDoktoral::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.usiaproduktif.penelitipengabdidoktoral.index', ['usiaproduktifdoktoral' => $usiaproduktifdoktoral]);
+        return view('admin.usiaproduktif.penelitipengabdidoktoral.index', ['usiaproduktifdoktoral' => $usiaproduktifdoktoral, 'nama_table'=> $nama_table]);
+    }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = UsiaProduktifDoktoral::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.usiaproduktifdoktoral.index'));
     }
 
     public function pilihperiode($fakultas)
