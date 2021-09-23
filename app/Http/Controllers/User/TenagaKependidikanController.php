@@ -779,13 +779,18 @@ class TenagaKependidikanController extends Controller
       $sum56sd60_P       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_P');
       $sum56sd60_jumlah  = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd60_jumlah');
       
+      $sum60_L       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia60_L');
+      $sum60_P       = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia60_P');
+      $sum60_jumlah  = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia60_jumlah');
+      
       $total             = PenelitiPengabdiSlta::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua        = PenelitiPengabdiSlta::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
+
       $nama_table = PenelitiPengabdiSlta::select("nama_table")->distinct()->where("fakultas")->get();
       $list_sumber = PenelitiPengabdiSlta::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
       
-      return view('user.rida.detail-kependidikan',[
+      return view('user.rida.detail-kependidikan-slta',[
         "list_sumber" => $list_sumber,
         'nama_table'=> $nama_table,
         'name' => 'Tenaga Kependidikan SLTA', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
@@ -794,6 +799,8 @@ class TenagaKependidikanController extends Controller
         'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
         'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
         'sum56sd60_L'=>$sum56sd60_L,'sum56sd60_P'=>$sum56sd60_P, 'sum56sd60_jumlah' => $sum56sd60_jumlah,
+        'sum60_L'=>$sum60_L,'sum60_P'=>$sum60_P, 'sum60_jumlah' => $sum60_jumlah,
+        
         'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,
       ]);
       

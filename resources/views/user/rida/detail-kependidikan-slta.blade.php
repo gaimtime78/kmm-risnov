@@ -39,7 +39,7 @@
                 rowspan="3" style="border: 1px solid black !important; text-align:center !important;">
                     Jenjang</th>
                 <th
-                    colspan="15"style="border: 1px solid black !important; text-align:center !important;">
+                    colspan="18"style="border: 1px solid black !important; text-align:center !important;">
                     Rentang Usia</th>
                 <th
                 rowspan="3" style="border: 1px solid black !important; text-align:center !important;">
@@ -71,12 +71,24 @@
                     <th
                         colspan="3" style="border: 1px solid black !important; text-align:center !important;">
                         56 s.d 60</th>
+                    <th
+                        colspan="3" style="border: 1px solid black !important; text-align:center !important;">
+                        > 60</th>
                     <!-- <th
                         rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                         Total</th>
                      -->
                 </tr>
                 <tr>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        L</th>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        P</th>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        JML</th>
                     <th
                         style="border: 1px solid black !important; text-align:center !important;">
                         L</th>
@@ -191,6 +203,15 @@
                             {{ $row->usia56sd60_jumlah }}</td>
                         <td
                             style="border: 1px solid black !important; text-align:center !important;">
+                            {{ $row->usia60_L }}</td>
+                        <td
+                            style="border: 1px solid black !important; text-align:center !important;">
+                            {{ $row->usia60_P }}</td>
+                        <td
+                            style="border: 1px solid black !important; text-align:center !important;">
+                            {{ $row->usia60_jumlah }}</td>
+                        <td
+                            style="border: 1px solid black !important; text-align:center !important;">
                             {{ $row->total }}</td>
                         {{--
                             @if ($x++ == 0)
@@ -265,6 +286,16 @@
                     
                     <th
                         style="border: 1px solid black !important; text-align:center !important;">
+                        {{ $sum60_L }}</th>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        {{ $sum60_P }}</th>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        {{ $sum60_jumlah }}</th>
+                    
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
                         {{ $total }}</th>
                     
                 </tr>
@@ -325,6 +356,15 @@
                     <th
                         style="border: 1px solid black !important; text-align:center !important;">
                         {{ number_format((float)  $sum56sd60_jumlah/$total *100, 2, '.', '') }}</th>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        {{ number_format((float)  $sum60_L/$total *100, 2, '.', '') }} </th>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        {{ number_format((float)  $sum60_P/$total *100, 2, '.', '') }} </th>
+                    <th
+                        style="border: 1px solid black !important; text-align:center !important;">
+                        {{ number_format((float)  $sum60_jumlah/$total *100, 2, '.', '') }}</th>
                     
                     <th
                         style="border: 1px solid black !important; text-align:center !important;">

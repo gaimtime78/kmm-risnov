@@ -319,6 +319,12 @@ class TenagaPendidikController extends Controller
         $total                  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
         $totalsemua             = UsiaProduktifDoktoral::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
         $totalpercent               = $total / $totalsemua * 100;
+        $total25_35percent               = $sum25sd35_jumlah / $totalsemua * 100;
+        $total36_45percent               = $sum36sd45_jumlah / $totalsemua * 100;
+        $total46_55percent               = $sum46sd55_jumlah / $totalsemua * 100;
+        $total56_65percent               = $sum56sd65_jumlah / $totalsemua * 100;
+        $total66_75percent               = $sum66sd75_jumlah / $totalsemua * 100;
+        $total75percent               = $sum75_jumlah / $totalsemua * 100;
         $nama_table = UsiaProduktifDoktoral::select("nama_table")->distinct()->get();
 
         $list_sumber = UsiaProduktifDoktoral::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
@@ -334,6 +340,12 @@ class TenagaPendidikController extends Controller
             'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
             'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
             'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,  "list_sumber" => $list_sumber,
+            'total25_35percent' => $total25_35percent,
+            'total36_45percent' => $total36_45percent,
+            'total46_55percent' => $total46_55percent,
+            'total56_65percent' => $total56_65percent,
+            'total66_75percent' => $total66_75percent,
+            'total75percent' => $total75percent,
        ]);
       
     }

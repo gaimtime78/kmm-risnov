@@ -22,7 +22,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
   public function array(array $rows){
     $tabel = $rows[0][0];
     $tabelIndex = explode(" ", $tabel)[1]*1;
-    $jenjang = 'Slta';
+    $jenjang = 'SLTA';
     $data = [];
     $currFakultas = '';
     $currStatus = '';
@@ -63,8 +63,12 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
           'usia56sd60_L' => $rows[$i][14],
           'usia56sd60_P' => $rows[$i][15],
           'usia56sd60_jumlah' => $rows[$i][16],
+          
+          'usia60_L' => $rows[$i][17],
+          'usia60_P' => $rows[$i][18],
+          'usia60_jumlah' => $rows[$i][19],
 
-          'total' => $rows[$i][17],
+          'total' => $rows[$i][20],
           'user_id' => Auth::user()->id
         ]);
       }

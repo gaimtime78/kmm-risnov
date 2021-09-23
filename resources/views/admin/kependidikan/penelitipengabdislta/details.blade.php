@@ -89,6 +89,9 @@
                                                     colspan="3" style="border: 1px solid black !important; text-align:center !important;">
                                                     56 s/d 60</th>
                                                 <th
+                                                    colspan="3" style="border: 1px solid black !important; text-align:center !important;">
+                                                    > 60 </th>
+                                                <th
                                                     rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                                     Total</th>
                                                 <th
@@ -141,6 +144,16 @@
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
                                                     56 s/d 60 P</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    JML</th>
+                                                
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    > 60 L</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    > 60 P</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
                                                     JML</th>
@@ -211,6 +224,15 @@
                                                     <td
                                                         style="border: 1px solid black !important; text-align:center !important;">
                                                         {{ $row->usia56sd60_jumlah }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia60_L }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia60_P }}</td>
+                                                    <td
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        {{ $row->usia60_jumlah }}</td>
                                                     <td
                                                         style="border: 1px solid black !important; text-align:center !important;">
                                                         {{ $row->total }}</td>
@@ -414,6 +436,16 @@
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">
                                                     {{ $sum56sd60_jumlah }}</th>
+                                                
+                                                    <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    {{ $sum60_L }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    {{ $sum60_P }}</th>
+                                                <th
+                                                    style="border: 1px solid black !important; text-align:justify !important;">
+                                                    {{ $sum60_jumlah }}</th>
                                                 
                                                 <th
                                                     style="border: 1px solid black !important; text-align:justify !important;">

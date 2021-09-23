@@ -43,6 +43,10 @@ class CreatePenelitiPengabdiKependidikanSlta extends Migration
             $table->string('usia56sd60_P');
             $table->string('usia56sd60_jumlah');
             
+            $table->string('usia60_L');
+            $table->string('usia60_P');
+            $table->string('usia60_jumlah');
+            
             $table->string('total');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
