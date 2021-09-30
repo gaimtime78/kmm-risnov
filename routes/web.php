@@ -117,6 +117,28 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/deletePeriode', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'deletePeriode'])->name('delete-periode');
         });
 
+        Route::group(['as' => 'skemanonpnbp.', 'prefix' => '/skemanonpnbp'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'index'])->name('index');
+
+            Route::get('/pilihperiode/{target_capaian}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'details'])->name('details');
+            Route::get('/details/{jenis}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'detailsJenis'])->name('details-jenis');
+            Route::get('/details-5tahun/', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
+            Route::get('/details-5tahun/jenisSkema/{jenis}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
+            Route::get('/details-5tahun/jenisSkema/{jenis}/', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
+            
+            Route::get('/create', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'edit'])->name('edit');
+            Route::post('/edit/{target}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'import'])->name('import');
+            Route::post('/editPeriode', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'editPeriode'])->name('edit-periode');
+            Route::post('/editJumlah', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'editJumlah'])->name('edit-jumlah');
+            Route::post('/deletePeriode', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'deletePeriode'])->name('delete-periode');
+        });
+
         Route::group(['as' => 'penelitipengabdi.', 'prefix' => '/penelitipengabdi'], function () {
             Route::get('/', [App\Http\Controllers\Rida\RidaController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\RidaController::class, 'pilihperiode'])->name('pilihperiode');
@@ -673,6 +695,7 @@ Route::get('/dokumentasi-rida/tenaga-pendidik/profesi', [App\Http\Controllers\Us
 
 Route::get('/dokumentasi-rida/hibah-pnbp', [App\Http\Controllers\User\HibahPNBPController::class, 'index'])->name('rida-hibah-pnbp');
 Route::get('/dokumentasi-rida/skema-pnbp', [App\Http\Controllers\User\SkemaPNBPController::class, 'index'])->name('rida-skema-pnbp');
+Route::get('/dokumentasi-rida/skema-non-pnbp', [App\Http\Controllers\User\SkemaNonPNBPController::class, 'index'])->name('rida-skema-non-pnbp');
 
 /*detail grafik 1-6*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_doktor'])->name('rida-periode-Tenaga Pendidik Doktor');
@@ -768,7 +791,7 @@ Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/SP-
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_sp1k'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1(K)');
 Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/SP-1(K)/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'export_sp1k'])->name('rida-export-Usia Produktif SP-1(K)');
 
-Route::get('/dokumentasi-rida/skema-pnbp/{skema}/{tahun}', [App\Http\Controllers\User\SkemaPNBPController::class, 'detailsFront'])->name('skemapnbp-details-front');
+Route::get('/dokumentasi-rida/skema-non-pnbp/{jenis}/{tahun}', [App\Http\Controllers\User\SkemaNonPNBPController::class, 'detailsFront'])->name('skemanonpnbp-details-front');
 
 Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
 Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'export'])->name('rida-export-hibah-pnbp');
