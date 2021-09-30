@@ -70,6 +70,7 @@
                             <li class="dropdown hassubmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kelembagaan <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{route('bbrpm')}}">Biro Riset dan Pengabdian Kepada Masyarakat</a></li>    
                                     <li><a href="http://lppm.uns.ac.id/" target="_blank">LPPM</a></li>
                                     <li><a href="https://risnov.uns.ac.id/id/post/WEBINAR-DAN-GRAND-LAUNCHING-SEMESTA-2021">Direktorat Inovasi dan Hilirisasi</a></li>
                                     <li><a href="https://diklathut.uns.ac.id/">UPT PPK</a></li>

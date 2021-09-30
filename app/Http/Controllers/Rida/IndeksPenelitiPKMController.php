@@ -93,7 +93,8 @@ class IndeksPenelitiPKMController extends Controller
         //    dd($jml0);
         // $sum_total   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
 
-        return view('admin.indekspenelitipkm.details', ['indekspenelitipkm' => $indekspenelitipkm,  'jmltotalfak' => $jmltotalfak,
+        return view('admin.indekspenelitipkm.details', ['indekspenelitipkm' => $indekspenelitipkm,  
+                    'jmltotalfak' => $jmltotalfak,
                     'jumlah0' => $jml0, 'percent0' => $percent0,
                     'jumlah1' => $jml1, 'percent1' => $percent1,
                     'jumlah2' => $jml2, 'percent2' => $percent2,

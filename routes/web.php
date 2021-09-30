@@ -28,6 +28,7 @@ Route::group(['prefix' => '/tentang-kami'], function () {
 });
 Route::get('/lppm', [App\Http\Controllers\User\LppmController::class, 'index'])->name('lppm');
 Route::get('/direktorat-inovasi', [App\Http\Controllers\User\DirektoratInovasiController::class, 'index'])->name('direktorat');
+Route::get('/bbrpm', [App\Http\Controllers\User\BbrpmController::class, 'index'])->name('bbrpm');
 Route::get('/informasi', [App\Http\Controllers\User\InformasiController::class, 'index'])->name('informasi');
 Route::get('/dokumentasi', [App\Http\Controllers\User\DokumentasiController::class, 'index'])->name('dokumentasi');
 Route::get('/pui', [App\Http\Controllers\User\PuiController::class, 'index'])->name('pui');
@@ -771,6 +772,11 @@ Route::get('/dokumentasi-rida/skema-pnbp/{skema}/{tahun}', [App\Http\Controllers
 
 Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
 Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'export'])->name('rida-export-hibah-pnbp');
+
+//detail periode grafik 23
+Route::get('/dokumentasi-rida/pilih_periode/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'pilih_periode_indekspkm'])->name('rida-periode-indeks-pkm');
+Route::get('/dokumentasi-rida/detail/h-indeks-pkm/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'detail_indekspkm'])->name('rida-detail-H-Indeks_PKM');
+Route::get('/dokumentasi-rida/export/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-hibah-pnbp');
 
 
 // Route::get('/njajal', function () {

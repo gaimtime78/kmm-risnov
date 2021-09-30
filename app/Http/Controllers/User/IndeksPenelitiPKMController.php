@@ -48,77 +48,109 @@ class IndeksPenelitiPKMController extends Controller
     }
     
     //detail rida grafik 23
-    public function pilih_periode_doktor($fakultas, $tahun){
+    public function pilih_periode_indekspkm($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = UsiaProduktifDoktoral::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
-      $nama_table = UsiaProduktifDoktoral::select("nama_table")->distinct()->get();
+      $data = IndeksPenelitiPKM::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $nama_table = IndeksPenelitiPKM::select("nama_table")->distinct()->get();
       
       
-      return view('user.rida.pilih_periode',[ "name" => "Tenaga Pendidik Doktor", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+      return view('user.rida.pilih_periode',[ "name" => "H-Indeks_PKM", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
       
     }
   
-    public function detail_doktor($fakultas, $tahun, $periode){
+    public function detail_indekspkm($fakultas, $tahun, $periode){
       $fakultas  = $fakultas;
-      $tahun  = $tahun;
+      $tahun_input  = $tahun;
 
-      $data = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+      $data = IndeksPenelitiPKM::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
 
-        $sum25sd35_L       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_L');
-        $sum25sd35_P       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_P');
-        $sum25sd35_jumlah  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+       $jmltotalfak    = IndeksPenelitiPKM::select('fakultas')->where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlahtotal');
+        $jml0        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah0');
+        // dd($jmltotalfak);
+        $percent0    = round((float)$jml0/$jmltotalfak*100);
+        $jml1        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah1');
+        $percent1    = round((float)$jml1/$jmltotalfak*100);
+        $jml2        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah2');
+        $percent2    = round((float)$jml2/$jmltotalfak*100);
+        $jml3        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah3');
+        $percent3    = round((float)$jml3/$jmltotalfak*100);
+        $jml4        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah4');
+        $percent4    = round((float)$jml4/$jmltotalfak*100);
+        $jml5        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah5');
+        $percent5    = round((float)$jml5/$jmltotalfak*100);
+        $jml6        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah6');
+        $percent6    = round((float)$jml6/$jmltotalfak*100);
+        $jml7        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah7');
+        $percent7    = round((float)$jml7/$jmltotalfak*100);
+        $jml8        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah8');
+        $percent8    = round((float)$jml8/$jmltotalfak*100);
+        $jml9        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah9');
+        $percent9    = round((float)$jml9/$jmltotalfak*100);
+        $jml10        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah10');
+        $percent10    = round((float)$jml10/$jmltotalfak*100);
 
-        $sum36sd45_L       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_L');
-        $sum36sd45_P       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_P');
-        $sum36sd45_jumlah  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+        $jml11        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah11');
+        $percent11    = round((float)$jml11/$jmltotalfak*100);
+        $jml12        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah12');
+        $percent12    = round((float)$jml12/$jmltotalfak*100);
+        $jml13        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah13');
+        $percent13    = round((float)$jml13/$jmltotalfak*100);
+        $jml14        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah14');
+        $percent14    = round((float)$jml14/$jmltotalfak*100);
+        $jml15        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah15');
+        $percent15    = round((float)$jml15/$jmltotalfak*100);
+        $jml16        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah16');
+        $percent16    = round((float)$jml16/$jmltotalfak*100);
+        $jml17        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah17');
+        $percent17    = round((float)$jml17/$jmltotalfak*100);
+        $jml18        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah18');
+        $percent18    = round((float)$jml18/$jmltotalfak*100);
+        $jml19        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah19');
+        $percent19    = round((float)$jml19/$jmltotalfak*100);
+        $jml20        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah20');
+        $percent20    = round((float)$jml20/$jmltotalfak*100);
+        $jml21        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah21');
+        $percent21    = round((float)$jml21/$jmltotalfak*100);
+        $percenttotal    = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('percenttotal');
+        $percenttotalfak = round((float)$percenttotal);
 
-        $sum46sd55_L       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_L');
-        $sum46sd55_P       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_P');
-        $sum46sd55_jumlah  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+        $nama_table = IndeksPenelitiPKM::select("nama_table")->distinct()->get();
 
-        $sum56sd65_L       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_L');
-        $sum56sd65_P       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_P');
-        $sum56sd65_jumlah  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
-        
-        $sum66sd75_L       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_L');
-        $sum66sd75_P       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_P');
-        $sum66sd75_jumlah  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
-        
-        $sum75_L       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_L');
-        $sum75_P       = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_P');
-        $sum75_jumlah  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
-
-        $total                  = UsiaProduktifDoktoral::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-        $totalsemua             = UsiaProduktifDoktoral::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
-        $totalpercent               = $total / $totalsemua * 100;
-        $total25_35percent               = $sum25sd35_jumlah / $totalsemua * 100;
-        $total36_45percent               = $sum36sd45_jumlah / $totalsemua * 100;
-        $total46_55percent               = $sum46sd55_jumlah / $totalsemua * 100;
-        $total56_65percent               = $sum56sd65_jumlah / $totalsemua * 100;
-        $total66_75percent               = $sum66sd75_jumlah / $totalsemua * 100;
-        $total75percent               = $sum75_jumlah / $totalsemua * 100;
-        $nama_table = UsiaProduktifDoktoral::select("nama_table")->distinct()->get();
-
-        $list_sumber = UsiaProduktifDoktoral::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $list_sumber = IndeksPenelitiPKM::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
       
       
-      return view('user.rida.detail',[
+      return view('user.rida.detail-h-indeks_pkm',[
         'nama_table'=> $nama_table,
-        'name' => 'Tenaga Pendidik Doktor', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
-            'sum25sd35_L'=>$sum25sd35_L,'sum25sd35_P'=>$sum25sd35_P, 'sum25sd35_jumlah' => $sum25sd35_jumlah,
-            'sum36sd45_L'=>$sum25sd35_L,'sum36sd45_P'=>$sum36sd45_P, 'sum36sd45_jumlah' => $sum36sd45_jumlah,
-            'sum46sd55_L'=>$sum25sd35_L,'sum46sd55_P'=>$sum46sd55_P, 'sum46sd55_jumlah' => $sum46sd55_jumlah,
-            'sum56sd65_L'=>$sum56sd65_L,'sum56sd65_P'=>$sum56sd65_P, 'sum56sd65_jumlah' => $sum56sd65_jumlah,
-            'sum66sd75_L'=>$sum66sd75_L,'sum66sd75_P'=>$sum66sd75_P, 'sum66sd75_jumlah' => $sum66sd75_jumlah,
-            'sum75_L'=>$sum75_L,'sum75_P'=>$sum75_P, 'sum75_jumlah' => $sum75_jumlah,
-            'total' => $total,  'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua,  "list_sumber" => $list_sumber,
-            'total25_35percent' => $total25_35percent,
-            'total36_45percent' => $total36_45percent,
-            'total46_55percent' => $total46_55percent,
-            'total56_65percent' => $total56_65percent,
-            'total66_75percent' => $total66_75percent,
-            'total75percent' => $total75percent,
+        'name' => 'H-Indeks_PKM',
+         'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            
+                    'jmltotalfak' => $jmltotalfak,
+                    'jumlah0' => $jml0, 'percent0' => $percent0,
+                    'jumlah1' => $jml1, 'percent1' => $percent1,
+                    'jumlah2' => $jml2, 'percent2' => $percent2,
+                    'jumlah3' => $jml3, 'percent3' => $percent3,
+                    'jumlah4' => $jml4, 'percent4' => $percent4,
+                    'jumlah5' => $jml5, 'percent5' => $percent5,
+                    'jumlah6' => $jml6, 'percent6' => $percent6,
+                    'jumlah7' => $jml7, 'percent7' => $percent7,
+                    'jumlah8' => $jml8, 'percent8' => $percent8,
+                    'jumlah9' => $jml9, 'percent9' => $percent9,
+                    'jumlah10' => $jml10, 'percent10' => $percent10,
+
+                    'jumlah11' => $jml11, 'percent11' => $percent11,
+                    'jumlah12' => $jml12, 'percent12' => $percent12,
+                    'jumlah13' => $jml13, 'percent13' => $percent13,
+                    'jumlah14' => $jml14, 'percent14' => $percent14,
+                    'jumlah15' => $jml15, 'percent15' => $percent15,
+                    'jumlah16' => $jml16, 'percent16' => $percent16,
+                    'jumlah17' => $jml17, 'percent17' => $percent17,
+                    'jumlah18' => $jml18, 'percent18' => $percent18,
+                    'jumlah19' => $jml19, 'percent19' => $percent19,
+                    'jumlah20' => $jml20, 'percent20' => $percent20,
+                    'jumlah21' => $jml21, 'percent21' => $percent21,
+                    'percenttotalfak' => $percenttotalfak,
+                    'list_sumber' => $list_sumber,
        ]);
       
     }
