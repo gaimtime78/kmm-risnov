@@ -93,6 +93,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\HibahPNBPController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\HibahPNBPController::class, 'import'])->name('import');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'skemapnbp.', 'prefix' => '/skemapnbp'], function () {
@@ -635,7 +636,9 @@ Route::get('/dokumentasi-rida/tendik-diploma1/{jenjang}', [App\Http\Controllers\
 Route::get('/dokumentasi-rida/tendik-slta/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'slta'])->name('rida-Tendik-Slta');
 Route::get('/dokumentasi-rida/tendik-sltp/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sltp'])->name('rida-Tendik-Sltp');
 Route::get('/dokumentasi-rida/tendik-sd/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sd'])->name('rida-Tendik-Sd');
+
 Route::get('/dokumentasi-rida/H-indeks-pkm', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'indeksPKM'])->name('rida-H-indeksPenelitiPKM');
+Route::get('/dokumentasi-rida/Hibah-PNBP', [App\Http\Controllers\User\HibahPNBPController::class, 'index'])->name('rida-Hibah-PNBP');
 
 
 Route::get('/dokumentasi-rida/doktor/{jenjang}', [App\Http\Controllers\User\RidaController::class, 'doktoral'])->name('rida-Doktor');
@@ -770,7 +773,8 @@ Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/SP-1(K)/{f
 
 Route::get('/dokumentasi-rida/skema-pnbp/{skema}/{tahun}', [App\Http\Controllers\User\SkemaPNBPController::class, 'detailsFront'])->name('skemapnbp-details-front');
 
-Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
+// Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
+Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
 Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'export'])->name('rida-export-hibah-pnbp');
 
 //detail periode grafik 23

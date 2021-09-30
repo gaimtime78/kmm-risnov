@@ -24,15 +24,15 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h3>{{ucwords($name)}} - {{$fakultas}} - {{$tahun}}</h3>
+                                <h4>@foreach($nama_table as $nama) {{ucwords( $nama->nama_table )}} @endforeach <br> {{$fakultas}} <!--<br>  <br> TAHUN {{$tahun}}--></h4>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
                                 <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
                                 </a>
                                 
-                                <a href="#">
-                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
+                                <a href="{{route( 'rida-periode-hibah-pnbp', [$fakultas]) }}">
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil 5 Edisi Terakhir</button>
                                 </a>
                             </div>
                             <?php $route = route('rida-'.$name)?>

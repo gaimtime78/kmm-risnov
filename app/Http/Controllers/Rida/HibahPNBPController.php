@@ -18,9 +18,22 @@ class HibahPNBPController extends Controller
     public function index()
     {
         $hibahpnbps = HibahPNBP::select('periode', 'tahun_input', 'sumber_data')->distinct()->get('periode', 'tahun_input', 'sumber_data');
-        return view('admin.hibahpnbp.index', compact('hibahpnbps'));
+        $nama_table = HibahPNBP::select('nama_table')->distinct()->get('nama_table', 'id');
+
+        return view('admin.hibahpnbp.index', ['hibahpnbps' => $hibahpnbps, 'nama_table'=> $nama_table]);
     }
 
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = HibahPNBP::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.hibahpnbp.index'));
+    }
     /**
      * Show the form for creating a new resource.
      *

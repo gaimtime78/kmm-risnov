@@ -10,11 +10,12 @@ use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 class PenelitiImport implements ToArray, WithCalculatedFormulas
 {
 
-    public function  __construct($periode, $tahun, $sumber_data)
+    public function  __construct($periode, $tahun, $sumber_data, $nama_table)
     {
         $this->periode = $periode;
         $this->tahun_input = $tahun;
         $this->sumber_data = $sumber_data;
+        $this->nama_table = $nama_table;
     }
 
     public function array(array $rows)
@@ -43,6 +44,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
                     'periode' => $this->periode,
                     'tahun_input' => $this->tahun_input,
                     'sumber_data' => $this->sumber_data,
+                    'nama_table' => $this->nama_table,
                     'usulan_lanjutan' => $rows[$i][1],
                     'usulan_baru' => $rows[$i][2],
                     'diterima' => $rows[$i][3],
