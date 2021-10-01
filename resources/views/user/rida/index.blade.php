@@ -476,6 +476,24 @@
                                             @endphp
                                             @endforeach
 
+                                            @foreach ($dataskema_non_pnbp as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:left !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-skema-non-pnbp') }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

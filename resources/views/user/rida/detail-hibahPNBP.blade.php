@@ -32,37 +32,46 @@
                                     <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
                                         <thead>
                                             <tr style="border: 1px solid black !important;">
-                                                <th rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
-                                                <th rowspan="3" style="text-align:justify !important;">Fakultas</th>
-                                                @foreach($tahun_input as $tahun)
-                                                <th colspan="3" style="border: 1px solid black !important; text-align:center !important;">Tahun {{ $tahun }}</th>
-                                                @endforeach
+                                                <th rowspan="4" style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">No</th>
+                                                <th rowspan="4" style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Fakultas</th>
+                                                <th colspan="15" style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Tahun</th>
                                             </tr>
                                             
-                                            @foreach($tahun_input as $tahun)
                                             <tr style="border: 1px solid black !important;">
-                                                <th colspan="2"
-                                                style="border: 1px solid black !important; text-align:center !important;">
-                                                Usulan</th>
-                                                <th rowspan="2"
-                                                style="border: 1px solid black !important; text-align:center !important;">
-                                                Diterima</th>
+                                                @foreach($tahun_input as $tahun)
+                                                    <th colspan="3" style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
+                                                @endforeach
                                             </tr>
-                                                <tr style="border: 1px solid black !important;">
+                                            <tr>
+                                                @foreach($tahun_input as $tahun)
+                                                    <th colspan="2"
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    Usulan</th>
+                                                    <th rowspan="2"
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    Diterima</th>
+                                                @endforeach
+
+                                            </tr>
+                                            <tr style="border: 1px solid black !important;">
+                                                @foreach($tahun_input as $tahun)
                                                     <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     Lanjutan</th>
                                                     <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     Baru</th>
-                                                </tr>
                                                 @endforeach
+                                            </tr>
+                                           
                                             
 
                                         </thead>
-
+                                        
                                         <tbody>
+                                            
                                             @foreach ($hibah as $row)
+                                            
                                             <tr style="border: 1px solid black !important;">
                                                 <td style="border: 1px solid black !important;text-align:center !important;">{{$loop->iteration}}</td>
                                                 <td style="border: 1px solid black !important;text-align:left !important;">{{$row['fakultas']}}</td>

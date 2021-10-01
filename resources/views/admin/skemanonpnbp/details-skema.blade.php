@@ -73,15 +73,19 @@
                                                         Fakultas</th>
                                                     <th rowspan="3"
                                                         style="border: 1px solid black !important; text-align:center !important;">
-                                                        {{ $tahun }}</th>
+                                                        Jumlah</th>
+                                                    <th rowspan="3"
+                                                        style="border: 1px solid black !important; text-align:center !important;">
+                                                        Keterangan</th>
                                                     <th rowspan="3"
                                                         style="border: 1px solid black !important;text-align:justify !important;">
                                                         Action</th>
                                                 </tr>
+                                               
                                             </thead>
-
                                             <tbody>
                                                 @foreach ($skemanonpnbp as $row)
+
                                                     <tr style="border: 1px solid black !important;">
                                                         <td
                                                             style="border: 1px solid black !important;text-align:center !important;">
@@ -93,7 +97,11 @@
                                                         <td
                                                             style="border: 1px solid black !important;text-align:center !important;">
                                                             {{ $row->jumlah }}</td>
-
+                                                        @if($loop->iteration <= 1)
+                                                        <td  rowspan="{{ count($skemanonpnbp) }}"
+                                                            style="border: 1px solid black !important;text-align:center !important;">
+                                                            {{ $row->keterangan }}</td>
+                                                        @endif
 
                                                         <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}"
                                                                 class="btn modal-trigger"
