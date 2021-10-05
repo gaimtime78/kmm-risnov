@@ -721,6 +721,7 @@ Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-1', [App\Http\Controller
 Route::get('/dokumentasi-rida/tenaga-pendidik/profesi', [App\Http\Controllers\User\TenagaPendidikController::class, 'profesi'])->name('rida-Tenaga Pendidik Profesi');
 
 Route::get('/dokumentasi-rida/hibah-pnbp', [App\Http\Controllers\User\HibahPNBPController::class, 'index'])->name('rida-hibah-pnbp');
+Route::get('/dokumentasi-rida/Rekap-Skema-PNBP', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'index'])->name('rida-Rekap-Skema-PNBP');
 Route::get('/dokumentasi-rida/skema-pnbp', [App\Http\Controllers\User\SkemaPNBPController::class, 'index'])->name('rida-skema-pnbp');
 Route::get('/dokumentasi-rida/skema-non-pnbp', [App\Http\Controllers\User\SkemaNonPNBPController::class, 'index'])->name('rida-skema-non-pnbp');
 
@@ -828,6 +829,11 @@ Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\C
 Route::get('/dokumentasi-rida/pilih_periode/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'pilih_periode_indekspkm'])->name('rida-periode-indeks-pkm');
 Route::get('/dokumentasi-rida/detail/h-indeks-pkm/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'detail_indekspkm'])->name('rida-detail-H-Indeks_PKM');
 Route::get('/dokumentasi-rida/export/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-hibah-pnbp');
+
+//detail periode grafik 25
+Route::get('/dokumentasi-rida/pilih_periode/rekap-skema-pnbp/{jenis_skema}/{tahun}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'periode'])->name('rida-periode-rekap-skema-pnbp');
+Route::get('/dokumentasi-rida/detail/rekap-skema-pnbp/{jenis_skema}/{tahun}/{periode}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'detail_data_rekap_tahun'])->name('rida-detail-rekap-skema-pnbp');
+// Route::get('/dokumentasi-rida/export/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-hibah-pnbp');
 
 
 // Route::get('/njajal', function () {

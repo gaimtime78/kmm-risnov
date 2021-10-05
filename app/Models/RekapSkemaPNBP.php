@@ -10,7 +10,7 @@ class RekapSkemaPNBP extends Model
     use HasFactory;
     protected $table = 'rekap_skema_pnbp';
     protected $fillable = [
-        'fakultas', 'jumlah'
+        'jenis_skema', 'jumlah'
     ];
 
     public function user(){

@@ -190,10 +190,10 @@ class RekapSkemaPNBPController extends Controller
         RekapSkemaPNBP::where('id', $skema)->update(['jenis_skema' => $request->jenis_skema]);
         
 		$dataUpdate = [
-            // 'jenis_skema' => $request->jenis_skema,
+            'jenis_skema' => $request->jenis_skema,
 			'jumlah' => $request->jumlah,
 		];
-        // dd($dataUpdate);
+        // dd($skema);
 
         // RekapSkemaPNBP::where('periode', 'kosong')
         //     ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
