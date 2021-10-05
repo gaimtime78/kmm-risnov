@@ -210,9 +210,9 @@
                     
                     
                     @if (in_array('admin.permission.index', $permissionUser))
-                        <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index') }}"
-                                class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks
-                                Penelitian PKM </a></li>
+                    <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index') }}"
+                            class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks
+                            Penelitian PKM </a></li>
                     @endif
                     @if (in_array('admin.permission.index', $permissionUser))
                         <li class="bold"><a href="{{ route('admin.researchgroup.index') }}"
@@ -236,17 +236,33 @@
                         <li class="bold"><a href="{{ route('admin.hibahpnbp.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input PNBP</a></li>
                     @endif
-                    @if (in_array('admin.permission.index', $permissionUser))
-                        <li class="bold"><a href="{{ route('admin.skemapnbp.index') }}"
-                                class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Skema PNBP</a></li>
-                    @endif
+                    
                     @if (in_array('admin.permission.index', $permissionUser))
                         <li class="bold"><a href="{{ route('admin.skemanonpnbp.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Penelitian Non PNBP</a></li>
                     @endif
-
+            
+            
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
+                                    class="mdi-image-palette"></i>Skema Penelitian PNBP</a>
+                    <div class="collapsible-body">
+                        <ul>
+                        @if (in_array('admin.permission.index', $permissionUser))
+                            <li class="bold"><a href="{{ route('admin.rekap_skemapnbp.index') }}"
+                                    class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Rekap Skema PNBP</a></li>
+                        @endif
+                        @if (in_array('admin.permission.index', $permissionUser))
+                            <li class="bold"><a href="{{ route('admin.skemapnbp.index') }}"
+                                    class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Skema PNBP</a></li>
+                        @endif
+                        </ul>
+                    </div>
+                </li>
                 </ul>
             </li>
+
+            
+
             <!-- <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i> Website</a>

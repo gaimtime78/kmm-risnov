@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Imports\SkemaPNBP;
+namespace App\Imports\RekapSkemaPNBP;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\SkemaPNBP;
+use App\Models\RekapSkemaPNBP;
 use Maatwebsite\Excel\Concerns\ToArray;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
@@ -24,7 +24,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
         // $mapperSheet = ['Magister'];
         $tabel = $rows[0][0];
         $data = [];
-        $currFakultas = '';
+        $currJenis_skema = '';
         $currTahunResearch = '';
         // dd($rows);
         for ($i = 5; $i < count($rows); $i++) {
@@ -33,7 +33,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
                 break;
             }
             if ($rows[$i][0] !== null) {
-                $currFakultas = $rows[$i][0];
+                $currJenis_skema = $rows[$i][0];
             }
             if ($rows[$i][0] !== null) {
                 $currTahunResearch = $rows[$i - 2][1];
@@ -41,13 +41,12 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
             // dd($currTahunResearch);
             if ($rows[$i][1] !== 'Jumlah' && $rows[$i][1] !== null) {
                 array_push($data, [
-                    'fakultas' => $currFakultas,
+                    'jenis_skema' => $currJenis_skema,
                     'periode' => $this->periode,
                     'tahun_input' => $this->tahun_input,
                     'sumber_data' => $this->sumber_data,
                     'nama_table' => $this->nama_table,
-                    'skema' => $rows[$i][1],
-                    'jumlah' => $rows[$i][2],
+                    'jumlah' => $rows[$i][1],
                     // 'tahun2' => $rows[$i][2],
                     // 'tahun3' => $rows[$i][3],
                     // 'tahun4' => $rows[$i][4],
@@ -56,13 +55,13 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
                     'user_id' => Auth::user()->id
                 ]);
             }
-            if($rows[$i][2] === null){
+            if($rows[$i][1] === null){
                 break;
             }
             
         }
         // dd($data);
-        SkemaPNBP::insert($data);
+        RekapSkemaPNBP::insert($data);
 
         // $colomn = $rows[4][0];
         // $data2 = [];

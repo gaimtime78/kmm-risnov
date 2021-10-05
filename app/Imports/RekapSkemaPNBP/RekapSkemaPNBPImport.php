@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Imports\SkemaPNBP;
+namespace App\Imports\RekapSkemaPNBP;
 
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class SkemaPNBPImport implements WithMultipleSheets
+class RekapSkemaPNBPImport implements WithMultipleSheets
 {
     /**
     * @param array $row

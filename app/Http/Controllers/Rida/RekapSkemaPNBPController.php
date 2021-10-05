@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Rida;
 
 use App\Http\Controllers\Controller;
-use App\Imports\SkemaPNBP\SkemaPNBPImport;
-use App\Models\SkemaPNBP;
+use App\Imports\RekapSkemaPNBP\RekapSkemaPNBPImport;
+use App\Models\RekapSkemaPNBP;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-class SkemaPNBPController extends Controller
+class RekapSkemaPNBPController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,22 +17,22 @@ class SkemaPNBPController extends Controller
      */
     public function index()
     {
-        $skemapnbp = SkemaPNBP::select('periode', 'tahun_input', 'sumber_data')->distinct()->get('periode', 'tahun_input', 'sumber_data');
-        $nama_table = SkemaPNBP::select('nama_table')->distinct()->get('nama_table', 'id');
+        $rekap_skemapnbp = RekapSkemaPNBP::select('periode', 'tahun_input', 'sumber_data')->distinct()->get('periode', 'tahun_input', 'sumber_data');
+        $nama_table = RekapSkemaPNBP::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.skemapnbp.index', compact('skemapnbp'), ['nama_table'=> $nama_table] );
+        return view('admin.rekap_skemapnbp.index', compact('rekap_skemapnbp'), ['nama_table'=> $nama_table] );
     }
 
     public function updateNamaTable(Request $request, $nama_table)
     {
-        $skemapnbp = SkemaPNBP::where([['nama_table', $nama_table]])->get();
+        $rekap_skemapnbp = RekapSkemaPNBP::where([['nama_table', $nama_table]])->get();
         
-        foreach ($skemapnbp as $peneliti) {
+        foreach ($rekap_skemapnbp as $peneliti) {
             $peneliti->nama_table = $request->nama_table;
             $peneliti->save();
         }
 
-        return redirect(route('admin.skemapnbp.index'));
+        return redirect(route('admin.rekap_skemapnbp.index'));
     }
 
     /**
@@ -53,18 +53,18 @@ class SkemaPNBPController extends Controller
      */
     public function import(Request $request)
     {
-        $file = $request->file("skemapnbp");
+        $file = $request->file("rekap_skemapnbp");
         $periode = $request->periode;
         $tahun = $request->tahun;
         $sumber_data = $request->sumber_data;
         if ($file !== null) {
-            Excel::import(new SkemaPNBPImport, $file);
+            Excel::import(new RekapSkemaPNBPImport, $file);
         }
 
-        SkemaPNBP::where('periode', 'kosong')
+        RekapSkemaPNBP::where('periode', 'kosong')
             ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
 
-        return redirect()->route('admin.skemapnbp.index');
+        return redirect()->route('admin.rekap_skemapnbp.index');
     }
 
     /**
@@ -75,34 +75,36 @@ class SkemaPNBPController extends Controller
      */
     public function details($periode, $tahun_input)
     {
-        $skemapnbp = SkemaPNBP::select('skema')->distinct()->where('periode', $periode)->where('tahun_input', $tahun_input)->get();
+        $rekap_skemapnbp = RekapSkemaPNBP::select('jenis_skema', 'jumlah', 'id')->distinct()->where('periode', $periode)->where('tahun_input', $tahun_input)->get();
         $total = [
-            'jumlah' => $skemapnbp->sum('jumlah'),
+            'jumlah' => $rekap_skemapnbp->sum('jumlah'),
         ];
         $tahun = $tahun_input;
-        return view('admin.skemapnbp.details', ["data"=>$skemapnbp, "periode"=>$periode, "tahun"=>$tahun_input]);
+        $nama_table = RekapSkemaPNBP::select('nama_table')->distinct()->get('nama_table', 'id');
+
+        return view('admin.rekap_skemapnbp.details', ["nama_table"=>$nama_table, "data"=>$rekap_skemapnbp, "periode"=>$periode, "tahun"=>$tahun_input]);
     }
     
     public function detailsSkema5Tahun()
     {
-        $data = SkemaPNBP::select('periode','skema', 'tahun_input','sumber_data')->distinct()->get('periode','skema', 'tahun_input','sumber_data');
-        return view('admin.skemapnbp.details-5tahun',compact('data'));
+        $data = RekapSkemaPNBP::select('periode','skema', 'tahun_input','sumber_data')->distinct()->get('periode','skema', 'tahun_input','sumber_data');
+        return view('admin.rekap_skemapnbp.details-5tahun',compact('data'));
     }
 
     public function detailsSkemaFakultas5Tahun($skema)
     {
         // dd($skema);
-        $tahun_input_dum = SkemaPNBP::select('tahun_input')->distinct()->get()->pluck('tahun_input');
+        $tahun_input_dum = RekapSkemaPNBP::select('tahun_input')->distinct()->get()->pluck('tahun_input');
         if(count($tahun_input_dum) >= 5){
             $start_tahun = $tahun_input_dum[count($tahun_input_dum) - 5];
         }else{
             $start_tahun = $tahun_input_dum[0];
         }
-        $tahun_input = SkemaPNBP::select('tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->get()->pluck('tahun_input');
+        $tahun_input = RekapSkemaPNBP::select('tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->get()->pluck('tahun_input');
 
-        $periode = SkemaPNBP::select('periode', 'tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->get();
+        $periode = RekapSkemaPNBP::select('periode', 'tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->get();
         // dd($periode);
-        $jenisPnbp = SkemaPNBP::select('fakultas','tahun_input','jumlah','periode')->where('tahun_input', '>=', $start_tahun)->where('skema', $skema)->get();
+        $jenisPnbp = RekapSkemaPNBP::select('fakultas','tahun_input','jumlah','periode')->where('tahun_input', '>=', $start_tahun)->where('skema', $skema)->get();
         $research = [];
         $spanArr = [];
         $researchHeader = [];
@@ -123,7 +125,7 @@ class SkemaPNBPController extends Controller
             }        
         }
         // dd($research, $periode, $tahun_input, $spanArr);
-        return view('admin.skemapnbp.detailsSkemaFakultas-5tahun', ['research' => $research, 'spanArr' => $spanArr, 'tahun_input' => $tahun_input, 'periode_input'=>$periode]);
+        return view('admin.rekap_skemapnbp.detailsSkemaFakultas-5tahun', ['research' => $research, 'spanArr' => $spanArr, 'tahun_input' => $tahun_input, 'periode_input'=>$periode]);
     }
 
     /**
@@ -134,12 +136,12 @@ class SkemaPNBPController extends Controller
      */
     public function detailsSkema($skema, $periode, $tahun_input)
     {
-        $skemapnbp = SkemaPNBP::where('periode', $periode)->where('tahun_input', $tahun_input)->where('skema', $skema)->get();
+        $rekap_skemapnbp = RekapSkemaPNBP::where('periode', $periode)->where('tahun_input', $tahun_input)->where('skema', $skema)->get();
         $total = [
-            'jumlah' => $skemapnbp->sum('jumlah'),
+            'jumlah' => $rekap_skemapnbp->sum('jumlah'),
         ];
         $tahun = $tahun_input;
-        return view('admin.skemapnbp.details-skema', compact('skemapnbp', 'tahun', 'periode', 'skema', 'total'));
+        return view('admin.rekap_skemapnbp.details-skema', compact('skemapnbp', 'tahun', 'periode', 'skema', 'total'));
     }
 
     /**
@@ -156,7 +158,7 @@ class SkemaPNBPController extends Controller
     public function editPeriode(Request $request)
     {
         // dd($request->all());
-        $skema = SkemaPNBP::where('periode', $request->dbPeriode)->where('tahun_input', $request->dbtahun_input)->where('sumber_data', $request->dbsumber_data);
+        $skema = RekapSkemaPNBP::where('periode', $request->dbPeriode)->where('tahun_input', $request->dbtahun_input)->where('sumber_data', $request->dbsumber_data);
 		$dataUpdate = [
 			'periode' => $request->periode,
 			'tahun_input' => $request->tahun_input,
@@ -164,38 +166,45 @@ class SkemaPNBPController extends Controller
 		];
 		if($skema->update($dataUpdate)){
             $message = "Skema PNBP berhasil diupdate";
-            return redirect()->route('admin.skemapnbp.index');
+            return redirect()->route('admin.rekap_skemapnbp.index');
         }else{
-            return redirect()->route('admin.skemapnbp.index')->with('message', 'error');
+            return redirect()->route('admin.rekap_skemapnbp.index')->with('message', 'error');
         }
     }
 
     public function deletePeriode(Request $request)
     {
         // dd($request->all());
-        $skema = SkemaPNBP::where('periode', $request->dbPeriode)->where('tahun_input', $request->dbtahun_input);
+        $skema = RekapSkemaPNBP::where('periode', $request->dbPeriode)->where('tahun_input', $request->dbtahun_input);
 		if($skema->delete()){
             $message = "Skema PNBP berhasil dihapus";
-            return redirect()->route('admin.skemapnbp.index');
+            return redirect()->route('admin.rekap_skemapnbp.index');
         }else{
-            return redirect()->route('admin.skemapnbp.index')->with('message', 'error');
+            return redirect()->route('admin.rekap_skemapnbp.index')->with('message', 'error');
         }
     }
 
     public function editJumlah(Request $request)
     {
-        $skema = SkemaPNBP::find($request->id);
+        $skema = RekapSkemaPNBP::find($request->id);
+        RekapSkemaPNBP::where('id', $skema)->update(['jenis_skema' => $request->jenis_skema]);
+        
 		$dataUpdate = [
-			'fakultas' => $request->fakultas,
+            // 'jenis_skema' => $request->jenis_skema,
 			'jumlah' => $request->jumlah,
 		];
+        // dd($dataUpdate);
+
+        // RekapSkemaPNBP::where('periode', 'kosong')
+        //     ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
+
 		if($skema->update($dataUpdate)){
             $message = "Skema PNBP berhasil diupdate";
             // $skemapnbp = SkemaPNBP::where('periode', $skema->periode)->where('tahun_input', $skema->tahun_input)->where('skema', $skema->skema)->get();
-            return redirect()->route('admin.skemapnbp.details-skema', ['skema' => $skema->skema, 'periode' => $skema->periode, 'tahun_input' => $skema->tahun_input]);
+            return redirect()->route('admin.rekap_skemapnbp.details', [ 'periode' => $skema->periode, 'tahun_input' => $skema->tahun_input]);
             // return redirect()->route('admin.skemapnbp.details-skema');
         }else{
-            return redirect()->route('admin.skemapnbp.details-skema', ['skema' => $skema->skema, 'periode' => $skema->periode, 'tahun_input' => $skema->tahun_input]);
+            return redirect()->route('admin.rekap_skemapnbp.details', [ 'periode' => $skema->periode, 'tahun_input' => $skema->tahun_input]);
         }
     }
 

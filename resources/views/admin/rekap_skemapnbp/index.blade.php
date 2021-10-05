@@ -54,7 +54,7 @@
                         @endif
 
                         <div id="table-datatables">
-                            <h4 class="header left">Tabel 26  @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
+                            <h4 class="header left">Tabel 25  @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <a href="#import" class="waves-effect waves-light btn right modal-trigger"
@@ -64,7 +64,7 @@
                                     {{-- Modal update nama table --}}
                                     <div id="update_nama_table" class="modal">
                                     @foreach ($nama_table as $name) 
-                                    <form action="{{route('admin.skemapnbp.updateNamaTable', [$name->nama_table] )}}" method="post" enctype="multipart/form-data" >
+                                    <form action="{{route('admin.rekap_skemapnbp.updateNamaTable', [$name->nama_table] )}}" method="post" enctype="multipart/form-data" >
                                         @csrf
                                         <div class="modal-content">
                                         <h4>Edit Nama table</h4>
@@ -86,18 +86,18 @@
 
                                     {{-- Modal import --}}
                                     <div id="import" class="modal">
-                                        <form action="{{ route('admin.skemapnbp.import') }}" method="post"
+                                        <form action="{{ route('admin.rekap_skemapnbp.import') }}" method="post"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-content">
-                                                <p>Import Excel Table 2 Skema Proposal Penelitian dan Pengabdian PNBP</p>
+                                                <p>Import Excel Table Rekap Skema Penelitian PNBP</p>
                                                 <p>Untuk import data melalui excel, silahkan download template excel dan
                                                     sesuaikan masukan</p>
-                                                <a href="{{ asset('template\rida\table_24_hibahpnbp_2017.xlsx') }}">Download
+                                                <a href="{{ asset('template\rida\table_25_rekap_skema_pnbp.xlsx') }}">Download
                                                     template</a>
-                                                <h5><label for="skemapnbp" class="form-label">Upload file
+                                                <h5><label for="rekap_skemapnbp" class="form-label">Upload file
                                                         excel</label></h5>
-                                                <input type="file" name="skemapnbp">
+                                                <input type="file" name="rekap_skemapnbp">
 
                                                 <h5><label for="tahun" class="form-label">Tahun Upload</label></h5>
                                                 <input type="text" name="tahun">
@@ -117,7 +117,7 @@
                                     </div>
                                     {{-- End of modal import --}}
                                     <div class="col s4 m4 l4">
-                                        <a href="{{route ('admin.skemapnbp.details-5tahun') }}" class="waves-effect waves-light btn right modal-trigger"
+                                        <a href="{{route ('admin.rekap_skemapnbp.details-5tahun') }}" class="waves-effect waves-light btn right modal-trigger"
                                             role="button">Lihat Perolehan 5 Periode Terakhir</a>
                                     </div>
 
@@ -136,7 +136,7 @@
                                             @php
                                                 $i = 1;
                                             @endphp
-                                            @foreach ($skemapnbp as $row)
+                                            @foreach ($rekap_skemapnbp as $row)
                                                 <tr>
                                                     <td>{{ $i }}</td>
                                                     <td>{{ $row->periode }}</td>
@@ -144,7 +144,7 @@
                                                     <td>{{ $row->sumber_data }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.skemapnbp.details', ['periode' => $row->periode, 'tahun_input' => $row->tahun_input]) }}"
+                                                        <a href="{{ route('admin.rekap_skemapnbp.details', ['periode' => $row->periode, 'tahun_input' => $row->tahun_input]) }}"
                                                             class="btn"
                                                             style="background-color: grey;">Detail</a>
                                                         <a href="#edit{{ $row->id }}" class="btn modal-trigger"
@@ -155,7 +155,7 @@
                                                     <!-- Modal Edit -->
                                                     <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
                                                         <form
-                                                            action="{{route('admin.skemapnbp.edit-periode')}}"
+                                                            action="{{route('admin.rekap_skemapnbp.edit-periode')}}"
                                                             method="post">
                                                             @csrf
                                                             <input type="hidden" value="{{$row->periode}}" name="dbPeriode">
@@ -203,7 +203,7 @@
                                                     <!-- Modal Hapus -->
                                                     <div id="hapus{{ $row->id }}" class="modal">
                                                         <form
-                                                            action="{{route('admin.skemapnbp.delete-periode')}}"
+                                                            action="{{route('admin.rekap_skemapnbp.delete-periode')}}"
                                                             method="post">
                                                             @csrf
                                                             <input type="hidden" value="{{$row->periode}}" name="dbPeriode">
