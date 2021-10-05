@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
-                    <h4 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach </br> {{ $jenis_skema}} {{-- {{$tahun}}--}}</h4>
+                    <h4 style="color: #000000;">@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach </br> </h4>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -46,7 +46,7 @@
                             <td style="text-align:center !important;">{{$row->tahun_input}}</td>
                             <td style="text-align:center !important;">{{$row->sumber_data}}</td>
                             <td>
-                            <a href="{{ route ('rida-detail-rekap-skema-pnbp', [$jenis_skema, $tahun, $row->periode]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
+                            <a href="{{ route ('rida-detail-rekap-skema-pnbp', [ $tahun, $row->periode]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
                             </td>
                             <!-- Modal Edit -->
                         </tr>

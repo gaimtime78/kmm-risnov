@@ -90,10 +90,10 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-content">
-                                                <p>Import Excel Table 2 Skema Proposal Penelitian dan Pengabdian PNBP</p>
+                                                <p>Import Excel Table 26-43 Skema PNBP</p>
                                                 <p>Untuk import data melalui excel, silahkan download template excel dan
                                                     sesuaikan masukan</p>
-                                                <a href="{{ asset('template\rida\table_24_hibahpnbp_2017.xlsx') }}">Download
+                                                <a href="{{ asset('template\rida\table_26_skema_pnbp.xlsx') }}">Download
                                                     template</a>
                                                 <h5><label for="skemapnbp" class="form-label">Upload file
                                                         excel</label></h5>

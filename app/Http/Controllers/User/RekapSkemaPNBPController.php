@@ -27,10 +27,11 @@ class RekapSkemaPNBPController extends Controller
             if ($request->has("tahun")) {
                 $tahun = $request->input("tahun");
             }
-            $data = RekapSkemaPNBP::where("jenis_skema", $skema)->where("tahun_input", $tahun)->get();
-            $list_skema = RekapSkemaPNBP::select("jenis_skema")->distinct()->where("tahun_input", $tahun)->get();
+            $data = RekapSkemaPNBP::where("jenis_skema", $skema)->orderBy('tahun_input', 'asc')->get();
+            // dd($data);
+            $list_skema = RekapSkemaPNBP::select("jenis_skema")->distinct()->orderBy('jenis_skema', 'asc')->get();
             $list_sumber = RekapSkemaPNBP::select("periode", "sumber_data")->distinct()->where("jenis_skema", $skema)->where("tahun_input", $tahun)->get();
-            // dd($list_sumber);
+            // dd($list_skema);
             return view('user.rida.grafik_rekap_skemapnbp', [
                 "name" => "rekap-skema-pnbp",
                 "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun,
@@ -73,29 +74,28 @@ class RekapSkemaPNBPController extends Controller
         ]);
     }
 
-    public function periode($jenis_skema, $tahun)
+    public function periode( $tahun)
     {
-        $jenis_skema  = $jenis_skema;
         $tahun  = $tahun;
-        $data = RekapSkemaPNBP::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('jenis_skema', $jenis_skema)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+        $data = RekapSkemaPNBP::select('periode', 'tahun_input', 'sumber_data')->distinct()->orderBy('tahun_input', 'ASC' )->get('periode', 'tahun_input', 'sumber_data');
         $nama_table = RekapSkemaPNBP::select("nama_table")->distinct()->where("jenis_skema")->get();
         
-        return view('user.rida.pilih_periode_rekap_skema_pnbp',[  'nama_table'=> $nama_table, 'data' => $data, 'jenis_skema' => $jenis_skema, 'tahun' => $tahun]);
+        return view('user.rida.pilih_periode_rekap_skema_pnbp',[  'nama_table'=> $nama_table, 'data' => $data, 'tahun' => $tahun]);
         
     }
 
-    public function detail_data_rekap_tahun($jenis_skema, $tahun, $periode){
-        $jenis_skema  = $jenis_skema;
+    public function detail_data_rekap_tahun($tahun){
         $tahun  = $tahun;
         
-        $data = RekapSkemaPNBP::where([['jenis_skema', $jenis_skema], ['periode', $periode], ['tahun_input', $tahun]])->get();
+        $nama_table = RekapSkemaPNBP::select("nama_table")->distinct()->get();
+        $list_sumber = RekapSkemaPNBP::select("periode", "sumber_data")->distinct()->where("tahun_input", $tahun)->get();
         
-        $nama_table = RekapSkemaPNBP::select("nama_table")->distinct()->where("jenis_skema")->get();
+        $data = RekapSkemaPNBP::where('tahun_input', $tahun)->get();
 
-        $list_sumber = RekapSkemaPNBP::select("periode", "sumber_data")->distinct()->where("jenis_skema", $jenis_skema)->where("tahun_input", $tahun)->get();
-        
+        $total = RekapSkemaPNBP::where([['tahun_input', $tahun]])->sum('jumlah');
+     
         return view('user.rida.detil-rekap-skema',[
-            'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'jenis_skema' => $jenis_skema, 'nama_table' => $nama_table
+            'tahun' => $tahun , 'data' => $data,  'nama_table' => $nama_table, 'total' => $total
 
         ]);
     }

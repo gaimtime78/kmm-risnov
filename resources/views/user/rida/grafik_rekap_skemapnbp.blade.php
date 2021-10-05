@@ -28,7 +28,7 @@
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end;margin-bottom:1em;">
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
-                                <a href="{{ route('rida-periode-rekap-skema-pnbp', ['jenis_skema' => $skema,'tahun' => $tahun]) }}">
+                                <a href="{{ route('rida-periode-rekap-skema-pnbp', ['tahun' => $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
                                 </a>
                             </div>
@@ -51,7 +51,7 @@
                                                     </select>    
                                                 </div>
                                             </div>
-                                            <div class="mb-3" style="width:100%;">
+                                          {{--  <div class="mb-3" style="width:100%;">
                                                 <h5><label for="title" class="form-label">Tahun</label></h5>
                                                 <div style="width:200px">
                                                     <select style="width:100%" id="tahun" name="tahun">
@@ -64,7 +64,7 @@
                                                         @endforeach
                                                     </select>    
                                                 </div>
-                                            </div>
+                                            </div>--}}
                                             <button style="margin-top:2em;background-color:blue" type="submit" class="waves-effect waves-light btn primary darken-1">Filter</button>
                                         </div>
                                         <div style="margin-top:2em">
@@ -158,54 +158,50 @@ _.map(data, v =>{
 listJenisSkemaData = _.orderBy(listJenisSkemaData, ['jenis_skema'], ['asc']);
 let container = document.getElementById('container-chart')
 //generate canvas
-_.map(listJenisSkemaData, (v,i) =>{
     container.innerHTML = container.innerHTML + `
-            <div ><canvas id="chart-${i}"></canvas></div>
+            <div ><canvas id="chart-1"></canvas></div>
     `
-})
 console.log(listJenisSkemaData, "ANU")
 //generate canvas
 //generate datasets and chart
-_.map(listJenisSkemaData, (v,i) =>{
-    let datasets = []
-    _.map(lineList, (o,p) =>{
-        datasets.push({
-            label:o,
-            data:_.get(v, mapLineVar[p], -999),
-            backgroundColor:colorList[p],
-            borderColor:colorList[p],
-            yAxisID:'jumlah'
-        })
+let datasets = []
+_.map(lineList, (o,p) =>{
+    datasets.push({
+        label:o,
+        data:_.get(listJenisSkemaData[0], mapLineVar[p], -999),
+        backgroundColor:colorList[p],
+        borderColor:colorList[p],
+        yAxisID:'jumlah'
     })
-    console.log(datasets)
-    const myChart =new Chart(document.getElementById(`chart-${i}`).getContext('2d'), {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: datasets,
-        },
-        options: {
-            responsive: true,
-            interaction: {
+})
+console.log(datasets)
+const myChart =new Chart(document.getElementById(`chart-1`).getContext('2d'), {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: datasets,
+    },
+    options: {
+        responsive: true,
+        interaction: {
             mode: 'index',
             intersect: false,
-            },
-            stacked: false,
-            plugins: {
+        },
+        stacked: false,
+        plugins: {
             title: {
                 display: true,
-                text: v.jenis_skema
+                text: listJenisSkemaData[0].jenis_skema
             }
-            },
-            scales: {
+        },
+        scales: {
             jumlah: {
                 type: 'linear',
                 display: true,
                 position: 'left',
             },
-            }
-        },
-    });
-})  
+        }
+    },
+});
 </script>
 @endsection

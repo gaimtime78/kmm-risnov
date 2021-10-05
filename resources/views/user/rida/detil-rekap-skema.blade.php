@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tagline-message page-title text-center">
-                    <h3 style="color:black">Skema PNBP - {{$jenis_skema}} - {{$tahun}}</h3>
+                    <h3 style="color:black"> @foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach </br>{{$tahun}} </h3>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -25,13 +25,12 @@
         <div class="boxed boxedp4">
             <div class="row">
                 <div class="col s12 m12 l12">
-                @foreach($data as $row)
-                <h4>{{$row["periode"]}}</h4>
+               
                 <table style="margin-bottom:5em" id="data-menu" class="table display" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="text-align:justify !important;">#</th>
-                            <th style="text-align:center !important;">Fakultas</th>
+                            <th style="text-align:justify !important;">No</th>
+                            <th style="text-align:center !important;">Jenis Skema</th>
                             <th style="text-align:center !important;">Jumlah</th>
                         </tr>
                     </thead>
@@ -42,19 +41,22 @@
                         @foreach ($data as $v)
                           <tr>
                               <td style="text-align:center !important;">{{$i}}</td>
-                              <td style="text-align:center !important;">{{$v->jenis_skema}}</td>
+                              <td style="text-align:left !important;">{{$v->jenis_skema}}</td>
                               <td style="text-align:center !important;">{{$v->jumlah}}</td>
                               <!-- Modal Edit -->
                           </tr>
+
                           @php
                           $i++;
                           @endphp
                         @endforeach
-                        
+                        <tr>
+                            <th colspan="2" style="text-align:left !important; background:cyan;">Jumlah</th>
+                            <th style="text-align:center !important;  background:cyan;">{{ $total }}</th>
+                        </tr>
                     </tbody>
                     
                 </table>
-                @endforeach
                 </div>
             </div>
         </div>        

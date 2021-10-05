@@ -720,10 +720,13 @@ Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-konsultan', [App\Http\Co
 Route::get('/dokumentasi-rida/tenaga-pendidik/spesialis-1', [App\Http\Controllers\User\TenagaPendidikController::class, 'spesialis1'])->name('rida-Tenaga Pendidik Spesialis-1');
 Route::get('/dokumentasi-rida/tenaga-pendidik/profesi', [App\Http\Controllers\User\TenagaPendidikController::class, 'profesi'])->name('rida-Tenaga Pendidik Profesi');
 
+
+//index table 23-54
 Route::get('/dokumentasi-rida/hibah-pnbp', [App\Http\Controllers\User\HibahPNBPController::class, 'index'])->name('rida-hibah-pnbp');
 Route::get('/dokumentasi-rida/Rekap-Skema-PNBP', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'index'])->name('rida-Rekap-Skema-PNBP');
 Route::get('/dokumentasi-rida/skema-pnbp', [App\Http\Controllers\User\SkemaPNBPController::class, 'index'])->name('rida-skema-pnbp');
 Route::get('/dokumentasi-rida/skema-non-pnbp', [App\Http\Controllers\User\SkemaNonPNBPController::class, 'index'])->name('rida-skema-non-pnbp');
+
 
 /*detail grafik 1-6*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_doktor'])->name('rida-periode-Tenaga Pendidik Doktor');
@@ -831,10 +834,12 @@ Route::get('/dokumentasi-rida/detail/h-indeks-pkm/{fakultas}/{tahun}/{periode}',
 Route::get('/dokumentasi-rida/export/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-hibah-pnbp');
 
 //detail periode grafik 25
-Route::get('/dokumentasi-rida/pilih_periode/rekap-skema-pnbp/{jenis_skema}/{tahun}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'periode'])->name('rida-periode-rekap-skema-pnbp');
-Route::get('/dokumentasi-rida/detail/rekap-skema-pnbp/{jenis_skema}/{tahun}/{periode}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'detail_data_rekap_tahun'])->name('rida-detail-rekap-skema-pnbp');
+Route::get('/dokumentasi-rida/pilih_periode/rekap-skema-pnbp/{tahun}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'periode'])->name('rida-periode-rekap-skema-pnbp');
+Route::get('/dokumentasi-rida/detail/rekap-skema-pnbp/{tahun}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'detail_data_rekap_tahun'])->name('rida-detail-rekap-skema-pnbp');
 // Route::get('/dokumentasi-rida/export/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-hibah-pnbp');
 
+//detail periode grafik 26-43
+Route::get('/dokumentasi-rida/skema-pnbp/{skema}/{tahun}', [App\Http\Controllers\User\SkemaPNBPController::class, 'detailsFront'])->name('skemapnbp-details-front');
 
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);

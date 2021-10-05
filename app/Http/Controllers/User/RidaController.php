@@ -37,8 +37,9 @@ class RidaController extends Controller
       $dataSd  = DB::table('peneliti_pengabdi_kependidikan_sd')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       
       $dataindeksPenelitiPKM  = DB::table('indeks_penelitian_pkm')->select("nama_table")->distinct()->get("nama_table");
-      $datarekaphibahpnbp  = DB::table('rekap_skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $datahibahpnbp  = DB::table('hibah_pnbps')->select("nama_table")->distinct()->get("nama_table");
+      $datarekaphibahpnbp  = DB::table('rekap_skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
+      $dataskema_pnbp  = DB::table('skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $dataskema_non_pnbp  = DB::table('skema_non_pnbp')->select("nama_table")->distinct()->get("nama_table");
       
       $data  = PenelitiPengabdi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
@@ -79,8 +80,9 @@ class RidaController extends Controller
                   "dataUsiaProduktifSp_1"=>$dataUsiaProduktifSp_1,
                   "dataUsiaProduktifProfesi"=>$dataUsiaProduktifProfesi,
                   "dataindeksPenelitiPKM"=>$dataindeksPenelitiPKM,
-                  "datarekaphibahpnbp"=>$datarekaphibahpnbp,
                   "datahibahpnbp"=>$datahibahpnbp,
+                  "datarekaphibahpnbp"=>$datarekaphibahpnbp,
+                  "dataskema_pnbp"=>$dataskema_pnbp,
                   "dataskema_non_pnbp"=>$dataskema_non_pnbp,
       ]);
     }
