@@ -82,7 +82,7 @@
                                                             {{ $loop->iteration }}</td>
                                                         <td
                                                             style="border: 1px solid black !important;text-align:left !important;">
-                                                            {{ $row->skema }}</td>
+                                                            {{ $row->jenis_skema }}</td>
                                                         <td style="border: 1px solid black !important;"><a href="{{ route('admin.skemapnbp.details-skemaFakultas5tahun', ['skema' => $row->skema]) }}"
                                                                 class="btn modal-trigger"
                                                                 style="background-color: orange;">Details</a></td>

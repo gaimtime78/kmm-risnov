@@ -94,7 +94,7 @@
                                                     <div id="edit{{$row->id}}" class="modal modal-fixed-footer">
                                                         <form
                                                             action="{{ route('admin.penelitipengabdispesialis1.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]) }}"
-                                                            method="post">
+                                                            method="post" enctype="multipart/form-data">
                                                             @csrf
                                                             <div class="modal-content">
                                                                 <h4>Edit Data</h4>

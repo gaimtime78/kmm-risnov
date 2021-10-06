@@ -20,7 +20,7 @@
 </section><!-- end section -->
 <section class="section db p120">
     <div class="container">
-        <div class="boxed boxedp4">
+        <div class="boxed boxedp4" style="width: min-content;">
             <div class="row">
                 <div id="table-datatables">
                     <!-- <div class="row"> -->
@@ -59,19 +59,19 @@
                                          -->
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            25 s.d 35</th>
+                                            25 s.d. 35</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            36 s.d 45</th>
+                                            36 s.d. 45</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            46 s.d 55</th>
+                                            46 s.d. 55</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            56 s.d 65</th>
+                                            56 s.d. 65</th>
                                         <th
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                                            66 s.d 75</th>
+                                            66 s.d. 75</th>
                                         <th 
                                             colspan="3" style="border: 1px solid black !important; text-align:center !important;">
                                             > 75</th>
@@ -308,7 +308,7 @@
                                     <tr>
                                         <th colspan="3"
                                             style="border: 1px solid black !important; text-align:center !important;">
-                                            Persen (%)</th>
+                                            Persen (%) </th>
 
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
@@ -340,7 +340,8 @@
                                             {{ number_format((float)  $sum46sd55_P / $totalsemua *100, 2, '.', '') }}</th>
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
-                                            {{ number_format((float)  $sum46sd55_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+                                            {{ number_format((float)  $sum46sd55_jumlah / $totalsemua *100, 2, '.', '') }}</th> 
+
                                         
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
@@ -351,6 +352,8 @@
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
                                             {{ number_format((float)  $sum56sd65_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+
+
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
                                             {{ number_format((float)  $sum66sd75_L / $totalsemua *100, 2, '.', '') }}</th>
@@ -360,6 +363,8 @@
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
                                             {{ number_format((float)  $sum66sd75_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+
+
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
                                             {{ number_format((float)  $sum75_L / $totalsemua *100, 2, '.', '') }}</th>
@@ -369,6 +374,8 @@
                                         <th
                                             style="border: 1px solid black !important; text-align:center !important;">
                                             {{ number_format((float)  $sum75_jumlah / $totalsemua *100, 2, '.', '') }}</th>
+
+                                            
                                         
                                         <th
                                              style="border: 1px solid black !important; text-align:center !important;">

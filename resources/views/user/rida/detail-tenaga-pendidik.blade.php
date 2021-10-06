@@ -59,19 +59,19 @@
                                                     Jenjang</th> -->
                                                 <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    25 s.d 35</th>
+                                                    25 s.d. 35</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    36 s.d 45</th>
+                                                    36 s.d. 45</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    46 s.d 55</th>
+                                                    46 s.d. 55</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    56 s.d 65</th>
+                                                    56 s.d. 65</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
-                                                    66 s.d 75</th>
+                                                    66 s.d. 75</th>
                                                 <th
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     > 75</th>

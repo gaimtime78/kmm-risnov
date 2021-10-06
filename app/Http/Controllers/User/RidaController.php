@@ -36,12 +36,8 @@ class RidaController extends Controller
       $dataSltp  = DB::table('peneliti_pengabdi_kependidikan_sltp')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataSd  = DB::table('peneliti_pengabdi_kependidikan_sd')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       
-      $dataindeksPenelitiPKM  = DB::table('indeks_penelitian_pkm')->select("nama_table")->distinct()->get("nama_table");
-      $datahibahpnbp  = DB::table('hibah_pnbps')->select("nama_table")->distinct()->get("nama_table");
-      $datarekaphibahpnbp  = DB::table('rekap_skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
-      $dataskema_pnbp  = DB::table('skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
-      $dataskema_non_pnbp  = DB::table('skema_non_pnbp')->select("nama_table")->distinct()->get("nama_table");
-      
+
+            
       $data  = PenelitiPengabdi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data2  = PenelitiPengabdiMagister::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data3  = PenelitiPengabdiProfesi::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
@@ -49,7 +45,12 @@ class RidaController extends Controller
       $data5  = PenelitiPengabdiSpesialisKonsultan::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data6  = PenelitiPengabdiSpesialis1::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       
-     
+      $dataindeksPenelitiPKM  = DB::table('indeks_penelitian_pkm')->select("nama_table")->distinct()->get("nama_table");
+      $datahibahpnbp  = DB::table('hibah_pnbps')->select("nama_table")->distinct()->get("nama_table");
+      $datarekaphibahpnbp  = DB::table('rekap_skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
+      $dataskema_pnbp  = DB::table('skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
+      $dataskema_non_pnbp  = DB::table('skema_non_pnbp')->select("nama_table")->distinct()->get("nama_table");
+      
       $slug   = PenelitiPengabdi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug2  = PenelitiPengabdiMagister::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug3  = PenelitiPengabdiProfesi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
@@ -84,7 +85,7 @@ class RidaController extends Controller
                   "datarekaphibahpnbp"=>$datarekaphibahpnbp,
                   "dataskema_pnbp"=>$dataskema_pnbp,
                   "dataskema_non_pnbp"=>$dataskema_non_pnbp,
-      ]);
+                ]);
     }
     
     public function doktoral(Request $request, $jenjang){
@@ -100,7 +101,7 @@ class RidaController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = PenelitiPengabdi::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = PenelitiPengabdi::where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
         $list_fakultas = PenelitiPengabdi::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = PenelitiPengabdi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $nama_table = PenelitiPengabdi::select("nama_table")->distinct()->where("fakultas")->get();
@@ -124,7 +125,7 @@ class RidaController extends Controller
     public function pilih_periode_doktor($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->orderBy('periode')->get('periode', 'tahun_input', 'sumber_data');
       $nama_table = PenelitiPengabdi::select("nama_table")->distinct()->where("fakultas")->get();
       
       return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Doktor", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
@@ -145,10 +146,10 @@ class RidaController extends Controller
       
       $total               = PenelitiPengabdi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       
-      $totalsemua          = PenelitiPengabdi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalsemua          = PenelitiPengabdi::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdi::select("nama_table")->distinct()->where("fakultas")->get();
-      $list_sumber = PenelitiPengabdi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      $list_sumber = PenelitiPengabdi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-tenaga-pendidik',[
         "list_sumber" => $list_sumber,
@@ -177,9 +178,9 @@ class RidaController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = PenelitiPengabdiMagister::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = PenelitiPengabdiMagister::where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
         $list_fakultas = PenelitiPengabdiMagister::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
-        $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
         // dd($list_sumber);
         $nama_table = PenelitiPengabdiMagister::select("nama_table")->distinct()->where("fakultas")->get();
         
@@ -201,7 +202,7 @@ class RidaController extends Controller
     public function pilih_periode_magister($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiMagister::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->orderBy('periode')->get('periode', 'tahun_input', 'sumber_data');
       $nama_table = PenelitiPengabdiMagister::select("nama_table")->distinct()->where("fakultas")->get();
         
        return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Magister",'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
@@ -221,10 +222,10 @@ class RidaController extends Controller
       $sum75_jumlah           = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
 
       $total               = PenelitiPengabdiMagister::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-      $totalsemua          = PenelitiPengabdiMagister::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalsemua          = PenelitiPengabdiMagister::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiMagister::select("nama_table")->distinct()->where("fakultas")->get();
-      $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-tenaga-pendidik',[
         "list_sumber" => $list_sumber,
@@ -253,7 +254,7 @@ class RidaController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = PenelitiPengabdiSpesialis::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = PenelitiPengabdiSpesialis::where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
         $list_fakultas = PenelitiPengabdiSpesialis::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = PenelitiPengabdiSpesialis::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $nama_table = PenelitiPengabdiSpesialis::select("nama_table")->distinct()->where("fakultas")->get();
@@ -275,7 +276,7 @@ class RidaController extends Controller
     public function pilih_periode_sp2($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSpesialis::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSpesialis::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->orderBy('periode')->get('periode', 'tahun_input', 'sumber_data');
       $nama_table = PenelitiPengabdiSpesialis::select("nama_table")->distinct()->where("fakultas")->get();
       
       return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-2", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
@@ -294,10 +295,10 @@ class RidaController extends Controller
       $sum66sd75_jumlah       = PenelitiPengabdiSpesialis::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
       $sum75_jumlah           = PenelitiPengabdiSpesialis::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
       $total                  = PenelitiPengabdiSpesialis::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-      $totalsemua             = PenelitiPengabdiSpesialis::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalsemua             = PenelitiPengabdiSpesialis::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiSpesialis::select("nama_table")->distinct()->where("fakultas")->get();
-      $list_sumber = PenelitiPengabdiSpesialis::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      $list_sumber = PenelitiPengabdiSpesialis::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-tenaga-pendidik',[
         "list_sumber" => $list_sumber,
@@ -326,7 +327,7 @@ class RidaController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = PenelitiPengabdiProfesi::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = PenelitiPengabdiProfesi::where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
         $list_fakultas = PenelitiPengabdiProfesi::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
@@ -349,7 +350,7 @@ class RidaController extends Controller
     public function pilih_periode_profesi($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiProfesi::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->orderBy('periode')->get('periode', 'tahun_input', 'sumber_data');
       $nama_table = PenelitiPengabdiProfesi::select("nama_table")->distinct()->where("fakultas")->get();
       
       return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Profesi", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
@@ -368,11 +369,11 @@ class RidaController extends Controller
       $sum66sd75_jumlah       = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
       $sum75_jumlah           = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
       $total                  = PenelitiPengabdiProfesi::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-      $totalsemua             = PenelitiPengabdiProfesi::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalsemua             = PenelitiPengabdiProfesi::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
       
       $nama_table = PenelitiPengabdiProfesi::select("nama_table")->distinct()->where("fakultas")->get();
-      $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       
       return view('user.rida.detail-tenaga-pendidik',[
@@ -402,7 +403,7 @@ class RidaController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = PenelitiPengabdiSpesialis1::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = PenelitiPengabdiSpesialis1::where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
         $list_fakultas = PenelitiPengabdiSpesialis1::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = PenelitiPengabdiSpesialis1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         $nama_table = PenelitiPengabdiSpesialis1::select("nama_table")->distinct()->where("fakultas")->get();
@@ -425,7 +426,7 @@ class RidaController extends Controller
     public function pilih_periode_sp1($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSpesialis1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSpesialis1::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->orderBy('periode')->get('periode', 'tahun_input', 'sumber_data');
       $nama_table = PenelitiPengabdiSpesialis1::select("nama_table")->distinct()->where("fakultas")->get();
       
       return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
@@ -444,10 +445,10 @@ class RidaController extends Controller
       $sum66sd75_jumlah       = PenelitiPengabdiSpesialis1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
       $sum75_jumlah           = PenelitiPengabdiSpesialis1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
       $total                  = PenelitiPengabdiSpesialis1::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-      $totalsemua             = PenelitiPengabdiSpesialis1::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalsemua             = PenelitiPengabdiSpesialis1::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiSpesialis1::select("nama_table")->distinct()->where("fakultas")->get();
-      $list_sumber = PenelitiPengabdiSpesialis1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      $list_sumber = PenelitiPengabdiSpesialis1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-tenaga-pendidik',[
         "list_sumber" => $list_sumber,
@@ -478,7 +479,7 @@ class RidaController extends Controller
         if($request->has("tahun")){
           $tahun = $request->input("tahun");      
         }
-        $data = PenelitiPengabdiSpesialisKonsultan::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $data = PenelitiPengabdiSpesialisKonsultan::where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
         $list_fakultas = PenelitiPengabdiSpesialisKonsultan::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
         $list_sumber = PenelitiPengabdiSpesialisKonsultan::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
         // dd($list_sumber);
@@ -502,7 +503,7 @@ class RidaController extends Controller
     public function pilih_periode_sp1k($fakultas, $tahun){
       $fakultas  = $fakultas;
       $tahun  = $tahun;
-      $data = PenelitiPengabdiSpesialisKonsultan::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->get('periode', 'tahun_input', 'sumber_data');
+      $data = PenelitiPengabdiSpesialisKonsultan::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->orderBy('periode')->get('periode', 'tahun_input', 'sumber_data');
       $nama_table = PenelitiPengabdiSpesialisKonsultan::select("nama_table")->distinct()->where("fakultas")->get();
       
       return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang SP-1(K)", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
@@ -521,12 +522,12 @@ class RidaController extends Controller
       $sum66sd75_jumlah       = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
       $sum75_jumlah           = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
       $total                  = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-      $totalsemua             = PenelitiPengabdiSpesialisKonsultan::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalsemua             = PenelitiPengabdiSpesialisKonsultan::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent               = $total / $totalsemua * 100;
       
       $nama_table = PenelitiPengabdiSpesialisKonsultan::select("nama_table")->distinct()->where("fakultas")->get();
 
-      $list_sumber = PenelitiPengabdiSpesialisKonsultan::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+      $list_sumber = PenelitiPengabdiSpesialisKonsultan::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       
       return view('user.rida.detail-tenaga-pendidik',[

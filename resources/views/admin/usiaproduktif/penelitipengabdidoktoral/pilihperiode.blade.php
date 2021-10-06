@@ -62,7 +62,7 @@
                   <thead>
                       <tr>
                           <th style="text-align:justify !important;">#</th>
-                          <th style="text-align:center !important;">Periode</th>
+                          <th style="text-align:center !important;">Edisi</th>
                           <th style="text-align:center !important;">Tahun</th>
                           <th style="text-align:center !important;">Sumber Data</th>
                           <th style="text-align:justify !important;">Action</th>
@@ -80,15 +80,15 @@
                           <td style="text-align:center !important;">{{$row->sumber_data}}</td>
                           <td>
                             <a href="{{route('admin.usiaproduktifdoktoral.details', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" class="btn" style="background-color: grey;">Detail</a>
-                            <a href="#edit{{$row->id}}" class="btn modal-trigger" style="background-color: green;">Edit</a>
-                            <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a>
+                            <a href="#edit{{$i}}" class="btn modal-trigger" style="background-color: green;">Edit</a>
+                            <a href="#hapus{{$i}}" class="btn modal-trigger" style="background-color: red;">Delete</a>
                           </td>
                           <!-- Modal Edit -->
-                          <div id="edit{{$row->id}}" class="modal modal-fixed-footer">
+                          <div id="edit{{$i}}" class="modal modal-fixed-footer">
                             <form action="{{route('admin.usiaproduktifdoktoral.update', [$nama_fakultas, $row->periode, $row->tahun_input, $row->sumber_data]  )}}" method="post">
                               @csrf
                               <div class="modal-content">
-                                <h4>Edit Data</h4>
+                                <h4>Edit Data </h4>
                                 <hr>
                                 <div class="row">
                                   <div class="input-field col s12">
@@ -118,7 +118,7 @@
                             </form>
                           </div>
                           <!-- Modal Hapus -->
-                          <div id="hapus{{$row->id}}" class="modal">
+                          <div id="hapus{{$i}}" class="modal">
                             <form action="{{route('admin.usiaproduktifdoktoral.delete', [$nama_fakultas, $row->periode, $row->tahun_input]  )}}" method="get">
                               @csrf
                               <div class="modal-content">

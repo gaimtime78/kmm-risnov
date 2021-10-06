@@ -37,8 +37,9 @@ class DoktoralController extends Controller
     public function pilihperiode($fakultas)
     {
         $nama_fakultas  = $fakultas;
-        $data = UsiaProduktifDoktoral::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $nama_fakultas)->get('periode', 'tahun_input', 'sumber_data');
 
+        $data = UsiaProduktifDoktoral::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $nama_fakultas)->orderBy('periode', 'ASC')->get('id','periode', 'tahun_input', 'sumber_data');
+// dd($data);
         return view('admin.usiaproduktif.penelitipengabdidoktoral.pilihperiode', ['data' => $data, 'nama_fakultas' => $nama_fakultas]);
     }
 

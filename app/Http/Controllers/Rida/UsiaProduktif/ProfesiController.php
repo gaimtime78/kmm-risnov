@@ -31,7 +31,7 @@ class ProfesiController extends Controller
             $peneliti->save();
         }
 
-        return redirect(route('admin.usiaproduktifsp_1k.index'));
+        return redirect(route('admin.usiaproduktifprofesi.index'));
     }
 
     public function pilihperiode($fakultas)

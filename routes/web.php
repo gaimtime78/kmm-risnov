@@ -89,7 +89,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/create', [App\Http\Controllers\Rida\HibahPNBPController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\HibahPNBPController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'edit'])->name('edit');
-            Route::post('/edit/{target}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'update'])->name('update');
+            Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'update'])->name('update');
             Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\HibahPNBPController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\HibahPNBPController::class, 'export'])->name('export');
             Route::post('/import', [App\Http\Controllers\Rida\HibahPNBPController::class, 'import'])->name('import');
@@ -118,28 +118,28 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/deletePeriode', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'deletePeriode'])->name('delete-periode');
             Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-        
+         
         Route::group(['as' => 'rekap_skemapnbp.', 'prefix' => '/rekap_skemapnbp'], function () {
-            Route::get('/', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'index'])->name('index');
+            Route::get('/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'index'])->name('index');
 
-            Route::get('/pilihperiode/{target_capaian}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'pilihperiode'])->name('pilihperiode');
-            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'details'])->name('details');
-            Route::get('/details/{skema}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'detailsSkema'])->name('details-skema');
-            Route::get('/details-5tahun/', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
-            Route::get('/details-5tahun/jenisSkema/{skema}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
-            Route::get('/details-5tahun/jenisSkema/{skema}/', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
+            Route::get('/pilihperiode/{target_capaian}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'details'])->name('details');
+            Route::get('/details/{skema}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkema'])->name('details-skema');
+            Route::get('/details-5tahun/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
+            Route::get('/details-5tahun/jenisSkema/{skema}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
+            Route::get('/details-5tahun/jenisSkema/{skema}/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
             
-            Route::get('/create', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'add'])->name('add');
-            Route::post('/create', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'create'])->name('create');
-            Route::get('/edit/{id}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'edit'])->name('edit');
-            Route::post('/edit/{target}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'update'])->name('update');
-            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'delete'])->name('delete');
-            Route::get('/export', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'export'])->name('export');
-            Route::post('/import', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'import'])->name('import');
-            Route::post('/editPeriode', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'editPeriode'])->name('edit-periode');
-            Route::post('/editJumlah/', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'editJumlah'])->name('edit-jumlah');
-            Route::post('/deletePeriode', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'deletePeriode'])->name('delete-periode');
-            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\RekapSKemaPNBPController::class, 'updateNamaTable'])->name('updateNamaTable');
+            Route::get('/create', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'edit'])->name('edit');
+            Route::post('/edit/{target}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'import'])->name('import');
+            Route::post('/editPeriode', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'editPeriode'])->name('edit-periode');
+            Route::post('/editJumlah/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'editJumlah'])->name('edit-jumlah');
+            Route::post('/deletePeriode', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'deletePeriode'])->name('delete-periode');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
         Route::group(['as' => 'skemanonpnbp.', 'prefix' => '/skemanonpnbp'], function () {

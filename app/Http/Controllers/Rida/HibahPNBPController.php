@@ -102,9 +102,23 @@ class HibahPNBPController extends Controller
      * @param  \App\Models\HibahPNBP  $hibahPNBP
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HibahPNBP $hibahPNBP)
+    // public function update(Request $request, HibahPNBP $hibahPNBP)
+    // {
+    //     //
+
+    // }
+
+    public function update(Request $request, $periode, $tahun_input, $sumber_data)
     {
-        //
+        $hibahpnbps = HibahPNBP::where([['periode', $periode], ['tahun_input', $tahun_input], ['sumber_data', $sumber_data]])->get();
+        foreach ($hibahpnbps as $peneliti) {
+            $peneliti->periode = $request->periode;
+            $peneliti->tahun_input = $request->tahun_input;
+            $peneliti->sumber_data = $request->sumber_data;
+            $peneliti->save();
+        }
+
+        return redirect()->route('admin.hibahpnbp.index');
     }
 
     /**

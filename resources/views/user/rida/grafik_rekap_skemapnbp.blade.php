@@ -24,12 +24,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h3>{{ucwords($name)}} - {{$skema}} - {{$tahun}}</h3>
+                                <h3> {{$skema}}  {{$tahun}}</h3>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end;margin-bottom:1em;">
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
                                 <a href="{{ route('rida-periode-rekap-skema-pnbp', ['tahun' => $tahun]) }}">
-                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detail</button>
                                 </a>
                             </div>
                             <?php $route = route('rida-Rekap-Skema-PNBP')?>

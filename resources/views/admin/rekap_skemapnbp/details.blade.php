@@ -89,10 +89,7 @@
                                                         <td
                                                             style="border: 1px solid black !important;text-align:center !important;">
                                                             {{ $row->jumlah }}</td>
-                                                        <td
-                                                            style="border: 1px solid black !important;text-align:center !important;">
-                                                            {{ $row->id }}</td>
-                                                            <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}"
+                                                        <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}"
                                                                 class="btn modal-trigger"
                                                                 style="background-color: orange;">Edit</a></td>
                                                         <!-- Modal Edit -->

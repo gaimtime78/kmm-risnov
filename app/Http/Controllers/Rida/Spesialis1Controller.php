@@ -149,4 +149,17 @@ class Spesialis1Controller extends Controller
 
         return redirect(route('admin.penelitipengabdispesialis1.details', [$fakultas, $periode, $tahun]));
     }
+
+    
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdiSpesialis1::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdispesialis1.index'));
+    }
 }

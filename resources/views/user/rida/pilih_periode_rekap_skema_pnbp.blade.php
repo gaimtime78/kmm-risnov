@@ -42,7 +42,7 @@
                         @foreach ($data as $row)
                         <tr>
                             <td style="text-align:center !important;">{{$i}}</td>
-                            <td style="text-align:center !important;">{{$row->periode}}</td>
+                            <td style="text-align:center !important;">{{$row->Edisi}}</td>
                             <td style="text-align:center !important;">{{$row->tahun_input}}</td>
                             <td style="text-align:center !important;">{{$row->sumber_data}}</td>
                             <td>

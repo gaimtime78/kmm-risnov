@@ -245,19 +245,19 @@
             
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
                                     class="mdi-image-palette"></i>Skema Penelitian PNBP</a>
-                    <div class="collapsible-body">
-                        <ul>
-                        @if (in_array('admin.permission.index', $permissionUser))
-                            <li class="bold"><a href="{{ route('admin.rekap_skemapnbp.index') }}"
-                                    class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Rekap Skema PNBP</a></li>
-                        @endif
-                        @if (in_array('admin.permission.index', $permissionUser))
-                            <li class="bold"><a href="{{ route('admin.skemapnbp.index') }}"
-                                    class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Skema PNBP</a></li>
-                        @endif
-                        </ul>
-                    </div>
-                </li>
+                        <div class="collapsible-body">
+                            <ul>
+                            @if (in_array('admin.permission.index', $permissionUser))
+                                <li class="bold"><a href="{{ route('admin.rekap_skemapnbp.index') }}"
+                                        class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Rekap Skema PNBP</a></li>
+                            @endif
+                            @if (in_array('admin.permission.index', $permissionUser))
+                                <li class="bold"><a href="{{ route('admin.skemapnbp.index') }}"
+                                        class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Skema PNBP</a></li>
+                            @endif
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </li>
 

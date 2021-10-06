@@ -147,13 +147,13 @@
                                                         <a href="{{ route('admin.rekap_skemapnbp.details', ['periode' => $row->periode, 'tahun_input' => $row->tahun_input]) }}"
                                                             class="btn"
                                                             style="background-color: grey;">Detail</a>
-                                                        <a href="#edit{{ $row->id }}" class="btn modal-trigger"
+                                                        <a href="#edit{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: green;">Edit</a>
                                                         <a href="#hapus{{ $row->id }}" class="btn modal-trigger"
                                                             style="background-color: red;">Delete</a>
                                                     </td>
                                                     <!-- Modal Edit -->
-                                                    <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
+                                                    <div id="edit{{ $i }}" class="modal modal-fixed-footer">
                                                         <form
                                                             action="{{route('admin.rekap_skemapnbp.edit-periode')}}"
                                                             method="post">

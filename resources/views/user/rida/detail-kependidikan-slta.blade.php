@@ -61,16 +61,16 @@
                         < 25</th>
                     <th
                         colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                        25 s.d 35</th>
+                        25 s.d. 35</th>
                     <th
                         colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                        36 s.d 45</th>
+                        36 s.d. 45</th>
                     <th
                         colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                        46 s.d 55</th>
+                        46 s.d. 55</th>
                     <th
                         colspan="3" style="border: 1px solid black !important; text-align:center !important;">
-                        56 s.d 60</th>
+                        56 s.d. 60</th>
                     <th
                         colspan="3" style="border: 1px solid black !important; text-align:center !important;">
                         > 60</th>
