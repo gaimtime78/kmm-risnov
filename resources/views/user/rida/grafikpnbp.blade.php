@@ -35,7 +35,7 @@
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil 5 Edisi Terakhir</button>
                                 </a>
                             </div>
-                            <?php $route = route('rida-'.$name)?>
+                            <?php $route = route('rida-Hibah-PNBP')?>
                             <form action="{{ $route }}" method="get" enctype="multipart/form-data">
                                 <div style="display:grid;grid-template-columns:1fr 5fr;grid-gap:1em">
                                     <div>

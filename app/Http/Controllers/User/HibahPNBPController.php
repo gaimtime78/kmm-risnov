@@ -33,12 +33,17 @@ class HibahPNBPController extends Controller
             $list_fakultas = HibahPNBP::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
             $list_sumber = HibahPNBP::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
             $nama_table = HibahPNBP::select("nama_table")->distinct()->get();
+            $lanjutan = HibahPNBP::select('usulan_lanjutan')->where("fakultas", $fakultas)->where("tahun_input", $tahun)->sum('usulan_lanjutan');
+            $baru = HibahPNBP::select('usulan_baru')->where("fakultas", $fakultas)->where("tahun_input", $tahun)->sum('usulan_baru');
+            $jumlahdata = $lanjutan + $baru ;
+// dd($jumlahdata);
+
             // dd($list_sumber);
             return view('user.rida.grafikpnbp', [
 
                 "name" => "hibah-pnbp",
                 "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun,
-                "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun, "nama_table" => $nama_table
+                "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun, "nama_table" => $nama_table, "jumlahdata" => $jumlahdata
             ]);
         }
 
@@ -66,6 +71,10 @@ class HibahPNBPController extends Controller
         
         $tahun_input = HibahPNBP::select('tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->orderBy('tahun_input', 'ASC')->get()->pluck('tahun_input');
         $dataHibah = HibahPNBP::where("fakultas", $fakultas)->where('tahun_input', '>=', $start_tahun)->get();
+
+        // $sumHibah = HibahPNBP::where("fakultas", $fakultas)->where('tahun_input', '>=', $start_tahun)->get();
+//         $sumHibah             = HibahPNBP::select()->where([['fakultas',  $fakultas], ['tahun_input', '>=',$start_tahun]])->sum('usulan_lanjutan', 'usulan_baru');
+// dd($sumHibah);
         $nama_table = HibahPNBP::select("nama_table")->distinct()->get();
         $hibah = [];
         foreach($dataHibah as $item){
@@ -73,7 +82,8 @@ class HibahPNBPController extends Controller
                 $hibah[$item->fakultas]['fakultas'] = $item->fakultas;
             }
             // $hibah[$item->fakultas]['data'][$item->tahun_input] = $item->usulan_lanjutan ;
-            $hibah[$item->fakultas]['data'][$item->tahun_input] = [(string)$item->usulan_lanjutan , (string)$item->usulan_baru , (string)$item->diterima];
+            // $hibah[$item->fakultas]['data'][$item->tahun_input] = [(string)$item->usulan_lanjutan , (string)$item->usulan_baru , (string)$item->diterima];
+            $hibah[$item->fakultas]['data'][$item->tahun_input] = [ (string)(($item->usulan_lanjutan + $item->usulan_baru)), (string)$item->diterima];
         // dd($hibah[$item->fakultas]['data'][$item->tahun_input]);
         }
         

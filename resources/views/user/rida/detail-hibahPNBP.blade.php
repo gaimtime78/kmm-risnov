@@ -34,25 +34,26 @@
                                             <tr style="border: 1px solid black !important;">
                                                 <th rowspan="4" style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">No</th>
                                                 <th rowspan="4" style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Fakultas</th>
-                                                <th colspan="15" style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Tahun</th>
+                                                <th colspan="14" style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Tahun</th>
                                             </tr>
                                             
                                             <tr style="border: 1px solid black !important;">
                                                 @foreach($tahun_input as $tahun)
-                                                    <th colspan="3" style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
+                                                    <th colspan="2" style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
                                                 @endforeach
                                             </tr>
                                             <tr>
                                                 @foreach($tahun_input as $tahun)
-                                                    <th colspan="2"
+                                                    <th 
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     Usulan</th>
-                                                    <th rowspan="2"
+                                                    <th 
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     Diterima</th>
                                                 @endforeach
 
                                             </tr>
+                                            {{--
                                             <tr style="border: 1px solid black !important;">
                                                 @foreach($tahun_input as $tahun)
                                                     <th
@@ -63,7 +64,7 @@
                                                     Baru</th>
                                                 @endforeach
                                             </tr>
-                                           
+                                            --}}      
                                             
 
                                         </thead>

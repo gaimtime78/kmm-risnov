@@ -18,9 +18,23 @@ class ResearchController extends Controller
     //
     public function index(){
         $research = ResearchGroup::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode','tahun_input','sumber_data');
+        $nama_table  = ResearchGroup::select('nama_table')->distinct()->get('nama_table');
         
-        return view('admin.researchgroup.index', ['research' => $research]);
+        return view('admin.researchgroup.index', ['research' => $research, 'nama_table' => $nama_table]);
     }
+
+    public function updateNamaTable(Request $request, $nama_table)
+    {
+        $penelitipengabdi = PenelitiPengabdi::where([['nama_table', $nama_table]])->get();
+        
+        foreach ($penelitipengabdi as $peneliti) {
+            $peneliti->nama_table = $request->nama_table;
+            $peneliti->save();
+        }
+
+        return redirect(route('admin.penelitipengabdi.index'));
+    }
+    
     public function import(Request $request)
     {
         $file = $request->file("researchgroup");
