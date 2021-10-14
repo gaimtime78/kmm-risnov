@@ -108,6 +108,9 @@
                     <thead>
                       <tr>
                         <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                        @foreach ($jumlahtotal as $row)
+                          <th  style="border: 1px solid black !important; text-align:center !important;">{{ $row->tahun1 }}</th>
+                        @endforeach
                       </tr>
                       
                     </thead>

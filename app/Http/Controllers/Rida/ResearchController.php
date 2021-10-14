@@ -87,13 +87,15 @@ class ResearchController extends Controller
         $researchData = ResearchGroup::select('fakultas','tahun_input','tahun1')->where('tahun_input', '>=', $start_tahun)->get();
         $research = [];
         $nama_table  = ResearchGroup::select('nama_table')->distinct()->get('nama_table');
-        
+
+        $jumlahtotal = ResearchGroup::select('tahun1')->where('tahun_input', '>=', $start_tahun)->sum(tahun1);
+        // dd($jumlahtotal);
         foreach($researchData as $item){
             if(empty($research[$item->fakultas])){
                 $research[$item->fakultas]['fakultas'] = $item->fakultas;
             }
             $research[$item->fakultas]['data'][$item->tahun_input] = $item->tahun1;
         }
-        return view('admin.researchgroup.details', ['research' => $research, 'tahun_input' => $tahun_input, 'nama_table' => $nama_table]);    
+        return view('admin.researchgroup.details', ['research' => $research, 'tahun_input' => $tahun_input, 'nama_table' => $nama_table, 'jumlahtotal' => $jumlahtotal]);    
     }
 }
