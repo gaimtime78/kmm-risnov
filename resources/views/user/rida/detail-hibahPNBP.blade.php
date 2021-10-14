@@ -100,6 +100,12 @@
                 </div> 
                 <br>
                 <div class="divider"></div> 
+                <div style="margin-top:2em">
+                    
+                    @foreach($list_sumber as $s)
+                    <div><b>RIDA {{$s->periode}}  Tahun {{ $s->tahun_input }}  </b> <br>{{$s->sumber_data}} </b></div>
+                    @endforeach
+                </div>
                 <!--DataTables example Row grouping-->
             </div>
         </div>        

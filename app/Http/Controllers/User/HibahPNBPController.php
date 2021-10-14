@@ -29,9 +29,9 @@ class HibahPNBPController extends Controller
             if ($request->has("tahun")) {
                 $tahun = $request->input("tahun");
             }
-            $data = HibahPNBP::where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+            $data = HibahPNBP::where("fakultas", $fakultas)->orderBy('tahun_input', 'ASC')->get();
             $list_fakultas = HibahPNBP::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
-            $list_sumber = HibahPNBP::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+            $list_sumber = HibahPNBP::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->orderBy('tahun_input', 'ASC')->get();
             $nama_table = HibahPNBP::select("nama_table")->distinct()->get();
             $lanjutan = HibahPNBP::select('usulan_lanjutan')->where("fakultas", $fakultas)->where("tahun_input", $tahun)->sum('usulan_lanjutan');
             $baru = HibahPNBP::select('usulan_baru')->where("fakultas", $fakultas)->where("tahun_input", $tahun)->sum('usulan_baru');
@@ -76,6 +76,9 @@ class HibahPNBPController extends Controller
 //         $sumHibah             = HibahPNBP::select()->where([['fakultas',  $fakultas], ['tahun_input', '>=',$start_tahun]])->sum('usulan_lanjutan', 'usulan_baru');
 // dd($sumHibah);
         $nama_table = HibahPNBP::select("nama_table")->distinct()->get();
+
+        $list_sumber = HibahPNBP::select("periode","tahun_input", "sumber_data")->distinct()->where("fakultas", $fakultas)->orderBy('tahun_input', 'ASC')->get();
+
         $hibah = [];
         foreach($dataHibah as $item){
             if(empty($hibah[$item->fakultas])){
@@ -87,6 +90,6 @@ class HibahPNBPController extends Controller
         // dd($hibah[$item->fakultas]['data'][$item->tahun_input]);
         }
         
-        return view('user.rida.detail-hibahPNBP', ['hibah' => $hibah, 'tahun_input' => $tahun_input, 'nama_table' => $nama_table, 'fakultas' => $fakultas]);    
+        return view('user.rida.detail-hibahPNBP', ['list_sumber' => $list_sumber ,'hibah' => $hibah, 'tahun_input' => $tahun_input, 'nama_table' => $nama_table, 'fakultas' => $fakultas]);    
     }
 }

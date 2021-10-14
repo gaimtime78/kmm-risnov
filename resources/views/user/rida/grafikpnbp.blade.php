@@ -32,7 +32,7 @@
                                 </a>
                                 
                                 <a href="{{route( 'rida-periode-hibah-pnbp', [$fakultas]) }}">
-                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil 5 Edisi Terakhir</button>
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detail 5 Edisi Terakhir</button>
                                 </a>
                             </div>
                             <?php $route = route('rida-Hibah-PNBP')?>
@@ -70,12 +70,6 @@
                                             </div>
                                             <button style="margin-top:2em;background-color:blue" type="submit" class="waves-effect waves-light btn primary darken-1">Filter</button>
                                         </div>
-                                        <div style="margin-top:2em">
-                                            <h4>Sumber Data :</h4>
-                                            @foreach($list_sumber as $s)
-                                            <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
-                                            @endforeach
-                                        </div>
                                     </div>
                                     <div style="grid-column:2" id="container-chart">
                                         <div ><canvas id="chart-id"></canvas></div>
@@ -86,10 +80,40 @@
                     </div><!-- end row -->
                     <br>
                     <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-9">
-                            <table class="table">
-
+                        <div class="col-md-12">
+                            <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
+                                <thead>
+                                    <tr style="border: 1px solid black !important;">
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">No</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Fakultas</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Edisi</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Tahun</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Usulan</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Diterima</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Keterangan</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    @foreach ($data as $row)
+                                    
+                                    <tr style="border: 1px solid black !important;">
+                                        <td style="border: 1px solid black !important;text-align:center !important;">{{$loop->iteration}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->fakultas}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->periode}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->tahun_input}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->usulan_lanjutan + $row->usulan_baru}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->diterima}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->sumber_data}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <thead>
+                                <!-- <tr>
+                                    <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                                </tr>
+                                    -->
+                            </thead>
                             </table>
                         </div>
                     </div>
@@ -106,12 +130,12 @@
 const data = {!! json_encode($data) !!}
 const tahun = {!! json_encode($tahun) !!}
 const colorList = ["#e8dc2e", "#2ee878", "#2e53e8"]
-const usulanList = ["Usulan Lanjutan", "Usulan Baru", "Diterima"]
+const usulanList = ["Usulan", "Diterima"]
 const mapUsulanVar = ["usulan_lanjutan", "usulan_baru", "diterima"]
 const labels = []
 //generate list label
 _.map(data, v =>{
-    if(!labels.includes(v.periode)) labels.push(v.periode)
+    if(!labels.includes(v.tahun_input)) labels.push(v.tahun_input)
 })
 console.log(data, labels)
 //build hirarki data
@@ -120,13 +144,24 @@ console.log(data, labels)
 let datasets = []
 _.map(usulanList, (o,p) =>{
     console.log(o,p)
-    datasets.push({
-        label:o,
-        data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, mapUsulanVar[p], -999)),
-        backgroundColor:colorList[p],
-        borderColor:colorList[p],
-        yAxisID:'jumlah'
-    })
+    if(o === "Usulan"){
+        datasets.push({
+            label:o,
+            data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, 'usulan_lanjutan', -999)*1 + _.get(v, 'usulan_baru', -999)*1),
+            backgroundColor:colorList[p],
+            borderColor:colorList[p],
+            yAxisID:'jumlah'
+        })
+    }else{
+        datasets.push({
+            label:o,
+            data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, 'diterima', -999)),
+            backgroundColor:colorList[p],
+            borderColor:colorList[p],
+            yAxisID:'jumlah'
+        })
+    }
+    
 })
 console.log(datasets)
 const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), {
@@ -158,39 +193,39 @@ const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), 
     },
 });
 
-const keyToKeep = ['periode', 'tahun_input', 'usulan_lanjutan', 'usulan_baru', 'diterima'];
+// const keyToKeep = ['periode', 'tahun_input', 'usulan_lanjutan', 'usulan_baru', 'diterima'];
 
-const redux = array => array.map(o => keyToKeep.reduce((acc, curr) => {
-  acc[curr] = o[curr];
-  return acc;
-}, {}));
+// const redux = array => array.map(o => keyToKeep.reduce((acc, curr) => {
+//   acc[curr] = o[curr];
+//   return acc;
+// }, {}));
 
-function generateTableHead(table, data) {
-  let thead = table.createTHead();
-  let row = thead.insertRow();
-  for (let key of data) {
-    let th = document.createElement("th");
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    row.appendChild(th);
-  }
-}
+// function generateTableHead(table, data) {
+//   let thead = table.createTHead();
+//   let row = thead.insertRow();
+//   for (let key of data) {
+//     let th = document.createElement("th");
+//     let text = document.createTextNode(key);
+//     th.appendChild(text);
+//     row.appendChild(th);
+//   }
+// }
 
-function generateTable(table, data) {
-  for (let element of data) {
-    let row = table.insertRow();
-    for (key in element) {
-      let cell = row.insertCell();
-      let text = document.createTextNode(element[key]);
-      cell.appendChild(text);
-    }
-  }
-}
+// function generateTable(table, data) {
+//   for (let element of data) {
+//     let row = table.insertRow();
+//     for (key in element) {
+//       let cell = row.insertCell();
+//       let text = document.createTextNode(element[key]);
+//       cell.appendChild(text);
+//     }
+//   }
+// }
 
-let table = document.querySelector("table");
-let header = ["Periode", "Tahun", "Usulan Lanjutan", "Usulan Baru", "Diterima"];
-let dataChosen = redux(data);
-generateTableHead(table, header);
-generateTable(table, dataChosen);
+// let table = document.querySelector("table");
+// let header = ["Periode", "Tahun", "Usulan Lanjutan", "Usulan Baru", "Diterima"];
+// let dataChosen = redux(data);
+// generateTableHead(table, header);
+// generateTable(table, dataChosen);
 </script>
 @endsection
