@@ -50,6 +50,7 @@ class RidaController extends Controller
       $datarekaphibahpnbp  = DB::table('rekap_skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $dataskema_pnbp  = DB::table('skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $dataskema_non_pnbp  = DB::table('skema_non_pnbp')->select("nama_table")->distinct()->get("nama_table");
+      $data_research_grup   = DB::table('researchgroup')->select("nama_table")->distinct()->get("nama_table");
       
       $slug   = PenelitiPengabdi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug2  = PenelitiPengabdiMagister::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
@@ -85,6 +86,7 @@ class RidaController extends Controller
                   "datarekaphibahpnbp"=>$datarekaphibahpnbp,
                   "dataskema_pnbp"=>$dataskema_pnbp,
                   "dataskema_non_pnbp"=>$dataskema_non_pnbp,
+                  "data_research_grup"=>$data_research_grup,
                 ]);
     }
     

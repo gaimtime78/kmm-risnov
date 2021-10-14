@@ -726,6 +726,7 @@ Route::get('/dokumentasi-rida/hibah-pnbp', [App\Http\Controllers\User\HibahPNBPC
 Route::get('/dokumentasi-rida/Rekap-Skema-PNBP', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'index'])->name('rida-Rekap-Skema-PNBP');
 Route::get('/dokumentasi-rida/skema-pnbp', [App\Http\Controllers\User\SkemaPNBPController::class, 'index'])->name('rida-skema-pnbp');
 Route::get('/dokumentasi-rida/skema-non-pnbp', [App\Http\Controllers\User\SkemaNonPNBPController::class, 'index'])->name('rida-skema-non-pnbp');
+Route::get('/dokumentasi-rida/research-grup', [App\Http\Controllers\User\ResearchGrupController::class, 'index'])->name('rida-research_grup');
 
 
 /*detail grafik 1-6*/
@@ -827,6 +828,12 @@ Route::get('/dokumentasi-rida/skema-non-pnbp/{jenis}/{tahun}', [App\Http\Control
 // Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
 Route::get('/dokumentasi-rida/pilih_periode/hibah-pnbp/{fakultas}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
 Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'export'])->name('rida-export-hibah-pnbp');
+
+// table research_grup
+
+// Route::get('/dokumentasi-rida/pilih_periode/research_group/{fakultas}/{tahun}', [App\Http\Controllers\User\HibahPNBPController::class, 'periode'])->name('rida-periode-hibah-pnbp');
+Route::get('/dokumentasi-rida/pilih_periode/research_group/{fakultas}', [App\Http\Controllers\User\ResearchGrupController::class, 'periode'])->name('rida-periode-research_group');
+Route::get('/dokumentasi-rida/export/research_group/{fakultas}/{tahun}', [App\Http\Controllers\User\ResearchGrupController::class, 'export'])->name('rida-export-research_group');
 
 //detail periode grafik 23
 Route::get('/dokumentasi-rida/pilih_periode/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'pilih_periode_indekspkm'])->name('rida-periode-indeks-pkm');
