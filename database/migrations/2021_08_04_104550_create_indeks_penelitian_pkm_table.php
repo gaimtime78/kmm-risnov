@@ -86,6 +86,9 @@ class CreateIndeksPenelitianPkmTable extends Migration
          
             $table->string('percent21');
             $table->string('jumlah21');
+         
+            $table->string('percent22');
+            $table->string('jumlah22');
             
             $table->string('jumlahtotal');
             $table->string('percenttotal');

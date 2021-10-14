@@ -83,8 +83,12 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
 
           'jumlah21' => $rows[$i][43],
           'percent21' => round((float) $rows[$i][44], 3) * 100,
-          'jumlahtotal' => $rows[$i][45],
-          'percenttotal' => round((float) $rows[$i][46], 3) * 100,
+          
+          'jumlah22' => $rows[$i][45],
+          'percent22' => round((float) $rows[$i][46], 3) * 100,
+
+          'jumlahtotal' => $rows[$i][47],
+          'percenttotal' => round((float) $rows[$i][48], 3) * 100,
           'user_id' => Auth::user()->id
         ]);
       }

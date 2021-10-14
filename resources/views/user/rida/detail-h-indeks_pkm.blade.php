@@ -29,7 +29,7 @@
                                 <tr style="border: 1px solid black !important;">
                                     <th  rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
                                     <th  rowspan="3" style="border: 1px solid black !important; text-align:center !important;">Fakultas</th>
-                                    <th  colspan="46" style="border: 1px solid black !important; text-align:center !important;">H - I N D E K S</th>
+                                    <th  colspan="48" style="border: 1px solid black !important; text-align:center !important;">H - I N D E K S</th>
                                 </tr>
                                
                                 
@@ -56,6 +56,7 @@
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">8</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">9</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">10</th>
+                                    <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;"></th>
                             
                                     <th  rowspan="2" style="background-color: cyan; border: 1px solid black !important;text-align:justify !important;">Jumlah Total</th>
                                     <th  rowspan="2" style="background-color: cyan; border: 1px solid black !important;text-align:justify !important;">Percent (%)</th>
@@ -109,6 +110,8 @@
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent9}}%</td>
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah10}}</td>
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent10}}%</td>
+                                    <td style="border: 1px solid black !important;text-align:center !important;"></td>
+                                    <td style="border: 1px solid black !important;text-align:center !important;"></td>
 
                                     <td rowspan="8" style="vertical-align: middle; border: 1px solid black !important;text-align:center !important;">{{$row->jumlahtotal}}</td>
                                     <td rowspan="8" style="vertical-align: middle; border: 1px solid black !important;text-align:center !important;">{{$row->percenttotal}}%</td>
@@ -130,8 +133,11 @@
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">19</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">20</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">21</th>
+                                    <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">22</th>
                                 </tr>
                                 <tr >
+                                    <th style="background-color: yellow; border: 1px solid black !important;text-align:center !important;">Jml</th>
+                                    <th style="background-color: yellow; border: 1px solid black !important;text-align:center !important;">%</th>
                                     <th style="background-color: yellow; border: 1px solid black !important;text-align:center !important;">Jml</th>
                                     <th style="background-color: yellow; border: 1px solid black !important;text-align:center !important;">%</th>
                                     <th style="background-color: yellow; border: 1px solid black !important;text-align:center !important;">Jml</th>
@@ -178,6 +184,8 @@
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent20}}%</td>
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah21}}</td>
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent21}}%</td>
+                                    <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah22}}</td>
+                                    <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent22}}%</td>
                                     
                                 </tr>
                                 @php
@@ -200,6 +208,7 @@
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">8</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">9</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">10</th>
+                                    <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;"></th>
 
                                     <th rowspan="6"style="vertical-align: middle; border: 1px solid black !important; text-align:center !important;">{{$jmltotalfak}} </th>
                                     <th rowspan="6"style="vertical-align: middle; border: 1px solid black !important; text-align:center !important;">{{$percenttotalfak}}% </th>
@@ -227,6 +236,8 @@
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent9}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah10}}</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent10}}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;"></th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;"></th>
 
                                    
                                 </tr>
@@ -247,6 +258,7 @@
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">19</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">20</th>
                                     <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">21</th>
+                                    <th  colspan="2" style="background-color: cyan; border: 1px solid black !important; text-align:center !important;">22</th>
                                 </tr>
                                 <tr>
                                     
@@ -272,6 +284,8 @@
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent20}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah21}}</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent21}}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah22}}</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent22}}%</th>
                                     
                                    
                                 </tr>

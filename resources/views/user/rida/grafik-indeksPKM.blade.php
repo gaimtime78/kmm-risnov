@@ -96,7 +96,7 @@
 const data = {!! json_encode($data) !!}
 const colorList = ["#e8dc2e", "#2ee878", "#2e53e8", "#722ee8", "#e82ed2", "#ed1a59", "#e8dc2e", "#2ee878", "#2e53e8", "#722ee8", "#e82ed2", "#ed1a59", "#ed1a59" ]
 const labels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", 
-                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
+                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"]
 
 let container = document.getElementById('container-chart')
 //generate canvas
@@ -133,6 +133,7 @@ _.map(data, (v,i) =>{
             v.jumlah19,
             v.jumlah20,
             v.jumlah21,
+            v.jumlah22,
         ]
     })
     const myChart =new Chart(document.getElementById(`chart-${i}`).getContext('2d'), {
