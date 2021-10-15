@@ -112,6 +112,9 @@ class IndeksPenelitiPKMController extends Controller
         $percent20    = round((float)$jml20/$jmltotalfak*100);
         $jml21        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah21');
         $percent21    = round((float)$jml21/$jmltotalfak*100);
+       
+        $jml22        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah22');
+        $percent22    = round((float)$jml22/$jmltotalfak*100);
         $percenttotal    = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('percenttotal');
         $percenttotalfak = round((float)$percenttotal);
 
@@ -149,6 +152,7 @@ class IndeksPenelitiPKMController extends Controller
                     'jumlah19' => $jml19, 'percent19' => $percent19,
                     'jumlah20' => $jml20, 'percent20' => $percent20,
                     'jumlah21' => $jml21, 'percent21' => $percent21,
+                    'jumlah22' => $jml22, 'percent22' => $percent22,
                     'percenttotalfak' => $percenttotalfak,
                     'list_sumber' => $list_sumber,
        ]);

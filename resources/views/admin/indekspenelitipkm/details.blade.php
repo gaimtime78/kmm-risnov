@@ -63,7 +63,7 @@
                       <tr style="border: 1px solid black !important;">
                           <th  rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
                           <th  rowspan="3" style="text-align:justify !important;">Fakultas</th>
-                          <th  colspan="46" style="border: 1px solid black !important; text-align:center !important;">H - I N D E K S</th>
+                          <th  colspan="48" style="border: 1px solid black !important; text-align:center !important;">H - I N D E K S</th>
                           <th  rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
 
                       </tr>
@@ -91,12 +91,15 @@
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">19</th>
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">20</th>
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">21</th>
+                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">22</th>
                           <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Jumlah Total</th>
                           <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Percent (%)</th>
 
                       </tr>
                       <tr >
                           
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
+                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
                           <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
                           <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
                           <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
@@ -195,6 +198,8 @@
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent20}}%</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah21}}</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent21}}%</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah22}}</td>
+                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent22}}%</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlahtotal}}</td>
                           <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percenttotal}}%</td>
                           <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}" class="btn modal-trigger" style="background-color: orange;">Edit</a></td>
@@ -238,7 +243,7 @@
                                     </div>
                                     <div class="row">
                                       <div class="input-field col s12">
-                                        <input value="{{ $row->percent1 }} %"
+                                        <input value="{{ $row->percent1 }}"
                                         id="percent1" name="percent1"
                                         type="text" class="validate" required>
                                         <label for="percent1">%</label>
@@ -256,7 +261,7 @@
                                     </div>
                                     <div class="row">
                                       <div class="input-field col s12">
-                                        <input value="{{ $row->percent2 }} %"
+                                        <input value="{{ $row->percent2 }} "
                                         id="percent2" name="percent2"
                                         type="text" class="validate" required>
                                         <label for="percent2">%</label>
@@ -274,7 +279,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent3 }} %"
+                                            <input value="{{ $row->percent3 }} "
                                                 id="percent3" name="percent3"
                                                 type="text" class="validate" required>
                                             <label for="percent3">%</label>
@@ -292,7 +297,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent4 }} %"
+                                            <input value="{{ $row->percent4 }} "
                                                 id="percent4" name="percent4"
                                                 type="text" class="validate" required>
                                             <label for="percent4">%</label>
@@ -310,7 +315,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent5 }} %"
+                                            <input value="{{ $row->percent5 }} "
                                                 id="percent5" name="percent5"
                                                 type="text" class="validate" required>
                                             <label for="percent5">%</label>
@@ -328,7 +333,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent6 }} %"
+                                            <input value="{{ $row->percent6 }} "
                                                 id="percent6" name="percent6"
                                                 type="text" class="validate" required>
                                             <label for="percent6">%</label>
@@ -346,7 +351,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent7 }} %"
+                                            <input value="{{ $row->percent7 }} "
                                                 id="percent7" name="percent7"
                                                 type="text" class="validate" required>
                                             <label for="percent7">%</label>
@@ -364,7 +369,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent8 }} %"
+                                            <input value="{{ $row->percent8 }} "
                                                 id="percent8" name="percent8"
                                                 type="text" class="validate" required>
                                             <label for="percent8">%</label>
@@ -382,7 +387,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent9 }} %"
+                                            <input value="{{ $row->percent9 }} "
                                                 id="percent9" name="percent9"
                                                 type="text" class="validate" required>
                                             <label for="percent9">%</label>
@@ -400,7 +405,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent10 }} %"
+                                            <input value="{{ $row->percent10 }} "
                                                 id="percent10" name="percent10"
                                                 type="text" class="validate" required>
                                             <label for="percent10">%</label>
@@ -411,14 +416,14 @@
                                     <div class="row">
                                       <div class="input-field col s12">
                                         <input value="{{ $row->jumlah11 }}"
-                                        id="jumlah11" name="jumlah0"
+                                        id="jumlah11" name="jumlah11"
                                         type="text" class="validate" required>
                                         <label for="jumlah11">11</label>
                                       </div>
                                     </div>
                                     <div class="row">
                                       <div class="input-field col s12">
-                                        <input value="{{ $row->percent11 }} %"
+                                        <input value="{{ $row->percent11 }} "
                                         id="percent11" name="percent11"
                                         type="text" class="validate" required>
                                         <label for="percent11">%</label>
@@ -436,7 +441,7 @@
                                     </div>
                                     <div class="row">
                                       <div class="input-field col s12">
-                                        <input value="{{ $row->percent12 }} %"
+                                        <input value="{{ $row->percent12 }} "
                                         id="percent12" name="percent12"
                                         type="text" class="validate" required>
                                         <label for="percent12">%</label>
@@ -454,7 +459,7 @@
                                     </div>
                                     <div class="row">
                                       <div class="input-field col s12">
-                                        <input value="{{ $row->percent13 }} %"
+                                        <input value="{{ $row->percent13 }} "
                                         id="percent13" name="percent13"
                                         type="text" class="validate" required>
                                         <label for="percent13">%</label>
@@ -472,7 +477,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent14 }} %"
+                                            <input value="{{ $row->percent14 }} "
                                                 id="percent14" name="percent14"
                                                 type="text" class="validate" required>
                                             <label for="percent14">%</label>
@@ -490,7 +495,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent15 }} %"
+                                            <input value="{{ $row->percent15 }} "
                                                 id="percent15" name="percent15"
                                                 type="text" class="validate" required>
                                             <label for="percent15">%</label>
@@ -508,7 +513,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent16 }} %"
+                                            <input value="{{ $row->percent16 }} "
                                                 id="percent16" name="percent16"
                                                 type="text" class="validate" required>
                                             <label for="percent16">%</label>
@@ -526,7 +531,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent17 }} %"
+                                            <input value="{{ $row->percent17 }} "
                                                 id="percent17" name="percent17"
                                                 type="text" class="validate" required>
                                             <label for="percent17">%</label>
@@ -544,7 +549,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent18 }} %"
+                                            <input value="{{ $row->percent18 }} "
                                                 id="percent18" name="percent18"
                                                 type="text" class="validate" required>
                                             <label for="percent18">%</label>
@@ -562,7 +567,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent19 }} %"
+                                            <input value="{{ $row->percent19 }} "
                                                 id="percent19" name="percent19"
                                                 type="text" class="validate" required>
                                             <label for="percent19">%</label>
@@ -580,7 +585,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent20 }} %"
+                                            <input value="{{ $row->percent20 }} "
                                                 id="percent20" name="percent20"
                                                 type="text" class="validate" required>
                                             <label for="percent20">%</label>
@@ -598,10 +603,28 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input value="{{ $row->percent21 }} %"
+                                            <input value="{{ $row->percent21 }} "
                                                 id="percent21" name="percent21"
                                                 type="text" class="validate" required>
                                             <label for="percent21">%</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Indeks 22</p>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->jumlah22 }}"
+                                                id="jumlah22" name="jumlah22"
+                                                type="text" class="validate" required>
+                                            <label for="jumlah22">22</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input value="{{ $row->percent22 }} "
+                                                id="percent22" name="percent22"
+                                                type="text" class="validate" required>
+                                            <label for="percent22">%</label>
                                         </div>
                                     </div>
                                 
@@ -683,6 +706,8 @@
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percent20}}%</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah21}}</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percent21}}%</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah22}}</th>
+                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent22}}%</th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$jmltotalfak}} </th>
                           <th style="border: 1px solid black !important; text-align:center !important;">{{$percenttotalfak}}% </th>
                       </tr>

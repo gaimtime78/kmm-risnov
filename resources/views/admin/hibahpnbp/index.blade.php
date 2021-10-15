@@ -143,7 +143,7 @@
                                                             style="background-color: grey;">Detail</a>
                                                         <a href="#edit{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: green;">Edit</a>
-                                                        <a href="#hapus{{ $row->id }}" class="btn modal-trigger"
+                                                        <a href="#hapus{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: red;">Delete</a>
                                                     </td>
                                                     <!-- Modal Edit -->
@@ -192,7 +192,7 @@
                                                         </form>
                                                     </div>
                                                     <!-- Modal Hapus -->
-                                                    <div id="hapus{{ $row->id }}" class="modal">
+                                                    <div id="hapus{{ $i }}" class="modal">
                                                         <form
                                                             action="{{ route('admin.hibahpnbp.delete', ['periode' => $row->periode, 'tahun_input' => $row->tahun_input]) }}"
                                                             method="get">

@@ -24,17 +24,18 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class=" page-title text-center">
-                                <h4>@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach <br> {{$fakultas}} <!--<br>  <br> TAHUN {{$tahun}}--></h4>
+                                <h4>@foreach($nama_table as $nama) {{ucwords( $nama->nama_table )}} @endforeach <br> {{$fakultas}} <!--<br>  <br> TAHUN {{$tahun}}--></h4>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
                                 <a href="{{route( 'rida-export-'.$name , [$fakultas, $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
                                 </a>
-                                <a href="{{route( 'rida-periode-indeks-pkm', [$fakultas, $tahun]) }}">
-                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
+                                
+                                <a href="{{route( 'rida-periode-research_group', [$fakultas]) }}">
+                                    <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detail 5 Edisi Terakhir</button>
                                 </a>
                             </div>
-                            <?php $route = route('rida-H-indeksPenelitiPKM')?>
+                            <?php $route = route('rida-research_grup')?>
                             <form action="{{ $route }}" method="get" enctype="multipart/form-data">
                                 <div style="display:grid;grid-template-columns:1fr 5fr;grid-gap:1em">
                                     <div>
@@ -69,20 +70,51 @@
                                             </div>
                                             <button style="margin-top:2em;background-color:blue" type="submit" class="waves-effect waves-light btn primary darken-1">Filter</button>
                                         </div>
-                                        {{--
-                                            <div style="margin-top:2em">
-                                                <h4>Sumber Data :</h4>
-                                                @foreach($list_sumber as $s)
-                                                <div><b>{{$s->periode}}</b> berasal dari <b>{{$s->sumber_data}}</b></div>
-                                                @endforeach
-                                            </div>
-                                            --}}
                                     </div>
-                                    <div style="grid-column:2" id="container-chart"></div>
+                                    <div style="grid-column:2" id="container-chart">
+                                        <div ><canvas id="chart-id"></canvas></div>
+                                    </div>
                                 </div>
                             </form>
                         </div><!-- end col -->
                     </div><!-- end row -->
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
+                                <thead>
+                                    <tr style="border: 1px solid black !important;">
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">No</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Fakultas</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Edisi</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Tahun</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Jumlah</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Keterangan</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    @foreach ($data as $row)
+                                    
+                                    <tr style="border: 1px solid black !important;">
+                                        <td style="border: 1px solid black !important;text-align:center !important;">{{$loop->iteration}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->fakultas}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->periode}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->tahun_input}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->tahun1}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->sumber_data}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <thead>
+                                <!-- <tr>
+                                    <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                                </tr>
+                                    -->
+                            </thead>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div><!-- end container -->
         </section><!-- end section -->
@@ -94,77 +126,59 @@
 <script type="text/javascript" src="{{ asset('design\js\lodash.min.js') }}"></script>
 <script>
 const data = {!! json_encode($data) !!}
-const colorList = ["#e8dc2e", "#2ee878", "#2e53e8", "#722ee8", "#e82ed2", "#ed1a59", "#e8dc2e", "#2ee878", "#2e53e8", "#722ee8", "#e82ed2", "#ed1a59", "#ed1a59" ]
-const labels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", 
-                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"]
-
-let container = document.getElementById('container-chart')
+const tahun = {!! json_encode($tahun) !!}
+const colorList = ["#e8dc2e", "#2ee878"]
+const usulanList = ["Perolehan" ]
+const mapUsulanVar = ["tahun1"]
+const labels = []
+//generate list label
+_.map(data, v =>{
+    if(!labels.includes(v.tahun_input)) labels.push(v.tahun_input)
+})
+console.log(data, labels)
+//build hirarki data
 //generate canvas
-_.map(data, (v,i) =>{
-    container.innerHTML = container.innerHTML + `<div ><canvas id="chart-${i}"></canvas></div>`
-})
 //generate datasets and chart
-_.map(data, (v,i) =>{
-    let datasets = []
+let datasets = []
+_.map(usulanList, (o,p) =>{
+    console.log(o,p)
     datasets.push({
-        label:v.periode,
-        backgroundColor: colorList[1],
-        borderColor: colorList[1],
-        data :[
-            v.jumlah0,
-            v.jumlah1,
-            v.jumlah2,
-            v.jumlah3,
-            v.jumlah4,
-            v.jumlah5,
-            v.jumlah6,
-            v.jumlah7,
-            v.jumlah8,
-            v.jumlah9,
-            v.jumlah10,
-            v.jumlah11,
-            v.jumlah12,
-            v.jumlah13,
-            v.jumlah14,
-            v.jumlah15,
-            v.jumlah16,
-            v.jumlah17,
-            v.jumlah18,
-            v.jumlah19,
-            v.jumlah20,
-            v.jumlah21,
-            v.jumlah22,
-        ]
+        label:o,
+        data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, mapUsulanVar[p], -999)),
+        backgroundColor:colorList[p],
+        borderColor:colorList[p],
+        yAxisID:'jumlah'
     })
-    const myChart =new Chart(document.getElementById(`chart-${i}`).getContext('2d'), {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: datasets,
-        },
-        options: {
-            responsive: true,
-            interaction: {
-            mode: 'index',
-            intersect: false,
-            },
-            stacked: false,
-            plugins: {
-            title: {
-                display: true,
-                text: v.periode
-            }
-            },
-            scales: {
-            jumlah: {
-                type: 'linear',
-                display: true,
-                position: 'left',
-            },
-            }
-        },
-    });
 })
-    
+console.log(datasets)
+const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: datasets,
+    },
+    options: {
+        responsive: true,
+        interaction: {
+        mode: 'index',
+        intersect: false,
+        },
+        stacked: false,
+        plugins: {
+        title: {
+            display: true,
+            text: tahun
+        }
+        },
+        scales: {
+        jumlah: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+        },
+        }
+    },
+});
+
 </script>
 @endsection

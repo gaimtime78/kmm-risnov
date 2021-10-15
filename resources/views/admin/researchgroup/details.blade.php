@@ -53,7 +53,7 @@
 
           <div id="table-datatables">
           
-            <h4 class="header left">Tabel 17 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
+            <h4 class="header left">Dokumentasi @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach  </h4>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
@@ -108,6 +108,9 @@
                     <thead>
                       <tr>
                         <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                        @foreach ($jumlahtotal as $row)
+                          <th  style="border: 1px solid black !important; text-align:center !important;">{{ $row->tahun1 }}</th>
+                        @endforeach
                       </tr>
                       
                     </thead>

@@ -54,35 +54,36 @@
                         @endif
 
                         <div id="table-datatables">
-                            <h4 class="header left">Dokumentasi Research Group @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach  </h4>
+                            <h4 class="header left">Dokumentasi @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach  </h4>
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <a href="#import" class="waves-effect waves-light btn right modal-trigger"
                                         role="button">Upload Excel</a>
                                         <a href="#update_nama_table" class="waves-effect waves-light btn right modal-trigger" role="button">Edit Nama Table</a>
-
                                             {{-- Modal update nama table --}}
-                                            <div id="update_nama_table" class="modal">
-                                            @foreach ($nama_table as $name) 
-                                            <form action="{{route('admin.skemapnbp.updateNamaTable', [$name->nama_table] )}}" method="post" enctype="multipart/form-data" >
-                                                @csrf
-                                                <div class="modal-content">
-                                                <h4>Edit Nama table</h4>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                    <input value="{{ $name->nama_table }} " id="nama_table" name="nama_table"  type="text" class="validate" required>
-                                                    <label for="nama_table">Nama Table</label>
+                                                <div id="update_nama_table" class="modal">
+                                                @foreach ($nama_table as $name) 
+                                                <form action="{{route('admin.researchgroup.updateNamaTable', [$name->nama_table] )}}" method="post" enctype="multipart/form-data" >
+                                                    @csrf
+                                                    <div class="modal-content">
+                                                    <h4>Edit Nama table</h4>
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                        <input value="{{ $name->nama_table }} " id="nama_table" name="nama_table"  type="text" class="validate" required>
+                                                        <label for="nama_table">Nama Table</label>
+                                                        </div>
                                                     </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                                    <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
+                                                    </div>
+                                                </form>
+                                                @endforeach 
                                                 </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
-                                                </div>
-                                            </form>
-                                            @endforeach 
-                                            </div>
                                             {{-- End of modal edit nama table --}}
+
+
                                     {{-- Modal import --}}
                                     <div id="import" class="modal">
                                         <form action="{{ route('admin.researchgroup.import') }}" method="post"
@@ -139,13 +140,13 @@
                                                     <td>
                                                         <a href="{{ route('admin.researchgroup.details') }}"
                                                             class="btn" style="background-color: grey;">Detail</a>
-                                                        <a href="#edit{{ $row->id }}" class="btn modal-trigger"
+                                                        <a href="#edit{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: green;">Edit</a>
-                                                        <a href="#hapus{{ $row->id }}" class="btn modal-trigger"
+                                                        <a href="#hapus{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: red;">Delete</a>
                                                     </td>
                                                     <!-- Modal Edit -->
-                                                    <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
+                                                    <div id="edit{{ $i }}" class="modal modal-fixed-footer">
                                                         <form
                                                             action="{{ route('admin.researchgroup.update', [$row->periode, $row->tahun_input, $row->sumber_data]) }}"
                                                             method="post">
@@ -190,7 +191,7 @@
                                                         </form>
                                                     </div>
                                                     <!-- Modal Hapus -->
-                                                    <div id="hapus{{ $row->id }}" class="modal">
+                                                    <div id="hapus{{ $i }}" class="modal">
                                                         <form
                                                             action="{{ route('admin.researchgroup.delete', [$row->periode, $row->tahun_input]) }}"
                                                             method="get">

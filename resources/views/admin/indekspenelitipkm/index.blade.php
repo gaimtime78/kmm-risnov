@@ -141,13 +141,13 @@
                                                     <td>
                                                         <a href="{{ route('admin.indekspenelitipkm.details', [$row->periode, $row->tahun_input]) }}"
                                                             class="btn" style="background-color: grey;">Detail</a>
-                                                        <a href="#edit{{ $row->id }}" class="btn modal-trigger"
+                                                        <a href="#edit{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: green;">Edit</a>
-                                                        <a href="#hapus{{ $row->id }}" class="btn modal-trigger"
+                                                        <a href="#hapus{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: red;">Delete</a>
                                                     </td>
                                                     <!-- Modal Edit -->
-                                                    <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
+                                                    <div id="edit{{ $i }}" class="modal modal-fixed-footer">
                                                         <form
                                                             action="{{ route('admin.indekspenelitipkm.update', [$row->periode, $row->tahun_input, $row->sumber_data]) }}"
                                                             method="post">
@@ -192,7 +192,7 @@
                                                         </form>
                                                     </div>
                                                     <!-- Modal Hapus -->
-                                                    <div id="hapus{{ $row->id }}" class="modal">
+                                                    <div id="hapus{{ $i }}" class="modal">
                                                         <form
                                                             action="{{ route('admin.indekspenelitipkm.delete', [$row->periode, $row->tahun_input]) }}"
                                                             method="get">
