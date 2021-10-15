@@ -235,11 +235,7 @@
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah9}}</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent9, 2, '.', '')}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah10}}</th>
-<<<<<<< HEAD
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent10, 2, '.', '')}}%</th>
-=======
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent10}}%</th>
->>>>>>> 049e446de7d9b721675438547c67cc0cf6ff60fd
                                     <th style=" border: 1px solid black !important; text-align:center !important;"></th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;"></th>
 
@@ -267,35 +263,29 @@
                                 <tr>
                                     
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah11}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent11, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent11}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah12}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent12, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent12}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah13}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent13, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent13}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah14}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent14, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent14}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah15}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent15, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent15}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah16}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent16, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent16}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah17}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent17, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent17}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah18}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent18, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent18}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah19}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent19, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent19}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah20}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent20, 2, '.', '') }}%</th>
+                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent20}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah21}}</th>
-<<<<<<< HEAD
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent21, 2, '.', '') }}%</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah22}}</th>
-                                    <th style=" border: 1px solid black !important; text-align:center !important;">{{number_format((float) $percent22, 2, '.', '') }}%</th>
-=======
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent21}}%</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$jumlah22}}</th>
                                     <th style=" border: 1px solid black !important; text-align:center !important;">{{$percent22}}%</th>
->>>>>>> 049e446de7d9b721675438547c67cc0cf6ff60fd
                                     
                                    
                                 </tr>
