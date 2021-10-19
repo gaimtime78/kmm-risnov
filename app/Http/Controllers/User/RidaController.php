@@ -10,6 +10,9 @@ use App\Models\PenelitiPengabdiSpesialis;
 use App\Models\PenelitiPengabdiProfesi;
 use App\Models\PenelitiPengabdiSpesialis1;
 use App\Models\PenelitiPengabdiSpesialisKonsultan;
+use App\Models\PenelitiPengabdiSarjana;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\Rida\Peneliti_Pengabdi\SarjanaExport;
 
 use Illuminate\Support\Facades\DB;
 
@@ -44,6 +47,7 @@ class RidaController extends Controller
       $data4  = PenelitiPengabdiSpesialis::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data5  = PenelitiPengabdiSpesialisKonsultan::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data6  = PenelitiPengabdiSpesialis1::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
+      $data_peneliti_pengabdi_sarjana  = PenelitiPengabdiSarjana::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       
       $dataindeksPenelitiPKM  = DB::table('indeks_penelitian_pkm')->select("nama_table")->distinct()->get("nama_table");
       $datahibahpnbp  = DB::table('hibah_pnbps')->select("nama_table")->distinct()->get("nama_table");
@@ -65,6 +69,7 @@ class RidaController extends Controller
                   "name"=> "rida-".$slug4, "data4"=>$data4,
                   "name"=> "rida-".$slug5, "data5"=>$data5,
                   "name"=> "rida-".$slug6, "data6"=>$data6,
+                  "data_peneliti_pengabdi_sarjana"=>$data_peneliti_pengabdi_sarjana,
                   "dataMagister"=>$dataMagister,
                   "dataProfesi"=>$dataProfesi,
                   "dataSarjana"=>$dataSarjana,
@@ -89,7 +94,91 @@ class RidaController extends Controller
                   "data_research_grup"=>$data_research_grup,
                 ]);
     }
+
+    public function sarjana(Request $request){
+      // dd($jenjang);
+      $list_tahun = PenelitiPengabdiSarjana::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
+      if(!$list_tahun->isEmpty()){
+        $latest_tahun = $list_tahun[0]->tahun_input;
+
+        $fakultas = "Universitas Sebelas Maret";
+        $tahun = $latest_tahun;
+        if($request->has("fakultas")){
+          $fakultas = $request->input("fakultas");
+        }
+        if($request->has("tahun")){
+          $tahun = $request->input("tahun");      
+        }
+        $data = PenelitiPengabdiSarjana::where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+        $list_fakultas = PenelitiPengabdiSarjana::select("fakultas")->distinct()->where("tahun_input", $tahun)->get();
+        $list_sumber = PenelitiPengabdiSarjana::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+        $nama_table = PenelitiPengabdiSarjana::select("nama_table")->distinct()->where("fakultas", $fakultas)->get();
+        // dd($list_sumber);
+        return view('user.rida.grafik', [
+          "name"=> "Grafik Usia Produktif Sarjana",
+          "nama_table"=> $nama_table,
+          "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun, 
+          "list_fakultas" => $list_fakultas, "fakultas" => $fakultas, "tahun" => $tahun 
+        ]);
+      }
+      return view('user.rida.grafik', [
+        "name"=> "Grafik Usia Produktif Sarjana",
+        "nama_table"=> $nama_table,
+        "data" => [], "list_sumber" => [], "list_tahun" => [], 
+        "list_fakultas" => [], "fakultas" => "", "tahun" => "" 
+      ]);
+      
+    }
+
     
+    public function pilih_periode_sarjana($fakultas, $tahun){
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      $data = PenelitiPengabdiSarjana::select('periode', 'tahun_input', 'sumber_data')->distinct()->where('fakultas', $fakultas)->where('tahun_input', $tahun)->orderBy('periode')->get('periode', 'tahun_input', 'sumber_data');
+      $nama_table = PenelitiPengabdiSarjana::select("nama_table")->distinct()->where("fakultas", $fakultas)->get();
+      
+      return view('user.rida.pilih_periode',[ "name" => "Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Sarjana", 'nama_table'=> $nama_table, 'data' => $data, 'fakultas' => $fakultas, 'tahun' => $tahun]);
+    }
+    
+    public function detail_sarjana($fakultas, $tahun, $periode){
+      // dd($fakultas);
+      $fakultas  = $fakultas;
+      $tahun  = $tahun;
+      
+      $data = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
+      
+      $sum25sd35_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
+      $sum36sd45_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
+      $sum46sd55_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
+      $sum56sd65_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia56sd65_jumlah');
+      $sum66sd75_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
+      $sum75_jumlah           = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
+
+      $total                  = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+      
+      $totalsemua             = PenelitiPengabdiSarjana::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
+      // dd($total);
+      $totalpercent           = round((float)$total / $totalsemua * 100);
+
+      $nama_table             = PenelitiPengabdiSarjana::select("nama_table")->distinct()->where("fakultas", $fakultas)->get();
+      $list_sumber            = PenelitiPengabdiSarjana::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      
+      return view('user.rida.detail-tenaga-pendidik',[
+        "list_sumber" => $list_sumber,
+            'name' => 'Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Sarjana', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 
+            'sum25sd35_jumlah' => $sum25sd35_jumlah,
+            'sum36sd45_jumlah' => $sum36sd45_jumlah,
+            'sum46sd55_jumlah' => $sum46sd55_jumlah,
+            'sum56sd65_jumlah' => $sum56sd65_jumlah,
+            'sum66sd75_jumlah' => $sum66sd75_jumlah,
+            'sum75_jumlah' => $sum75_jumlah,
+            'total' => $total,  
+            'totalpercent' => $totalpercent, 'totalsemua' => $totalsemua, 'nama_table'=> $nama_table, 
+       ]);
+      
+    }
+
+
     public function doktoral(Request $request, $jenjang){
       $list_tahun = PenelitiPengabdi::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
       if(!$list_tahun->isEmpty()){
@@ -545,5 +634,10 @@ class RidaController extends Controller
        ]);
       
     }
+
+    public function export_sarjana($fakultas, $tahun) {
+      return Excel::download(new SarjanaExport($fakultas, $tahun), 'KETERLIBATAN DALAM KEGIATAN PENELITIAN DAN PENGABDIAN SARJANA.xlsx');
+    }
+    
 
 }

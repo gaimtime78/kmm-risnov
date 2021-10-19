@@ -6,7 +6,14 @@
 
 
 @section('content')
-
+<div class="section">
+    <!--DataTables example-->
+    @if (session('message'))
+        <div style="background-color: #aee8e2; border-radius:10px; padding:10px; margin-bottom:10px;">
+            <b>{{ session('message') }}</b>
+        </div>
+    @endif
+</div>
 <section class="section db p120">
     <div class="container">
         <div class="row">

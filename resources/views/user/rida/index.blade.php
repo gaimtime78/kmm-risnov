@@ -438,6 +438,25 @@
                                             $i++;
                                             @endphp
                                             @endforeach
+                                            
+                                            @foreach ($data_peneliti_pengabdi_sarjana as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:left !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-Grafik Usia Produktif Sarjana',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
 
                                             
                                             @foreach ($dataindeksPenelitiPKM as $row)
