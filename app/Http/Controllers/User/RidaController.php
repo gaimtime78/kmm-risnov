@@ -146,7 +146,7 @@ class RidaController extends Controller
       $tahun  = $tahun;
       
       $data = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode], ['tahun_input', $tahun]])->get();
-      
+    
       $sum25sd35_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia25sd35_jumlah');
       $sum36sd45_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia36sd45_jumlah');
       $sum46sd55_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia46sd55_jumlah');
@@ -154,11 +154,10 @@ class RidaController extends Controller
       $sum66sd75_jumlah       = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia66sd75_jumlah');
       $sum75_jumlah           = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('usia75_jumlah');
 
-      $total                  = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
-      
-      $totalsemua             = PenelitiPengabdiSarjana::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
-      // dd($total);
-      $totalpercent           = round((float)$total / $totalsemua * 100);
+      $total               = PenelitiPengabdiSarjana::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
+
+      $totalsemua          = PenelitiPengabdiSarjana::where([['fakultas', 'Universitas Sebelas Maret'], ['periode', $periode]])->sum('total');
+      $totalpercent               = $total / $totalsemua * 100;
 
       $nama_table             = PenelitiPengabdiSarjana::select("nama_table")->distinct()->where("fakultas", $fakultas)->get();
       $list_sumber            = PenelitiPengabdiSarjana::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
