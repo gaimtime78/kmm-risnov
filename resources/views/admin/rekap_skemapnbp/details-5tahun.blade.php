@@ -55,7 +55,7 @@
 
                         <div id="table-datatables">
 
-                            <h4 class="header left">Tabel 26 SKEMA PROPOSAL PENELITIAN DAN PENGABDIAN PNBP 5 PERIODE TERAKHIR</h4>
+                            <h4 class="header left">Tabel 25  @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
                             <div class="row">
                                 <div class="col s12 m12 l12">
 
@@ -83,7 +83,7 @@
                                                         <td
                                                             style="border: 1px solid black !important;text-align:left !important;">
                                                             {{ $row->jenis_skema }}</td>
-                                                        <td style="border: 1px solid black !important;"><a href="{{ route('admin.skemapnbp.details-skemaFakultas5tahun', ['skema' => $row->skema]) }}"
+                                                        <td style="border: 1px solid black !important;"><a href="{{ route('admin.rekap_skemapnbp.details-skemaFakultas5tahun', ['jenis_skema' => $row->jenis_skema]) }}"
                                                                 class="btn modal-trigger"
                                                                 style="background-color: orange;">Details</a></td>
                                                         <!-- Modal Edit -->

@@ -87,11 +87,13 @@ class RekapSkemaPNBPController extends Controller
     
     public function detailsSkema5Tahun()
     {
-        $data = RekapSkemaPNBP::select('periode','skema', 'tahun_input','sumber_data')->distinct()->get('periode','skema', 'tahun_input','sumber_data');
-        return view('admin.rekap_skemapnbp.details-5tahun',compact('data'));
+        $data = RekapSkemaPNBP::select('periode','jenis_skema', 'tahun_input','sumber_data')->distinct()->get('periode','jenis_skema', 'tahun_input','sumber_data');
+        $nama_table = RekapSkemaPNBP::select('nama_table')->distinct()->get('nama_table', 'id');
+
+        return view('admin.rekap_skemapnbp.details-5tahun',compact('data'), ['nama_table' => $nama_table]);
     }
 
-    public function detailsSkemaFakultas5Tahun($skema)
+    public function detailsSkemaFakultas5Tahun($jenis_skema)
     {
         // dd($skema);
         $tahun_input_dum = RekapSkemaPNBP::select('tahun_input')->distinct()->get()->pluck('tahun_input');
@@ -104,28 +106,31 @@ class RekapSkemaPNBPController extends Controller
 
         $periode = RekapSkemaPNBP::select('periode', 'tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->get();
         // dd($periode);
-        $jenisPnbp = RekapSkemaPNBP::select('fakultas','tahun_input','jumlah','periode')->where('tahun_input', '>=', $start_tahun)->where('skema', $skema)->get();
+        $jenisPnbp = RekapSkemaPNBP::select('jenis_skema','tahun_input','jumlah','periode')->where('tahun_input', '>=', $start_tahun)->where('jenis_skema', $jenis_skema)->get();
         $research = [];
         $spanArr = [];
         $researchHeader = [];
         foreach($tahun_input as $item){
-            $listPeriode = SkemaPNBP::select('periode')->distinct()->where('tahun_input', '>=', $item)->get();
+            $listPeriode = RekapSkemaPNBP::select('periode')->distinct()->where('tahun_input', '>=', $item)->get();
             $jumlahPeriode = count($listPeriode);
             array_push($spanArr, $jumlahPeriode);
         }
         // dd($jenisPnbp);
         foreach($jenisPnbp as $item){
-            if(empty($research[$item->fakultas])){
-                $research[$item->fakultas]['fakultas'] = $item->fakultas;
+            if(empty($research[$item->jenis_skema])){
+                $research[$item->jenis_skema]['jenis_skema'] = $item->jenis_skema;
             }
-            if(empty($research[$item->fakultas]['data'])){
-                $research[$item->fakultas]['data'] = [$item->jumlah];
+            if(empty($research[$item->jenis_skema]['data'])){
+                $research[$item->jenis_skema]['data'] = [$item->jumlah];
             }else{
-                array_push($research[$item->fakultas]['data'], $item->jumlah);
+                array_push($research[$item->jenis_skema]['data'], $item->jumlah);
             }        
         }
+        $nama_table = RekapSkemaPNBP::select('nama_table')->distinct()->get('nama_table', 'id');
+
+        
         // dd($research, $periode, $tahun_input, $spanArr);
-        return view('admin.rekap_skemapnbp.detailsSkemaFakultas-5tahun', ['research' => $research, 'spanArr' => $spanArr, 'tahun_input' => $tahun_input, 'periode_input'=>$periode]);
+        return view('admin.rekap_skemapnbp.detailsSkemaFakultas-5tahun', ['nama_table' => $nama_table,'research' => $research, 'spanArr' => $spanArr, 'tahun_input' => $tahun_input, 'periode_input'=>$periode]);
     }
 
     /**

@@ -126,8 +126,8 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'details'])->name('details');
             Route::get('/details/{skema}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkema'])->name('details-skema');
             Route::get('/details-5tahun/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
-            Route::get('/details-5tahun/jenisSkema/{skema}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
-            Route::get('/details-5tahun/jenisSkema/{skema}/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
+            Route::get('/details-5tahun/jenisSkema/{jenis_skema}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
+            // Route::get('/details-5tahun/jenisSkema/{jenisSkema}/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
             
             Route::get('/create', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'create'])->name('create');
