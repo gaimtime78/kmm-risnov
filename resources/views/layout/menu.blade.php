@@ -209,6 +209,12 @@
                                             Pengabdi Sarjana </a>
                                     </li>
                                 @endif
+
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdidiploma3.index') }}">Input Peneliti
+                                            Pengabdi Diploma 3 </a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </li>

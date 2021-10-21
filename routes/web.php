@@ -194,6 +194,21 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\SarjanaController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
+        Route::group(['as' => 'penelitipengabdidiploma3.', 'prefix' => '/penelitipengabdidiploma3'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Diploma3Controller::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Diploma3Controller::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Diploma3Controller::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\Diploma3Controller::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\Diploma3Controller::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Diploma3Controller::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Diploma3Controller::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Diploma3Controller::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Diploma3Controller::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Diploma3Controller::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Diploma3Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\Diploma3Controller::class, 'updateNamaTable'])->name('updateNamaTable');
+        });
+
 
         Route::group(['as' => 'penelitipengabdimagister.', 'prefix' => '/penelitipengabdimagister'], function () {
             Route::get('/', [App\Http\Controllers\Rida\MagisterController::class, 'index'])->name('index');
@@ -875,6 +890,13 @@ Route::get('/dokumentasi-rida/skema-pnbp/{skema}/{tahun}', [App\Http\Controllers
 // Route::get('/njajal', function () {
 //     dd(\App\Models\Post::find(1)->category[0]->category);
 // });
+
+//peneliti pengabdi diploma3 
+Route::get('/dokumentasi-rida/diploma3', [App\Http\Controllers\User\RidaController::class, 'diploma3'])->name('rida-Grafik Usia Produktif Diploma3');
+Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'export_diploma3'])->name('rida-export-Grafik Usia Produktif Diploma3');
+Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_diploma3'])->name('rida-periode-Grafik Usia Produktif Diploma3');
+Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_diploma3'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Diploma3');
+
 
 Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
 Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('subs');
