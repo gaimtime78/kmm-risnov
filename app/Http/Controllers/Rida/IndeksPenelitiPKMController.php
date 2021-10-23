@@ -97,32 +97,32 @@ class IndeksPenelitiPKMController extends Controller
         // $sum_total   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
 
         return view('admin.indekspenelitipkm.details', ['indekspenelitipkm' => $indekspenelitipkm,  
-                    'jmltotalfak' => $jmltotalfak,
-                    'jumlah0' => $jml0, 'percent0' => $percent0,
-                    'jumlah1' => $jml1, 'percent1' => $percent1,
-                    'jumlah2' => $jml2, 'percent2' => $percent2,
-                    'jumlah3' => $jml3, 'percent3' => $percent3,
-                    'jumlah4' => $jml4, 'percent4' => $percent4,
-                    'jumlah5' => $jml5, 'percent5' => $percent5,
-                    'jumlah6' => $jml6, 'percent6' => $percent6,
-                    'jumlah7' => $jml7, 'percent7' => $percent7,
-                    'jumlah8' => $jml8, 'percent8' => $percent8,
-                    'jumlah9' => $jml9, 'percent9' => $percent9,
-                    'jumlah10' => $jml10, 'percent10' => $percent10,
+                      'jmltotalfak' => $jmltotalfak,
+                      'jumlah0' => $jml0, 'percent0' => $percent0,
+                      'jumlah1' => $jml1, 'percent1' => $percent1,
+                      'jumlah2' => $jml2, 'percent2' => $percent2,
+                      'jumlah3' => $jml3, 'percent3' => $percent3,
+                      'jumlah4' => $jml4, 'percent4' => $percent4,
+                      'jumlah5' => $jml5, 'percent5' => $percent5,
+                      'jumlah6' => $jml6, 'percent6' => $percent6,
+                      'jumlah7' => $jml7, 'percent7' => $percent7,
+                      'jumlah8' => $jml8, 'percent8' => $percent8,
+                      'jumlah9' => $jml9, 'percent9' => $percent9,
+                      'jumlah10' => $jml10, 'percent10' => $percent10,
 
-                    'jumlah11' => $jml11, 'percent11' => $percent11,
-                    'jumlah12' => $jml12, 'percent12' => $percent12,
-                    'jumlah13' => $jml13, 'percent13' => $percent13,
-                    'jumlah14' => $jml14, 'percent14' => $percent14,
-                    'jumlah15' => $jml15, 'percent15' => $percent15,
-                    'jumlah16' => $jml16, 'percent16' => $percent16,
-                    'jumlah17' => $jml17, 'percent17' => $percent17,
-                    'jumlah18' => $jml18, 'percent18' => $percent18,
-                    'jumlah19' => $jml19, 'percent19' => $percent19,
-                    'jumlah20' => $jml20, 'percent20' => $percent20,
-                    'jumlah21' => $jml21, 'percent21' => $percent21,
-                    'jumlah22' => $jml22, 'percent22' => $percent22,
-                    'percenttotalfak' => $percenttotalfak,
+                      'jumlah11' => $jml11, 'percent11' => $percent11,
+                      'jumlah12' => $jml12, 'percent12' => $percent12,
+                      'jumlah13' => $jml13, 'percent13' => $percent13,
+                      'jumlah14' => $jml14, 'percent14' => $percent14,
+                      'jumlah15' => $jml15, 'percent15' => $percent15,
+                      'jumlah16' => $jml16, 'percent16' => $percent16,
+                      'jumlah17' => $jml17, 'percent17' => $percent17,
+                      'jumlah18' => $jml18, 'percent18' => $percent18,
+                      'jumlah19' => $jml19, 'percent19' => $percent19,
+                      'jumlah20' => $jml20, 'percent20' => $percent20,
+                      'jumlah21' => $jml21, 'percent21' => $percent21,
+                      'jumlah22' => $jml22, 'percent22' => $percent22,
+                      'percenttotalfak' => $percenttotalfak,
                     // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
                     // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
                     
@@ -176,16 +176,33 @@ class IndeksPenelitiPKMController extends Controller
 
     public function import(Request $request)
     {
-        $file = $request->file("indekspenelitipkm");
-        $periode = $request->periode;
-        $tahun = $request->tahun;
-        $sumber_data = $request->sumber_data;
-        if ($file !== null) {
-            Excel::import(new IndeksPenelitiPKMsImport, $file);
-        }
+        $excel = new IndeksPenelitiPKMsImport;
+        Excel::import($excel, $request->file('indekspenelitipkm'));
 
-        IndeksPenelitiPKM::where('periode', 'kosong')
-        ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
+        for($col = 2; $col <= 14; $col++) {
+            $table = $excel->getArray();
+            $inserted_data = [
+                'nama_table' => "UNTITLED TABLE",
+                'periode' => $request->periode,
+                'tahun_input' => $request->tahun,
+                'sumber_data' => $request->sumber_data,
+                'user_id' => Auth::user()->id,
+                'fakultas' => $table[3][$col]
+            ];
+            $h_index = 0;
+            for($row = 4; $row <= 50; $row += 2) {
+                if ($row < 50) {
+                    $inserted_data['jumlah' . $h_index] = $table[$row][$col];
+                    $inserted_data['percent' . $h_index] = round((float) $table[$row + 1][$col], 3) * 100;
+                } else {
+                    $inserted_data['jumlahtotal'] = $table[$row][$col];
+                    $inserted_data['percenttotal'] = round((float) $table[$row + 1][$col], 3) * 100;
+                }
+                $h_index++;
+            }
+
+            IndeksPenelitiPKM::insert($inserted_data);
+        }
 
         return redirect()->route('admin.indekspenelitipkm.index');
     }

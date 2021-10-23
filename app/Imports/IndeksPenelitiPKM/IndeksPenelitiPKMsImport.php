@@ -2,25 +2,20 @@
 
 namespace App\Imports\IndeksPenelitiPKM;
 
-use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class IndeksPenelitiPKMsImport implements WithMultipleSheets 
+class IndeksPenelitiPKMsImport implements ToCollection, WithCalculatedFormulas
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+    private $imported;
 
-    public function sheets(): array
+    public function collection(Collection $table)
     {
-        return [
-            new PenelitiImport('kosong', 'kosong', 'kosong', '(--Klik Tombol Edit Nama Table untuk Merubah Nama Table--)'),
-            // new PenelitiImport('Periode 2', '2020'),
-            // new PenelitiImport('Periode 3', '2020'),
-            // new PenelitiImport('Periode 4', '2020'),
-            // new PenelitiImport('Periode 5', '2020'),
-            // new PenelitiImport('Periode 6', '2020'),
-        ];
+        $this->imported = $table;
+    }
+
+    public function getArray() {
+        return $this->imported->toArray();
     }
 }
