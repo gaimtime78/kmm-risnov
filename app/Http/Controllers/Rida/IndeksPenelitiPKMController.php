@@ -76,68 +76,68 @@ class IndeksPenelitiPKMController extends Controller
             }
         }
         // dd($table);
-        echo '<table style="border-collapse: collapse; ">';
-        echo '<tr>';
-        echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">H-index</td>';
-        echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="13">FAKULTAS</td>';
-        echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">JUMLAH</td>';
-        echo '</tr>';
-        echo '<tr>';
-        $jumlah_h_index_semua = 0;
-        foreach($table as $fakultas => $data) {
-            $jumlah_h_index_semua += $data[23]['jumlahtotal'];
-            echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">'. $fakultas .'</td>';
-        }
-        echo '</tr>';
-        for($h_index = 0; $h_index <= 23; $h_index++) {
-            echo '<tr>';
-            if ($h_index < 23) {
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" rowspan="2">'. $h_index .'</td>';
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">Jumlah</td>';
-            } else {
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">Jumlah</td>';
+        // echo '<table style="border-collapse: collapse; ">';
+        // echo '<tr>';
+        // echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">H-index</td>';
+        // echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="13">FAKULTAS</td>';
+        // echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">JUMLAH</td>';
+        // echo '</tr>';
+        // echo '<tr>';
+        // $jumlah_h_index_semua = 0;
+        // foreach($table as $fakultas => $data) {
+        //     $jumlah_h_index_semua += $data[23]['jumlahtotal'];
+        //     echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">'. $fakultas .'</td>';
+        // }
+        // echo '</tr>';
+        // for($h_index = 0; $h_index <= 23; $h_index++) {
+        //     echo '<tr>';
+        //     if ($h_index < 23) {
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" rowspan="2">'. $h_index .'</td>';
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">Jumlah</td>';
+        //     } else {
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">Jumlah</td>';
                 
-            }
-            $jumlah_h_index_fakultas = 0;
-            foreach($table as $fakultas => $data) {
-                if ($h_index < 23) {
-                    $jumlah_h_index_fakultas += $data[$h_index]['jumlah'];
-                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['jumlah'] . '</td>';
-                } else {
-                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['jumlahtotal'] . '</td>';
-                }
-            }
-            if ($h_index < 23) {
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $jumlah_h_index_fakultas . '</td>';            
-            } else {
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $jumlah_h_index_semua . '</td>';            
-            }
-            echo '</tr>';
+        //     }
+        //     $jumlah_h_index_fakultas = 0;
+        //     foreach($table as $fakultas => $data) {
+        //         if ($h_index < 23) {
+        //             $jumlah_h_index_fakultas += $data[$h_index]['jumlah'];
+        //             echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['jumlah'] . '</td>';
+        //         } else {
+        //             echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['jumlahtotal'] . '</td>';
+        //         }
+        //     }
+        //     if ($h_index < 23) {
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $jumlah_h_index_fakultas . '</td>';            
+        //     } else {
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $jumlah_h_index_semua . '</td>';            
+        //     }
+        //     echo '</tr>';
 
-            echo '<tr>';
-            if ($h_index < 23) {
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">Percent</td>';
-            }
-            foreach($table as $fakultas => $data) {
-                if ($h_index < 23) {
-                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['percent'] . '%</td>';
-                } else {
-                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['percenttotal'] . '%</td>';
-                }
-            }
-            if ($h_index < 23) {
-                $percent = round((float) $jumlah_h_index_fakultas / $jumlah_h_index_semua, 3) * 100;
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $percent . '%</td>'; 
-            } else {
-                $percent = round((float) $jumlah_h_index_semua / $jumlah_h_index_semua, 3) * 100;
-                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $percent . '%</td>';            
-            }
-            echo '</tr>';
-        }
-        echo '</table>';
+        //     echo '<tr>';
+        //     if ($h_index < 23) {
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">Percent</td>';
+        //     }
+        //     foreach($table as $fakultas => $data) {
+        //         if ($h_index < 23) {
+        //             echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['percent'] . '%</td>';
+        //         } else {
+        //             echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['percenttotal'] . '%</td>';
+        //         }
+        //     }
+        //     if ($h_index < 23) {
+        //         $percent = round((float) $jumlah_h_index_fakultas / $jumlah_h_index_semua, 3) * 100;
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $percent . '%</td>'; 
+        //     } else {
+        //         $percent = round((float) $jumlah_h_index_semua / $jumlah_h_index_semua, 3) * 100;
+        //         echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $percent . '%</td>';            
+        //     }
+        //     echo '</tr>';
+        // }
+        // echo '</table>';
         
-        return;
-        // return view('admin.indekspenelitipkm.details', ['table_data' => $table]);
+        // return;
+        return view('admin.indekspenelitipkm.details', ['table' => $table]);
 
     }
 
