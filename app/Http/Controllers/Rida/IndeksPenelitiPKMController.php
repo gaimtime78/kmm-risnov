@@ -38,95 +38,107 @@ class IndeksPenelitiPKMController extends Controller
     public function details(Request $request, $periode, $tahun_input)
     {
         $data = $periode;
-        // dd($data);
         $tahun = $tahun_input;
-        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
-        // dd($data);
-        $jmltotalfak    = IndeksPenelitiPKM::select('fakultas')->where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlahtotal');
-        $jml0        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah0');
+        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get()->toArray();
         // dd($indekspenelitipkm);
-        $percent0    = round((float)$jml0/$jmltotalfak*100);
-        $jml1        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah1');
-        $percent1    = round((float)$jml1/$jmltotalfak*100);
-        $jml2        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah2');
-        $percent2    = round((float)$jml2/$jmltotalfak*100);
-        $jml3        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah3');
-        $percent3    = round((float)$jml3/$jmltotalfak*100);
-        $jml4        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah4');
-        $percent4    = round((float)$jml4/$jmltotalfak*100);
-        $jml5        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah5');
-        $percent5    = round((float)$jml5/$jmltotalfak*100);
-        $jml6        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah6');
-        $percent6    = round((float)$jml6/$jmltotalfak*100);
-        $jml7        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah7');
-        $percent7    = round((float)$jml7/$jmltotalfak*100);
-        $jml8        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah8');
-        $percent8    = round((float)$jml8/$jmltotalfak*100);
-        $jml9        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah9');
-        $percent9    = round((float)$jml9/$jmltotalfak*100);
-        $jml10        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah10');
-        $percent10    = round((float)$jml10/$jmltotalfak*100);
+        /**
+         * RENCANA 
+         * $table = [
+         *      'nama_fakultas_1' => [
+         *          ['jml' => 69, percent => '42.0%'], h_index 0
+         *          ['jml' => 69, percent => '42.0%'], h_index 1
+         *          ...
+         *      ],
+         *      'nama_fakultas_2' => [
+         *          ['jml' => 69, percent => '42.0%']
+         *      ],
+         *      ...
+         *  ]
+         */
+        $table = [];
+        foreach ($indekspenelitipkm as $row) {
+            $fakultas = $row['fakultas'];
+            $table[$fakultas] = array();
+            for ($h_index = 0; $h_index <=23; $h_index++) {                
+                $h_index_data = [];
+                if ($h_index < 23) {
+                    $h_index_data = [
+                        'jumlah' => $row['jumlah' . $h_index ],
+                        'percent' => $row['percent' . $h_index ],
+                    ];
+                } else {
+                    $h_index_data = [
+                        'jumlahtotal' => $row['jumlahtotal'],
+                        'percenttotal' => $row['percenttotal'],
+                    ];
+                }
+                array_push($table[$fakultas], $h_index_data);
+            }
+        }
+        // dd($table);
+        echo '<table style="border-collapse: collapse; ">';
+        echo '<tr>';
+        echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">H-index</td>';
+        echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="13">FAKULTAS</td>';
+        echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">JUMLAH</td>';
+        echo '</tr>';
+        echo '<tr>';
+        $jumlah_h_index_semua = 0;
+        foreach($table as $fakultas => $data) {
+            $jumlah_h_index_semua += $data[23]['jumlahtotal'];
+            echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">'. $fakultas .'</td>';
+        }
+        echo '</tr>';
+        for($h_index = 0; $h_index <= 23; $h_index++) {
+            echo '<tr>';
+            if ($h_index < 23) {
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" rowspan="2">'. $h_index .'</td>';
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">Jumlah</td>';
+            } else {
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">Jumlah</td>';
+                
+            }
+            $jumlah_h_index_fakultas = 0;
+            foreach($table as $fakultas => $data) {
+                if ($h_index < 23) {
+                    $jumlah_h_index_fakultas += $data[$h_index]['jumlah'];
+                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['jumlah'] . '</td>';
+                } else {
+                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['jumlahtotal'] . '</td>';
+                }
+            }
+            if ($h_index < 23) {
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $jumlah_h_index_fakultas . '</td>';            
+            } else {
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $jumlah_h_index_semua . '</td>';            
+            }
+            echo '</tr>';
 
-        $jml11        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah11');
-        $percent11    = round((float)$jml11/$jmltotalfak*100);
-        $jml12        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah12');
-        $percent12    = round((float)$jml12/$jmltotalfak*100);
-        $jml13        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah13');
-        $percent13    = round((float)$jml13/$jmltotalfak*100);
-        $jml14        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah14');
-        $percent14    = round((float)$jml14/$jmltotalfak*100);
-        $jml15        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah15');
-        $percent15    = round((float)$jml15/$jmltotalfak*100);
-        $jml16        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah16');
-        $percent16    = round((float)$jml16/$jmltotalfak*100);
-        $jml17        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah17');
-        $percent17    = round((float)$jml17/$jmltotalfak*100);
-        $jml18        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah18');
-        $percent18    = round((float)$jml18/$jmltotalfak*100);
-        $jml19        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah19');
-        $percent19    = round((float)$jml19/$jmltotalfak*100);
-        $jml20        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah20');
-        $percent20    = round((float)$jml20/$jmltotalfak*100);
-        $jml21        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah21');
-        $percent21    = round((float)$jml21/$jmltotalfak*100);
-        $jml22        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah22');
-        $percent22    = round((float)$jml22/$jmltotalfak*100);
-        $percenttotal    = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('percenttotal');
-        $percenttotalfak = round((float)$percenttotal);
-        //    dd($jml0);
-        // $sum_total   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
+            echo '<tr>';
+            if ($h_index < 23) {
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">Percent</td>';
+            }
+            foreach($table as $fakultas => $data) {
+                if ($h_index < 23) {
+                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['percent'] . '%</td>';
+                } else {
+                    echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $data[$h_index]['percenttotal'] . '%</td>';
+                }
+            }
+            if ($h_index < 23) {
+                $percent = round((float) $jumlah_h_index_fakultas / $jumlah_h_index_semua, 3) * 100;
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $percent . '%</td>'; 
+            } else {
+                $percent = round((float) $jumlah_h_index_semua / $jumlah_h_index_semua, 3) * 100;
+                echo '<td style="border: 1px solid black; padding: 4px; text-align:center;">' . $percent . '%</td>';            
+            }
+            echo '</tr>';
+        }
+        echo '</table>';
+        
+        return;
+        // return view('admin.indekspenelitipkm.details', ['table_data' => $table]);
 
-        return view('admin.indekspenelitipkm.details', ['indekspenelitipkm' => $indekspenelitipkm,  
-                      'jmltotalfak' => $jmltotalfak,
-                      'jumlah0' => $jml0, 'percent0' => $percent0,
-                      'jumlah1' => $jml1, 'percent1' => $percent1,
-                      'jumlah2' => $jml2, 'percent2' => $percent2,
-                      'jumlah3' => $jml3, 'percent3' => $percent3,
-                      'jumlah4' => $jml4, 'percent4' => $percent4,
-                      'jumlah5' => $jml5, 'percent5' => $percent5,
-                      'jumlah6' => $jml6, 'percent6' => $percent6,
-                      'jumlah7' => $jml7, 'percent7' => $percent7,
-                      'jumlah8' => $jml8, 'percent8' => $percent8,
-                      'jumlah9' => $jml9, 'percent9' => $percent9,
-                      'jumlah10' => $jml10, 'percent10' => $percent10,
-
-                      'jumlah11' => $jml11, 'percent11' => $percent11,
-                      'jumlah12' => $jml12, 'percent12' => $percent12,
-                      'jumlah13' => $jml13, 'percent13' => $percent13,
-                      'jumlah14' => $jml14, 'percent14' => $percent14,
-                      'jumlah15' => $jml15, 'percent15' => $percent15,
-                      'jumlah16' => $jml16, 'percent16' => $percent16,
-                      'jumlah17' => $jml17, 'percent17' => $percent17,
-                      'jumlah18' => $jml18, 'percent18' => $percent18,
-                      'jumlah19' => $jml19, 'percent19' => $percent19,
-                      'jumlah20' => $jml20, 'percent20' => $percent20,
-                      'jumlah21' => $jml21, 'percent21' => $percent21,
-                      'jumlah22' => $jml22, 'percent22' => $percent22,
-                      'percenttotalfak' => $percenttotalfak,
-                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
-                    // 'sum25_35L' => $sum25_35L, 'sum25_35P' => $sum25_35P, 'sumusia25sd35_jumlah' => $sumusia25sd35_jumlah   
-                    
-                    ]);
     }
 
     public function add()
