@@ -60,6 +60,58 @@ class IndeksPenelitiPKMController extends Controller
     }
   
     public function detail_indekspkm($fakultas, $tahun, $periode){
+      $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun]])->get()->toArray();
+      // dd($indekspenelitipkm);
+      /**
+       * RENCANA 
+       * $table = [
+       *      'nama_fakultas_1' => [
+       *          ['jml' => 69, percent => '42.0%'], h_index 0
+       *          ['jml' => 69, percent => '42.0%'], h_index 1
+       *          ...
+       *      ],
+       *      'nama_fakultas_2' => [
+       *          ['jml' => 69, percent => '42.0%']
+       *      ],
+       *      ...
+       *  ]
+       */
+      $table = [];
+      foreach ($indekspenelitipkm as $row) {
+          $ff = $row['fakultas'];
+          $table[$ff] = array();
+          for ($h_index = 0; $h_index <=23; $h_index++) {                
+              $h_index_data = [];
+              if ($h_index < 23) {
+                  $h_index_data = [
+                      'jumlah' => $row['jumlah' . $h_index ],
+                      'percent' => $row['percent' . $h_index ],
+                  ];
+              } else {
+                  $h_index_data = [
+                      'jumlahtotal' => $row['jumlahtotal'],
+                      'percenttotal' => $row['percenttotal'],
+                  ];
+              }
+              array_push($table[$ff], $h_index_data);
+          }
+      }
+
+
+      $nama_table = IndeksPenelitiPKM::select("nama_table")->distinct()->get();
+
+      $list_sumber = IndeksPenelitiPKM::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->get();
+
+      return view('user.rida.detail-h-indeks_pkm', [
+        'table' => $table,
+        'name' => 'H-Indeks_PKM',
+        'tahun' => $tahun ,
+        'periode'=>$periode,
+        'fakultas' => $fakultas, 
+        'nama_table' => $nama_table, 
+        'list_sumber' => $list_sumber, 
+      ]);
+      /*
       $fakultas  = $fakultas;
       $tahun_input  = $tahun;
 
@@ -156,7 +208,7 @@ class IndeksPenelitiPKMController extends Controller
                     'percenttotalfak' => $percenttotalfak,
                     'list_sumber' => $list_sumber,
        ]);
-      
+      */
     }
     
 
