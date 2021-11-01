@@ -53,7 +53,7 @@
 
           <div id="table-datatables">
             
-            <h4 class="header left">DOKUMENTASI KETERLIBATAN DALAM KEGIATAN PENELITIAN DAN PENGABDIAN @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
+            <h4 class="header left">DOKUMENTASI @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
             
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">

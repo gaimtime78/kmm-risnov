@@ -53,7 +53,7 @@
 
           <div id="table-datatables">
            
-              <h4 class="header left">DOKUMENTASI KETERLIBATAN DALAM KEGIATAN PENELITIAN DAN PENGABDIAN {{ $nama_fakultas}} </h4>
+              <h4 class="header left">DOKUMENTASI {{ $nama_fakultas}} </h4>
 
             <div class="row">
               <div class="col s12 m12 l12">
