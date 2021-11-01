@@ -116,6 +116,11 @@
                                     </div>
                                     {{-- End of modal import --}}
 
+                                    <div class="col s4 m4 l4">
+                                        <a href="{{route ('admin.researchgroup.perolehan') }}" class="waves-effect waves-light btn right modal-trigger"
+                                            role="button">Lihat Perolehan 5 Periode Terakhir</a>
+                                    </div>
+
                                     <table id="data-menu" class="table display" cellspacing="0">
                                         <thead>
                                             <tr>
@@ -138,7 +143,7 @@
                                                     <td>{{ $row->sumber_data }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.researchgroup.details') }}"
+                                                        <a href="{{ route('admin.researchgroup.details', ['periode' => $row->periode, 'tahun_input' => $row->tahun_input]) }}"
                                                             class="btn" style="background-color: grey;">Detail</a>
                                                         <a href="#edit{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: green;">Edit</a>

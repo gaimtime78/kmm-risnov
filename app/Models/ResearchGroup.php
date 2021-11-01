@@ -10,7 +10,7 @@ class ResearchGroup extends Model
     use HasFactory;
     protected $table = 'researchgroup';
     protected $fillable = [
-        
+        'fakultas', 'tahun1'
     ];
 
     public function user(){
