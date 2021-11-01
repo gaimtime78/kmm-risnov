@@ -471,7 +471,7 @@ class TenagaKependidikanController extends Controller
       $totalpercent               = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiMagister::select("nama_table")->distinct()->get();
       
-      $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      $list_sumber = PenelitiPengabdiMagister::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       return view('user.rida.detail-kependidikan',[
         'name' => 'Tenaga Kependidikan Magister', 'tahun' => $tahun , 'periode'=>$periode, 'data' => $data, 'fakultas' => $fakultas, 'nama_table'=> $nama_table,
         'sum25_L'=>$sum25_L,'sum25_P'=>$sum25_P, 'sum25_jumlah' => $sum25_jumlah,
@@ -513,7 +513,7 @@ class TenagaKependidikanController extends Controller
       $totalsemua        = PenelitiPengabdiProfesi::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiProfesi::select("nama_table")->distinct()->get();
-      $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      $list_sumber = PenelitiPengabdiProfesi::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan',[
         "list_sumber" => $list_sumber,
@@ -603,7 +603,7 @@ class TenagaKependidikanController extends Controller
       $totalsemua        = PenelitiPengabdiDiploma4::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiDiploma4::select("nama_table")->distinct()->get();
-      $list_sumber = PenelitiPengabdiDiploma4::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      $list_sumber = PenelitiPengabdiDiploma4::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan',[
         "list_sumber" => $list_sumber,
@@ -648,7 +648,7 @@ class TenagaKependidikanController extends Controller
       $totalsemua        = PenelitiPengabdiDiploma3::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiDiploma3::select("nama_table")->distinct()->get();
-      $list_sumber = PenelitiPengabdiDiploma3::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      $list_sumber = PenelitiPengabdiDiploma3::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan',[
         "list_sumber" => $list_sumber,
@@ -693,7 +693,7 @@ class TenagaKependidikanController extends Controller
       $totalsemua        = PenelitiPengabdiDiploma2::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiDiploma2::select("nama_table")->distinct()->get();
-      $list_sumber = PenelitiPengabdiDiploma2::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      $list_sumber = PenelitiPengabdiDiploma2::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan',[
         "list_sumber" => $list_sumber,
@@ -738,7 +738,7 @@ class TenagaKependidikanController extends Controller
       $totalsemua        = PenelitiPengabdiDiploma1::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
       $nama_table = PenelitiPengabdiDiploma1::select("nama_table")->distinct()->get();
-      $list_sumber = PenelitiPengabdiDiploma1::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      $list_sumber = PenelitiPengabdiDiploma1::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan',[
         "list_sumber" => $list_sumber,
@@ -787,8 +787,9 @@ class TenagaKependidikanController extends Controller
       $totalsemua        = PenelitiPengabdiSlta::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
 
-      $nama_table = PenelitiPengabdiSlta::select("nama_table")->distinct()->where("fakultas")->get();
-      $list_sumber = PenelitiPengabdiSlta::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      $nama_table = PenelitiPengabdiSlta::select("nama_table")->distinct()->where("fakultas", $fakultas)->get();
+      // dd($nama_table);
+      $list_sumber = PenelitiPengabdiSlta::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan-slta',[
         "list_sumber" => $list_sumber,
@@ -834,8 +835,9 @@ class TenagaKependidikanController extends Controller
       $total             = PenelitiPengabdiSltp::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua        = PenelitiPengabdiSltp::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
-      $nama_table = PenelitiPengabdiSltp::select("nama_table")->distinct()->get();
-      $list_sumber = PenelitiPengabdiSltp::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      
+      $nama_table = PenelitiPengabdiSltp::select("nama_table")->distinct()->where("fakultas", $fakultas)->get();
+      $list_sumber = PenelitiPengabdiSltp::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan',[
         "list_sumber" => $list_sumber,
@@ -879,8 +881,9 @@ class TenagaKependidikanController extends Controller
       $total             = PenelitiPengabdiSd::where([['fakultas', $fakultas], ['periode', $periode]])->sum('total');
       $totalsemua        = PenelitiPengabdiSd::where([['fakultas',  $fakultas], ['periode', $periode]])->sum('total');
       $totalpercent      = $total / $totalsemua * 100;
-      $nama_table = PenelitiPengabdiSd::select("nama_table")->distinct()->get();
-      $list_sumber = PenelitiPengabdiSd::select("periode", "sumber_data")->distinct()->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
+      
+      $nama_table = PenelitiPengabdiSd::select("nama_table")->distinct()->where("fakultas", $fakultas)->get();
+      $list_sumber = PenelitiPengabdiSd::select("periode", "sumber_data")->distinct()->where("periode", $periode)->where("fakultas", $fakultas)->where("tahun_input", $tahun)->orderBy("periode")->get();
       
       return view('user.rida.detail-kependidikan',[
         "list_sumber" => $list_sumber,
