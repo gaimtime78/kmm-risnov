@@ -269,6 +269,10 @@
                             </ul>
                         </div>
                     </li>
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.h_indeks_pkm.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input H-Indeks PKM</a></li>
+                    @endif
                 </ul>
             </li>
 

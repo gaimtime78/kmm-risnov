@@ -671,7 +671,23 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\AgendaController::class, 'export'])->name('agenda.export');
             Route::post('/import', [App\Http\Controllers\AgendaController::class, 'import'])->name('agenda.import');
         });
+
+        Route::group(['as' => 'h_indeks_pkm.', 'prefix' => '/h_indeks_pkm'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'index'])->name('index');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'edit'])->name('edit');
+            Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'update'])->name('update');
+            Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'updateNamaTable'])->name('updateNamaTable');
+
+        });
     });
+
 });
 //yg digunakan yg atas, selain yang diatas bisa ditambahkan, klo error merge   
 
