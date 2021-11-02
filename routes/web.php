@@ -552,10 +552,13 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
         Route::group(['as' => 'researchgroup.', 'prefix' => '/researchgroup'], function () {
             Route::get('/', [App\Http\Controllers\Rida\ResearchController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\ResearchController::class, 'pilihperiode'])->name('pilihperiode');
-            Route::get('/details', [App\Http\Controllers\Rida\ResearchController::class, 'details'])->name('details');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ResearchController::class, 'details'])->name('details');
+            Route::get('/perolehan', [App\Http\Controllers\Rida\ResearchController::class, 'perolehan'])->name('perolehan');
             Route::get('/create', [App\Http\Controllers\Rida\ResearchController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\ResearchController::class, 'create'])->name('create');
             Route::get('/edit', [App\Http\Controllers\Rida\ResearchController::class, 'edit'])->name('edit');
+            Route::post('/editJumlah', [App\Http\Controllers\Rida\ResearchController::class, 'editJumlah'])->name('edit-jumlah');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\ResearchController::class, 'edit'])->name('edit');
             Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\ResearchController::class, 'update'])->name('update');
             Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\ResearchController::class, 'delete'])->name('delete');
             Route::get('/export', [App\Http\Controllers\Rida\ResearchController::class, 'export'])->name('export');

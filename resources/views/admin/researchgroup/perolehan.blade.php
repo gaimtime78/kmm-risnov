@@ -65,67 +65,30 @@
                             <tr style="border: 1px solid black !important;">
                                 <th rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
                                 <th rowspan="3" style="text-align:justify !important;">Fakultas</th>
-                                <th colspan="3" style="border: 1px solid black !important; text-align:center !important;">Tahun</th>
-                                <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
-                                
+                                <th colspan="5" style="border: 1px solid black !important; text-align:center !important;">Tahun</th>
                             </tr>
                             <tr style="border: 1px solid black !important;">
-                                    <th colspan="3" style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
-                                    
+                                @foreach($tahun_input as $tahun)
+                                    <th style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
+                                @endforeach
+                                <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($researchgroups as $row)
+                            @foreach ($research as $row)
                             <tr style="border: 1px solid black !important;">
                                 <td style="border: 1px solid black !important;text-align:center !important;">{{$loop->iteration}}</td>
                                 <td style="border: 1px solid black !important;text-align:left !important;">{{$row['fakultas']}}</td>
-                                
-                                <td style="border: 1px solid black !important;text-align:center !important;">{{$row['tahun1']}}</td>
-                                
+                                @foreach($row['data'] as $data)
+                                    <td style="border: 1px solid black !important;text-align:center !important;">{{$data}}</td>
+                                @endforeach
 
-                                <td colspan="3" style="border: 1px solid black !important; text-align:left !important;"><a href="#edit{{ $row->id }}" class="btn modal-trigger"
+                                <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger"
                                         style="background-color: orange;">Edit</a></td>
-
                                 <!-- Modal Edit -->
-                                <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
-                                  <form
-                                      action="{{route('admin.researchgroup.edit-jumlah')}}"
-                                      method="post">
-                                      @csrf
-                                      <input type="hidden" value="{{$row->id}}" name="id">
-                                      <div class="modal-content">
-                                          <h4>Edit Data</h4>
-                                          <hr>
-                                          <div class="row">
-                                              <div class="input-field col s12">
-                                                  <input value="{{ $row->fakultas }}" id="periode"
-                                                      name="fakultas" type="text"
-                                                      class="validate" required>
-                                                  <label for="periode">Fakultas</label>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="input-field col s12">
-                                                  <input value="{{ $row->tahun1 }}" id="periode"
-                                                      name="jumlah" type="text"
-                                                      class="validate" required>
-                                                  <label for="periode">Jumlah</label>
-                                              </div>
-                                          </div>
-                                          
-                                      </div>
+                               
 
-                                      <div class="modal-footer">
-                                          <a href="#!"
-                                              class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                          <button type="submit"
-                                              class="modal-close waves-effect waves-green btn-flat">Update</button>
-                                      </div>
-                                  </form>
-                                </div>
-
-                                
                                 <!-- Modal Hapus -->
                                 <div id="hapus" class="modal">
                                     <form action="#" method="get">
@@ -146,9 +109,9 @@
                       <thead>
                         <tr>
                           <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
-                           
-                            <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah['jumlah'] }}</th>
-                          
+                          @foreach ($arrJumlah as $row) 
+                            <th  style="border: 1px solid black !important; text-align:center !important;">{{$row}}</th>
+                          @endforeach
                           
                         </tr>
                       

@@ -76,7 +76,41 @@ class ResearchController extends Controller
 
         return redirect()->route('admin.researchgroup.index');
     }
-    public function details(Request $request)
+
+    // public function details(Request $request)
+    // {
+    //     $tahun_input_dum = ResearchGroup::select('tahun_input')->distinct()->orderBy('tahun_input', 'ASC')->get()->pluck('tahun_input');
+    //     if(count($tahun_input_dum) >= 5){
+    //         $start_tahun = $tahun_input_dum[count($tahun_input_dum) - 5];
+    //     }else{
+    //         $start_tahun = $tahun_input_dum[0];
+    //     }
+    //     $tahun_input = ResearchGroup::select('tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->orderBy('tahun_input', 'ASC')->get()->pluck('tahun_input');
+    //     $researchData = ResearchGroup::select('fakultas','tahun_input','tahun1')->where('tahun_input', '>=', $start_tahun)->orderBy('tahun_input', 'ASC')->get();
+    //     $research = [];
+    //     $nama_table  = ResearchGroup::select('nama_table')->distinct()->get('nama_table');
+
+    //     $arrJumlah = array_fill(0, count($tahun_input), 0);
+    //     // dd($arrJumlah);
+    //     foreach ($researchData as $item){
+    //         foreach($tahun_input as $key => $th){
+    //             if($th === $item->tahun_input){
+    //                 $arrJumlah[$key] += $item->tahun1;
+    //             }
+    //         }
+    //     }
+    //     // dd($arrJumlah);
+
+    //     foreach($researchData as $item){
+    //         if(empty($research[$item->fakultas])){
+    //             $research[$item->fakultas]['fakultas'] = $item->fakultas;
+    //         }
+    //         $research[$item->fakultas]['data'][$item->tahun_input] = $item->tahun1;
+    //     }
+    //     return view('admin.researchgroup.details', ['research' => $research, 'tahun_input' => $tahun_input, 'nama_table' => $nama_table, 'arrJumlah' => $arrJumlah]);    
+    // }
+
+    public function perolehan(Request $request)
     {
         $tahun_input_dum = ResearchGroup::select('tahun_input')->distinct()->orderBy('tahun_input', 'ASC')->get()->pluck('tahun_input');
         if(count($tahun_input_dum) >= 5){
@@ -106,6 +140,40 @@ class ResearchController extends Controller
             }
             $research[$item->fakultas]['data'][$item->tahun_input] = $item->tahun1;
         }
-        return view('admin.researchgroup.details', ['research' => $research, 'tahun_input' => $tahun_input, 'nama_table' => $nama_table, 'arrJumlah' => $arrJumlah]);    
+        return view('admin.researchgroup.perolehan', ['research' => $research, 'tahun_input' => $tahun_input, 'nama_table' => $nama_table, 'arrJumlah' => $arrJumlah]);
+    }
+
+    public function details($periode, $tahun_input)
+    {
+        $nama_table  = ResearchGroup::select('nama_table')->distinct()->get('nama_table');
+        $researchgroups = ResearchGroup::where('periode', $periode)->where('tahun_input', $tahun_input)->get();
+        $jumlah = [
+            'jumlah' => $researchgroups->sum('tahun1'),
+            
+        ];
+        $tahun = $tahun_input;
+        return view('admin.researchgroup.details', compact('researchgroups', 'tahun', 'jumlah', 'nama_table'));
+    }
+
+
+    public function editJumlah(Request $request)
+    {
+      
+        
+        $research = ResearchGroup::find($request->id);
+		$dataUpdate = [
+			'fakultas' => $request->fakultas,
+			'tahun1' => $request->tahun1,
+            
+		];
+        
+		if($research->update($dataUpdate)){
+            $message = "Berhasil diupdate";
+            
+            return redirect()->route('admin.researchgroup.details', ['research' => $research->research, 'periode' => $research->periode, 'tahun_input' => $research->tahun_input]);
+            
+        }else{
+            return redirect()->route('admin.researchgroup.details', ['research' => $research->research, 'periode' => $research->periode, 'tahun_input' => $research->tahun_input]);
+        }
     }
 }
