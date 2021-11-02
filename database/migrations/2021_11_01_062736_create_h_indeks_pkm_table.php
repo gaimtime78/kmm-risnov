@@ -20,6 +20,7 @@ class CreateHIndeksPkmTable extends Migration
             $table->string('tahun_input');
             $table->string('sumber_data');
             $table->string('h_indeks');
+            $table->string('jumlah');
             $table->string('fib');
             $table->string('fkip');
             $table->string('feb');
@@ -33,6 +34,7 @@ class CreateHIndeksPkmTable extends Migration
             $table->string('fkor');
             $table->string('sv');
             $table->string('pasca');
+            $table->string('jumlahtotal');
 
 
             $table->unsignedBigInteger('user_id')->nullable();

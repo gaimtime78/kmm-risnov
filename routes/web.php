@@ -674,7 +674,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/export', [App\Http\Controllers\AgendaController::class, 'export'])->name('agenda.export');
             Route::post('/import', [App\Http\Controllers\AgendaController::class, 'import'])->name('agenda.import');
         });
-
+//hindeks_new
         Route::group(['as' => 'h_indeks_pkm.', 'prefix' => '/h_indeks_pkm'], function () {
             Route::get('/', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'index'])->name('index');
             Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'details'])->name('details');
