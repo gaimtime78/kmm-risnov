@@ -176,4 +176,14 @@ class ResearchController extends Controller
             return redirect()->route('admin.researchgroup.details', ['research' => $research->research, 'periode' => $research->periode, 'tahun_input' => $research->tahun_input]);
         }
     }
+
+    public function export($fakultas, $tahun)
+    {
+        $researchgroup = ResearchGroup::get();
+        $table = new ExcelExport($researchgroup->toArray());
+
+        return Excel::download($table, 'ResearchGroup.xlsx');
+        // return Excel::download(new ResearchGroupExport($fakultas, $tahun), 'ResearchGroup.xlsx');
+    }
+
 }
