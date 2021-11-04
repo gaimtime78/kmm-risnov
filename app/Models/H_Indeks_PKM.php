@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ResearchGroup extends Model
+class H_Indeks_PKM extends Model
 {
     use HasFactory;
-    protected $table = 'researchgroup';
+    protected $table = 'h_indeks_pkm';
     protected $fillable = [
-        'fakultas', 'tahun1'
+        
     ];
 
     public function user(){
