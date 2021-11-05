@@ -16,10 +16,11 @@ class H_IndeksPKMController extends Controller
 {
     public function index()
     {
-        $indekspenelitipkm = H_Indeks_PKM::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode', 'id','sumber_data');
-        $nama_table = H_Indeks_PKM::select('nama_table')->distinct()->get('nama_table', 'id');
+        dd("hai");
+        // $indekspenelitipkm = H_Indeks_PKM::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode', 'id','sumber_data');
+        // $nama_table = H_Indeks_PKM::select('nama_table')->distinct()->get('nama_table', 'id');
 
-        return view('admin.h_indeks_pkm.index', ['indekspenelitipkm' => $indekspenelitipkm, 'nama_table'=> $nama_table]);
+        // return view('admin.h_indeks_pkm.index', ['indekspenelitipkm' => $indekspenelitipkm, 'nama_table'=> $nama_table]);
     }
 
     

@@ -7,24 +7,46 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\H_Indeks_PKM;
 use App\Models\IndeksPenelitiPKM;
 use App\Exports\IndeksPenelitiPKM\IndeksPenelitiPKMsExport;
 use App\Imports\IndeksPenelitiPKM\IndeksPenelitiPKMsImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class IndeksPenelitiPKMController extends Controller
 {
     public function index()
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode', 'id','sumber_data');
-        $nama_table = IndeksPenelitiPKM::select('nama_table')->distinct()->get('nama_table', 'id');
 
+        /**
+         * baru
+         */
+        $indekspenelitipkm = H_Indeks_PKM::select('periode', 'tahun_input','sumber_data')
+            ->distinct()
+			->get();
+        $nama_table = H_Indeks_PKM::select('nama_table')
+            ->distinct()
+			->get();
+		// 	// ->where('konfirmasi', '=', false)
+		// 	// ->orderBy('id', 'ASC')
+        // dd($indekspenelitipkm->toArray());
+
+
+        /**
+         * lama
+         */
+        // $indekspenelitipkm = IndeksPenelitiPKM::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode', 'id','sumber_data');
+        // $nama_table = IndeksPenelitiPKM::select('nama_table')->distinct()->get('nama_table', 'id');
+        // dump($nama_table->toArray());
+        // dump($nama_table2->toArray());
+        // return "heh";
         return view('admin.indekspenelitipkm.index', ['indekspenelitipkm' => $indekspenelitipkm, 'nama_table'=> $nama_table]);
     }
 
     public function updateNamaTable(Request $request, $nama_table)
     {
-        $penelitipengabdi = IndeksPenelitiPKM::where([['nama_table', $nama_table]])->get();
+        $penelitipengabdi = H_Indeks_PKM::where([['nama_table', $nama_table]])->get();
         
         foreach ($penelitipengabdi as $peneliti) {
             $peneliti->nama_table = $request->nama_table;
@@ -37,8 +59,11 @@ class IndeksPenelitiPKMController extends Controller
     
     public function details(Request $request, $periode, $tahun_input)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get()->toArray();
-        // dd($indekspenelitipkm);
+        $indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        $total_indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])
+            ->select(DB::raw('sum(fib_jumlah) as fib,sum(fkip_jumlah) as fkip,sum(feb_jumlah) as feb,sum(fh_jumlah) as fh, sum(fisip_jumlah) as fisip,sum(fk_jumlah) as fk, sum(fp_jumlah) as fp, sum(ft_jumlah) as ft, sum(fmipa_jumlah) as fmipa, sum(fsrd_jumlah) as fsrd, sum(fkor_jumlah) as fkor, sum(sv_jumlah) as sv, sum(pascasarjana_jumlah) as pascasarjana, sum(total_jumlah) as total'))
+            ->get();
+        // dd($total_indekspenelitipkm);
         /**
          * RENCANA 
          * $table = [
@@ -53,27 +78,28 @@ class IndeksPenelitiPKMController extends Controller
          *      ...
          *  ]
          */
-        $table = [];
-        foreach ($indekspenelitipkm as $row) {
-            $fakultas = $row['fakultas'];
-            $table[$fakultas] = array();
-            for ($h_index = 0; $h_index <=23; $h_index++) {                
-                $h_index_data = [];
-                if ($h_index < 23) {
-                    $h_index_data = [
-                        'jumlah' => $row['jumlah' . $h_index ],
-                        'percent' => $row['percent' . $h_index ],
-                    ];
-                } else {
-                    $h_index_data = [
-                        'jumlahtotal' => $row['jumlahtotal'],
-                        'percenttotal' => $row['percenttotal'],
-                    ];
-                }
-                array_push($table[$fakultas], $h_index_data);
-            }
-        }
-        return view('admin.indekspenelitipkm.details', ['table' => $table]);
+        // $table = [];
+        // foreach ($indekspenelitipkm as $row) {
+        //     $fakultas = $row['fakultas'];
+        //     $table[$fakultas] = array();
+        //     for ($h_index = 0; $h_index <=23; $h_index++) {                
+        //         $h_index_data = [];
+        //         if ($h_index < 23) {
+        //             $h_index_data = [
+        //                 'jumlah' => $row['jumlah' . $h_index ],
+        //                 'percent' => $row['percent' . $h_index ],
+        //             ];
+        //         } else {
+        //             $h_index_data = [
+        //                 'jumlahtotal' => $row['jumlahtotal'],
+        //                 'percenttotal' => $row['percenttotal'],
+        //             ];
+        //         }
+        //         array_push($table[$fakultas], $h_index_data);
+        //     }
+        // }
+        $table = $indekspenelitipkm->toArray();
+        return view('admin.indekspenelitipkm.details', ['table' => $table, 'table_total' => $total_indekspenelitipkm->toArray()[0]]);
 
     }
 
@@ -89,13 +115,13 @@ class IndeksPenelitiPKMController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::find($id);
+        $indekspenelitipkm = H_Indeks_PKM::find($id);
         return view('admin/indekspenelitipkm/edit', compact('indekspenelitipkm'));
     }
 
     public function update(Request $request, $periode, $tahun_input, $sumber_data)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        $indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
         // dd($indekspenelitipkm);
         foreach ($indekspenelitipkm as $peneliti) {
             $peneliti->periode = $request->periode;
@@ -109,7 +135,7 @@ class IndeksPenelitiPKMController extends Controller
 
     public function delete($periode, $tahun_input)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        $indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
         foreach ($indekspenelitipkm as $peneliti) {
             $peneliti->delete();
         }
@@ -126,32 +152,56 @@ class IndeksPenelitiPKMController extends Controller
     {
         $excel = new IndeksPenelitiPKMsImport;
         Excel::import($excel, $request->file('indekspenelitipkm'));
-
-        for($col = 2; $col <= 14; $col++) {
-            $table = $excel->getArray();
-            $inserted_data = [
-                'nama_table' => "UNTITLED TABLE",
-                'periode' => $request->periode,
-                'tahun_input' => $request->tahun,
-                'sumber_data' => $request->sumber_data,
-                'user_id' => Auth::user()->id,
-                'fakultas' => $table[3][$col]
-            ];
-            $h_index = 0;
-            for($row = 4; $row <= 50; $row += 2) {
-                if ($row < 50) {
-                    $inserted_data['jumlah' . $h_index] = $table[$row][$col];
-                    $inserted_data['percent' . $h_index] = round((float) $table[$row + 1][$col], 3) * 100;
-                } else {
-                    $inserted_data['jumlahtotal'] = $table[$row][$col];
-                    $inserted_data['percenttotal'] = round((float) $table[$row + 1][$col], 3) * 100;
-                }
-                $h_index++;
-            }
-
-            IndeksPenelitiPKM::insert($inserted_data);
+        $table = $excel->getArray();
+        $row = 4;
+        function toPercent($val) {
+            return round((float) $val, 3) * 100;
         }
+        while ($table[$row][0] !== "Jumlah") {
+            $inserted_data = [
+                'nama_table' =>             "UNTITLED TABLE",
+                'periode' =>                $request->periode,
+                'tahun_input' =>            $request->tahun,
+                'sumber_data' =>            $request->sumber_data,
+                'user_id' =>                Auth::user()->id,
 
+                'h_index' =>                $table[$row][0],
+
+                'fib_jumlah' =>             $table[$row][2],
+                'fkip_jumlah' =>            $table[$row][3],
+                'feb_jumlah' =>             $table[$row][4],
+                'fh_jumlah' =>              $table[$row][5],
+                'fisip_jumlah' =>           $table[$row][6],
+                'fk_jumlah' =>              $table[$row][7],
+                'fp_jumlah' =>              $table[$row][8],
+                'ft_jumlah' =>              $table[$row][9],
+                'fmipa_jumlah' =>           $table[$row][10],
+                'fsrd_jumlah' =>            $table[$row][11],
+                'fkor_jumlah' =>            $table[$row][12],
+                'sv_jumlah' =>              $table[$row][13],
+                'pascasarjana_jumlah' =>    $table[$row][14],
+                'total_jumlah' =>           $table[$row][15],
+                
+                'fib_percent' =>             toPercent($table[$row + 1][2]),
+                'fkip_percent' =>            toPercent($table[$row + 1][3]),
+                'feb_percent' =>             toPercent($table[$row + 1][4]),
+                'fh_percent' =>              toPercent($table[$row + 1][5]),
+                'fisip_percent' =>           toPercent($table[$row + 1][6]),
+                'fk_percent' =>              toPercent($table[$row + 1][7]),
+                'fp_percent' =>              toPercent($table[$row + 1][8]),
+                'ft_percent' =>              toPercent($table[$row + 1][9]),
+                'fmipa_percent' =>           toPercent($table[$row + 1][10]),
+                'fsrd_percent' =>            toPercent($table[$row + 1][11]),
+                'fkor_percent' =>            toPercent($table[$row + 1][12]),
+                'sv_percent' =>              toPercent($table[$row + 1][13]),
+                'pascasarjana_percent' =>    toPercent($table[$row + 1][14]),
+                'total_percent' =>           toPercent($table[$row + 1][15]),
+            ];
+            // IndeksPenelitiPKM::insert($inserted_data);
+            H_Indeks_PKM::insert($inserted_data);
+            // dump($inserted_data);
+            $row = $row + 2;
+        }
         return redirect()->route('admin.indekspenelitipkm.index');
     }
 
