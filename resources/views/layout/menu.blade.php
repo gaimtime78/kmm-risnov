@@ -252,6 +252,11 @@
                         <li class="bold"><a href="{{ route('admin.skemanonpnbp.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Penelitian Non PNBP</a></li>
                     @endif
+
+                    @if (in_array('admin.permission.index', $permissionUser))
+                        <li class="bold"><a href="{{ route('admin.akreditasipusdi.index') }}"
+                                class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Akreditasi Pusat Studi</a></li>
+                    @endif
             
             
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i

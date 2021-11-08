@@ -18,6 +18,8 @@ class CreateAkreditasiPusdiTable extends Migration
             $table->string('nama_table');
             $table->string('pusat_studi');
             $table->string('akreditasi');
+            $table->string('periode');
+            $table->string('tahun_input');
             $table->string('sumber_data');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
