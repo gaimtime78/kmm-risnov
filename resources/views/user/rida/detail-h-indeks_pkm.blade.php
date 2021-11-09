@@ -24,75 +24,131 @@
             <div class="row">
                 <div id="table-datatables">
                     <div class="col s12 m12 l12">
-                        <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
-                <tr style="background-color: aqua;">
-                    <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">H-index</td>
-                    <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="13">FAKULTAS</td>
-                    <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">JUMLAH</td>
-                </tr>
-                <tr style="background-color: aqua;">
-                @php
-                    $jumlah_h_index_semua = 0;
-                @endphp
-                @foreach($table as $fakultas => $data)
-                    @php
-                        $jumlah_h_index_semua += $data[23]['jumlahtotal'];
-                    @endphp
-                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $fakultas }}</td>
-                @endforeach
-                </tr>
-                @for($h_index = 0; $h_index <= 23; $h_index++)
-                    <tr>
-                    @if($h_index < 23)
-                        <td style="border: 1px solid black; padding: 4px; text-align:center; background-color: aqua;" rowspan="2">{{ $h_index }}</td>
-                        <td style="border: 1px solid black; padding: 4px; text-align:center; background-color: aqua;">Jumlah</td>
-                    @else
-                         <td style="border: 1px solid black; padding: 4px; text-align:center; background-color: aqua;" colspan="2" rowspan="2">Jumlah</td>
-                    @endif
-                    @php
-                        $jumlah_h_index_fakultas = 0;
-                    @endphp
-                    @foreach($table as $fakultas => $data)
-                        @if($h_index < 23)
-                            @php
-                                $jumlah_h_index_fakultas += $data[$h_index]['jumlah'];
-                            @endphp
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['jumlah'] }}</td>
-                        @else
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['jumlahtotal'] }}</td>
-                        @endif
-                    @endforeach
-                    @if($h_index < 23)
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{  $jumlah_h_index_fakultas }}</td>
-                    @else
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $jumlah_h_index_semua }}</td>
-                    @endif
-                    </tr>
-                    <tr>
-                    @if($h_index < 23)
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;background-color: aqua;">Percent</td>
-                    @endif
-                    @foreach($table as $fakultas => $data)
-                        @if($h_index < 23)
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['percent'] }}%</td>
-                        @else
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['percenttotal'] }}%</td>
-                        @endif
-                    @endforeach
-                    @if($h_index < 23)
+                    <table style="border-collapse: collapse; ">
+                        <tr>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">H-index</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="13">FAKULTAS</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">JUMLAH</td>
+                        </tr>
+                        <tr>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FIB</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FKIP</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FEB</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FH</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FISIP</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FK</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FP</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FT</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FMIPA</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FSRD</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">FKOR</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">SV</td>
+                        <td style="border: 1px solid black; padding: 4px; text-align:center;">PASCASARJANA</td>
+                        </tr>
+                        @foreach($table as $data)
+                        <tr>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;" rowspan="2">{{ $data['h_index'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">Jumlah</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fib_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkip_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['feb_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fh_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fisip_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fk_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fp_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['ft_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fmipa_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fsrd_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkor_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['sv_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['pascasarjana_jumlah'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['total_jumlah'] }}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">Percent</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fib_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkip_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['feb_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fh_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fisip_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fk_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fp_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['ft_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fmipa_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fsrd_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkor_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['sv_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['pascasarjana_percent'] }}%</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['total_percent'] }}%</td>
+                        </tr>
+                        @endforeach
+                        <tr>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">Jumlah</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fib'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fkip'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['feb'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fh'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fisip'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fk'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fp'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['ft'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fmipa'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fsrd'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fkor'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['sv'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['pascasarjana'] }}</td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['total'] }}</td>                    
+                        </tr>
                         @php
-                            $percent = round((float) $jumlah_h_index_fakultas / $jumlah_h_index_semua, 3) * 100;
+                            function toPercent($val) {
+                                return round((float) $val, 3) * 100;
+                            }
                         @endphp
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $percent }}%</td>
-                    @else
-                        @php
-                            $percent = round((float) $jumlah_h_index_semua / $jumlah_h_index_semua, 3) * 100;
-                        @endphp
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $percent }}%</td>
-                    @endif
-                    </tr>
-                @endfor
-                        </table>
+                        <tr>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fib'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fkip'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['feb'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fh'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fisip'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fk'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fp'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['ft'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fmipa'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fsrd'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['fkor'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['sv'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['pascasarjana'] / $table_total['total']) }}%
+                            </td>
+                            <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                                {{ toPercent($table_total['total'] / $table_total['total']) }}%
+                            </td>
+                        </tr>
+                        </table>   
                     </div>
                 </div>
             </div> 

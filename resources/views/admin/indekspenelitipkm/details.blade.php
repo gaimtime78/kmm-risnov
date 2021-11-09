@@ -182,59 +182,6 @@
                         {{ toPercent($table_total['total'] / $table_total['total']) }}%
                     </td>
                 </tr>
-                {{--
-                    @for($h_index = 0; $h_index <= 23; $h_index++)
-                    <tr>
-                    @if($h_index < 23)
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;" rowspan="2">{{ $h_index }}</td>
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">Jumlah</td>
-                    @else
-                         <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">Jumlah</td>
-                    @endif
-                    @php
-                        $jumlah_h_index_fakultas = 0;
-                    @endphp
-                    @foreach($table as $fakultas => $data)
-                        @if($h_index < 23)
-                            @php
-                                $jumlah_h_index_fakultas += $data[$h_index]['jumlah'];
-                            @endphp
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['jumlah'] }}</td>
-                        @else
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['jumlahtotal'] }}</td>
-                        @endif
-                    @endforeach
-                    @if($h_index < 23)
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{  $jumlah_h_index_fakultas }}</td>
-                    @else
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $jumlah_h_index_semua }}</td>
-                    @endif
-                    </tr>
-                    <tr>
-                    @if($h_index < 23)
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">Percent</td>
-                    @endif
-                    @foreach($table as $fakultas => $data)
-                        @if($h_index < 23)
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['percent'] }}%</td>
-                        @else
-                            <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data[$h_index]['percenttotal'] }}%</td>
-                        @endif
-                    @endforeach
-                    @if($h_index < 23)
-                        @php
-                            $percent = round((float) $jumlah_h_index_fakultas / $jumlah_h_index_semua, 3) * 100;
-                        @endphp
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $percent }}%</td>
-                    @else
-                        @php
-                            $percent = round((float) $jumlah_h_index_semua / $jumlah_h_index_semua, 3) * 100;
-                        @endphp
-                        <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $percent }}%</td>
-                    @endif
-                    </tr>
-                @endfor    
-                --}}
                 </table>    
               
               </div>

@@ -63,43 +63,9 @@ class IndeksPenelitiPKMController extends Controller
         $total_indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])
             ->select(DB::raw('sum(fib_jumlah) as fib,sum(fkip_jumlah) as fkip,sum(feb_jumlah) as feb,sum(fh_jumlah) as fh, sum(fisip_jumlah) as fisip,sum(fk_jumlah) as fk, sum(fp_jumlah) as fp, sum(ft_jumlah) as ft, sum(fmipa_jumlah) as fmipa, sum(fsrd_jumlah) as fsrd, sum(fkor_jumlah) as fkor, sum(sv_jumlah) as sv, sum(pascasarjana_jumlah) as pascasarjana, sum(total_jumlah) as total'))
             ->get();
-        // dd($total_indekspenelitipkm);
-        /**
-         * RENCANA 
-         * $table = [
-         *      'nama_fakultas_1' => [
-         *          ['jml' => 69, percent => '42.0%'], h_index 0
-         *          ['jml' => 69, percent => '42.0%'], h_index 1
-         *          ...
-         *      ],
-         *      'nama_fakultas_2' => [
-         *          ['jml' => 69, percent => '42.0%']
-         *      ],
-         *      ...
-         *  ]
-         */
-        // $table = [];
-        // foreach ($indekspenelitipkm as $row) {
-        //     $fakultas = $row['fakultas'];
-        //     $table[$fakultas] = array();
-        //     for ($h_index = 0; $h_index <=23; $h_index++) {                
-        //         $h_index_data = [];
-        //         if ($h_index < 23) {
-        //             $h_index_data = [
-        //                 'jumlah' => $row['jumlah' . $h_index ],
-        //                 'percent' => $row['percent' . $h_index ],
-        //             ];
-        //         } else {
-        //             $h_index_data = [
-        //                 'jumlahtotal' => $row['jumlahtotal'],
-        //                 'percenttotal' => $row['percenttotal'],
-        //             ];
-        //         }
-        //         array_push($table[$fakultas], $h_index_data);
-        //     }
-        // }
         $table = $indekspenelitipkm->toArray();
-        return view('admin.indekspenelitipkm.details', ['table' => $table, 'table_total' => $total_indekspenelitipkm->toArray()[0]]);
+        $table_total = $total_indekspenelitipkm->toArray()[0];
+        return view('admin.indekspenelitipkm.details', ['table' => $table, 'table_total' => $table_total]);
 
     }
 
