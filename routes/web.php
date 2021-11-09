@@ -911,6 +911,12 @@ Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\C
 Route::get('/dokumentasi-rida/pilih_periode/research_group/{fakultas}', [App\Http\Controllers\User\ResearchGrupController::class, 'periode'])->name('rida-periode-research_group');
 Route::get('/dokumentasi-rida/export/research_group/{fakultas}/{tahun}', [App\Http\Controllers\User\ResearchGrupController::class, 'export'])->name('rida-export-research_group');
 
+// table akreditasi_pusdi
+
+// Route::get('/dokumentasi-rida/pilih_periode/akreditasi_pusdi/{pusat_studi}/{tahun}', [App\Http\Controllers\User\AkreditasiPusdiController::class, 'periode'])->name('rida-periode-hibah-pnbp');
+Route::get('/dokumentasi-rida/pilih_periode/akreditasi_pusdi/{pusat_studi}', [App\Http\Controllers\User\AkreditasiPusdiController::class, 'periode'])->name('rida-periode-akreditasi_pusdi');
+Route::get('/dokumentasi-rida/export/akreditasi_pusdi/{pusat_studi}/{tahun}', [App\Http\Controllers\User\AkreditasiPusdiController::class, 'export'])->name('rida-export-pusat_studi');
+
 //detail periode grafik 23
 Route::get('/dokumentasi-rida/pilih_periode/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'pilih_periode_indekspkm'])->name('rida-periode-indeks-pkm');
 Route::get('/dokumentasi-rida/detail/h-indeks-pkm/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'detail_indekspkm'])->name('rida-detail-H-Indeks_PKM');

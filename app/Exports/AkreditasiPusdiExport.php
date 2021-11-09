@@ -25,6 +25,6 @@ class AkreditasiPusdiExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ["Pusat Studi", "Status Akreditasi"];
+        return ["Pusat Studi", "Tahun", "Periode", "Sumber Data", "Status Akreditasi"];
     }
 }
