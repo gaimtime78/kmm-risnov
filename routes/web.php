@@ -896,7 +896,7 @@ Route::get('/dokumentasi-rida/export/research_group/{fakultas}/{tahun}', [App\Ht
 //detail periode grafik 23
 Route::get('/dokumentasi-rida/pilih_periode/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'pilih_periode_indekspkm'])->name('rida-periode-indeks-pkm');
 Route::get('/dokumentasi-rida/detail/h-indeks-pkm/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'detail_indekspkm'])->name('rida-detail-H-Indeks_PKM');
-Route::get('/dokumentasi-rida/export/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-H-Indeks_PKM');
+Route::get('/dokumentasi-rida/export/h-indeks-pkm/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-H-Indeks_PKM');
 
 //detail periode grafik 25
 Route::get('/dokumentasi-rida/pilih_periode/rekap-skema-pnbp/{tahun}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'periode'])->name('rida-periode-rekap-skema-pnbp');

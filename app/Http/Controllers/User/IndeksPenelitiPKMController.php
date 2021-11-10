@@ -5,7 +5,6 @@ use App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-namespace App\Exports\Rida;
 use App\Exports\Rida\IndeksPenelitiPKMsExport;
 
 use Maatwebsite\Excel\Facades\Excel;
@@ -105,17 +104,18 @@ class IndeksPenelitiPKMController extends Controller
     }
     
 
-    public function export($fakultas, $tahun) {
+    public function export($tahun) {
       
-      $indekspenelitipkm = H_Indeks_PKM::where([['tahun_input', $tahun]])->get();
-      $total_indekspenelitipkm = H_Indeks_PKM::where([['tahun_input', $tahun]])
-          ->select(DB::raw('sum(fib_jumlah) as fib,sum(fkip_jumlah) as fkip,sum(feb_jumlah) as feb,sum(fh_jumlah) as fh, sum(fisip_jumlah) as fisip,sum(fk_jumlah) as fk, sum(fp_jumlah) as fp, sum(ft_jumlah) as ft, sum(fmipa_jumlah) as fmipa, sum(fsrd_jumlah) as fsrd, sum(fkor_jumlah) as fkor, sum(sv_jumlah) as sv, sum(pascasarjana_jumlah) as pascasarjana, sum(total_jumlah) as total'))
-          ->get();
-      $table = $indekspenelitipkm->toArray();
-      $table_total = $total_indekspenelitipkm->toArray()[0];
+      // $indekspenelitipkm = H_Indeks_PKM::where([['tahun_input', $tahun]])->get();
+      // $total_indekspenelitipkm = H_Indeks_PKM::where([['tahun_input', $tahun]])
+      //     ->select(DB::raw('sum(fib_jumlah) as fib,sum(fkip_jumlah) as fkip,sum(feb_jumlah) as feb,sum(fh_jumlah) as fh, sum(fisip_jumlah) as fisip,sum(fk_jumlah) as fk, sum(fp_jumlah) as fp, sum(ft_jumlah) as ft, sum(fmipa_jumlah) as fmipa, sum(fsrd_jumlah) as fsrd, sum(fkor_jumlah) as fkor, sum(sv_jumlah) as sv, sum(pascasarjana_jumlah) as pascasarjana, sum(total_jumlah) as total'))
+      //     ->get();
+      // $table = $indekspenelitipkm->toArray();
+      // $table_total = $total_indekspenelitipkm->toArray()[0];
       // dd($table, $table_total);
       // $excel = new IndeksPenelitiPKMsExport($table);
-      return Excel::download(new IndeksPenelitiPKMsExport($table), 'Indeks Peneliti PKM.xlsx');
+      return Excel::download(new IndeksPenelitiPKMsExport($tahun), 'Indeks Peneliti PKM.xlsx');
+      // return Excel::download(new SarjanaExport($fakultas, $tahun), 'KETERLIBATAN DALAM KEGIATAN PENELITIAN DAN PENGABDIAN SARJANA.xlsx');
       // return Excel::download(new DoktoralExport($fakultas, $tahun), 'Usia Produktif Doktoral.xlsx');
     }
 }

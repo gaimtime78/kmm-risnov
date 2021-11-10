@@ -27,7 +27,8 @@
                                 <h4>@foreach($nama_table as $f) {{ucwords($f->nama_table)}} @endforeach <br> {{strtoupper($fakultas)}} <!--<br>  <br> TAHUN {{$tahun}}--></h4>
                             </div>
                             <div style="width:100%; display:flex; justify-content:flex-end">
-                                <a href="{{route( 'rida-export-H-Indeks_PKM' , [$fakultas ? $fakultas : 'all', $tahun ? $tahun : date('Y')]) }}">
+                                {{--<a href="{{route( 'rida-export-H-Indeks_PKM' , [$tahun ? $tahun : date('Y')]) }}">--}}
+                                <a href="{{route( 'rida-export-H-Indeks_PKM' , [$tahun ? $tahun : date('Y')]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
                                 </a>
                                 <a href="{{route( 'rida-periode-indeks-pkm', [$fakultas, $tahun]) }}">

@@ -26,10 +26,11 @@ class H_IndeksPKMController extends Controller
     
     public function import(Request $request)
     {
-        $file = $request->file("indekspenelitipkm");
+        $file = $request->file("h_indeks_pkm");
         $periode = $request->periode;
         $tahun = $request->tahun;
         $sumber_data = $request->sumber_data;
+        // dd($file);
         if ($file !== null) {
             Excel::import(new H_Indeks_PKMsImport, $file);
         }
@@ -37,7 +38,7 @@ class H_IndeksPKMController extends Controller
         H_Indeks_PKM::where('periode', 'kosong')
         ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
 
-        return redirect()->route('admin.indekspenelitipkm.index');
+        return redirect()->route('admin.h_indeks_pkm.index');
     }
 
 
