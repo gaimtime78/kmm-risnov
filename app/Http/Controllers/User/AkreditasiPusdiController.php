@@ -32,6 +32,7 @@ class AkreditasiPusdiController extends Controller
             $data = AkreditasiPusdi::where("pusat_studi", $pusat_studi)->orderBy('tahun_input', 'ASC')->get();
             $list_pusat_studi = AkreditasiPusdi::select("pusat_studi")->distinct()->where("tahun_input", $tahun)->get();
             $list_sumber = AkreditasiPusdi::select("periode", "sumber_data")->distinct()->where("pusat_studi", $pusat_studi)->orderBy('tahun_input', 'ASC')->get();
+            $akreditasi = AkreditasiPusdi::select("periode", "akreditasi")->distinct()->where("pusat_studi", $pusat_studi)->orderBy('tahun_input', 'ASC')->get();
             $nama_table = AkreditasiPusdi::select("nama_table")->distinct()->get();
             
 // dd($jumlahdata);
@@ -41,14 +42,14 @@ class AkreditasiPusdiController extends Controller
 
                 "name" => "pusat_studi",
                 "data" => $data, "list_sumber" => $list_sumber, "list_tahun" => $list_tahun,
-                "list_pusat_studi" => $list_pusat_studi, "pusat_studi" => $pusat_studi, "tahun" => $tahun, "nama_table" => $nama_table, 
+                "list_pusat_studi" => $list_pusat_studi, "pusat_studi" => $pusat_studi, "tahun" => $tahun, "nama_table" => $nama_table, "akreditasi" => $akreditasi, 
             ]);
         }
 
         return view('user.rida.grafikpusdi', [
             "name" => "pusat_studi",
             "data" => [], "list_sumber" => [], "list_tahun" => [],
-            "list_pusat_studi" => [], "pusat_studi" => "", "tahun" => ""
+            "list_pusat_studi" => [], "pusat_studi" => "", "tahun" => "", "akreditasi" =>""
         ]);
     }
 

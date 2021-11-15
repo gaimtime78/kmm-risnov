@@ -126,10 +126,11 @@
 <script type="text/javascript" src="{{ asset('design\js\lodash.min.js') }}"></script>
 <script>
 const data = {!! json_encode($data) !!}
-const tahun = {!! json_encode($tahun) !!}
+const pusat_studi = {!! json_encode($pusat_studi) !!}
 const colorList = ["#e8dc2e", "#2ee878"]
-const usulanList = ["Perolehan" ]
-const mapUsulanVar = ["akreditasi"]
+const akreditasiList = ["akreditasi" ]
+const mapAkreditasiVar = ["akreditasi"]
+// const mapAkreditasiVar = {!! json_encode($akreditasi) !!}
 const labels = []
 //generate list label
 _.map(data, v =>{
@@ -140,19 +141,19 @@ console.log(data, labels)
 //generate canvas
 //generate datasets and chart
 let datasets = []
-_.map(usulanList, (o,p) =>{
+_.map(akreditasiList, (o,p) =>{
     console.log(o,p)
     datasets.push({
         label:o,
-        data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, mapUsulanVar[p], -999)),
+        data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, mapAkreditasiVar[p])),
         backgroundColor:colorList[p],
         borderColor:colorList[p],
-        yAxisID:'akreditasi_pusdi'
+        yAxisID:'yAxis'
     })
 })
 console.log(datasets)
 const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: labels,
         datasets: datasets,
@@ -167,18 +168,44 @@ const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), 
         plugins: {
         title: {
             display: true,
-            text: tahun
+            text: pusat_studi
         }
         },
         scales: {
-        akreditasi_pusdi: {
-            type: 'linear',
-            display: true,
-            position: 'left',
-        },
+            yAxis: {
+                type: 'linear',
+                display: true,
+                position: 'left',
+                ticks:{
+                    beginAtZero: true,
+                    min: 0,
+                    max: 4,
+                    stepSize: 1,
+                    callback: function(value, index){
+                        console.log(this.getLabelForValue(value))
+                        if (this.getLabelForValue(value) == 0){
+                            return 'belum terakreditasi'
+                        }
+                        else if (this.getLabelForValue(value) == 1){
+                            return 'D'
+                        }
+                        else if (this.getLabelForValue(value) == 2){
+                            return 'C'
+                        }
+                        else if (this.getLabelForValue(value) == 3){
+                            return 'B'
+                        }
+                        else if (this.getLabelForValue(value) == 4){
+                            return 'A'
+                        }
+                        else{
+                            return this.getLabelForValue(value)
+                        }
+                    }
+                },
+            },
         }
     },
-});
-
+});  
 </script>
 @endsection
