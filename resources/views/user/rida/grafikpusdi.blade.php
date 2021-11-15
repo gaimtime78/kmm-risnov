@@ -145,7 +145,13 @@ _.map(akreditasiList, (o,p) =>{
     console.log(o,p)
     datasets.push({
         label:o,
-        data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => _.get(v, mapAkreditasiVar[p])),
+        data:_.map(JSON.parse(JSON.stringify(data)), (v,i) => {
+            const val = _.get(v, mapAkreditasiVar[p])
+            if(val === "A"){return 1}
+            else if(val === "B"){return 2}
+            else if(val === "C"){return 3}
+            else if(val === "D"){return 4}
+            }),
         backgroundColor:colorList[p],
         borderColor:colorList[p],
         yAxisID:'yAxis'
@@ -166,6 +172,21 @@ const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), 
         },
         stacked: false,
         plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const label = context.dataset.label || '';
+                        const value = context.parsed.y
+                        let newValue = ''
+                        if(value === 1) newValue = 'A'
+                        else if(value === 2) newValue = 'B'
+                        else if(value === 3) newValue = 'C'
+                        else if(value === 4) newValue = 'D'
+
+                        return `${label} : ${newValue}`;
+                    }
+                }
+            },
         title: {
             display: true,
             text: pusat_studi
@@ -181,22 +202,24 @@ const myChart = new Chart(document.getElementById(`chart-id`).getContext('2d'), 
                     min: 0,
                     max: 4,
                     stepSize: 1,
-                    callback: function(value, index){
+                    callback: function(value, index,values){
+                        console.log(values, 'values')
+                        console.log(value, 'coba')
                         console.log(this.getLabelForValue(value))
                         if (this.getLabelForValue(value) == 0){
                             return 'belum terakreditasi'
                         }
                         else if (this.getLabelForValue(value) == 1){
-                            return 'D'
+                            return 'A'
                         }
                         else if (this.getLabelForValue(value) == 2){
-                            return 'C'
-                        }
-                        else if (this.getLabelForValue(value) == 3){
                             return 'B'
                         }
+                        else if (this.getLabelForValue(value) == 3){
+                            return 'C'
+                        }
                         else if (this.getLabelForValue(value) == 4){
-                            return 'A'
+                            return 'D'
                         }
                         else{
                             return this.getLabelForValue(value)
