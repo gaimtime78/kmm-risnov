@@ -47,6 +47,19 @@ class IndeksPenelitiPKMsExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ["H-Indeks", "FIB", "FKIP", "FEB", "FH", "FISIP", "FK", "FP", "FT", "FMIPA", "FSRD", " FKOR", "SV", "Pasca", "Jumlah"];
+        return ["H-Indeks", "FIB (Jumlah)", "FIB (Percent)",
+        "FKIP (Jumlah)", "FKIP (Percent)",
+        "FEB (Jumlah)", "FEB (Percent)",
+        "FH (Jumlah)", "FH (Percent)",
+        "FISIP (Jumlah)", "FISIP (Percent)",
+        "FK (Jumlah)", "FK (Percent)",
+        "FP (Jumlah)", "FP (Percent)",
+        "FT (Jumlah)", "FT (Percent)",
+        "FMIPA (Jumlah)", "FMIPA (Percent)",
+        "FSRD (Jumlah)", "FSRD (Percent)",
+        "FKOR (Jumlah)", "FKOR (Percent)",
+        "SV (Jumlah)", "SV (Percent)",
+        "PASCASARJANA (Jumlah)", "PASCASARJANA (Percent)",
+        "Total (Jumlah)", "Total (Percent)",];
     }
 }

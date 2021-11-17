@@ -114,7 +114,9 @@ class IndeksPenelitiPKMController extends Controller
       // $table_total = $total_indekspenelitipkm->toArray()[0];
       // dd($table, $table_total);
       // $excel = new IndeksPenelitiPKMsExport($table);
+      
       return Excel::download(new IndeksPenelitiPKMsExport($tahun), 'Indeks Peneliti PKM.xlsx');
+      
       // return Excel::download(new SarjanaExport($fakultas, $tahun), 'KETERLIBATAN DALAM KEGIATAN PENELITIAN DAN PENGABDIAN SARJANA.xlsx');
       // return Excel::download(new DoktoralExport($fakultas, $tahun), 'Usia Produktif Doktoral.xlsx');
     }
