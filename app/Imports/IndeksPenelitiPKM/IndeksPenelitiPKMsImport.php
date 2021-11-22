@@ -19,3 +19,7 @@ class IndeksPenelitiPKMsImport implements ToCollection, WithCalculatedFormulas
         return $this->imported->toArray();
     }
 }
+
+/**
+ * wow
+ */
