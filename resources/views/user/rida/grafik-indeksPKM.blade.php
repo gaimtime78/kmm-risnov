@@ -102,7 +102,7 @@ const container = document.getElementById('container-chart');
 // })
 //generate datasets and chart
 // _.map(data_php, (v,i) =>{
-if (fakultas !== "") {
+if (fakultas !== "all") {
     console.log('yuhu');
     container.innerHTML = container.innerHTML + `<div><canvas id="chart-x"></canvas></div>`;
     let datasets = [];

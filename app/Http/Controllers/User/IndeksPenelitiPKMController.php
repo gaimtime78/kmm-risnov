@@ -47,7 +47,7 @@ class IndeksPenelitiPKMController extends Controller
             'nama_table'=> $nama_table,
             "name"=> "Tenaga Pendidik Doktor",
             "data" => $data, "list_tahun" => $list_tahun, 
-            "list_fakultas" => $list_fakultas, 'fakultas' => "", "tahun" => "" 
+            "list_fakultas" => $list_fakultas, 'fakultas' => "all", "tahun" => $tahun
           ]);
         }
       }
