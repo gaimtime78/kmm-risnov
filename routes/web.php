@@ -603,6 +603,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/create', [App\Http\Controllers\VideoPlaylistController::class, 'create'])->name('video_playlist.create');
             Route::get('/edit/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'edit'])->name('video_playlist.edit');
             Route::post('/edit/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'update'])->name('video_playlist.update');
+            Route::get('/activate/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'activate'])->name('video_playlist.activate');
             Route::get('/delete/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'delete'])->name('video_playlist.delete');
         });
         

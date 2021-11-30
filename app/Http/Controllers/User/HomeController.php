@@ -20,7 +20,7 @@ class HomeController extends Controller
         })->orderBy('created_at','DESC')->paginate(6);
 
         $playlist_selected = DB::table('video_playlists')
-            // ->where('activated', '=', true)
+            ->where('activated', '=', true)
             ->orderBy('id', 'ASC')
             ->get();
         $data['videoIds'] = $playlist_selected[0]->video_ids;

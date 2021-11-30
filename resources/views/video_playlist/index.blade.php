@@ -72,7 +72,15 @@
                           <td>{{$row->playlist_name}}</td>
                           <td>{{\Carbon\Carbon::parse($row->created_at)->diffForHumans()}}</td>
                           <td>{{\Carbon\Carbon::parse($row->updated_at)->diffForHumans()}}</td>
-                          <td><a href="#modal{{$row->id}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>   <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a></td>
+                          <td>
+                            @if(!$row->activated)
+                            <a href="{{ route('admin.video_playlist.activate', ['id' => $row->id]) }}" class="btn modal-trigger" style="background-color: green;">Activate</a>
+                            @else
+                            <span style="margin: 0 1rem;">Aktif Sekarang</span>
+                            @endif
+                            <a href="#modal{{$row->id}}" class="btn modal-trigger" style="background-color: orange;">Edit</a>
+                            <a href="#hapus{{$row->id}}" class="btn modal-trigger" style="background-color: red;">Delete</a>
+                        </td>
                           <!-- Modal Edit -->
                           <div id="modal{{$row->id}}" class="modal modal-fixed-footer">
                             <form action="{{route('admin.video_playlist.update', [$row->id])}}" method="post">
@@ -92,7 +100,6 @@
                                     <input placeholder="Masukkan ID video (dipisahkan dengan tanda koma)" name="new_video_ids" id="newVideoIds" type="text" class="validate" value="{{$row->video_ids}}">
                                     <label for="newVideoIds">Masukkan ID video (dipisahkan dengan tanda koma)</label>
                                   </div>
-                                  <input type="hidden" name="idCategory" value="{{$row->id}}">
                                 </div>
                               </div>
                               <div class="modal-footer">

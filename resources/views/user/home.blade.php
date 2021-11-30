@@ -690,47 +690,47 @@ page-----------------------------end--->
 
     //sliderVideo
     // let dataSliderVid = {!! json_encode($allVideo) !!}
-    dataSliderVid = dataSliderVid.filter(v => v !== "")
-    let indexSliderVid = 0
-    // let totalDisplay = 3
-    let dataLengthVid = dataSliderVid.length
-    // let groupLength = Math.ceil(dataLengthVid/totalDisplay)
-	console.log(dataSliderVid, "anu")
-    let renderSliderVid = (indexSliderVid) =>{
-        let container = document.querySelector("#container-slider-video")
-        let temp = JSON.parse(JSON.stringify(dataSliderVid))
-        let res = ''
-        let arrDisplay = []
-        let tempIndex = indexSliderVid
-        tempIndex = (tempIndex%dataLengthVid)
-        // let startDisplay = totalDisplay*tempIndex - 3 
-        arrDisplay.push(temp[tempIndex])
-        // arrDisplay.push(temp[startDisplay + 1])
-        // arrDisplay.push(temp[startDisplay + 2])
-        // let data = arrDisplay.map(v => {
-        //     res = res + `
-        //         <div class="content blog-list boxed" style="padding:1em;height:300px;margin-bottom:0px;">
-        //             <div class="blog-wrapper clearfix">
-        //                 <div style="height:200px;overflow:hidden;display:flex;align-items:center;" class="blog-media">
-        //                     <a href="post/${v.title.split(" ").join("-")}" style="width:100%;" title=""><img style="height:200px;object-fit:cover;" src="public/upload/post/${v.thumbnail}" alt="gambar" class="img-responsive img-rounded"></a>
-        //                 </div><!-- end media -->
-        //                 <div class="blog-meta">
-        //                     <h4><a href="post/${v.title.split(" ").join("-")}" title="">${v.title}</a></h4>
-        //                 </div><!-- end blog-meta -->
-        //             </div><!-- end blog -->
-        //         </div><!-- end content -->
-        //     `
-        // })
-        let data = arrDisplay.map(v => {
-            res = res + `
-                <div class="h_iframe">
-                    <!-- a transparent image is preferable -->
-                    <img class="ratio" src="public/images/16x9.png"/>
-                    <iframe src="${v}" frameborder="0" allowfullscreen></iframe>
-                </div>
-            `
-        })
-        container.innerHTML = res
+    // dataSliderVid = dataSliderVid.filter(v => v !== "")
+    // let indexSliderVid = 0
+    // // let totalDisplay = 3
+    // let dataLengthVid = dataSliderVid.length
+    // // let groupLength = Math.ceil(dataLengthVid/totalDisplay)
+	// console.log(dataSliderVid, "anu")
+    // let renderSliderVid = (indexSliderVid) =>{
+    //     let container = document.querySelector("#container-slider-video")
+    //     let temp = JSON.parse(JSON.stringify(dataSliderVid))
+    //     let res = ''
+    //     let arrDisplay = []
+    //     let tempIndex = indexSliderVid
+    //     tempIndex = (tempIndex%dataLengthVid)
+    //     // let startDisplay = totalDisplay*tempIndex - 3 
+    //     arrDisplay.push(temp[tempIndex])
+    //     // arrDisplay.push(temp[startDisplay + 1])
+    //     // arrDisplay.push(temp[startDisplay + 2])
+    //     // let data = arrDisplay.map(v => {
+    //     //     res = res + `
+    //     //         <div class="content blog-list boxed" style="padding:1em;height:300px;margin-bottom:0px;">
+    //     //             <div class="blog-wrapper clearfix">
+    //     //                 <div style="height:200px;overflow:hidden;display:flex;align-items:center;" class="blog-media">
+    //     //                     <a href="post/${v.title.split(" ").join("-")}" style="width:100%;" title=""><img style="height:200px;object-fit:cover;" src="public/upload/post/${v.thumbnail}" alt="gambar" class="img-responsive img-rounded"></a>
+    //     //                 </div><!-- end media -->
+    //     //                 <div class="blog-meta">
+    //     //                     <h4><a href="post/${v.title.split(" ").join("-")}" title="">${v.title}</a></h4>
+    //     //                 </div><!-- end blog-meta -->
+    //     //             </div><!-- end blog -->
+    //     //         </div><!-- end content -->
+    //     //     `
+    //     // })
+    //     let data = arrDisplay.map(v => {
+    //         res = res + `
+    //             <div class="h_iframe">
+    //                 <!-- a transparent image is preferable -->
+    //                 <img class="ratio" src="public/images/16x9.png"/>
+    //                 <iframe src="${v}" frameborder="0" allowfullscreen></iframe>
+    //             </div>
+    //         `
+    //     })
+    //     container.innerHTML = res
         
         
     }

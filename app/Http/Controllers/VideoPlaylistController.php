@@ -37,6 +37,11 @@ class VideoPlaylistController extends Controller
             'playlist_name' => 'required',
             'video_ids' => 'required',
         ]);
+
+        DB::table('video_playlists')
+			->update([
+				'activated' => false,
+			]);
         
         $row_id = DB::table('video_playlists')
         ->insertGetId([
@@ -44,6 +49,7 @@ class VideoPlaylistController extends Controller
             'video_ids' => $request->video_ids,
             'created_at' => now(),
             'updated_at' => now(),
+			'activated' => true,
         ]);
 
         // $cekCategory = Category::create([
@@ -60,9 +66,19 @@ class VideoPlaylistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function activate(Request $request, $id)
     {
-        //
+        DB::table('video_playlists')
+			->update([
+				'activated' => false,
+			]);
+        $row_id = DB::table('video_playlists')
+			->where('id', '=', $id)
+			->update([
+				'activated' => true,
+			]);
+        $status = $this->status($row_id, 'Playlist berhasil diaktifkan!', 'Playlist gagal diaktifkan!');
+        return redirect()->route('admin.video_playlist.index')->with($status);
     }
 
     /**
@@ -108,7 +124,7 @@ class VideoPlaylistController extends Controller
                 'video_ids' => $request->new_video_ids,
                 'updated_at' => now(),
 			]);
-        $status = $this->status($row_id, 'Category berhasil diubah!', 'Category gagal diubah!');
+        $status = $this->status($row_id, 'Playlist berhasil diubah!', 'Playlist gagal diubah!');
         return redirect()->route('admin.video_playlist.index')->with($status);
     }
 
