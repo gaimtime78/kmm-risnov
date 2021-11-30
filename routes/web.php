@@ -597,6 +597,15 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
+        Route::group(['prefix' => '/video_playlist'], function () {
+            Route::get('/', [App\Http\Controllers\VideoPlaylistController::class, 'index'])->name('video_playlist.index');
+            Route::get('/create', [App\Http\Controllers\VideoPlaylistController::class, 'add'])->name('video_playlist.add');
+            Route::post('/create', [App\Http\Controllers\VideoPlaylistController::class, 'create'])->name('video_playlist.create');
+            Route::get('/edit/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'edit'])->name('video_playlist.edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'update'])->name('video_playlist.update');
+            Route::get('/delete/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'delete'])->name('video_playlist.delete');
+        });
+        
         Route::group(['prefix' => '/category'], function () {
             Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
             Route::get('/create', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');

@@ -114,7 +114,7 @@
     <script type="text/javascript" src="{{ asset('design\js\animate.js') }}"></script>
     <script type="text/javascript" src="{{ asset('design\js\custom.js') }}"></script>
     <!-- VIDEO BG PLUGINS -->
-    <script type="text/javascript" src="{{ asset('design\js\videobg.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('design\js\videobg.js') }}"></script> -->
     <script>
         let renderShare = () =>{
             let currURL = window.location.href

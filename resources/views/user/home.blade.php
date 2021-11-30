@@ -120,12 +120,20 @@
     .h_iframe        {position:static;}
     .h_iframe .ratio {display:block;width:auto;height:auto;}
     .h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:100%;}
+
+    #ytplayer {
+        /* display:none; */
+        position: absolute;
+    }
 </style>
 @endsection
 
 @section('content')
 <section id="home" class="video-section js-height-full">
     <div style="color:grey" class="overlay"></div>
+    <iframe id="ytplayer" type="text/html" width="100%" height="100%"
+src="https://www.youtube.com/embed?playlist={{ $videoIds }}&version=3&autoplay=1&controls=0&disablekb=1&enablejsapi=1&fs=0&loop=1&modestbranding=1&iv_load_policy=3&mute=1&cc_load_policy=3"
+frameborder="0" allowfullscreen></iframe>
     <div class="home-text-wrapper relative container">
         <div class="home-message">
             <p>Riset Inovasi</p>
@@ -504,6 +512,11 @@ page-----------------------------end--->
 
 @section('js')
 <script>
+    /**
+     * VIDEO DI JUMBOTRON
+     */
+    // const yt_link =
+
     //Gallery
     let dataGallery = {!! json_encode($gallery) !!}
     let showedGallery = 6
@@ -676,7 +689,7 @@ page-----------------------------end--->
     renderSlider(0);
 
     //sliderVideo
-    let dataSliderVid = {!! json_encode($allVideo) !!}
+    // let dataSliderVid = {!! json_encode($allVideo) !!}
     dataSliderVid = dataSliderVid.filter(v => v !== "")
     let indexSliderVid = 0
     // let totalDisplay = 3

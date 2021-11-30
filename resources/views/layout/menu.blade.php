@@ -28,6 +28,10 @@
                                 class="mdi-image-palette"></i>Content Management</a>
                         <div class="collapsible-body">
                             <ul>
+                                @if (in_array('admin.video_playlist.index', $permissionUser))
+                                    <li><a href="{{ route('admin.video_playlist.index') }}">Video Playlist</a>
+                                    </li>
+                                @endif
                                 @if (in_array('admin.category.index', $permissionUser))
                                     <li><a href="{{ route('admin.category.index') }}">Category</a>
                                     </li>

@@ -65,6 +65,7 @@ this.player.seekTo(0)}}}})(void 0);
                 "webm":"design/upload/videoplayback.webm" ,     //Path to video webm format
                 "video_ratio": 1.7778,              // width/height -> If none provided sizing of the video is set to adjust
                 "fallback_image": "design/images/gallary/1.jpg",   //Fallback image path
-                "priority": "html5"             //Priority for html5 (if set to flash and tested locally will give a flash security error)
+                "priority": "html5",             //Priority for html5 (if set to flash and tested locally will give a flash security error)
+                
             });
         });
