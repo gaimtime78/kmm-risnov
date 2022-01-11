@@ -571,6 +571,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'pilihperiode'])->name('pilihperiode');
             Route::get('/details', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'details'])->name('details');
+            Route::get('/5edisi', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'limaedisi'])->name('5edisi');
             Route::get('/create', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'create'])->name('create');
             Route::get('/edit', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'edit'])->name('edit');

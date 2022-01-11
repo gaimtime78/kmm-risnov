@@ -10,21 +10,23 @@ use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 class PenelitiImport implements ToArray, WithCalculatedFormulas
 {
 
-  public function  __construct($periode, $tahun, $sumber_data){
+  public function  __construct($periode, $tahun, $sumber_data, $nama_table){
     $this->periode = $periode;
     $this->tahun_input = $tahun;
     $this->sumber_data = $sumber_data;
+    $this->nama_table = $nama_table;
+    // dd($nama_table);
   }
 
   public function array(array $rows){
-    // dd($this->periode);
+    // dd($nama_table);
     // $mapperSheet = ['Magister'];
     $tabel = $rows[0][0];
     $data = [];
     $currStudi = '';
     $currTahunResearch = '';
 
-    for($i=6;$i<count($rows);$i++){
+    for($i=5;$i<count($rows);$i++){
       if($rows[$i][1] === 'J U M L A H'){
         break;
       }
@@ -38,6 +40,7 @@ class PenelitiImport implements ToArray, WithCalculatedFormulas
       if($rows[$i][0] !== 'JUMLAH'){
         array_push($data, [
           'pusat_studi' => $currStudi,
+          'nama_table' => $this->nama_table,
           'periode' => $this->periode,
           'tahun_input' => $this->tahun_input,
           'sumber_data' => $this->sumber_data,

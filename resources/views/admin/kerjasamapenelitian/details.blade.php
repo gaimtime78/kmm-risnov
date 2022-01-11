@@ -53,7 +53,9 @@
 
           <div id="table-datatables">
           
-            <h4 class="header left">Tabel 17 H-INDEKS PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT</h4>
+            <h4 class="header left">Tabel 55 @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
+
+            <a href="{{route('admin.kerjasamapenelitian.index')}}" class="waves-effect waves-light btn right" role="button">Kembali</a>
             <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
@@ -71,7 +73,7 @@
                                 @foreach($tahun_input as $tahun)
                                     <th style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
                                 @endforeach
-                                <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
+                                <!-- <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th> -->
                             </tr>
                         </thead>
 
@@ -84,9 +86,9 @@
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$data}}</td>
                                 @endforeach
 
-                                <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger"
+                              {{--  <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger"
                                         style="background-color: orange;">Edit</a></td>
-                                <!-- Modal Edit -->
+                                <!-- Modal Edit -->--}}
 
                                 <!-- Modal Hapus -->
                                 <div id="hapus" class="modal">
