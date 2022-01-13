@@ -941,6 +941,9 @@ Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/Diploma3/{
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_diploma3'])->name('rida-periode-Grafik Usia Produktif Diploma3');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_diploma3'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Diploma3');
 
+//table kerjasama penelitian pusat studi
+Route::get('/dokumentasi-rida/kerjasama-penelitian', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'index'])->name('rida-kerjasama-penelitian');
+Route::get('/dokumentasi-rida/kerjasama-penelitian/grafik', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'grafik'])->name('rida-grafik-kerjasamapenelitian');
 
 Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
 Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('subs');

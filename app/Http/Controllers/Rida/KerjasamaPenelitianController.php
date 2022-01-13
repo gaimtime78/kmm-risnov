@@ -7,10 +7,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\ResearchGroup;
-use App\Exports\ResearchGroup\ResearchGroupExport;
+use App\Exports\KerjasamaPenelitian\ResearchGroupExport;
 use App\Imports\KerjasamaPenelitian\KerjasamaPenelitianImport;
-use App\Imports\ResearchGroup\ResearchGroupsImport;
 use App\Models\KerjasamaPenelitian;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
@@ -97,15 +95,16 @@ class KerjasamaPenelitianController extends Controller
         // $data = KerjasamaPenelitian::select('periode','pusat_studi', 'tahun_input','sumber_data')->get('periode','pusat_studi', 'tahun_input','sumber_data');
         // dd($data);
         // return view('admin.kerjasamapenelitian.details-5tahun',compact('data'));
+        $nama_table = KerjasamaPenelitian::select('nama_table')->distinct()->get('nama_table', 'id');
         $periode_dum = KerjasamaPenelitian::select('periode')->get()->pluck('periode');
         if(count($periode_dum) >= 5){
             $start_periode = $periode_dum[count($periode_dum) - 5];
         }else{
             $start_periode = $periode_dum[0];
         }
-        $periode_input = KerjasamaPenelitian::select('periode')->distinct()->where('periode', '>=', $start_periode)->orderBy('periode', 'ASC')->get()->pluck('periode');
+        $periode_input = KerjasamaPenelitian::select('periode', 'tahun_input')->distinct()->where('periode', '>=', $start_periode)->orderBy('tahun_input', 'ASC')->get()->pluck('periode');
         
-        $periode_tahun = KerjasamaPenelitian::select('periode', 'tahun_input')->distinct()->where('periode', '>=', $start_periode)->orderBy('tahun_input', 'ASC')->get();
+        $periode_tahun = KerjasamaPenelitian::select('tahun_input')->distinct()->where('periode', '=', $start_periode)->orderBy('tahun_input', 'ASC')->get();
         // dd($periode_tahun);
         $kerjasamaPenelitian = KerjasamaPenelitian::select('pusat_studi','tahun_input','tahun1','periode')->where('periode', '>=', $start_periode)->get();
         $research = [];
@@ -127,7 +126,8 @@ class KerjasamaPenelitianController extends Controller
                 array_push($research[$item->pusat_studi]['data'], $item->tahun1);
             }        
         }
-        dd($research, $periode_tahun, $periode_input, $spanArr);
+        // dd($research, $periode_tahun, $periode_input, $spanArr);
+        return view('admin.kerjasamapenelitian.detailsSkemaFakultas-5tahun', ['research' => $research, 'spanArr' => $spanArr, 'periode_tahun' => $periode_tahun, 'periode_input'=>$periode_input, 'nama_table'=>$nama_table]);
 
     }
 }
