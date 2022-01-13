@@ -26,26 +26,27 @@
                             <div class=" page-title text-center">
                                 <h3>{{ucwords($name)}} - {{$pusat_studi}} - {{$tahun}}</h3>
                             </div>
-                            {{--  <div style="width:100%; display:flex; justify-content:flex-end;margin-bottom:1em;">
+                            <div style="width:100%; display:flex; justify-content:flex-end;margin-bottom:1em;">
                                 <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Export</button>
-                                <a href="{{ route('skemapnbp-details-front', ['pusat_studi' => $pusat_studi,'tahun' => $tahun]) }}">
+
+                               {{-- <a href="{{ route('rida-detail-kerjasama-penelitian', ['pusat_studi' => $pusat_studi,'tahun' => $tahun]) }}">
                                     <button style="margin-top:2em;background-color:blue" class="waves-effect waves-light btn primary darken-1">Detil</button>
-                                </a>
-                            </div> --}}
+                                </a> --}}
+                            </div> 
                             <?php $route = route('rida-'.$name)?>
                             <form action="{{ $route }}" method="get" enctype="multipart/form-data">
                                 <div style="display:grid;grid-template-columns:1fr 5fr;grid-gap:1em">
                                     <div>
                                         <div style="display:flex;width:30%;flex-wrap:wrap;">
                                             <div class="mb-3" style="width:100%;">
-                                                <h5><label for="title" class="form-label">Skema</label></h5>
+                                                <h5><label for="title" class="form-label">Pusat Studi</label></h5>
                                                 <div style="width:200px">
-                                                    <select style="width:100%" id="skema" name="skema">
+                                                    <select style="width:100%" id="pusat_studi" name="pusat_studi">
                                                         @foreach($list_pusat_studi as $s)
                                                             @if($s->pusat_studi === $pusat_studi)
-                                                                <option selected value="{{$s->skema}}">{{$s->pusat_studi}}</option>
+                                                                <option selected value="{{$s->pusat_studi}}">{{$s->pusat_studi}}</option>
                                                             @else
-                                                                <option value="{{$s->skema}}">{{$s->pusat_studi}}</option>
+                                                                <option value="{{$s->pusat_studi}}">{{$s->pusat_studi}}</option>
                                                             @endif
                                                         @endforeach
                                                     </select>    
@@ -75,10 +76,46 @@
                                         </div>
                                     </div>
                                     <div style="grid-column:2" id="container-chart"></div>
+                                    
                                 </div>
                             </form>
                         </div><!-- end col -->
                     </div><!-- end row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
+                                <thead>
+                                    <tr style="border: 1px solid black !important;">
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">No</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Pusat Studi</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Edisi</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Tahun</th>
+                                        <th style="border: 1px solid black !important; text-align:center !important; vertical-align:middle !important;">Jumlah</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    @foreach ($data as $row)
+                                    
+                                    <tr style="border: 1px solid black !important;">
+                                        <td style="border: 1px solid black !important;text-align:center !important;">{{$loop->iteration}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->pusat_studi}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->periode}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->tahun_input}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->tahun1}}</td>
+                                        <td style="border: 1px solid black !important;text-align:left !important;">{{$row->sumber_data}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <thead>
+                                <!-- <tr>
+                                    <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
+                                </tr>
+                                    -->
+                            </thead>
+                            </table>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-3"></div>
                     </div>
@@ -98,7 +135,7 @@ console.log(data)
 const colorList = ["#e8dc2e", "#2ee878", "#2e53e8"]
 const lineList = ["Jumlah"]
 const mapLineVar = ["jumlah"]
-let listFakultasData = []
+let listPusatStudiData = []
 const labels = []
 //generate list label
 _.map(data, v =>{
@@ -107,35 +144,32 @@ _.map(data, v =>{
 console.log(data, labels)
 //build hirarki data
 _.map(data, v =>{
-    let isIncludeFakultas = _.filter(listFakultasData, o => o.fakultas === v.fakultas).length > 0
-    if(!isIncludeFakultas){
-        listFakultasData.push({
-            fakultas:v.fakultas,
+    let isIncludePusatStudi = _.filter(listPusatStudiData, o => o.pusat_studi === v.pusat_studi).length > 0
+    if(!isIncludePusatStudi){
+        listPusatStudiData.push({
+            pusat_studi:v.pusat_studi,
             jumlah: new Array(labels.length).fill(0),
         })
     }
-    let indexStatus = _.findIndex(listFakultasData, {fakultas:v.fakultas})
-    let statusData = listFakultasData[indexStatus]
+    let indexStatus = _.findIndex(listPusatStudiData, {pusat_studi:v.pusat_studi})
+    let statusData = listPusatStudiData[indexStatus]
     let indexPeriode = _.indexOf(labels, v.periode)
-    statusData.jumlah[indexPeriode] = v.jumlah
+    statusData.jumlah[indexPeriode] = v.tahun1
 })
-listFakultasData = _.orderBy(listFakultasData, ['fakultas'], ['asc']);
+listPusatStudiData = _.orderBy(listPusatStudiData, ['pusat_studi'], ['asc']);
 let container = document.getElementById('container-chart')
 //generate canvas
-_.map(listFakultasData, (v,i) =>{
+_.map(listPusatStudiData, (v,i) =>{
     container.innerHTML = container.innerHTML + `
-        <a style="width:100%" class="btn btn-primary" data-toggle="collapse" href="#coll-${i}" role="button" aria-expanded="false" aria-controls="collapseExample">
-            ${v.fakultas}
-        </a>
-        <div class="collapse" id="coll-${i}">
+        <div >
             <div ><canvas id="chart-${i}"></canvas></div>
         </div>
     `
 })
-console.log(listFakultasData, "ANU")
+console.log(listPusatStudiData, "ANU")
 //generate canvas
 //generate datasets and chart
-_.map(listFakultasData, (v,i) =>{
+_.map(listPusatStudiData, (v,i) =>{
     let datasets = []
     _.map(lineList, (o,p) =>{
         datasets.push({
@@ -148,7 +182,7 @@ _.map(listFakultasData, (v,i) =>{
     })
     console.log(datasets)
     const myChart =new Chart(document.getElementById(`chart-${i}`).getContext('2d'), {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: datasets,
@@ -163,7 +197,7 @@ _.map(listFakultasData, (v,i) =>{
             plugins: {
             title: {
                 display: true,
-                text: v.fakultas
+                text: v.pusat_studi
             }
             },
             scales: {

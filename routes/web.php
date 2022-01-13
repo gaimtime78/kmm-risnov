@@ -943,7 +943,8 @@ Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/Diploma3/{
 
 //table kerjasama penelitian pusat studi
 Route::get('/dokumentasi-rida/kerjasama-penelitian', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'index'])->name('rida-kerjasama-penelitian');
-Route::get('/dokumentasi-rida/kerjasama-penelitian/grafik', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'grafik'])->name('rida-grafik-kerjasamapenelitian');
+Route::get('/dokumentasi-rida/kerjasama-penelitian/grafik', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'index'])->name('rida-grafik-kerjasamapenelitian');
+Route::get('/dokumentasi-rida/kerjasama-penelitian/detail/{pusat_studi}/{tahun}', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'detail'])->name('rida-detail-kerjasama-penelitian');
 
 Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
 Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('subs');
