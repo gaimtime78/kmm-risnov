@@ -105,7 +105,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/details-5tahun/', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
             Route::get('/details-5tahun/jenisSkema/{skema}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
             Route::get('/details-5tahun/jenisSkema/{skema}/', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
-            
+
             Route::get('/create', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'edit'])->name('edit');
@@ -118,7 +118,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/deletePeriode', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'deletePeriode'])->name('delete-periode');
             Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\SkemaPNBPController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-         
+
         Route::group(['as' => 'rekap_skemapnbp.', 'prefix' => '/rekap_skemapnbp'], function () {
             Route::get('/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'index'])->name('index');
 
@@ -128,7 +128,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/details-5tahun/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
             Route::get('/details-5tahun/jenisSkema/{jenis_skema}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
             // Route::get('/details-5tahun/jenisSkema/{jenisSkema}/', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
-            
+
             Route::get('/create', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\RekapSkemaPNBPController::class, 'edit'])->name('edit');
@@ -151,7 +151,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/details-5tahun/', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'detailsSkema5Tahun'])->name('details-5tahun');
             Route::get('/details-5tahun/jenisSkema/{jenis}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
             Route::get('/details-5tahun/jenisSkema/{jenis}/', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'detailsSkemaFakultas5Tahun'])->name('details-skemaFakultas5tahun');
-            
+
             Route::get('/create', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'create'])->name('create');
             Route::get('/edit/{id}', [App\Http\Controllers\Rida\SkemaNonPNBPController::class, 'edit'])->name('edit');
@@ -286,9 +286,9 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/import', [App\Http\Controllers\Rida\ProfesiController::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\ProfesiController::class, 'updateRow'])->name('updaterow');
             Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\ProfesiController::class, 'updateNamaTable'])->name('updateNamaTable');
-            
+
         });
-        
+
         Route::group(['as' => 'indekspenelitipkm.', 'prefix' => '/indekspenelitipkm'], function () {
             Route::get('/', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'index'])->name('index');
             Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\IndeksPenelitiPKMController::class, 'details'])->name('details');
@@ -333,7 +333,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'updateRow'])->name('updaterow');
             Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-        
+
         Route::group(['as' => 'penelitipengabdikependidikansarjana.', 'prefix' => '/penelitipengabdikependidikansarjana'], function () {
             Route::get('/', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'pilihperiode'])->name('pilihperiode');
@@ -348,7 +348,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'updateRow'])->name('updaterow');
             Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\SarjanaController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-        
+
         Route::group(['as' => 'penelitipengabdikependidikandiploma4.', 'prefix' => '/penelitipengabdikependidikandiploma4'], function () {
             Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'pilihperiode'])->name('pilihperiode');
@@ -363,7 +363,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'updateRow'])->name('updaterow');
             Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Diploma4Controller::class, 'updateNamaTable'])->name('updateNamaTable');
         });
-        
+
         Route::group(['as' => 'penelitipengabdikependidikandiploma3.', 'prefix' => '/penelitipengabdikependidikandiploma3'], function () {
             Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Diploma3Controller::class, 'pilihperiode'])->name('pilihperiode');
@@ -392,7 +392,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'updateRow'])->name('updaterow');
             Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Diploma2Controller::class, 'updateNamaTable'])->name('updateNamaTable');
-            
+
         });
 
         Route::group(['as' => 'penelitipengabdikependidikandiploma1.', 'prefix' => '/penelitipengabdikependidikandiploma1'], function () {
@@ -408,8 +408,8 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'import'])->name('import');
             Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'updateRow'])->name('updaterow');
             Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Diploma1Controller::class, 'updateNamaTable'])->name('updateNamaTable');
-            
-            
+
+
         });
 
         Route::group(['as' => 'penelitipengabdikependidikanslta.', 'prefix' => '/penelitipengabdikependidikanslta'], function () {
@@ -548,7 +548,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
         });
 
 
-        
+
         Route::group(['as' => 'researchgroup.', 'prefix' => '/researchgroup'], function () {
             Route::get('/', [App\Http\Controllers\Rida\ResearchController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\ResearchController::class, 'pilihperiode'])->name('pilihperiode');
@@ -586,7 +586,8 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
         Route::group(['as' => 'hibahmandiri.', 'prefix' => '/hibahmandiri'], function () {
             Route::get('/', [App\Http\Controllers\Rida\HibahMandiriController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'pilihperiode'])->name('pilihperiode');
-            Route::get('/details', [App\Http\Controllers\Rida\HibahMandiriController::class, 'details'])->name('details');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'details'])->name('details');
+            Route::get('/details/5edisi/', [App\Http\Controllers\Rida\HibahMandiriController::class, 'lima_edisi'])->name('5edisi');
             Route::get('/create', [App\Http\Controllers\Rida\HibahMandiriController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\HibahMandiriController::class, 'create'])->name('create');
             Route::get('/edit', [App\Http\Controllers\Rida\HibahMandiriController::class, 'edit'])->name('edit');
@@ -711,7 +712,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
     });
 
 });
-//yg digunakan yg atas, selain yang diatas bisa ditambahkan, klo error merge   
+//yg digunakan yg atas, selain yang diatas bisa ditambahkan, klo error merge
 
 
 Route::get('/index', [App\Http\Controllers\User\DashboardController::class, 'index']);
@@ -828,7 +829,7 @@ Route::get('/dokumentasi-rida/detail/tenaga-pendidik/profesi/{fakultas}/{tahun}/
 Route::get('/dokumentasi-rida/export/tenaga-pendidik/profesi/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_profesi'])->name('rida-export-Tenaga Pendidik Profesi');
 
 
-/*detail grafik 7-16*/ 
+/*detail grafik 7-16*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_magister'])->name('rida-periode-Tenaga Kependidikan Magister');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/magister/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_magister'])->name('rida-detail-Tenaga Kependidikan Magister');
 Route::get('/dokumentasi-rida/export/tenaga-kependidikan/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_magister'])->name('rida-export-Tenaga Kependidikan Magister');
@@ -869,7 +870,7 @@ Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/SD/{fakultas}/{t
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/SD/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_sd'])->name('rida-detail-Tenaga Kependidikan SD');
 Route::get('/dokumentasi-rida/export/tenaga-kependidikan/SD/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_sd'])->name('rida-export-Tenaga Kependidikan SD');
 
-/*detail grafik 17-22*/ 
+/*detail grafik 17-22*/
 //baru sarjana
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/Sarjana/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_sarjana'])->name('rida-periode-Grafik Usia Produktif Sarjana');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/Sarjana/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_sarjana'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Sarjana');
@@ -935,7 +936,7 @@ Route::get('/dokumentasi-rida/skema-pnbp/{skema}/{tahun}', [App\Http\Controllers
 //     dd(\App\Models\Post::find(1)->category[0]->category);
 // });
 
-//peneliti pengabdi diploma3 
+//peneliti pengabdi diploma3
 Route::get('/dokumentasi-rida/diploma3', [App\Http\Controllers\User\RidaController::class, 'diploma3'])->name('rida-Grafik Usia Produktif Diploma3');
 Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'export_diploma3'])->name('rida-export-Grafik Usia Produktif Diploma3');
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_diploma3'])->name('rida-periode-Grafik Usia Produktif Diploma3');
