@@ -71,7 +71,7 @@
                                 @foreach($tahun_input as $tahun)
                                     <th style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
                                 @endforeach
-                                <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
+                                <!-- <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th> -->
                             </tr>
                         </thead>
 
@@ -84,8 +84,8 @@
                                     <td style="border: 1px solid black !important;text-align:center !important;">{{$data}}</td>
                                 @endforeach
 
-                                <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger"
-                                        style="background-color: orange;">Edit</a></td>
+                                <!-- <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger"
+                                        style="background-color: orange;">Edit</a></td> -->
                                 <!-- Modal Edit -->
                                
 

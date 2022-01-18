@@ -158,14 +158,12 @@ class ResearchController extends Controller
 
     public function editJumlah(Request $request)
     {
-      
-        
         $research = ResearchGroup::find($request->id);
 		$dataUpdate = [
 			'fakultas' => $request->fakultas,
-			'tahun1' => $request->tahun1,
-            
+			'tahun1' => $request->jumlah, 
 		];
+        // dd($dataUpdate);
         
 		if($research->update($dataUpdate)){
             $message = "Berhasil diupdate";
@@ -174,6 +172,6 @@ class ResearchController extends Controller
             
         }else{
             return redirect()->route('admin.researchgroup.details', ['research' => $research->research, 'periode' => $research->periode, 'tahun_input' => $research->tahun_input]);
-        }
-    }
+        } 
+    } 
 }

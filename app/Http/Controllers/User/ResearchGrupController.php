@@ -68,7 +68,7 @@ class ResearchGrupController extends Controller
         }
         
         $tahun_input = ResearchGroup::select('tahun_input')->distinct()->where('tahun_input', '>=', $start_tahun)->orderBy('tahun_input', 'ASC')->get()->pluck('tahun_input');
-        $dataHibah = ResearchGroup::where("fakultas", $fakultas)->where('tahun_input', '>=', $start_tahun)->get();
+        $dataHibah = ResearchGroup::where('tahun_input', '>=', $start_tahun)->get();
 
         // $sumHibah = HibahPNBP::where("fakultas", $fakultas)->where('tahun_input', '>=', $start_tahun)->get();
 //         $sumHibah             = HibahPNBP::select()->where([['fakultas',  $fakultas], ['tahun_input', '>=',$start_tahun]])->sum('usulan_lanjutan', 'usulan_baru');

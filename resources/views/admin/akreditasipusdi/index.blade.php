@@ -54,51 +54,49 @@
                         @endif
 
                         <div id="table-datatables">
-                            <h4 class="header left">Tabel 55 @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
+                            <h4 class="header left">Dokumentasi @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach  </h4>
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <a href="#import" class="waves-effect waves-light btn right modal-trigger"
                                         role="button">Upload Excel</a>
                                         <a href="#update_nama_table" class="waves-effect waves-light btn right modal-trigger" role="button">Edit Nama Table</a>
-                                        <a href="{{route('admin.kerjasamapenelitian.5edisi')}}" class="waves-effect waves-light btn right modal-trigger" role="button">Detail 5 Edisi Terakhir</a>
-                                        
-                                    <!-- <a href="{{ route('admin.indekspenelitipkm.export') }}"
-                                        class="waves-effect waves-light btn right" role="button">Export Excel</a> -->
-                                 {{-- Modal update nama table --}}
-                                    <div id="update_nama_table" class="modal">
-                                    @foreach ($nama_table as $name) 
-                                    <form action="{{route('admin.kerjasamapenelitian.updateNamaTable', [$name->nama_table] )}}" method="post" enctype="multipart/form-data" >
-                                        @csrf
-                                        <div class="modal-content">
-                                        <h4>Edit Nama table</h4>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                            <input value="{{ $name->nama_table }} " id="nama_table" name="nama_table"  type="text" class="validate" required>
-                                            <label for="nama_table">Nama Table</label>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                        <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
-                                        </div>
-                                    </form>
-                                    @endforeach 
-                                    </div>
-                                    {{-- End of modal import --}}
+                                            {{-- Modal update nama table --}}
+                                                <div id="update_nama_table" class="modal">
+                                                @foreach ($nama_table as $name) 
+                                                <form action="{{route('admin.akreditasipusdi.updateNamaTable', [$name->nama_table] )}}" method="post" enctype="multipart/form-data" >
+                                                    @csrf
+                                                    <div class="modal-content">
+                                                    <h4>Edit Nama table</h4>
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                        <input value="{{ $name->nama_table }} " id="nama_table" name="nama_table"  type="text" class="validate" required>
+                                                        <label for="nama_table">Nama Table</label>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                                    <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
+                                                    </div>
+                                                </form>
+                                                @endforeach 
+                                                </div>
+                                            {{-- End of modal edit nama table --}}
+
+
                                     {{-- Modal import --}}
                                     <div id="import" class="modal">
-                                        <form action="{{ route('admin.kerjasamapenelitian.import') }}" method="post"
+                                        <form action="{{ route('admin.akreditasipusdi.import') }}" method="post"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-content">
-                                                <p>Import Excel Table 55 KERJASAMA PENELITIAN ANTARA LEMBAGA PENELITIAN DAN PENGABDIAN KEPADA MASYARAKAT DENGAN PEMDA DAN LEMBAGA DAERAH</p>
+                                                <p>Import Excel Table 60 Akreditasi Pusat Studi</p>
                                                 <p>Untuk import data melalui excel, silahkan download template excel dan
                                                     sesuaikan masukan</p>
-                                                <a href="{{ asset('template\rida\table_55_kerjasamapenelitianaktif.xlsx') }}">Download template</a>
-                                                <h5><label for="kerjasamapenelitian" class="form-label">Upload file
+                                                <a href="{{ asset('template\rida\table_60_akreditasi_pusdi.xlsx') }}">Download template</a>
+                                                <h5><label for="akreditasipusdi" class="form-label">Upload file
                                                         excel</label></h5>
-                                                <input type="file" name="kerjasamapenelitian">
+                                                <input type="file" name="akreditasipusdi">
 
                                                 <h5><label for="tahun" class="form-label">Tahun Upload</label></h5>
                                                 <input type="text" name="tahun">
@@ -132,7 +130,7 @@
                                             @php
                                                 $i = 1;
                                             @endphp
-                                            @foreach ($kerjasama as $row)
+                                            @foreach ($akreditasi_pusdi as $row)
                                                 <tr>
                                                     <td>{{ $i }}</td>
                                                     <td>{{ $row->periode }}</td>
@@ -140,7 +138,7 @@
                                                     <td>{{ $row->sumber_data }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.kerjasamapenelitian.details') }}"
+                                                        <a href="{{ route('admin.akreditasipusdi.details', ['periode' => $row->periode, 'tahun_input' => $row->tahun_input]) }}"
                                                             class="btn" style="background-color: grey;">Detail</a>
                                                         <a href="#edit{{ $i }}" class="btn modal-trigger"
                                                             style="background-color: green;">Edit</a>
@@ -150,7 +148,7 @@
                                                     <!-- Modal Edit -->
                                                     <div id="edit{{ $i }}" class="modal modal-fixed-footer">
                                                         <form
-                                                            action="{{ route('admin.kerjasamapenelitian.update', [$row->periode, $row->tahun_input, $row->sumber_data]) }}"
+                                                            action="{{ route('admin.akreditasipusdi.update', [$row->periode, $row->tahun_input, $row->sumber_data]) }}"
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-content">
@@ -195,13 +193,13 @@
                                                     <!-- Modal Hapus -->
                                                     <div id="hapus{{ $i }}" class="modal">
                                                         <form
-                                                            action="{{ route('admin.kerjasamapenelitian.delete', [$row->periode, $row->tahun_input]) }}"
+                                                            action="{{ route('admin.akreditasipusdi.delete', [$row->periode, $row->tahun_input]) }}"
                                                             method="get">
                                                             @csrf
                                                             <div class="modal-content">
                                                                 <h4>Delete Data</h4>
                                                                 <hr>
-                                                                <p>Anda yakin ingin menghapus data {{ $row->fakultas }}?
+                                                                <p>Anda yakin ingin menghapus data {{ $row->pusat_studi }}?
                                                                 </p>
                                                                 <div class="modal-footer">
                                                                     <a href="#!"

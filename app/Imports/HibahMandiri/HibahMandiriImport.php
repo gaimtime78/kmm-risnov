@@ -4,7 +4,7 @@ namespace App\Imports\HibahMandiri;
 
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class HibahMandiriImport implements WithMultipleSheets 
+class HibahMandiriImport implements WithMultipleSheets
 {
     /**
     * @param array $row
@@ -15,7 +15,7 @@ class HibahMandiriImport implements WithMultipleSheets
     public function sheets(): array
     {
         return [
-            new PenelitiImport('kosong', 'kosong', 'kosong'),
+            new PenelitiImport('kosong', 'kosong', 'kosong', 'untitled'),
             // new PenelitiImport('Periode 2', '2020'),
             // new PenelitiImport('Periode 3', '2020'),
             // new PenelitiImport('Periode 4', '2020'),

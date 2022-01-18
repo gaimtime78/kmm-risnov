@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Imports\KerjasamaPenelitian;
+namespace App\Imports\AkreditasiPusdi;
 
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class KerjasamaPenelitianImport implements WithMultipleSheets
+class AkreditasiPusdiImport implements WithMultipleSheets 
 {
     /**
     * @param array $row
@@ -17,7 +15,7 @@ class KerjasamaPenelitianImport implements WithMultipleSheets
     public function sheets(): array
     {
         return [
-            new PenelitiImport('kosong', 'kosong', 'kosong', 'untitled_table'),
+            new PenelitiImport('kosong', 'kosong', 'kosong', 'update nama table dulu'),
             // new PenelitiImport('Periode 2', '2020'),
             // new PenelitiImport('Periode 3', '2020'),
             // new PenelitiImport('Periode 4', '2020'),

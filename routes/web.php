@@ -584,6 +584,7 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::get('/', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'pilihperiode'])->name('pilihperiode');
             Route::get('/details', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'details'])->name('details');
+            Route::get('/5edisi', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'limaedisi'])->name('5edisi');
             Route::get('/create', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'create'])->name('create');
             Route::get('/edit', [App\Http\Controllers\Rida\KerjasamaPenelitianController::class, 'edit'])->name('edit');
@@ -598,7 +599,8 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
         Route::group(['as' => 'hibahmandiri.', 'prefix' => '/hibahmandiri'], function () {
             Route::get('/', [App\Http\Controllers\Rida\HibahMandiriController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'pilihperiode'])->name('pilihperiode');
-            Route::get('/details', [App\Http\Controllers\Rida\HibahMandiriController::class, 'details'])->name('details');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'details'])->name('details');
+            Route::get('/details/5edisi/', [App\Http\Controllers\Rida\HibahMandiriController::class, 'lima_edisi'])->name('5edisi');
             Route::get('/create', [App\Http\Controllers\Rida\HibahMandiriController::class, 'add'])->name('add');
             Route::post('/create', [App\Http\Controllers\Rida\HibahMandiriController::class, 'create'])->name('create');
             Route::get('/edit', [App\Http\Controllers\Rida\HibahMandiriController::class, 'edit'])->name('edit');
@@ -712,6 +714,24 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\H_IndeksPKMController::class, 'updateNamaTable'])->name('updateNamaTable');
 
         });
+
+        Route::group(['as' => 'akreditasipusdi.', 'prefix' => '/akreditasipusdi'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{pusat_studi}', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{periode}/{tahun_input}', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'details'])->name('details');
+            Route::get('/create', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'add'])->name('add');
+            Route::post('/create', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'create'])->name('create');
+            Route::get('/edit', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'edit'])->name('edit');
+            Route::post('/editAkreditasi', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'editAkreditasi'])->name('edit-akreditasi');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'edit'])->name('edit');
+            Route::post('/edit/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'update'])->name('update');
+            Route::get('/delete/{periode}/{tahun_input}', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\AkreditasiPusdiController::class, 'updateNamaTable'])->name('updateNamaTable');
+        });
+
     });
 
 });
@@ -806,7 +826,7 @@ Route::get('/dokumentasi-rida/Rekap-Skema-PNBP', [App\Http\Controllers\User\Reka
 Route::get('/dokumentasi-rida/skema-pnbp', [App\Http\Controllers\User\SkemaPNBPController::class, 'index'])->name('rida-skema-pnbp');
 Route::get('/dokumentasi-rida/skema-non-pnbp', [App\Http\Controllers\User\SkemaNonPNBPController::class, 'index'])->name('rida-skema-non-pnbp');
 Route::get('/dokumentasi-rida/research-grup', [App\Http\Controllers\User\ResearchGrupController::class, 'index'])->name('rida-research_grup');
-
+Route::get('/dokumentasi-rida/akreditasi-pusdi', [App\Http\Controllers\User\AkreditasiPusdiController::class, 'index'])->name('rida-akreditasi_pusdi');
 
 /*detail grafik 1-6*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-pendidik/doktor/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'pilih_periode_doktor'])->name('rida-periode-Tenaga Pendidik Doktor');
@@ -834,9 +854,6 @@ Route::get('/dokumentasi-rida/detail/tenaga-pendidik/profesi/{fakultas}/{tahun}/
 Route::get('/dokumentasi-rida/export/tenaga-pendidik/profesi/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaPendidikController::class, 'export_profesi'])->name('rida-export-Tenaga Pendidik Profesi');
 
 
-Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/spesialis1/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_spesialis1'])->name('rida-periode-Tenaga Kependidikan Spesialis 1');
-Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/spesialis1/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_spesialis1'])->name('rida-detail-Tenaga Kependidikan Spesialis 1');
-Route::get('/dokumentasi-rida/export/tenaga-kependidikan/spesialis1/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'export_spesialis1'])->name('rida-export-Tenaga Kependidikan Spesialis 1');
 /*detail grafik 7-16*/
 Route::get('/dokumentasi-rida/pilih_periode/tenaga-kependidikan/magister/{fakultas}/{tahun}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'pilih_periode_magister'])->name('rida-periode-Tenaga Kependidikan Magister');
 Route::get('/dokumentasi-rida/detail/tenaga-kependidikan/magister/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'detail_magister'])->name('rida-detail-Tenaga Kependidikan Magister');
@@ -921,6 +938,12 @@ Route::get('/dokumentasi-rida/export/hibah-pnbp/{fakultas}/{tahun}', [App\Http\C
 Route::get('/dokumentasi-rida/pilih_periode/research_group/{fakultas}', [App\Http\Controllers\User\ResearchGrupController::class, 'periode'])->name('rida-periode-research_group');
 Route::get('/dokumentasi-rida/export/research_group/{fakultas}/{tahun}', [App\Http\Controllers\User\ResearchGrupController::class, 'export'])->name('rida-export-research_group');
 
+// table akreditasi_pusdi
+
+// Route::get('/dokumentasi-rida/pilih_periode/akreditasi_pusdi/{pusat_studi}/{tahun}', [App\Http\Controllers\User\AkreditasiPusdiController::class, 'periode'])->name('rida-periode-hibah-pnbp');
+Route::get('/dokumentasi-rida/pilih_periode/akreditasi_pusdi/{pusat_studi}', [App\Http\Controllers\User\AkreditasiPusdiController::class, 'periode'])->name('rida-periode-akreditasi_pusdi');
+Route::get('/dokumentasi-rida/export/akreditasi_pusdi/{pusat_studi}/{tahun}', [App\Http\Controllers\User\AkreditasiPusdiController::class, 'export'])->name('rida-export-pusat_studi');
+
 //detail periode grafik 23
 Route::get('/dokumentasi-rida/pilih_periode/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'pilih_periode_indekspkm'])->name('rida-periode-indeks-pkm');
 Route::get('/dokumentasi-rida/detail/h-indeks-pkm/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'detail_indekspkm'])->name('rida-detail-H-Indeks_PKM');
@@ -944,6 +967,10 @@ Route::get('/dokumentasi-rida/export/usia-produktif/peneliti-pengabdi/Diploma3/{
 Route::get('/dokumentasi-rida/pilih_periode/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}', [App\Http\Controllers\User\RidaController::class, 'pilih_periode_diploma3'])->name('rida-periode-Grafik Usia Produktif Diploma3');
 Route::get('/dokumentasi-rida/detail/usia-produktif/peneliti-pengabdi/Diploma3/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\RidaController::class, 'detail_diploma3'])->name('rida-detail-Rentang Usia Produktif Peneliti dan Pengabdi Jenjang Diploma3');
 
+//table kerjasama penelitian pusat studi
+Route::get('/dokumentasi-rida/kerjasama-penelitian', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'index'])->name('rida-kerjasama-penelitian');
+Route::get('/dokumentasi-rida/kerjasama-penelitian/grafik', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'index'])->name('rida-grafik-kerjasamapenelitian');
+Route::get('/dokumentasi-rida/kerjasama-penelitian/detail/{pusat_studi}/{tahun}', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'detail'])->name('rida-detail-kerjasama-penelitian');
 
 Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
 Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('subs');

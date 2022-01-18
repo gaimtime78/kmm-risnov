@@ -53,10 +53,8 @@
 
           <div id="table-datatables">
           
-            <h4 class="header left">Tabel 55 @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach </h4>
-
-            <a href="{{route('admin.kerjasamapenelitian.index')}}" class="waves-effect waves-light btn right" role="button">Kembali</a>
-            <!-- <a href="{{route('admin.agenda.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Agenda</a> -->
+            <h4 class="header left">Dokumentasi @foreach ($nama_table as $name) {{ $name->nama_table }} @endforeach  </h4>
+            <!-- <a href="{{route('admin.akreditasipusdi.create')}}" class="waves-effect waves-light btn-large right"><i class="mdi-content-add left"></i>Tambah Akreditasi Pusat Studi</a> -->
             <div class="row">
               <div class="col s12 m12 l12">
               
@@ -66,30 +64,64 @@
                         <thead>
                             <tr style="border: 1px solid black !important;">
                                 <th rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
-                                <th rowspan="3" style="text-align:justify !important;">pusat_studi</th>
-                                <th colspan="5" style="border: 1px solid black !important; text-align:center !important;">Tahun</th>
-                            </tr>
-                            <tr style="border: 1px solid black !important;">
-                                @foreach($tahun_input as $tahun)
-                                    <th style="border: 1px solid black !important; text-align:center !important;">{{ $tahun }}</th>
-                                @endforeach
-                                <!-- <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th> -->
+                                <th rowspan="3" style="text-align:justify !important;">Pusat Studi</th>
+                                <th colspan="3" style="border: 1px solid black !important; text-align:center !important;">Status Akreditasi Tahun {{ $tahun }}</th>
+                                <th rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
+                                
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($kerjasama as $row)
+                            @foreach ($akreditasi_pusdi as $row)
                             <tr style="border: 1px solid black !important;">
                                 <td style="border: 1px solid black !important;text-align:center !important;">{{$loop->iteration}}</td>
                                 <td style="border: 1px solid black !important;text-align:left !important;">{{$row['pusat_studi']}}</td>
-                                @foreach($row['data'] as $data)
-                                    <td style="border: 1px solid black !important;text-align:center !important;">{{$data}}</td>
-                                @endforeach
+                                
+                                <td style="border: 1px solid black !important;text-align:center !important;">{{$row['akreditasi']}}</td>
+                                
 
-                              {{--  <td style="border: 1px solid black !important;"><a href="#" class="btn modal-trigger"
+                                <td colspan="3" style="border: 1px solid black !important; text-align:left !important;"><a href="#edit{{ $row->id }}" class="btn modal-trigger"
                                         style="background-color: orange;">Edit</a></td>
-                                <!-- Modal Edit -->--}}
 
+                                <!-- Modal Edit -->
+                                <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
+                                  <form
+                                      action="{{route('admin.akreditasipusdi.edit-akreditasi')}}"
+                                      method="post">
+                                      @csrf
+                                      <input type="hidden" value="{{$row->id}}" name="id">
+                                      <div class="modal-content">
+                                          <h4>Edit Data</h4>
+                                          <hr>
+                                          <div class="row">
+                                              <div class="input-field col s12">
+                                                  <input value="{{ $row->pusat_studi }}" id="periode"
+                                                      name="pusat studi" type="text"
+                                                      class="validate" required>
+                                                  <label for="periode">Pusat Studi</label>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="input-field col s12">
+                                                  <input value="{{ $row->akreditasi }}" id="periode"
+                                                      name="akreditasi" type="text"
+                                                      class="validate" required>
+                                                  <label for="periode">Status Akreditasi</label>
+                                              </div>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="modal-footer">
+                                          <a href="#!"
+                                              class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                          <button type="submit"
+                                              class="modal-close waves-effect waves-green btn-flat">Update</button>
+                                      </div>
+                                  </form>
+                                </div>
+
+                                
                                 <!-- Modal Hapus -->
                                 <div id="hapus" class="modal">
                                     <form action="#" method="get">
@@ -106,11 +138,9 @@
                                 </div>
                             </tr>
                         @endforeach
-                    </tbody>
-                    <thead>
-                      <tr>
-                        <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
-                      </tr>
+                      </tbody>
+                      <thead>
+                        
                       
                     </thead>
                   </table>

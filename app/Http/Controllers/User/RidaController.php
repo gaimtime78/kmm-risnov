@@ -58,7 +58,9 @@ class RidaController extends Controller
       $datarekaphibahpnbp  = DB::table('rekap_skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $dataskema_pnbp  = DB::table('skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $dataskema_non_pnbp  = DB::table('skema_non_pnbp')->select("nama_table")->distinct()->get("nama_table");
+      $data_kerjasama_penelitian = DB::table('kerjasamapenelitian')->select("nama_table")->distinct()->get("nama_table");
       $data_research_grup   = DB::table('researchgroup')->select("nama_table")->distinct()->get("nama_table");
+      $data_akreditasi_pusdi   = DB::table('akreditasi_pusdi')->select("nama_table")->distinct()->get("nama_table");
 
       $slug   = PenelitiPengabdi::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
       $slug2  = PenelitiPengabdiMagister::select("jenjang")->distinct()->orderBy("jenjang", "asc")->get();
@@ -97,7 +99,9 @@ class RidaController extends Controller
                   "datarekaphibahpnbp"=>$datarekaphibahpnbp,
                   "dataskema_pnbp"=>$dataskema_pnbp,
                   "dataskema_non_pnbp"=>$dataskema_non_pnbp,
+                  "data_kerjasama_penelitian"=>$data_kerjasama_penelitian,
                   "data_research_grup"=>$data_research_grup,
+                  "data_akreditasi_pusdi"=>$data_akreditasi_pusdi,
                 ]);
     }
 

@@ -587,6 +587,24 @@
                                             $i++;
                                             @endphp
                                             @endforeach
+                                            
+                                            @foreach ($data_kerjasama_penelitian as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:left !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-kerjasama-penelitian') }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
 
                                             @foreach ($data_research_grup as $row)
                                                 <tr>
@@ -605,6 +623,25 @@
                                             $i++;
                                             @endphp
                                             @endforeach
+
+                                            @foreach ($data_akreditasi_pusdi as $row)
+                                                <tr>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    {{ $i }}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:left !important;">
+                                                    {{$row->nama_table}}</td>
+                                                    <td
+                                                    style="border: 1px solid black !important; text-align:center !important;">
+                                                    <a href="{{ route ('rida-akreditasi_pusdi') }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                            @endforeach
+
 
                                         </tbody>
                                     </table>
