@@ -972,5 +972,11 @@ Route::get('/dokumentasi-rida/kerjasama-penelitian', [App\Http\Controllers\User\
 Route::get('/dokumentasi-rida/kerjasama-penelitian/grafik', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'index'])->name('rida-grafik-kerjasamapenelitian');
 Route::get('/dokumentasi-rida/kerjasama-penelitian/detail/{pusat_studi}/{tahun}', [App\Http\Controllers\User\KerjasamaPenelitianController::class, 'detail'])->name('rida-detail-kerjasama-penelitian');
 
+//table Hibah Mandiri
+Route::get('/dokumentasi-rida/hibah-mandiri', [App\Http\Controllers\User\HibahMandiriController::class, 'index'])->name('rida-hibah-mandiri');
+Route::get('/dokumentasi-rida/hibah-mandiri/grafik', [App\Http\Controllers\User\HibahMandiriController::class, 'index'])->name('rida-grafik-hibahmandiri');
+Route::get('/dokumentasi-rida/hibah-mandiri/detail/{pusat_studi}/{tahun}', [App\Http\Controllers\User\HibahMandiriController::class, 'detail'])->name('rida-detail-hibah-mandiri');
+// Route::get('/dokumentasi-rida/hibah-mandiri/detail/{pusat_studi}/{tahun}', [App\Http\Controllers\User\HibahMandiriController::class, 'detail'])->name('rida-detail-hibah-mandiri');
+
 Route::get('/{slug}', [App\Http\Controllers\User\LppmController::class, 'page'])->name('userpage');
 Route::get('/{slug}/{sub}', [App\Http\Controllers\User\LppmController::class, 'submenu'])->name('subs');

@@ -59,6 +59,7 @@ class RidaController extends Controller
       $dataskema_pnbp  = DB::table('skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $dataskema_non_pnbp  = DB::table('skema_non_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $data_kerjasama_penelitian = DB::table('kerjasamapenelitian')->select("nama_table")->distinct()->get("nama_table");
+      $data_hibah_mandiri = DB::table('hibahmandiri')->select("nama_table")->distinct()->get("nama_table");
       $data_research_grup   = DB::table('researchgroup')->select("nama_table")->distinct()->get("nama_table");
       $data_akreditasi_pusdi   = DB::table('akreditasi_pusdi')->select("nama_table")->distinct()->get("nama_table");
 
@@ -100,6 +101,7 @@ class RidaController extends Controller
                   "dataskema_pnbp"=>$dataskema_pnbp,
                   "dataskema_non_pnbp"=>$dataskema_non_pnbp,
                   "data_kerjasama_penelitian"=>$data_kerjasama_penelitian,
+                  "data_hibah_mandiri"=>$data_hibah_mandiri,
                   "data_research_grup"=>$data_research_grup,
                   "data_akreditasi_pusdi"=>$data_akreditasi_pusdi,
                 ]);
