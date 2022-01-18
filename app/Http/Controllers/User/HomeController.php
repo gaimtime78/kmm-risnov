@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 
 class HomeController extends Controller
@@ -18,12 +19,16 @@ class HomeController extends Controller
             $v->where('category','!=', 'Berita Terkini');
         })->orderBy('created_at','DESC')->paginate(6);
 
+        $playlist_selected = DB::table('video_playlists')
+            ->where('activated', '=', true)
+            ->orderBy('id', 'ASC')
+            ->get();
+        $data['videoIds'] = $playlist_selected[0]->video_ids;
         // $data['gallery'] = Post::where('active', 1)->whereHas('category', function($v){
         //     $v->where('category','=', 'Gallery');
         // })->orderBy('created_at','DESC')->limit(6)->get();
         $allPost = Post::where('active', 1)->orderBy('created_at','DESC')->get();
         $allPic = [];
-        $allVideo = [];
         $allMenu = Menu::with('page')->get();
         foreach ($allPost as $key => $value) {
             // dd($value->video_url);
@@ -43,9 +48,9 @@ class HomeController extends Controller
         $menuname = Menu::pluck('menu');
 
         $data['gallery'] = $allPic;
+        $data['allVideo'] = [];
         $data['allPost'] = $allPost;
         $data['allMenu'] = $allMenu;
-        $data['allVideo'] = $allVideo;
         $data['menuName'] = array_unique($menuname->toArray());
         $unique = array_values($data['menuName']);
         $max = count($data['menuName']);
@@ -65,6 +70,7 @@ class HomeController extends Controller
 
         }
         $data['menus'] = $mn;
+        // dd($data);
         return view('user.home', $data);
     }
     public function ruang(){

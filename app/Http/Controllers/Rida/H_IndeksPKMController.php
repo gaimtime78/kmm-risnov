@@ -16,6 +16,7 @@ class H_IndeksPKMController extends Controller
 {
     public function index()
     {
+        // dd("hai");
         $indekspenelitipkm = H_Indeks_PKM::select('periode', 'tahun_input','sumber_data')->distinct()->get('periode', 'id','sumber_data');
         $nama_table = H_Indeks_PKM::select('nama_table')->distinct()->get('nama_table', 'id');
 
@@ -25,24 +26,25 @@ class H_IndeksPKMController extends Controller
     
     public function import(Request $request)
     {
-        $file = $request->file("indekspenelitipkm");
+        $file = $request->file("h_indeks_pkm");
         $periode = $request->periode;
         $tahun = $request->tahun;
         $sumber_data = $request->sumber_data;
+        // dd($file);
         if ($file !== null) {
-            Excel::import(new IndeksPenelitiPKMsImport, $file);
+            Excel::import(new H_Indeks_PKMsImport, $file);
         }
 
-        IndeksPenelitiPKM::where('periode', 'kosong')
+        H_Indeks_PKM::where('periode', 'kosong')
         ->update(['periode' => $request->periode, 'tahun_input' => $request->tahun, 'sumber_data' => $sumber_data]);
 
-        return redirect()->route('admin.indekspenelitipkm.index');
+        return redirect()->route('admin.h_indeks_pkm.index');
     }
 
 
     public function updateNamaTable(Request $request, $nama_table)
     {
-        $penelitipengabdi = IndeksPenelitiPKM::where([['nama_table', $nama_table]])->get();
+        $penelitipengabdi = H_Indeks_PKM::where([['nama_table', $nama_table]])->get();
         
         foreach ($penelitipengabdi as $peneliti) {
             $peneliti->nama_table = $request->nama_table;
@@ -58,58 +60,58 @@ class H_IndeksPKMController extends Controller
         $data = $periode;
         // dd($data);
         $tahun = $tahun_input;
-        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        $indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
         // dd($data);
-        $jmltotalfak    = IndeksPenelitiPKM::select('fakultas')->where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlahtotal');
-        $jml0        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah0');
+        $jmltotalfak    = H_Indeks_PKM::select('fakultas')->where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlahtotal');
+        $jml0        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah0');
         // dd($indekspenelitipkm);
         $percent0    = round((float)$jml0/$jmltotalfak*100);
-        $jml1        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah1');
+        $jml1        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah1');
         $percent1    = round((float)$jml1/$jmltotalfak*100);
-        $jml2        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah2');
+        $jml2        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah2');
         $percent2    = round((float)$jml2/$jmltotalfak*100);
-        $jml3        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah3');
+        $jml3        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah3');
         $percent3    = round((float)$jml3/$jmltotalfak*100);
-        $jml4        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah4');
+        $jml4        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah4');
         $percent4    = round((float)$jml4/$jmltotalfak*100);
-        $jml5        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah5');
+        $jml5        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah5');
         $percent5    = round((float)$jml5/$jmltotalfak*100);
-        $jml6        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah6');
+        $jml6        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah6');
         $percent6    = round((float)$jml6/$jmltotalfak*100);
-        $jml7        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah7');
+        $jml7        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah7');
         $percent7    = round((float)$jml7/$jmltotalfak*100);
-        $jml8        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah8');
+        $jml8        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah8');
         $percent8    = round((float)$jml8/$jmltotalfak*100);
-        $jml9        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah9');
+        $jml9        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah9');
         $percent9    = round((float)$jml9/$jmltotalfak*100);
-        $jml10        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah10');
+        $jml10        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah10');
         $percent10    = round((float)$jml10/$jmltotalfak*100);
 
-        $jml11        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah11');
+        $jml11        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah11');
         $percent11    = round((float)$jml11/$jmltotalfak*100);
-        $jml12        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah12');
+        $jml12        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah12');
         $percent12    = round((float)$jml12/$jmltotalfak*100);
-        $jml13        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah13');
+        $jml13        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah13');
         $percent13    = round((float)$jml13/$jmltotalfak*100);
-        $jml14        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah14');
+        $jml14        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah14');
         $percent14    = round((float)$jml14/$jmltotalfak*100);
-        $jml15        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah15');
+        $jml15        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah15');
         $percent15    = round((float)$jml15/$jmltotalfak*100);
-        $jml16        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah16');
+        $jml16        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah16');
         $percent16    = round((float)$jml16/$jmltotalfak*100);
-        $jml17        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah17');
+        $jml17        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah17');
         $percent17    = round((float)$jml17/$jmltotalfak*100);
-        $jml18        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah18');
+        $jml18        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah18');
         $percent18    = round((float)$jml18/$jmltotalfak*100);
-        $jml19        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah19');
+        $jml19        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah19');
         $percent19    = round((float)$jml19/$jmltotalfak*100);
-        $jml20        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah20');
+        $jml20        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah20');
         $percent20    = round((float)$jml20/$jmltotalfak*100);
-        $jml21        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah21');
+        $jml21        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah21');
         $percent21    = round((float)$jml21/$jmltotalfak*100);
-        $jml22        = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah22');
+        $jml22        = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('jumlah22');
         $percent22    = round((float)$jml22/$jmltotalfak*100);
-        $percenttotal    = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('percenttotal');
+        $percenttotal    = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->sum('percenttotal');
         $percenttotalfak = round((float)$percenttotal);
         //    dd($jml0);
         // $sum_total   = PenelitiPengabdi::where('fakultas', $fakultas)->sum('total');
@@ -159,13 +161,13 @@ class H_IndeksPKMController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::find($id);
+        $indekspenelitipkm = H_Indeks_PKM::find($id);
         return view('admin/indekspenelitipkm/edit', compact('indekspenelitipkm'));
     }
 
     public function update(Request $request, $periode, $tahun_input, $sumber_data)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        $indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
         // dd($indekspenelitipkm);
         foreach ($indekspenelitipkm as $peneliti) {
             $peneliti->periode = $request->periode;
@@ -179,7 +181,7 @@ class H_IndeksPKMController extends Controller
 
     public function delete($periode, $tahun_input)
     {
-        $indekspenelitipkm = IndeksPenelitiPKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
+        $indekspenelitipkm = H_Indeks_PKM::where([['periode', $periode], ['tahun_input', $tahun_input]])->get();
         foreach ($indekspenelitipkm as $peneliti) {
             $peneliti->delete();
         }
@@ -189,12 +191,12 @@ class H_IndeksPKMController extends Controller
 
     public function export()
     {
-        return Excel::download(new IndeksPenelitiPKMsExport, 'indekspenelitipkm.xlsx');
+        return Excel::download(new H_Indeks_PKMsExport, 'indekspenelitipkm.xlsx');
     }
 
     public function updateRow(Request $request, $id)
     {
-        $peneliti = IndeksPenelitiPKM::find($id);
+        $peneliti = H_Indeks_PKM::find($id);
         $fakultas = $peneliti->fakultas;
         $periode = $peneliti->periode;
         $tahun = $peneliti->tahun_input;

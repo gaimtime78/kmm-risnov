@@ -30,6 +30,7 @@ class RidaController extends Controller
       $dataUsiaProduktifProfesi = DB::table('usia_produktif_profesi')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
 
 
+      $dataSpesialis1  = DB::table('peneliti_pengabdi_kependidikan_spesialis_1')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataMagister  = DB::table('peneliti_pengabdi_kependidikan_magister')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataProfesi  = DB::table('peneliti_pengabdi_kependidikan_profesi')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $dataSarjana  = DB::table('peneliti_pengabdi_kependidikan_sarjana')->select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
@@ -52,7 +53,7 @@ class RidaController extends Controller
       $data_peneliti_pengabdi_sarjana  = PenelitiPengabdiSarjana::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
       $data_peneliti_pengabdi_diploma3  = PenelitiPengabdiDiploma3::select("nama_table","jenjang")->distinct()->get("nama_table","jenjang");
 
-      $dataindeksPenelitiPKM  = DB::table('indeks_penelitian_pkm')->select("nama_table")->distinct()->get("nama_table");
+      $dataindeksPenelitiPKM  = DB::table('new_indeks_penelitian_pkm')->select("nama_table")->distinct()->get("nama_table");
       $datahibahpnbp  = DB::table('hibah_pnbps')->select("nama_table")->distinct()->get("nama_table");
       $datarekaphibahpnbp  = DB::table('rekap_skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
       $dataskema_pnbp  = DB::table('skema_pnbp')->select("nama_table")->distinct()->get("nama_table");
@@ -77,6 +78,7 @@ class RidaController extends Controller
                   "name"=> "rida-".$slug6, "data6"=>$data6,
                   "data_peneliti_pengabdi_sarjana"=>$data_peneliti_pengabdi_sarjana,
                   "data_peneliti_pengabdi_diploma3"=>$data_peneliti_pengabdi_diploma3,
+                  "dataSpesialis1"=>$dataSpesialis1,
                   "dataMagister"=>$dataMagister,
                   "dataProfesi"=>$dataProfesi,
                   "dataSarjana"=>$dataSarjana,

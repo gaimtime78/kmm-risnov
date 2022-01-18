@@ -58,662 +58,132 @@
             <div class="row">
               <div class="col s12 m12 l12">
               
-                <table id="data-menu" class="table display" cellspacing="0" style="border-collapse: collapse !important;">
-                  <thead>
-                      <tr style="border: 1px solid black !important;">
-                          <th  rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
-                          <th  rowspan="3" style="text-align:justify !important;">Fakultas</th>
-                          <th  colspan="48" style="border: 1px solid black !important; text-align:center !important;">H - I N D E K S</th>
-                          <th  rowspan="3" style="border: 1px solid black !important;text-align:justify !important;">Action</th>
-
-                      </tr>
-                      <tr style="border: 1px solid black !important;">
-                          
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">0</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">1</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">2</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">3</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">4</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">5</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">6</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">7</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">8</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">9</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">10</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">11</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">12</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">13</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">14</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">15</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">16</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">17</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">18</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">19</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">20</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">21</th>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">22</th>
-                          <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Jumlah Total</th>
-                          <th  rowspan="2" style="border: 1px solid black !important;text-align:justify !important;">Percent (%)</th>
-
-                      </tr>
-                      <tr >
-                          
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Jumlah</th>
-                          <th style="border: 1px solid black !important;text-align:justify !important;">Percent</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                  @php
-                      $i = 1;
-                    @endphp
-                      @foreach ($indekspenelitipkm as $row)
-                      <tr style="border: 1px solid black !important;">
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$i}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->fakultas}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah0}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent0}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah1}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent1}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah2}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent2}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah3}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent3}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah4}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent4}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah5}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent5}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah6}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent6}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah7}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent7}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah8}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent8}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah9}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent9}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah10}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent10}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah11}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent11}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah12}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent12}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah13}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent13}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah14}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent14}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah15}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent15}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah16}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent16}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah17}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent17}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah18}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent18}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah19}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent19}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah20}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent20}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah21}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent21}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlah22}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percent22}}%</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->jumlahtotal}}</td>
-                          <td style="border: 1px solid black !important;text-align:center !important;">{{$row->percenttotal}}%</td>
-                          <td style="border: 1px solid black !important;"><a href="#edit{{ $row->id }}" class="btn modal-trigger" style="background-color: orange;">Edit</a></td>
-                          <!-- Modal Edit -->
-                          <div id="edit{{ $row->id }}" class="modal modal-fixed-footer">
-                            <form
-                                action="{{ route('admin.indekspenelitipkm.updaterow', $row->id) }}"
-                                method="post">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Edit Data Row {{ $row->status }}
-                                    {{ $row->jenjang }} {{ $row->fakultas }}
-                                    {{ $row->periode }} {{ $row->tahun_input }}</h4>
-                                    <div class="divider"></div>
-                                    <p>Indeks 0</p>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->jumlah0 }}"
-                                        id="jumlah0" name="jumlah0"
-                                        type="text" class="validate" required>
-                                        <label for="jumlah0">0</label>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->percent0 }}"
-                                        id="percent0" name="percent0"
-                                        type="text" class="validate" required>
-                                        <label for="percent0">%</label>
-                                      </div>
-                                    </div>
-                                    
-                                    <p>Indeks 1</p>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->jumlah1 }}"
-                                        id="jumlah1" name="jumlah1"
-                                        type="text" class="validate" required>
-                                        <label for="jumlah1">1</label>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->percent1 }}"
-                                        id="percent1" name="percent1"
-                                        type="text" class="validate" required>
-                                        <label for="percent1">%</label>
-                                      </div>
-                                    </div>
-
-                                    <p>Indeks 2</p>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->jumlah2 }}"
-                                        id="jumlah2" name="jumlah2"
-                                        type="text" class="validate" required>
-                                        <label for="jumlah2">2</label>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->percent2 }} "
-                                        id="percent2" name="percent2"
-                                        type="text" class="validate" required>
-                                        <label for="percent2">%</label>
-                                      </div>
-                                    </div>
-                                    
-                                    <p>Indeks 3</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah3 }}"
-                                                id="jumlah3" name="jumlah3"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah3">3</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent3 }} "
-                                                id="percent3" name="percent3"
-                                                type="text" class="validate" required>
-                                            <label for="percent3">%</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <p>Indeks 4</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah4 }}"
-                                                id="jumlah4" name="jumlah4"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah4">4</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent4 }} "
-                                                id="percent4" name="percent4"
-                                                type="text" class="validate" required>
-                                            <label for="percent4">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 5</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah5 }}"
-                                                id="jumlah5" name="jumlah5"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah5">5</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent5 }} "
-                                                id="percent5" name="percent5"
-                                                type="text" class="validate" required>
-                                            <label for="percent5">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 6</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah6 }}"
-                                                id="jumlah6" name="jumlah6"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah6">6</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent6 }} "
-                                                id="percent6" name="percent6"
-                                                type="text" class="validate" required>
-                                            <label for="percent6">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 7</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah7 }}"
-                                                id="jumlah7" name="jumlah7"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah7">7</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent7 }} "
-                                                id="percent7" name="percent7"
-                                                type="text" class="validate" required>
-                                            <label for="percent7">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 8</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah8 }}"
-                                                id="jumlah8" name="jumlah8"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah8">8</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent8 }} "
-                                                id="percent8" name="percent8"
-                                                type="text" class="validate" required>
-                                            <label for="percent8">%</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <p>Indeks 9</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah9 }}"
-                                                id="jumlah9" name="jumlah9"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah9">9</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent9 }} "
-                                                id="percent9" name="percent9"
-                                                type="text" class="validate" required>
-                                            <label for="percent9">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 10</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah10 }}"
-                                                id="jumlah10" name="jumlah10"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah10">10</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent10 }} "
-                                                id="percent10" name="percent10"
-                                                type="text" class="validate" required>
-                                            <label for="percent10">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 11</p>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->jumlah11 }}"
-                                        id="jumlah11" name="jumlah11"
-                                        type="text" class="validate" required>
-                                        <label for="jumlah11">11</label>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->percent11 }} "
-                                        id="percent11" name="percent11"
-                                        type="text" class="validate" required>
-                                        <label for="percent11">%</label>
-                                      </div>
-                                    </div>
-                                    
-                                    <p>Indeks 12</p>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->jumlah12 }}"
-                                        id="jumlah12" name="jumlah12"
-                                        type="text" class="validate" required>
-                                        <label for="jumlah12">12</label>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->percent12 }} "
-                                        id="percent12" name="percent12"
-                                        type="text" class="validate" required>
-                                        <label for="percent12">%</label>
-                                      </div>
-                                    </div>
-
-                                    <p>Indeks 13</p>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->jumlah13 }}"
-                                        id="jumlah13" name="jumlah13"
-                                        type="text" class="validate" required>
-                                        <label for="jumlah13">13</label>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="input-field col s12">
-                                        <input value="{{ $row->percent13 }} "
-                                        id="percent13" name="percent13"
-                                        type="text" class="validate" required>
-                                        <label for="percent13">%</label>
-                                      </div>
-                                    </div>
-                                    
-                                    <p>Indeks 14</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah14 }}"
-                                                id="jumlah14" name="jumlah14"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah14">14</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent14 }} "
-                                                id="percent14" name="percent14"
-                                                type="text" class="validate" required>
-                                            <label for="percent14">%</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <p>Indeks 15</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah15 }}"
-                                                id="jumlah15" name="jumlah15"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah15">15</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent15 }} "
-                                                id="percent15" name="percent15"
-                                                type="text" class="validate" required>
-                                            <label for="percent15">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 16</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah16 }}"
-                                                id="jumlah16" name="jumlah16"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah16">16</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent16 }} "
-                                                id="percent16" name="percent16"
-                                                type="text" class="validate" required>
-                                            <label for="percent16">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 17</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah17 }}"
-                                                id="jumlah17" name="jumlah17"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah17">17</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent17 }} "
-                                                id="percent17" name="percent17"
-                                                type="text" class="validate" required>
-                                            <label for="percent17">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 18</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah18 }}"
-                                                id="jumlah18" name="jumlah18"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah18">18</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent18 }} "
-                                                id="percent18" name="percent18"
-                                                type="text" class="validate" required>
-                                            <label for="percent18">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 19</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah19 }}"
-                                                id="jumlah19" name="jumlah19"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah19">19</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent19 }} "
-                                                id="percent19" name="percent19"
-                                                type="text" class="validate" required>
-                                            <label for="percent19">%</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <p>Indeks 20</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah20 }}"
-                                                id="jumlah20" name="jumlah20"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah20">20</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent20 }} "
-                                                id="percent20" name="percent20"
-                                                type="text" class="validate" required>
-                                            <label for="percent20">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 21</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah21 }}"
-                                                id="jumlah21" name="jumlah21"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah21">21</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent21 }} "
-                                                id="percent21" name="percent21"
-                                                type="text" class="validate" required>
-                                            <label for="percent21">%</label>
-                                        </div>
-                                    </div>
-
-                                    <p>Indeks 22</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->jumlah22 }}"
-                                                id="jumlah22" name="jumlah22"
-                                                type="text" class="validate" required>
-                                            <label for="jumlah22">22</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input value="{{ $row->percent22 }} "
-                                                id="percent22" name="percent22"
-                                                type="text" class="validate" required>
-                                            <label for="percent22">%</label>
-                                        </div>
-                                    </div>
-                                
-                                
-                                
-                              </div>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Update</button>
-                              </div>
-                            </form>
-                          </div>
-                          <!-- Modal Hapus -->
-                          <div id="hapus" class="modal">
-                            <form action="#" method="get">
-                              @csrf
-                              <div class="modal-content">
-                                <h4>Delete Agenda</h4>
-                                <hr>
-                                <p>Anda yakin ingin menghapus agenda {{$row->title}}?</p>
-                              <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Delete</button>
-                              </div>
-                            </form>
-                          </div>
-                      </tr>
-                      @php
-                        $i++;
-                      @endphp
-                      @endforeach
-                      
-                  </tbody>
-                  <thead>
-                      <tr>
-                          <th  colspan="2" style="border: 1px solid black !important; text-align:center !important;">Jumlah Universitas Sebelas Maret</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah0}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent0}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah1}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent1}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah2}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent2}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah3}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent3}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah4}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent4}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah5}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent5}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah6}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent6}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah7}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent7}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah8}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent8}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah9}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent9}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah10}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent10}}%</th>
-
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah11}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent11}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah12}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent12}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah13}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent13}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah14}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent14}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah15}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent15}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah16}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent16}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah17}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent17}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah18}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent18}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah19}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent19}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah20}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent20}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah21}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent21}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jumlah22}}</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percent22}}%</th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$jmltotalfak}} </th>
-                          <th style="border: 1px solid black !important; text-align:center !important;">{{$percenttotalfak}}% </th>
-                      </tr>
-                      
-                  </thead>
-                </table>
+            <table style="border-collapse: collapse; ">
+                <tr>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">H-index</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="13">FAKULTAS</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">JUMLAH</td>
+                </tr>
+                <tr>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FIB</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FKIP</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FEB</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FH</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FISIP</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FK</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FP</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FT</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FMIPA</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FSRD</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">FKOR</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">SV</td>
+                <td style="border: 1px solid black; padding: 4px; text-align:center;">PASCASARJANA</td>
+                </tr>
+                @foreach($table as $data)
+                <tr>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;" rowspan="2">{{ $data['h_index'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">Jumlah</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fib_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkip_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['feb_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fh_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fisip_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fk_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fp_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['ft_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fmipa_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fsrd_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkor_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['sv_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['pascasarjana_jumlah'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['total_jumlah'] }}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">Percent</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fib_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkip_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['feb_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fh_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fisip_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fk_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fp_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['ft_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fmipa_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fsrd_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['fkor_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['sv_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['pascasarjana_percent'] }}%</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $data['total_percent'] }}%</td>
+                </tr>
+                @endforeach
+                <tr>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;" colspan="2" rowspan="2">Jumlah</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fib'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fkip'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['feb'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fh'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fisip'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fk'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fp'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['ft'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fmipa'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fsrd'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['fkor'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['sv'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['pascasarjana'] }}</td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">{{ $table_total['total'] }}</td>                    
+                </tr>
+                @php
+                    function toPercent($val) {
+                        return round((float) $val, 3) * 100;
+                    }
+                @endphp
+                <tr>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fib'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fkip'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['feb'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fh'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fisip'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fk'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fp'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['ft'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fmipa'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fsrd'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['fkor'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['sv'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['pascasarjana'] / $table_total['total']) }}%
+                    </td>
+                    <td style="border: 1px solid black; padding: 4px; text-align:center;">
+                        {{ toPercent($table_total['total'] / $table_total['total']) }}%
+                    </td>
+                </tr>
+                </table>    
+              
               </div>
             </div>
           </div> 

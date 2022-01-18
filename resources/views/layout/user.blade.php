@@ -114,7 +114,7 @@
     <script type="text/javascript" src="{{ asset('design\js\animate.js') }}"></script>
     <script type="text/javascript" src="{{ asset('design\js\custom.js') }}"></script>
     <!-- VIDEO BG PLUGINS -->
-    <script type="text/javascript" src="{{ asset('design\js\videobg.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('design\js\videobg.js') }}"></script> -->
     <script>
         let renderShare = () =>{
             let currURL = window.location.href
@@ -135,7 +135,7 @@
         var mybutton = document.getElementById("myBtn");
 
         // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
+        // window.onscroll = function() {scrollFunction()};
 
         // function scrollFunction() {
         // if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {

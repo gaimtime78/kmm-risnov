@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Kependidikan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PenelitiPengabdiSpesialis1 extends Model
 {
     use HasFactory;
-    protected $table = 'peneliti_pengabdi_spesialis_1';
+    protected $table = 'peneliti_pengabdi_kependidikan_spesialis_1';
     protected $fillable = [
 
     ];

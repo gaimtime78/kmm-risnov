@@ -28,6 +28,10 @@
                                 class="mdi-image-palette"></i>Content Management</a>
                         <div class="collapsible-body">
                             <ul>
+                                @if (in_array('admin.video_playlist.index', $permissionUser))
+                                    <li><a href="{{ route('admin.video_playlist.index') }}">Video Playlist</a>
+                                    </li>
+                                @endif
                                 @if (in_array('admin.category.index', $permissionUser))
                                     <li><a href="{{ route('admin.category.index') }}">Category</a>
                                     </li>
@@ -107,6 +111,11 @@
                                 class="mdi-image-palette"></i>USIA PRODUKTIF TENAGA KEPENDIDIKAN</a>
                         <div class="collapsible-body">
                             <ul>
+                                @if (in_array('admin.permission.index', $permissionUser))
+                                    <li><a href="{{ route('admin.penelitipengabdikependidikanspesialis1.index') }}">Input
+                                            Usia Produktif Spesialis 1</a>
+                                    </li>
+                                @endif
                                 @if (in_array('admin.permission.index', $permissionUser))
                                     <li><a href="{{ route('admin.penelitipengabdikependidikanmagister.index') }}">Input
                                             Usia Produktif Magister</a>
@@ -218,12 +227,12 @@
                             </ul>
                         </div>
                     </li>
-                    
-                    
+
+
                     @if (in_array('admin.permission.index', $permissionUser))
                     <li class="bold"><a href="{{ route('admin.indekspenelitipkm.index') }}"
                             class="waves-effect waves-cyan"><i class="mdi-action-assignment"></i>Input H-indeks
-                            Penelitian PKM </a></li>
+                            Penelitian PKM (FIX)</a></li>
                     @endif
                     @if (in_array('admin.permission.index', $permissionUser))
                         <li class="bold"><a href="{{ route('admin.researchgroup.index') }}"
@@ -247,7 +256,7 @@
                         <li class="bold"><a href="{{ route('admin.hibahpnbp.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input PNBP</a></li>
                     @endif
-                    
+
                     @if (in_array('admin.permission.index', $permissionUser))
                         <li class="bold"><a href="{{ route('admin.skemanonpnbp.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Input Penelitian Non PNBP</a></li>
@@ -257,8 +266,8 @@
                         <li class="bold"><a href="{{ route('admin.akreditasipusdi.index') }}"
                                 class="waves-effect waves-cyan"><i class="mdi-editor-border-all"></i>Akreditasi Pusat Studi</a></li>
                     @endif
-            
-            
+
+
                     <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i
                                     class="mdi-image-palette"></i>Skema Penelitian PNBP</a>
                         <div class="collapsible-body">
@@ -281,7 +290,7 @@
                 </ul>
             </li>
 
-            
+
 
             <!-- <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
@@ -413,7 +422,7 @@
                 </li>
                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-social-pages"></i> Desk Evaluasi Proposal PNBP </a>
                     <div class="collapsible-body">
-                        <ul>                                        
+                        <ul>
                             <li><a href="page-contact.htm">Contact Page</a>
                             </li>
                             <li><a href="page-todo.htm">ToDos</a>
@@ -435,7 +444,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="eCommerce-products-page.htm">Products Page</a>
-                            </li>                                        
+                            </li>
                             <li><a href="eCommerce-pricing.htm">Pricing Table</a>
                             </li>
                             <li><a href="eCommerce-invoice.htm">Invoice</a>
@@ -445,7 +454,7 @@
                 </li>
                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-image"></i> Monitoring Kemajuan</a>
                     <div class="collapsible-body">
-                        <ul>                                        
+                        <ul>
                             <li><a href="media-gallary-page.htm">Gallery Page</a>
                             </li>
                             <li><a href="media-hover-effects.htm">Image Hover Effects</a>
@@ -455,23 +464,23 @@
                 </li>
                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-action-account-circle"></i> Monitoring Akhir</a>
                     <div class="collapsible-body">
-                        <ul>     
+                        <ul>
                             <li><a href="user-profile-page.htm">User Profile</a>
-                            </li>                                   
+                            </li>
                             <li><a href="user-login.htm">Login</a>
-                            </li>                                        
+                            </li>
                             <li><a href="user-register.htm">Register</a>
                             </li>
                             <li><a href="user-forgot-password.htm">Forgot Password</a>
                             </li>
                             <li><a href="user-lock-screen.htm">Lock Screen</a>
-                            </li>                                        
+                            </li>
                             <li><a href="user-session-timeout.html">Session Timeout</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                
+
                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-editor-insert-chart"></i> Charts</a>
                     <div class="collapsible-body">
                         <ul>
@@ -503,13 +512,13 @@
         <li><a href="css-helpers.htm"><i class="mdi-communication-live-help"></i> Helpers</a>
         </li>
         <li><a href="changelogs.htm"><i class="mdi-action-swap-vert-circle"></i> Changelogs</a>
-        </li>                    
+        </li>
         <li class="li-hover"><div class="divider"></div></li>
         <li class="li-hover"><p class="ultra-small margin more-text">Daily Sales</p></li>
         <li class="li-hover">
             <div class="row">
                 <div class="col s12 m12 l12">
-                    <div class="sample-chart-wrapper">                            
+                    <div class="sample-chart-wrapper">
                         <div class="ct-chart ct-golden-section" id="ct2-chart"></div>
                     </div>
                 </div>

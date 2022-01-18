@@ -94,8 +94,8 @@
                                                 <p>Import Excel Table 23 H-Indeks Penelitian PKM</p>
                                                 <p>Untuk import agenda melalui excel, silahkan download template excel dan
                                                     sesuaikan masukan</p>
-                                                <a href="{{ asset('template\rida\table_23_indeks_pkm.xlsx') }}">Download template</a>
-                                                <h5><label for="indekspenelitipkm" class="form-label">Upload file
+                                                <a href="{{ asset('template\rida\new_table_23_indeks_pkm.xlsx') }}">Download template</a>
+                                                <h5><label for="h_indeks_pkm" class="form-label">Upload file
                                                         excel</label></h5>
                                                 <input type="file" name="h_indeks_pkm">
 

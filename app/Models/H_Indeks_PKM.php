@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class H_Indeks_PKM extends Model
 {
     use HasFactory;
-    protected $table = 'h_indeks_pkm';
+    protected $table = 'new_indeks_penelitian_pkm';
     protected $fillable = [
         
     ];

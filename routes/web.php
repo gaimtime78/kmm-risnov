@@ -319,6 +319,19 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\MagisterController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
+        Route::group(['as' => 'penelitipengabdikependidikanspesialis1.', 'prefix' => '/penelitipengabdikependidikanspesialis1'], function () {
+            Route::get('/', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'index'])->name('index');
+            Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'pilihperiode'])->name('pilihperiode');
+            Route::get('/details/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'details'])->name('details');
+            Route::get('/edit/{id}', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'edit'])->name('edit');
+            Route::post('/edit/{nama_fakultas}/{periode}/{tahun_input}/{sumber_data}', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'update'])->name('update');
+            Route::get('/delete/{nama_fakultas}/{periode}/{tahun_input}', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'delete'])->name('delete');
+            Route::get('/export', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'export'])->name('export');
+            Route::post('/import', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'import'])->name('import');
+            Route::post('/updaterow/{id}', [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'updateRow'])->name('updaterow');
+            Route::post('/update/nama/table/{nama_table}',  [App\Http\Controllers\Rida\Kependidikan\Spesialis1Controller::class, 'updateNamaTable'])->name('updateNamaTable');
+        });
+
         Route::group(['as' => 'penelitipengabdikependidikanprofesi.', 'prefix' => '/penelitipengabdikependidikanprofesi'], function () {
             Route::get('/', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'index'])->name('index');
             Route::get('/pilihperiode/{fakultas}', [App\Http\Controllers\Rida\Kependidikan\ProfesiController::class, 'pilihperiode'])->name('pilihperiode');
@@ -599,6 +612,16 @@ Route::middleware(['auth:sanctum', 'RoleAuth'])->group(function () {
             Route::post('/update/nama/table/{nama_table}', [App\Http\Controllers\Rida\HibahMandiriController::class, 'updateNamaTable'])->name('updateNamaTable');
         });
 
+        Route::group(['prefix' => '/video_playlist'], function () {
+            Route::get('/', [App\Http\Controllers\VideoPlaylistController::class, 'index'])->name('video_playlist.index');
+            Route::get('/create', [App\Http\Controllers\VideoPlaylistController::class, 'add'])->name('video_playlist.add');
+            Route::post('/create', [App\Http\Controllers\VideoPlaylistController::class, 'create'])->name('video_playlist.create');
+            Route::get('/edit/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'edit'])->name('video_playlist.edit');
+            Route::post('/edit/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'update'])->name('video_playlist.update');
+            Route::get('/activate/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'activate'])->name('video_playlist.activate');
+            Route::get('/delete/{id}', [App\Http\Controllers\VideoPlaylistController::class, 'delete'])->name('video_playlist.delete');
+        });
+
         Route::group(['prefix' => '/category'], function () {
             Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
             Route::get('/create', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');
@@ -742,6 +765,7 @@ Route::get('/dokumentasi-rida/usia-produktif-sp_1k/{jenjang}', [App\Http\Control
 Route::get('/dokumentasi-rida/usia-produktif-sp_1/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'spesialis1'])->name('rida-Usia-Produktif-Sp_1');
 Route::get('/dokumentasi-rida/usia-produktif-profesi/{jenjang}', [App\Http\Controllers\User\TenagaPendidikController::class, 'profesi'])->name('rida-Usia-Produktif-Profesi');
 
+Route::get('/dokumentasi-rida/tendik-spesialis1/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'spesialis1'])->name('rida-Tendik-Spesialis1');
 Route::get('/dokumentasi-rida/tendik-magister/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'magister'])->name('rida-Tendik-Magister');
 Route::get('/dokumentasi-rida/tendik-profesi/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'profesi'])->name('rida-Tendik-Profesi');
 Route::get('/dokumentasi-rida/tendik-sarjana/{jenjang}', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sarjana'])->name('rida-Tendik-Sarjana');
@@ -776,6 +800,7 @@ Route::get('/dokumentasi-rida/spesialis-konsultan', [App\Http\Controllers\User\R
 Route::get('/dokumentasi-rida/sarjana', [App\Http\Controllers\User\RidaController::class, 'sarjana'])->name('rida-Grafik Usia Produktif Sarjana');
 
 
+Route::get('/dokumentasi-rida/tenaga-kependidik/spesialis-1', [App\Http\Controllers\User\TenagaKependidikanController::class, 'spesialis1'])->name('rida-Tenaga Kependidikan Spesialis 1');
 Route::get('/dokumentasi-rida/tenaga-kependidik/magister', [App\Http\Controllers\User\TenagaKependidikanController::class, 'magister'])->name('rida-Tenaga Kependidikan Magister');
 Route::get('/dokumentasi-rida/tenaga-kependidik/profesi', [App\Http\Controllers\User\TenagaKependidikanController::class, 'profesi'])->name('rida-Tenaga Kependidikan Profesi');
 Route::get('/dokumentasi-rida/tenaga-kependidik/sarjana', [App\Http\Controllers\User\TenagaKependidikanController::class, 'sarjana'])->name('rida-Tenaga Kependidikan Sarjana');
@@ -922,7 +947,7 @@ Route::get('/dokumentasi-rida/export/akreditasi_pusdi/{pusat_studi}/{tahun}', [A
 //detail periode grafik 23
 Route::get('/dokumentasi-rida/pilih_periode/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'pilih_periode_indekspkm'])->name('rida-periode-indeks-pkm');
 Route::get('/dokumentasi-rida/detail/h-indeks-pkm/{fakultas}/{tahun}/{periode}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'detail_indekspkm'])->name('rida-detail-H-Indeks_PKM');
-Route::get('/dokumentasi-rida/export/h-indeks-pkm/{fakultas}/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-hibah-pnbp');
+Route::get('/dokumentasi-rida/export/h-indeks-pkm/{tahun}', [App\Http\Controllers\User\IndeksPenelitiPKMController::class, 'export'])->name('rida-export-H-Indeks_PKM');
 
 //detail periode grafik 25
 Route::get('/dokumentasi-rida/pilih_periode/rekap-skema-pnbp/{tahun}', [App\Http\Controllers\User\RekapSkemaPNBPController::class, 'periode'])->name('rida-periode-rekap-skema-pnbp');
