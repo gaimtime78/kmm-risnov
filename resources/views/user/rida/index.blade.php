@@ -33,7 +33,7 @@
                                             <th
                                                 rowspan="2" style="border: 1px solid black !important; text-align:center !important;">
                                                 Action</th>
-                            
+
                                         </thead>
                                         <tbody>
                                             @php
@@ -76,7 +76,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ( $dataUsiaProduktifSp_2 as $magister)
                                                 <tr>
                                                     <td
@@ -94,7 +94,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                           
+
                                             @foreach ( $dataUsiaProduktifSp_1k  as $magister)
                                                 <tr>
                                                     <td
@@ -112,7 +112,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ( $dataUsiaProduktifSp_1  as $magister)
                                                 <tr>
                                                     <td
@@ -130,7 +130,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ( $dataUsiaProduktifProfesi  as $magister)
                                                 <tr>
                                                     <td
@@ -148,7 +148,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ( $dataMagister as $magister)
                                                 <tr>
                                                     <td
@@ -239,7 +239,7 @@
                                             @endphp
                                             @endforeach
 
-                                            
+
                                             @foreach ( $dataDiploma2 as $row)
                                                 <tr>
                                                     <td
@@ -338,7 +338,7 @@
                                                 <td
                                                     style="border: 1px solid black !important; text-align:left !important;">
                                                    {{$row->nama_table}}</td>
-                                            
+
                                                 <td
                                                     style="border: 1px solid black !important; text-align:center !important;">
                                                     <a href="{{ route ('rida-Doktor',['jenjang'=> $row->jenjang]) }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
@@ -348,7 +348,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ($data2 as $row)
                                                 <tr>
                                                     <td
@@ -438,7 +438,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ($data_peneliti_pengabdi_sarjana as $row)
                                                 <tr>
                                                     <td
@@ -457,7 +457,7 @@
                                             @endphp
                                             @endforeach
 
-                                            
+
                                             @foreach ($data_peneliti_pengabdi_diploma3 as $row)
                                                 <tr>
                                                     <td
@@ -477,7 +477,7 @@
                                             @endforeach
 
 
-                                            
+
                                             @foreach ($dataindeksPenelitiPKM as $row)
                                                 <tr>
                                                     <td
@@ -515,7 +515,7 @@
                                             @endphp
                                             @endforeach
 
-                                            
+
                                             @foreach ($datarekaphibahpnbp as $row)
                                                 <tr>
                                                     <td
@@ -551,7 +551,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ($dataskema_non_pnbp as $row)
                                                 <tr>
                                                     <td
@@ -569,7 +569,7 @@
                                             $i++;
                                             @endphp
                                             @endforeach
-                                            
+
                                             @foreach ($data_kerjasama_penelitian as $row)
                                                 <tr>
                                                     <td
@@ -587,6 +587,24 @@
                                             $i++;
                                             @endphp
                                             @endforeach
+
+                                            @foreach ($data_hibah_mandiri as $row)
+                                            <tr>
+                                                <td
+                                                style="border: 1px solid black !important; text-align:center !important;">
+                                                {{ $i }}</td>
+                                                <td
+                                                style="border: 1px solid black !important; text-align:left !important;">
+                                                {{$row->nama_table}}</td>
+                                                <td
+                                                style="border: 1px solid black !important; text-align:center !important;">
+                                                <a href="{{ route ('rida-hibah-mandiri') }}" class="btn" style="background-color: #43cae9 ;">Detail</a>
+                                            </td>
+                                        </tr>
+                                        @php
+                                        $i++;
+                                        @endphp
+                                        @endforeach
 
                                             @foreach ($data_research_grup as $row)
                                                 <tr>
@@ -633,7 +651,7 @@
                     </div>
                 </div>
             </div>  <!-- end container -->
-        </section>  
+        </section>
 @endsection
 
 @section('js')

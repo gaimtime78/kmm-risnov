@@ -68,7 +68,7 @@
                                                     <th rowspan="3" style="border: 1px solid black !important; text-align:center !important;">No</th>
                                                     <th rowspan="3" style="text-align:justify !important;">Fakultas</th>
                                                     @foreach($periode_tahun as $tahun)
-                                                        <th colspan="4" style="border: 1px solid black !important; text-align:center !important;">Tahun {{ $tahun->tahun_input }}</th>
+                                                        <th colspan="8" style="border: 1px solid black !important; text-align:center !important;">Tahun {{ $tahun->tahun_input }}</th>
                                                     @endforeach
                                                 </tr>
                                                 <tr style="border: 1px solid black !important;">
