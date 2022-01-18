@@ -43,7 +43,7 @@ class HibahMandiriController extends Controller
     }
 
 
-    public function detail(Request $pusat_studi, $tahun_input){
+    public function detail(Request $request){
         $list_tahun = HibahMandiri::select("tahun_input")->distinct()->orderBy("tahun_input", "asc")->get();
         $fakultas = HibahMandiri::select('fakultas')->first();
         if (!$list_tahun->isEmpty()) {
